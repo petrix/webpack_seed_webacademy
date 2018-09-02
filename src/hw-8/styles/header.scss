@@ -1,0 +1,12 @@
+@import './mixins';
+.page-header {
+    margin: 0 auto;
+    height: 506px;
+    width: 1440px;
+    background-color: red;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+}
