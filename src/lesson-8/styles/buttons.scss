@@ -1,0 +1,33 @@
+@import './mixins';
+$btn-font-color:#fff;
+@mixin btn-primary-color{
+    background-color: $primary-color;
+        border-color: $primary-color;
+}
+.btn{
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+color: $btn-font-color;
+background-color: transparent;
+border: 1px solid transparent;
+transition: all 400ms;
+&_primary{
+    @include btn-primary-color;
+    &:hover{
+        background-color: $primary-color-darken;
+        border-color: $primary-color-darken;
+    }
+}
+&_bordered{
+    border-color: $btn-font-color;
+    &:hover{
+        @include btn-primary-color;
+    }
+}
+&_transparent{
+    &:hover{
+        @include btn-primary-color;
+    }
+}
+}

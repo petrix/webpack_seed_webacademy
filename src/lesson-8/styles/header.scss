@@ -1,0 +1,29 @@
+@import'./mixins';
+
+.page-header {
+    height: 400px;
+    background-image: url(../../assets/images/featured-image-header.jpg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    @include tablet{
+        background-size: 100%;
+        height: 320px;
+        background-image: url(../../assets/images/featured-image-header-tablet.jpg);
+        
+    }
+    @include mobile {
+        height: 320px;
+        background-image: url(../../assets/images/featured-image-header-mobile.jpg);
+    }
+}
+.page-nav{
+    @include page-content;
+    display: flex;
+    justify-content: space-between;
+    padding-top: $default-page-padding;
+}
+.logo{
+    color:#fff;
+    font-size: 2rem;
+}
+
