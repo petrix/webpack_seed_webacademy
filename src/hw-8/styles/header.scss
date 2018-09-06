@@ -1,12 +1,68 @@
 @import './mixins';
+@import './variables';
 .page-header {
     margin: 0 auto;
     height: 506px;
-    width: 1440px;
-    background-color: red;
+    max-width: 1440px;
+    // background-color: red;
+    background: url(../../assets/images/bitmap.jpg) no-repeat;
+    background-position-x: right;
+    color: #fff;
 }
 
 .page-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #9013feaa;
+    height: 77px;
+    font-style: normal;
+}
+
+.nav-left {
+    width: 500px;
+    padding-left: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.nav-left>:nth-child(1) {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-user {
+    width: 94px;
+    height: 77px;
+    font-size: 30px;
+    color: #9013fe;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typesearch {
+    padding-left: 38px;
+    border: none;
+    height: 77px;
+    font-size: 18px;
+    color: #bbb;
+    background-color: #ebebeb;
+}
+
+.searchicon {
+    width: 90px;
+    font-size: 30px;
+    text-align: center;
 }
