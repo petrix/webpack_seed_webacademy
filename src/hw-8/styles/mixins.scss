@@ -51,3 +51,22 @@ $lg-screen: 1200px;
     margin: 0 auto;
     padding: 0 $default-page-padding;
 }
+@mixin rating-val-one {
+    font-size: 50px;
+    font-weight: bold;
+    color: $yellow-color;
+}
+@mixin rating-val-two {
+    font-size: 30px;
+    font-weight: normal;
+    color: $yellow-color;
+    line-height: 150%;
+}
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}

@@ -2,10 +2,10 @@
 @import './variables';
 .page-header {
     margin: 0 auto;
-    height: 506px;
+    height: 505px;
     max-width: 1440px;
     // background-color: red;
-    background: url(../../assets/images/bitmap.jpg) no-repeat;
+    background: url(#{$base-img-dir}bitmap.jpg) no-repeat;
     background-position-x: right;
     color: #fff;
 }
@@ -22,8 +22,7 @@
 .nav-left {
     width: 500px;
     padding-left: 45px;
-    display: flex;
-    flex-direction: row;
+    @include flex-row;
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
@@ -42,14 +41,19 @@
 }
 
 .nav-user {
+    padding-top: 15px;
     width: 94px;
     height: 77px;
     font-size: 30px;
-    color: #9013fe;
+    color: $violet-color;
     background-color: #fff;
-    display: flex;
+    @include flex-column;
     justify-content: center;
     align-items: center;
+}
+.nav-user > p{
+    margin-top: 3px;
+    font-size: 16px;
 }
 
 .typesearch {
@@ -65,4 +69,101 @@
     width: 90px;
     font-size: 30px;
     text-align: center;
+}
+.headfilm-info{
+    height: 270px;
+    margin-left: 45px;
+    margin-top: 60px;
+    @include flex-column;
+    justify-content: space-between;
+}
+.headfilm-rating{
+    @include rating-val-one;
+    @include flex-row;
+    align-items: flex-end;
+}
+.headfilm-rating>:nth-child(2){
+    @include rating-val-two;
+}
+.headfilm-name{
+    font-size: 30px;
+    font-weight: bold;
+}
+.headfilm-desc{
+    width: 380px;
+}
+.headfilm-genre{
+    @include flex-row;
+    
+}
+.headfilm-genre > div{
+    background-color: $violet-color;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0 2px 0 0;
+}
+.headfilm-review{
+    width: 142px;
+    height: 45px;
+    background-color: #fff;
+    color: $violet-color;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+.recomendations{
+    background-color: #000;
+    height: 300px;
+    width: 100%;
+    @include flex-row;
+    padding-top: 5px;
+
+}
+.recomendations>:nth-child(2){
+    // background-color: $violet-color;
+    border-left: 10px solid #000;
+    border-right: 10px solid #000;
+}
+.recomendations > div {
+    background-color: $violet-color;
+    border-top: 3px solid #000;
+    @include flex-column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-end;
+    padding-left: 45px;
+    // padding-bottom: 0px;
+}
+.recomendations>:nth-child(1){
+    // background-image: $base-img-dir/lethal-weapon.jpg;
+    background: url(#{$base-img-dir}/lethal-weapon.jpg) no-repeat;
+    background-position: (50px, 50px)
+    
+}
+
+.recomendations > div > div:nth-child(1){
+    @include flex-row;
+    align-items: flex-end;
+}
+.recomendations > div > div{
+    margin-bottom: -20px;
+}
+.recomendations > div > div > div:nth-child(1){
+    @include rating-val-one;
+}
+
+.recomendations > div > div > div:nth-child(2){
+    @include rating-val-two;
+}
+.recomendations > div  > p {
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+    // padding-top 10px;
+    line-height: 0px;
 }
