@@ -45,6 +45,7 @@ $lg-screen: 1200px;
   border: none;
   display: inline-block;
   outline: none;
+  padding: 0;
   font-size: $base-font-size;
 }
 
@@ -52,4 +53,12 @@ $lg-screen: 1200px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $default-page-padding;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
 }
