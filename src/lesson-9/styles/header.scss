@@ -8,8 +8,22 @@ $item-font-color: #fff;
     background-color: rgba(0, 0, 0, 0.8);
     @include mobile {
         &_opened {
+            background-color: #000;
             .global-nav__menu {
                 transform: scaleY(1);
+            }
+            .global-nav__item{
+                opacity: 1;
+            }
+            .burger-icon{
+                &__bar{
+                    &:nth-child(1){
+                        transform: translateY(5px) rotate(-45deg);
+                    }
+                    &:nth-child(2){
+                        transform: translateY(-6px) rotate(45deg);
+                    }
+                }
             }
         }
     }
@@ -51,6 +65,10 @@ $item-font-color: #fff;
             flex: inherit;
             text-align: left;
             border-bottom: 1px solid $item-font-color;
+            opacity: 1;
+            transition: all 0.3s;
+
+            transition-delay: 0.2s;
             // padding: 0 2rem;
         }
         >img {
