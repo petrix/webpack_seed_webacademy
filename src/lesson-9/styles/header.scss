@@ -17,6 +17,7 @@ $item-font-color: #fff;
             }
             .burger-icon{
                 &__bar{
+                    transition: all 0.5s;
                     &:nth-child(1){
                         transform: translateY(5px) rotate(-45deg);
                     }
