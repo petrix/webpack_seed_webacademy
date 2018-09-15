@@ -3,7 +3,7 @@
 .page-header {
     margin: 0 auto;
     height: 505px;
-    max-width: 1440px;
+    max-width: 1200px;
     // background-color: red;
     background: url(#{$base-img-dir}bitmap.jpg) no-repeat;
     background-position-x: right;
@@ -51,6 +51,7 @@
     &:hover{
         background-color: #333;
         color: #fff;
+        text-decoration: none;
 
     }
 }

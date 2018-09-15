@@ -14,6 +14,7 @@ const baseConf = (_path) => {
         'lesson-8': ['./src/lesson-8/lesson-8.js'],
         'lesson-9': ['./src/lesson-9/lesson-9.js'],
         'lesson-10': ['./src/lesson-10/lesson-10.js'],
+        'lesson-11': ['./src/lesson-11/lesson-11.js'],
         'hw-8': ['./src/hw-8/hw-8.js'],
 
     };
