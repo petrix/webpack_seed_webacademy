@@ -1,11 +1,11 @@
 @import'./variables';
 @font-face {
     font-family: 'Russia';
-    src: url('#{$base-font-dir}Russia.eot');
-    src: url('#{$base-font-dir}Russia.eot?#iefix') format('embedded-opentype'),
-        url('#{$base-font-dir}Russia.woff2') format('woff2'),
-        url('#{$base-font-dir}Russia.woff') format('woff'),
-        url('#{$base-font-dir}Russia.ttf') format('truetype');
+    src: url('#{$base-font-dir}Russia-Regular.eot');
+    src: url('#{$base-font-dir}Russia-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$base-font-dir}Russia-Regular.woff2') format('woff2'),
+        url('#{$base-font-dir}Russia-Regular.woff') format('woff'),
+        url('#{$base-font-dir}Russia-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

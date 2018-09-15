@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia.eot');
+    src: url('Russia.eot?#iefix') format('embedded-opentype'),
+        url('Russia.woff2') format('woff2'),
+        url('Russia.woff') format('woff'),
+        url('Russia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-BoldItalic.eot');
+    src: url('Russia-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Russia-BoldItalic.woff2') format('woff2'),
+        url('Russia-BoldItalic.woff') format('woff'),
+        url('Russia-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-LightItalic.eot');
+    src: url('Russia-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Russia-LightItalic.woff2') format('woff2'),
+        url('Russia-LightItalic.woff') format('woff'),
+        url('Russia-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-MediumItalic.eot');
+    src: url('Russia-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('Russia-MediumItalic.woff2') format('woff2'),
+        url('Russia-MediumItalic.woff') format('woff'),
+        url('Russia-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-Medium.eot');
+    src: url('Russia-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Russia-Medium.woff2') format('woff2'),
+        url('Russia-Medium.woff') format('woff'),
+        url('Russia-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-Bold.eot');
+    src: url('Russia-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Russia-Bold.woff2') format('woff2'),
+        url('Russia-Bold.woff') format('woff'),
+        url('Russia-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-Light.eot');
+    src: url('Russia-Light.eot?#iefix') format('embedded-opentype'),
+        url('Russia-Light.woff2') format('woff2'),
+        url('Russia-Light.woff') format('woff'),
+        url('Russia-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Russia';
+    src: url('Russia-Italic.eot');
+    src: url('Russia-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Russia-Italic.woff2') format('woff2'),
+        url('Russia-Italic.woff') format('woff'),
+        url('Russia-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+

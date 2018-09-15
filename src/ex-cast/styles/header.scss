@@ -10,14 +10,23 @@
     // background-size: 110%;
     color: #fff;
 }
+.page-nav-body{
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 .page-nav-logo {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     background-color: #900000;
     height: 122px;
     font-style: normal;
+}
+.page-nav-logo > img {
+    width: 122px;
+    height: 122px;
 }
 
 .page-nav{
@@ -26,154 +35,22 @@
     font-family: 'Russia';
     font-weight: normal;
     font-style: normal;
-    
-    font-size: 30px;
+    width: 100%;
 }
-.nav-left {
-    width: 500px;
-    padding-left: 45px;
-    
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-}
-
-.nav-left>:nth-child(1) {
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.nav-right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.nav-user {
-    padding-top: 15px;
-    width: 94px;
-    height: 77px;
-    font-size: 30px;
-    color: $violet-color;
-    background-color: #fff;
-    @include flex-column;
-    justify-content: center;
-    align-items: center;
-}
-.nav-user > p{
-    margin-top: 3px;
-    font-size: 16px;
-}
-
-.typesearch {
-    padding-left: 38px;
-    border: none;
-    height: 77px;
-    font-size: 18px;
-    color: #bbb;
-    background-color: #ebebeb;
-}
-
-.searchicon {
-    width: 90px;
+.page-nav-btn{
     font-size: 30px;
     text-align: center;
-}
-.headfilm-info{
-    height: 270px;
-    margin-left: 45px;
-    margin-top: 60px;
-    @include flex-column;
-    justify-content: space-between;
-}
-.headfilm-rating{
-    @include rating-val-one;
-    @include flex-row;
-    align-items: flex-end;
-}
-.headfilm-rating>:nth-child(2){
-    @include rating-val-two;
-}
-.headfilm-name{
-    font-size: 30px;
-    font-weight: bold;
-}
-.headfilm-desc{
-    width: 380px;
-}
-.headfilm-genre{
-    @include flex-row;
-    
-}
-.headfilm-genre > div{
-    background-color: $violet-color;
-    padding: 10px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 12px;
-    margin: 0 2px 0 0;
-}
-.headfilm-review{
-    width: 142px;
-    height: 45px;
+    color: #5B5B5B;
     background-color: #fff;
-    color: $violet-color;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 18px;
-}
-.recomendations{
-    background-color: #000;
-    height: 300px;
-    width: 100%;
-    @include flex-row;
-    padding-top: 5px;
+    width: 25%;
+    transition: all 0.4s;
+    &:active{
+        background-color: #900000;
+        color: #fff;
+    }
+    &:hover{
+        background-color: #333;
+        color: #fff;
 
-}
-.recomendations>:nth-child(2){
-    // background-color: $violet-color;
-    border-left: 10px solid #000;
-    border-right: 10px solid #000;
-}
-.recomendations > div {
-    background-color: $violet-color;
-    border-top: 3px solid #000;
-    @include flex-column;
-    flex-grow: 1;
-    flex-shrink: 1;
-    justify-content: flex-end;
-    padding-left: 45px;
-    // padding-bottom: 0px;
-}
-.recomendations>:nth-child(1){
-    // background-image: $base-img-dir/lethal-weapon.jpg;
-    background: url(#{$base-img-dir}/lethal-weapon.jpg) no-repeat;
-    background-position: (50px, 50px)
-    
-}
-
-.recomendations > div > div:nth-child(1){
-    @include flex-row;
-    align-items: flex-end;
-}
-.recomendations > div > div{
-    margin-bottom: -20px;
-}
-.recomendations > div > div > div:nth-child(1){
-    @include rating-val-one;
-}
-
-.recomendations > div > div > div:nth-child(2){
-    @include rating-val-two;
-}
-.recomendations > div  > p {
-    font-weight: bold;
-    font-size: 30px;
-    color: #fff;
-    // padding-top 10px;
-    line-height: 0px;
+    }
 }
