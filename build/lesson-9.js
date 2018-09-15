@@ -60,30 +60,56 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 333);
+/******/ 	return __webpack_require__(__webpack_require__.s = 342);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 333:
+/***/ 342:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(334);
+module.exports = __webpack_require__(343);
 
 
 /***/ }),
 
-/***/ 334:
+/***/ 343:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(335);
+__webpack_require__(344);
+
+var openedClassName = 'global-nav_opened';
+var isOpened = false;
+var btnToggle = document.querySelector('#globalnav-icon');
+var nav = document.querySelector('#global-nav');
+
+// console.log(btnSubmit);
+
+function toggle() {
+    console.log('Hello World');
+    if (isOpened) {
+        nav.classList.remove(openedClassName);
+        isOpened = false;
+    } else {
+        nav.classList.add(openedClassName);
+        isOpened = true;
+    }
+}
+
+btnToggle.onclick = toggle;
+
+// $(function(){
+//     $('#globalnav-icon').click(function() {
+//         $('#global-nav').toggleClass('global-nav_opened')
+//     })
+// });
 
 /***/ }),
 
-/***/ 335:
+/***/ 344:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

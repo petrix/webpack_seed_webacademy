@@ -60,30 +60,61 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 336);
+/******/ 	return __webpack_require__(__webpack_require__.s = 345);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 336:
+/***/ 345:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(337);
+module.exports = __webpack_require__(346);
 
 
 /***/ }),
 
-/***/ 337:
+/***/ 346:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(338);
+__webpack_require__(347);
+
+var firstName = 'Vasia';
+var secondName = 'Pupkin';
+var age = 27;
+
+// var user = {
+//     firstName: prompt('Enter your name', ''),
+//     secondName: prompt('Enter second name', ''),
+//     age: prompt('Enter edge', '')
+// }
+// console.log(user.firstName + ' ' + user.secondName + ' ' + user.age);
+// console.log(user);
+
+var a = prompt('Enter a');
+var b = prompt('Enter b');
+
+console.error('number');
+
+var i = 0;
+var t = 1;
+
+console.log('i = ' + i);
+console.log('t = ' + t);
+
+if (i !== t) {
+    console.log('Hello');
+} else {
+    console.log('Not Hello');
+}
+
+// $('.main').css('background-color', '#000');
 
 /***/ }),
 
-/***/ 338:
+/***/ 347:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

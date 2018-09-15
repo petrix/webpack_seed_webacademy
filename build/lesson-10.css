@@ -6842,3 +6842,8 @@ ul, ol {
 
 a {
   text-decoration: none; }
+
+.main {
+  width: 100px;
+  height: 100px;
+  background-color: red; }

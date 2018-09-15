@@ -6854,12 +6854,14 @@ a {
             transform: scaleY(1); }
       .global-nav_opened .global-nav__item {
         opacity: 1; }
-      .global-nav_opened .burger-icon__bar:nth-child(1) {
-        -ms-transform: translateY(5px) rotate(-45deg);
-            transform: translateY(5px) rotate(-45deg); }
-      .global-nav_opened .burger-icon__bar:nth-child(2) {
-        -ms-transform: translateY(-6px) rotate(45deg);
-            transform: translateY(-6px) rotate(45deg); } }
+      .global-nav_opened .burger-icon__bar {
+        transition: all 0.5s; }
+        .global-nav_opened .burger-icon__bar:nth-child(1) {
+          -ms-transform: translateY(5px) rotate(-45deg);
+              transform: translateY(5px) rotate(-45deg); }
+        .global-nav_opened .burger-icon__bar:nth-child(2) {
+          -ms-transform: translateY(-6px) rotate(45deg);
+              transform: translateY(-6px) rotate(45deg); } }
   .global-nav__content {
     max-width: 1200px;
     margin: 0 auto;
