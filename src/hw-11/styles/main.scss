@@ -1,0 +1,55 @@
+#output {
+    font-size: 30px;
+}
+
+.output-admin {
+    border: 2px solid green;
+}
+
+.output-notadmin {
+    border: 2px solid red;
+}
+
+body {
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropmenu {
+    width: 300px;
+    @include flex-column;
+    justify-content: center;
+    // height: 300px;
+}
+
+.dropmenu_header {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Comfortaa';
+    height: 50px;
+    color: white;
+    background-color: blue;
+    font-size: 30px;
+    padding: 16px 30px 10px 22px;
+    border-radius: 25px;
+}
+
+.dropmenu-items {
+    align-self: center;
+    @include flex-column;
+    width: 260px;
+    background-color: #04082c;
+    padding: 16px 30px 10px 22px;
+    font-family: 'Comfortaa';
+    font-size: 30px;
+}
+
+.dropmenu-items>button {
+    text-align: left;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    background-color: #0000;
+}
