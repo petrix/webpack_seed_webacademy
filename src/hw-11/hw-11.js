@@ -31,7 +31,7 @@ $('#dropmenu-item4').click(function() {
 })
 
 var dropmenuvisible = false;
-$('#dropmenu-icon').click(function() {
+$('#dropmenu_header').click(function() {
     if (dropmenuvisible) {
         $('#dropmenu-items').css('opacity', '0');
         $('#dropmenu-icon').html('<i class="fas fa-angle-up"></i>');
