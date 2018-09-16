@@ -37,6 +37,8 @@ body {
 }
 
 .dropmenu-items {
+    display: none;
+    opacity: 0;
     align-self: center;
     @include flex-column;
     width: 260px;
@@ -46,10 +48,11 @@ body {
     font-size: 30px;
 }
 
-.dropmenu-items>button {
+.dropmenu-item {
     text-align: left;
     color: #fff;
     border: none;
     text-decoration: none;
     background-color: #0000;
+    cursor: crosshair;
 }
