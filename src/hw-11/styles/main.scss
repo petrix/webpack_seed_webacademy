@@ -47,6 +47,9 @@ body {
     padding: 16px 30px 10px 22px;
     font-family: 'Comfortaa';
     font-size: 30px;
+    transition: all 0.5s;
+    transform-origin: top center;
+    transform: scaleY(0);
 }
 
 .dropmenu-item {
