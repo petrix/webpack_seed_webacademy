@@ -1,46 +1,59 @@
 import './trafficlight.scss';
 
 
-// const controls = document.querySelectorAll('.circle');
-// const circleRed = document.querySelectorAll('.circle_red');
-// const circleYellow = document.querySelectorAll('.circle_yellow');
-// const circleGreen = document.querySelectorAll('.circle_green');
+///////////////////////////////////////
+//////----USING JQUERY METHOD----//////
+///////////////////////////////////////
 
-$('.circle').click(function(){
-    if($('.circle').hasClass('circle_red'){
-      $('.circle').addClass('trafficlight__red');  
-    })
-    
-})
+// $('.color_red').click(function() {
+//     $('.color_red').addClass('active');
+//     $('.color_yellow').removeClass('active');
+//     $('.color_green').removeClass('active');
+// });
+// $('.color_yellow').click(function() {
+//     $('.color_red').removeClass('active');
+//     $('.color_yellow').addClass('active');
+//     $('.color_green').removeClass('active');
+// });
+// $('.color_green').click(function() {
+//     $('.color_red').removeClass('active');
+//     $('.color_yellow').removeClass('active');
+//     $('.color_green').addClass('active');
+// });
+
+////////////////////////////////////////
+//////----END OF JQUERY METHOD----//////
+////////////////////////////////////////
 
 
+//////////////////////////////////
+//////----CLASSIC METHOD----//////
+//////////////////////////////////
 
+// const controls = document.querySelectorAll('.trafficlight');
+const redcolor = document.querySelector('.color_red');
+const yellowcolor = document.querySelector('.color_yellow');
+const greencolor = document.querySelector('.color_green');
+const circle = document.querySelectorAll('.circle');
 
+for (let i = 0; i < circle.length; i++) {
+    circle[i].onclick = selectOption;
+    console.log(circle[i]);
+}
 
-
-
-
-// for(let i = 0; i< controls.length; i++){
-//     controls[i].onclick = selectOption;
-// }
-// function toggle(){
-//     if(controls.classList.contains('circle_red')){
-//         trafficlightRed();
-//     }else{
-//         // open();
-//     }
-// }
-// function trafficlightRed(){
-//     controls.classList.add('trafficlight__red');
-// }
-// // function open(){
-// //     // container.classList.add('select__opened');
-// // }
-// function selectOption(){
-//     console.log(this);
-//     const text = this.textContent;
-// }    
-//     // header.textContent = text;
-//     // close();
-
-// header.onclick = toggle;
+function selectOption() {
+    // console.log(this);
+    if (this.classList.contains('color_red')) {
+        redcolor.classList.add('active');
+        yellowcolor.classList.remove('active');
+        greencolor.classList.remove('active');
+    } else if (this.classList.contains('color_yellow')) {
+        redcolor.classList.remove('active');
+        yellowcolor.classList.add('active');
+        greencolor.classList.remove('active');
+    } else if (this.classList.contains('color_green')) {
+        redcolor.classList.remove('active');
+        yellowcolor.classList.remove('active');
+        greencolor.classList.add('active');
+    }
+}

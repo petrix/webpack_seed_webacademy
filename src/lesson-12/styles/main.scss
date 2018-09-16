@@ -1,20 +1,25 @@
 $padding-left: 12.5px;
-body{
+body {
     margin: 0 auto;
+    @include flex-column;
+    justify-content: space-around;
+    align-items: center;
 }
-@mixin btnResetDefault{
+
+@mixin btnResetDefault {
     border: none;
     font-size: 1rem;
     text-align: left;
     background-color: transparent;
     color: #fff;
 }
-.select{
+
+.select {
     display: inline-block;
     width: 180px;
     position: relative;
     &__header {
-@include btnResetDefault;
+        @include btnResetDefault;
         background-color: rgb(20, 38, 225);
         color: #fff;
         text-align: left;
@@ -23,7 +28,7 @@ body{
         border-radius: 50px;
         cursor: crosshair;
     }
-    &__options{
+    &__options {
         position: absolute;
         left: $padding-left;
         background-color: rgb(4, 8, 44);
@@ -42,22 +47,21 @@ body{
     }
     &__control {
         @include btnResetDefault;
-        color:#fff;
+        color: #fff;
         padding: 0 $padding-left;
         // margin: $padding-left 0;
         width: 100%;
         transition: all 400ms;
         cursor: crosshair;
-       &:hover{
-        background-color: rgb(20, 38, 225);
-    } 
+        &:hover {
+            background-color: rgb(20, 38, 225);
+        }
     }
-    
-    &__opened{
-        .select__options{
-        transform: scaleY(1);
-        visibility: visible;
-        opacity: 1;
-    }
+    &__opened {
+        .select__options {
+            transform: scaleY(1);
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }

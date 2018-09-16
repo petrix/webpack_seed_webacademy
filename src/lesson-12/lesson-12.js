@@ -21,13 +21,15 @@ function close(){
 function open(){
     container.classList.add('select__opened');
 }
+header.onclick = toggle;
+
 function selectOption(){
     console.log(this);
     const text = this.textContent;
     header.textContent = text;
     close();
 }
-header.onclick = toggle;
+
 
 // var sum=0;
 // var i = 0;
