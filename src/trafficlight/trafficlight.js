@@ -35,9 +35,11 @@ const redcolor = document.querySelector('.color_red');
 const yellowcolor = document.querySelector('.color_yellow');
 const greencolor = document.querySelector('.color_green');
 const circle = document.querySelectorAll('.circle');
-
+var x = 0;
 for (let i = 0; i < circle.length; i++) {
     circle[i].onclick = selectOption;
+    x++;
+    console.log([x: 2]);
     console.log(circle[i]);
 }
 

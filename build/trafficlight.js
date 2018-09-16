@@ -81,25 +81,64 @@ module.exports = __webpack_require__(361);
 
 __webpack_require__(362);
 
-////////////////////////////////
-//////----USING JQUERY----//////
-////////////////////////////////
+///////////////////////////////////////
+//////----USING JQUERY METHOD----//////
+///////////////////////////////////////
 
-$('.color_red').click(function () {
-    $('.color_red').addClass('fill_red');
-    $('.color_yellow').removeClass('fill_yellow');
-    $('.color_green').removeClass('fill_green');
-});
-$('.color_yellow').click(function () {
-    $('.color_red').removeClass('fill_red');
-    $('.color_yellow').addClass('fill_yellow');
-    $('.color_green').removeClass('fill_green');
-});
-$('.color_green').click(function () {
-    $('.color_red').removeClass('fill_red');
-    $('.color_yellow').removeClass('fill_yellow');
-    $('.color_green').addClass('fill_green');
-});
+// $('.color_red').click(function() {
+//     $('.color_red').addClass('active');
+//     $('.color_yellow').removeClass('active');
+//     $('.color_green').removeClass('active');
+// });
+// $('.color_yellow').click(function() {
+//     $('.color_red').removeClass('active');
+//     $('.color_yellow').addClass('active');
+//     $('.color_green').removeClass('active');
+// });
+// $('.color_green').click(function() {
+//     $('.color_red').removeClass('active');
+//     $('.color_yellow').removeClass('active');
+//     $('.color_green').addClass('active');
+// });
+
+////////////////////////////////////////
+//////----END OF JQUERY METHOD----//////
+////////////////////////////////////////
+
+
+//////////////////////////////////
+//////----CLASSIC METHOD----//////
+//////////////////////////////////
+
+// const controls = document.querySelectorAll('.trafficlight');
+var redcolor = document.querySelector('.color_red');
+var yellowcolor = document.querySelector('.color_yellow');
+var greencolor = document.querySelector('.color_green');
+var circle = document.querySelectorAll('.circle');
+var x = 0;
+for (var i = 0; i < circle.length; i++) {
+    circle[i].onclick = selectOption;
+    x++;
+    console.log([x]);
+    console.log(circle[i]);
+}
+
+function selectOption() {
+    // console.log(this);
+    if (this.classList.contains('color_red')) {
+        redcolor.classList.add('active');
+        yellowcolor.classList.remove('active');
+        greencolor.classList.remove('active');
+    } else if (this.classList.contains('color_yellow')) {
+        redcolor.classList.remove('active');
+        yellowcolor.classList.add('active');
+        greencolor.classList.remove('active');
+    } else if (this.classList.contains('color_green')) {
+        redcolor.classList.remove('active');
+        yellowcolor.classList.remove('active');
+        greencolor.classList.add('active');
+    }
+}
 
 /***/ }),
 
