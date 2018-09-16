@@ -48,12 +48,6 @@ $lg-screen: 1200px;
   padding: 0;
   font-size: $base-font-size;
 }
-
-@mixin page-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $default-page-padding;
-}
 @mixin flex-row {
   display: flex;
   flex-direction: row;

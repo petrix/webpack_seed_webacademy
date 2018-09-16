@@ -4,10 +4,13 @@ body {
     justify-content: center;
     align-items: center;
 }
+li{
+    list-style-type: none;
+}
 
 .trafficlight {
     // width: 200px;
-    // height: 500px;
+    height: 600px;
     background-color: #333;
     margin: 0;
     padding: 0;
@@ -37,4 +40,44 @@ body {
 
 .active {
     opacity: 1;
+    transition: all 500ms;
 }
+.trafficbutton{
+    @include flex-column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #333;
+    height: 600px;
+    width: 210px;
+padding-top: 15px;
+}
+
+.trafficbutton>label>input + div{
+    border-radius: 50%;
+    width:150px;
+    height:150px;
+    background-color: #666;
+    margin: 15px;
+}
+.trafficbutton>label:nth-child(1)>input{
+    display: none;
+    &:checked + div{
+        transition: all 500ms;
+        background-color: red;
+    }
+}
+.trafficbutton>label:nth-child(2)>input{
+    display: none;
+    &:checked + div{
+        transition: all 500ms;
+        background-color: yellow;
+    }
+}
+.trafficbutton>label:nth-child(3)>input{
+    display: none;
+    &:checked + div{
+        transition: all 500ms;
+        background-color: lightgreen;
+    }
+}
+
