@@ -33,7 +33,7 @@ $('#dropmenu-item4').click(function() {
 var dropmenuvisible = false;
 $('#dropmenu_header').click(function() {
     if (dropmenuvisible) {
-        $('#dropmenu-items').css({ 'opacity': '0', 'transform': 'scaleY(0)' });
+        $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
         $('#dropmenu-icon').html('<i class="fas fa-angle-up"></i>');
         dropmenuvisible = false;
 
