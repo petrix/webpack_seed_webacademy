@@ -85,21 +85,21 @@ __webpack_require__(362);
 //////----USING JQUERY METHOD----//////
 ///////////////////////////////////////
 
-// $('.color_red').click(function() {
-//     $('.color_red').addClass('active');
-//     $('.color_yellow').removeClass('active');
-//     $('.color_green').removeClass('active');
-// });
-// $('.color_yellow').click(function() {
-//     $('.color_red').removeClass('active');
-//     $('.color_yellow').addClass('active');
-//     $('.color_green').removeClass('active');
-// });
-// $('.color_green').click(function() {
-//     $('.color_red').removeClass('active');
-//     $('.color_yellow').removeClass('active');
-//     $('.color_green').addClass('active');
-// });
+$('.j_color_red').click(function () {
+    $('.j_color_red').addClass('j_active');
+    $('.j_color_yellow').removeClass('j_active');
+    $('.j_color_green').removeClass('j_active');
+});
+$('.j_color_yellow').click(function () {
+    $('.j_color_red').removeClass('j_active');
+    $('.j_color_yellow').addClass('j_active');
+    $('.j_color_green').removeClass('j_active');
+});
+$('.j_color_green').click(function () {
+    $('.j_color_red').removeClass('j_active');
+    $('.j_color_yellow').removeClass('j_active');
+    $('.j_color_green').addClass('j_active');
+});
 
 ////////////////////////////////////////
 //////----END OF JQUERY METHOD----//////
@@ -115,11 +115,8 @@ var redcolor = document.querySelector('.color_red');
 var yellowcolor = document.querySelector('.color_yellow');
 var greencolor = document.querySelector('.color_green');
 var circle = document.querySelectorAll('.circle');
-var x = 0;
 for (var i = 0; i < circle.length; i++) {
     circle[i].onclick = selectOption;
-    x++;
-    console.log([x]);
     console.log(circle[i]);
 }
 

@@ -39,6 +39,12 @@ body {
 li {
   list-style-type: none; }
 
+h2 {
+  text-align: center;
+  font-size: 14px;
+  padding-top: 10px;
+  color: white; }
+
 .trafficlight {
   height: 600px;
   background-color: #333;
@@ -51,7 +57,7 @@ li {
   border-radius: 50%;
   background-color: #666;
   margin: 30px;
-  opacity: 0.3; }
+  opacity: 0.2; }
 
 .color_red {
   background-color: red; }
@@ -66,6 +72,33 @@ li {
   opacity: 1;
   transition: all 500ms; }
 
+.j_trafficlight {
+  height: 600px;
+  background-color: #333;
+  margin: 0;
+  padding: 0; }
+
+.j_circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #666;
+  margin: 30px;
+  opacity: 0.2; }
+
+.j_color_red {
+  background-color: red; }
+
+.j_color_yellow {
+  background-color: yellow; }
+
+.j_color_green {
+  background-color: lightgreen; }
+
+.j_active {
+  opacity: 1;
+  transition: all 500ms; }
+
 .trafficbutton {
   display: -ms-flexbox;
   display: flex;
@@ -77,8 +110,10 @@ li {
       align-items: center;
   background-color: #333;
   height: 600px;
-  width: 210px;
-  padding-top: 15px; }
+  width: 210px; }
+
+.trafficbutton > h2 {
+  padding-bottom: 15px; }
 
 .trafficbutton > label > input + div {
   border-radius: 50%;
@@ -87,20 +122,20 @@ li {
   background-color: #666;
   margin: 15px; }
 
-.trafficbutton > label:nth-child(1) > input {
-  display: none; }
-  .trafficbutton > label:nth-child(1) > input:checked + div {
-    transition: all 500ms;
-    background-color: red; }
-
 .trafficbutton > label:nth-child(2) > input {
   display: none; }
   .trafficbutton > label:nth-child(2) > input:checked + div {
     transition: all 500ms;
-    background-color: yellow; }
+    background-color: red; }
 
 .trafficbutton > label:nth-child(3) > input {
   display: none; }
   .trafficbutton > label:nth-child(3) > input:checked + div {
+    transition: all 500ms;
+    background-color: yellow; }
+
+.trafficbutton > label:nth-child(4) > input {
+  display: none; }
+  .trafficbutton > label:nth-child(4) > input:checked + div {
     transition: all 500ms;
     background-color: lightgreen; }
