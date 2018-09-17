@@ -1,0 +1,32 @@
+body {
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs{
+    width: 400px;
+    height:400px;
+}
+.tabs>div{
+padding: 15px;
+color: #656565;
+border: 1px solid #656565;
+font-size: 14px;
+}
+.tabs>ul{
+    @include flex-row;
+    justify-content: space-around;
+    font-size: 16px;
+}
+.tabs>ul>li{
+    width:100%;
+    height:50px;
+    color: #fff;
+    @include flex-center;
+    background-color: #04082c;
+    
+}.tabs>ul>li:nth-child(1){
+    background-color: #1426e1;
+    
+}
