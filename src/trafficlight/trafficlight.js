@@ -35,16 +35,20 @@ const redcolor = document.querySelector('.color_red');
 const yellowcolor = document.querySelector('.color_yellow');
 const greencolor = document.querySelector('.color_green');
 const circle = document.querySelectorAll('.circle');
-var x = 0;
+
 for (let i = 0; i < circle.length; i++) {
+    var x = circle[i];
     circle[i].onclick = selectOption;
-    x++;
-    console.log([x: 2]);
+
+
+    console.log(x);
     console.log(circle[i]);
 }
 
 function selectOption() {
     // console.log(this);
+    console.log(x);
+
     if (this.classList.contains('color_red')) {
         redcolor.classList.add('active');
         yellowcolor.classList.remove('active');
