@@ -35,26 +35,12 @@ const redcolor = document.querySelector('.color_red');
 const yellowcolor = document.querySelector('.color_yellow');
 const greencolor = document.querySelector('.color_green');
 const circle = document.querySelectorAll('.circle');
-<<<<<<< HEAD
-
-=======
->>>>>>> d43448304f5513465adac25b4d8be9ddcf1c8367
 for (let i = 0; i < circle.length; i++) {
     var x = circle[i];
     circle[i].onclick = selectOption;
-<<<<<<< HEAD
-
-
-    console.log(x);
-=======
->>>>>>> d43448304f5513465adac25b4d8be9ddcf1c8367
-    console.log(circle[i]);
 }
 
 function selectOption() {
-    // console.log(this);
-    console.log(x);
-
     if (this.classList.contains('color_red')) {
         redcolor.classList.add('active');
         yellowcolor.classList.remove('active');

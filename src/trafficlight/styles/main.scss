@@ -1,132 +1,158 @@
-body {
-    margin: 0 auto;
-    @include flex-row;
-    justify-content: center;
-    align-items: center;
-}
-li{
-    list-style-type: none;
-}
-h2{
-    text-align: center;
-    font-size: 14px;
-    padding-top:10px;
-    color: white;
-}
-.trafficlight {
-    height: 600px;
-    background-color: #333;
-    margin: 0;
-    padding: 0;
-}
-.circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    // margin: 0 auto;
-    background-color: #666;
-    margin: 30px;
-    opacity: 0.2;
-}
-.color {
-    &_red {
-        background-color: red;
-    }
-    &_yellow {
-        background-color: yellow;
-    }
-    &_green {
-        background-color: lightgreen;
-    }
-}
-.active {
-    opacity: 1;
-    transition: all 500ms;
-}
-
-////////////////////////////////
-//////----JQUERY STYLE----//////
-////////////////////////////////
-
-.j_trafficlight {
-    height: 600px;
-    background-color: #333;
-    margin: 0;
-    padding: 0;
-}
-.j_circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    // margin: 0 auto;
-    background-color: #666;
-    margin: 30px;
-    opacity: 0.2;
-}
-.j_color {
-    &_red {
-        background-color: red;
-    }
-    &_yellow {
-        background-color: yellow;
-    }
-    &_green {
-        background-color: lightgreen;
-    }
-}
-.j_active {
-    opacity: 1;
-    transition: all 500ms;
-}
-
-///////////////////////////////////////
-//////----RADIO BUTTONS STYLE----//////
-///////////////////////////////////////
-
-
-.trafficbutton{
-    @include flex-column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #333;
-    height: 600px;
-    width: 210px;
-// padding-top: 15px;
-}
-.trafficbutton>h2{
-    padding-bottom: 15px;
-}
-
-.trafficbutton>label>input + div{
-    border-radius: 50%;
-    width:150px;
-    height:150px;
-    background-color: #666;
-    margin: 15px;
-}
-.trafficbutton>label:nth-child(2)>input{
-    display: none;
-    &:checked + div{
-        transition: all 500ms;
-        background-color: red;
-        // box-shadow: 0 0 20px red;
-    }
-}
-.trafficbutton>label:nth-child(3)>input{
-    display: none;
-    &:checked + div{
-        transition: all 500ms;
-        background-color: yellow;
-        // box-shadow: 0 0 20px yellow;
-
-    }
-}
-.trafficbutton>label:nth-child(4)>input{
-    display: none;
-    &:checked + div{
-        transition: all 500ms;
-        background-color: lightgreen;
-        // box-shadow: 0 0 20px lightgreen;        
-    }
-}
-
+            body {
+                margin: 0 auto;
+                @include flex-row;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            li {
+                list-style-type: none;
+            }
+            
+            h2 {
+                text-align: center;
+                font-size: 14px;
+                padding-top: 10px;
+                color: white;
+            }
+            
+            .trafficlight {
+                height: 600px;
+                background-color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .circle {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                // margin: 0 auto;
+                background-color: #666;
+                margin: 30px;
+                opacity: 0.2;
+                cursor: crosshair;
+            }
+            
+            .color {
+                &_red {
+                    background-color: red;
+                }
+                &_yellow {
+                    background-color: yellow;
+                }
+                &_green {
+                    background-color: lightgreen;
+                }
+            }
+            
+            .active {
+                opacity: 1;
+                transition: all 500ms;
+            }
+            
+            ////////////////////////////////
+            //////----JQUERY STYLE----//////
+            ////////////////////////////////
+            .j_trafficlight {
+                height: 600px;
+                background-color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .j_circle {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                // margin: 0 auto;
+                background-color: #666;
+                margin: 30px;
+                opacity: 0.2;
+                cursor: crosshair;
+            }
+            
+            .j_color {
+                &_red {
+                    background-color: red;
+                }
+                &_yellow {
+                    background-color: yellow;
+                }
+                &_green {
+                    background-color: lightgreen;
+                }
+            }
+            
+            .j_active {
+                opacity: 1;
+                transition: all 500ms;
+            }
+            
+            ///////////////////////////////////////
+            //////----RADIO BUTTONS STYLE----//////
+            ///////////////////////////////////////
+            .trafficbutton {
+                @include flex-column;
+                justify-content: flex-start;
+                align-items: center;
+                background-color: #333;
+                height: 600px;
+                width: 210px;
+                // padding-top: 15px;
+                &>h2 {
+                    padding-bottom: 15px;
+                }
+                &>label {
+                    &>input {
+                        display: none;
+                        &+div {
+                            border-radius: 50%;
+                            width: 150px;
+                            height: 150px;
+                            background-color: #666;
+                            margin: 15px;
+                            cursor: crosshair;
+                        }
+                    }
+                    &:nth-child(2)>input {
+                        &:checked+div {
+                            transition: all 500ms;
+                            background-color: red;
+                            // box-shadow: 0 0 20px red;
+                        }
+                    }
+                    &:nth-child(3)>input {
+                        display: none;
+                        &:checked+div {
+                            transition: all 500ms;
+                            background-color: yellow;
+                            // box-shadow: 0 0 20px yellow;
+                        }
+                    }
+                    &:nth-child(4)>input {
+                        display: none;
+                        &:checked+div {
+                            transition: all 500ms;
+                            background-color: lightgreen;
+                            // box-shadow: 0 0 20px lightgreen;        
+                        }
+                        // .trafficbutton>label
+                    }
+                }
+                // .trafficbutton>label:nth-child(3)>input {
+                //     display: none;
+                //     &:checked+div {
+                //         transition: all 500ms;
+                //         background-color: yellow;
+                //         // box-shadow: 0 0 20px yellow;
+                //     }
+                // }
+                // .trafficbutton>label:nth-child(4)>input {
+                //     display: none;
+                //     &:checked+div {
+                //         transition: all 500ms;
+                //         background-color: lightgreen;
+                //         // box-shadow: 0 0 20px lightgreen;        
+                //     }
+            }

@@ -60,72 +60,68 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 357);
+/******/ 	return __webpack_require__(__webpack_require__.s = 360);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 357:
+/***/ 360:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(358);
+module.exports = __webpack_require__(361);
 
 
 /***/ }),
 
-/***/ 358:
+/***/ 361:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(359);
+__webpack_require__(362);
 
-var title = '#dropmenu-title';
+var tabs = document.querySelectorAll('.tabs_selector');
+var tabcontent1 = document.querySelector('.tabcontent1');
+var tabcontent2 = document.querySelector('.tabcontent2');
+var tabcontent3 = document.querySelector('.tabcontent3');
+var selecttab1 = document.querySelector('.selecttab1');
+var selecttab2 = document.querySelector('.selecttab2');
+var selecttab3 = document.querySelector('.selecttab3');
+var i = 0;
+for (i; i < tabs.length; i++) {
+    tabs[i].onclick = selectTab;
+}
 
-$('#dropmenu-item1').click(function () {
-    $(title).text('Name');
-    $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
-    $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
-    dropmenuvisible = false;
-});
-$('#dropmenu-item2').click(function () {
-    $(title).text('Date');
-    $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
-    $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
-    dropmenuvisible = false;
-});
-$('#dropmenu-item3').click(function () {
-    $(title).text('Price');
-    $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
-    $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
-    dropmenuvisible = false;
-});
-$('#dropmenu-item4').click(function () {
-    $(title).text('Size');
-    $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
-    $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
-    dropmenuvisible = false;
-});
-
-var dropmenuvisible = false;
-$('#dropmenu_header').click(function () {
-    if (dropmenuvisible) {
-        $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
-        $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
-        dropmenuvisible = false;
-    } else {
-        $('#dropmenu-items').css({ 'opacity': '1', 'transform': 'scaleY(1)' });
-        $('#dropmenu-icon').html('<i class="fas fa-angle-up"></i>');
-        dropmenuvisible = true;
+function selectTab() {
+    // console.log(this);
+    if (this.classList.contains('selecttab1')) {
+        selecttab1.classList.add('selected-tab');
+        selecttab2.classList.remove('selected-tab');
+        selecttab3.classList.remove('selected-tab');
+        tabcontent1.classList.remove('hidden');
+        tabcontent2.classList.add('hidden');
+        tabcontent3.classList.add('hidden');
+    } else if (this.classList.contains('selecttab2')) {
+        selecttab1.classList.remove('selected-tab');
+        selecttab2.classList.add('selected-tab');
+        selecttab3.classList.remove('selected-tab');
+        tabcontent1.classList.add('hidden');
+        tabcontent2.classList.remove('hidden');
+        tabcontent3.classList.add('hidden');
+    } else if (this.classList.contains('selecttab3')) {
+        selecttab1.classList.remove('selected-tab');
+        selecttab2.classList.remove('selected-tab');
+        selecttab3.classList.add('selected-tab');
+        tabcontent1.classList.add('hidden');
+        tabcontent2.classList.add('hidden');
+        tabcontent3.classList.remove('hidden');
     }
-});
-
-// $('#dropmenu-item1').css('color', '#f00');
+}
 
 /***/ }),
 
-/***/ 359:
+/***/ 362:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

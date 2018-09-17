@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 360);
+/******/ 	return __webpack_require__(__webpack_require__.s = 363);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 360:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(361);
+module.exports = __webpack_require__(364);
 
 
 /***/ }),
 
-/***/ 361:
+/***/ 364:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(362);
+__webpack_require__(365);
 
 ///////////////////////////////////////
 //////----USING JQUERY METHOD----//////
@@ -116,12 +116,11 @@ var yellowcolor = document.querySelector('.color_yellow');
 var greencolor = document.querySelector('.color_green');
 var circle = document.querySelectorAll('.circle');
 for (var i = 0; i < circle.length; i++) {
+    var x = circle[i];
     circle[i].onclick = selectOption;
-    console.log(circle[i]);
 }
 
 function selectOption() {
-    // console.log(this);
     if (this.classList.contains('color_red')) {
         redcolor.classList.add('active');
         yellowcolor.classList.remove('active');
@@ -139,7 +138,7 @@ function selectOption() {
 
 /***/ }),
 
-/***/ 362:
+/***/ 365:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
