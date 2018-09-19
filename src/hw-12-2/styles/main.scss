@@ -1,0 +1,115 @@
+body {
+    @include flex-center;
+    // align-items: center;
+    font-family: 'Comfortaa';
+}
+.rows-widget{
+    width: 400px;
+    // height: 100%;
+    &>div{
+
+
+
+        // width: 100%;
+    margin-bottom: 15px;
+    // position: relative;
+    
+    
+}
+}
+.row-title{
+        font-size: 25px;
+        color: #fff;
+        height:40px;
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px 0 15px;
+        // background-image: linear-gradient(to right,#04082c, #04082c);
+        background-color: #04082c;
+        transition: all 500ms;
+
+        // background-image: linear-gradient(to right,#010289, #1d30d5);
+    
+    } 
+    .row-active{
+        transition: all 500ms;
+        background-image: linear-gradient(to right,#010289, #1d30d5);
+
+    }
+    .row-arrow{
+        @include flex-row;
+        transition: all 500ms;
+        &>span:nth-child(1){
+            width: 16px;
+            height: 2px;
+            background-color: #0f8ffe;
+            transform: rotate(45deg);
+        transition: all 500ms;
+
+        }
+        &>span:nth-child(2){
+            margin-left: -6px;
+            width: 16px;
+            height: 2px;
+            background-color: #0f8ffe;
+            transform: rotate(-45deg);
+        transition: all 500ms;
+
+        }
+       
+    }
+     .row-arrow-active{
+            @include flex-row;
+            // transform: rotate(-180deg);
+            // transition: all 500ms;
+
+
+           
+
+        &>span:nth-child(1){
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            transform: rotate(-45deg);
+        transition: all 500ms;
+
+        }
+        &>span:nth-child(2){
+            margin-left: -6px;
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            transform: rotate(45deg);
+        transition: all 500ms;
+        }
+         }
+.row-content{
+    
+    // margin: 0 auto;
+    font-size: 16px;
+    border: 1px solid #1d30d5;
+    overflow: hidden;
+    transform-origin: top;
+    // height: 0;
+    // opacity: 0;
+    // transform: scaleY(0);
+    // transition: all 500ms;
+    @include flex-center;
+    display: none;
+    &>p{
+        padding: 20px ;
+        margin: 0 auto;
+        text-align: justify;
+        transform: scaleY(1);
+    }
+}
+// .visible{
+//     height: 100%;
+//     visibility: visible;
+//     transform-origin: top;
+//     // opacity: 1;
+//     transform: scaleY(1);
+//     transition: all 500ms;
+//     // display: block !important;
+// }

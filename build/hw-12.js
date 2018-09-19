@@ -109,14 +109,16 @@ function selectTab() {
         tabcontent1.classList.add('hidden');
         tabcontent2.classList.remove('hidden');
         tabcontent3.classList.add('hidden');
-    } else if (this.classList.contains('selecttab3')) {
-        selecttab1.classList.remove('selected-tab');
-        selecttab2.classList.remove('selected-tab');
-        selecttab3.classList.add('selected-tab');
-        tabcontent1.classList.add('hidden');
-        tabcontent2.classList.add('hidden');
-        tabcontent3.classList.remove('hidden');
-    }
+    } else
+        // if (this.classList.contains('selecttab3')) 
+        {
+            selecttab1.classList.remove('selected-tab');
+            selecttab2.classList.remove('selected-tab');
+            selecttab3.classList.add('selected-tab');
+            tabcontent1.classList.add('hidden');
+            tabcontent2.classList.add('hidden');
+            tabcontent3.classList.remove('hidden');
+        }
 }
 
 /***/ }),

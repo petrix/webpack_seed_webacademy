@@ -60,75 +60,64 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 366);
+/******/ 	return __webpack_require__(__webpack_require__.s = 363);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 366:
+/***/ 363:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(367);
+module.exports = __webpack_require__(364);
 
 
 /***/ }),
 
-/***/ 367:
+/***/ 364:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(368);
+__webpack_require__(365);
 
-///////////////////////////////////////
-//////----USING JQUERY METHOD----//////
-///////////////////////////////////////
+$(".row-title").click(function () {
+    $(".row-content").not($(this).next()).slideUp(500);
+    $(this).next().slideDown(500);
+    $(".row-arrow").not($(this).next()).removeClass('active');
+    $(this).children().next().addClass('active');
 
-$('.j_circle').click(function () {
-    $(this).addClass('j_active');
-    $('.j_circle').not(this).removeClass('j_active');
+    $('.row-title').not($(this)).removeClass('row-active');
+    $(this).addClass('row-active');
+
+    // $(this).next().toggleClass('active');
+    // $(this).css('border-radius', '10px 10px 0 0');
+
+    console.log(this);
 });
+// $(".row-title").click(function () {
+//     $(".row-content").not($(this).next()).removeClass('visible');
+//     $(this).next().toggleClass('visible');
+// });
 
-////////////////////////////////////////
-//////----END OF JQUERY METHOD----//////
-////////////////////////////////////////
 
-
-//////////////////////////////////
-//////----CLASSIC METHOD----//////
-//////////////////////////////////
-
-// const controls = document.querySelectorAll('.trafficlight');
-var redcolor = document.querySelector('.color_red');
-var yellowcolor = document.querySelector('.color_yellow');
-var greencolor = document.querySelector('.color_green');
-// const circle = document.querySelector('.circle');
-var circles = document.querySelectorAll('.circle');
-for (var i = 0; i < circles.length; i++) {
-    var x = circles[i];
-    circles[i].onclick = selectOption;
-}
-
-function selectOption() {
-    if (this.classList.contains('color_red')) {
-        redcolor.classList.add('active');
-        yellowcolor.classList.remove('active');
-        greencolor.classList.remove('active');
-    } else if (this.classList.contains('color_yellow')) {
-        redcolor.classList.remove('active');
-        yellowcolor.classList.add('active');
-        greencolor.classList.remove('active');
-    } else if (this.classList.contains('color_green')) {
-        redcolor.classList.remove('active');
-        yellowcolor.classList.remove('active');
-        greencolor.classList.add('active');
-    }
-}
+// const rows = document.querySelectorAll('.rows');
+// var i = 0;
+// for (i; i < rows.length ; i++){
+//     rows[i].onclick = show;
+//     console.log(rows[i]);
+//     // console.log(this);
+// }
+// function show(){
+//     // var x = div.querySelectorAll('.row-title');
+//     console.log(this.value);
+// console.log(x);
+// console.log(i);
+// }
 
 /***/ }),
 
-/***/ 368:
+/***/ 365:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

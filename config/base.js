@@ -20,6 +20,7 @@ const baseConf = (_path) => {
         'hw-8': ['./src/hw-8/hw-8.js'],
         'hw-11': ['./src/hw-11/hw-11.js'],
         'hw-12': ['./src/hw-12/hw-12.js'],
+        'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
         'trafficlight': ['./src/trafficlight/trafficlight.js'],
 
     };
