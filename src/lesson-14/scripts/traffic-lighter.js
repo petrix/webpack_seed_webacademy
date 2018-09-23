@@ -3,17 +3,15 @@ import '../styles/traffic-lighter.scss';
 function trafficLight(parentNode) {
   const ACTIVE_CLASS_NAME = 'light_active';
   let lights = [];
-
-  // const lights = parentNode.querySelectorAll('.light');
-
-  // for (let i = 0; i < lights.length; i++) {
-  //   lights[i].onclick = toggle;
-  // }
-
-  function toggle() {
+  let activeLightIndex = 0;
+  let intervalId = null;
+  
+  function toggle(lightIndex) {
     // console.log('Test');
     switchOff();
-    this.classList.add(ACTIVE_CLASS_NAME);
+    // console.log(lightIndex);
+    activeLightIndex = lightIndex;
+    lights[lightIndex].classList.add(ACTIVE_CLASS_NAME);
   }
 
   function switchOff() {
@@ -23,10 +21,33 @@ function trafficLight(parentNode) {
   }
 
   function handleEvents(){
-    for(const light of lights){
-      light.addEventListener('click', toggle);
+    for(let i = 0 ; i < lights.length; i++){
+      lights[i].addEventListener('click', () => {
+        toggle(i);
+    // clearInterval(intervalId);
+
+      });
     }
+    parentNode.addEventListener('mouseenter', stopAutoSwitch);
+    parentNode.addEventListener('mouseleave', startAutoSwitch);
   }
+  function stopAutoSwitch(){
+    clearInterval(intervalId);
+  }
+  function startAutoSwitch(){
+    clearInterval(intervalId);
+    intervalId = setInterval(function() {
+      if(activeLightIndex + 1 > 2){
+        activeLightIndex = 0;
+      } else {
+        activeLightIndex++;
+      }
+      switchOff();
+      lights[activeLightIndex].classList.add(ACTIVE_CLASS_NAME);
+      console.log(activeLightIndex);
+    },2000);
+  }
+
 
   function render () {
     const redLight = document.createElement('div');
@@ -46,6 +67,7 @@ function trafficLight(parentNode) {
   }
   render();
   handleEvents();
+  startAutoSwitch();
 }
 
 export { trafficLight };

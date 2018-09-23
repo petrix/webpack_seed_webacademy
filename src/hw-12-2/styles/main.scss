@@ -1,9 +1,8 @@
 $padding-left: 12.5px;
 body {
     margin: 0 auto;
-    @include flex-column;
-    justify-content: space-around;
-    align-items: center;
+    @include flex-center;
+
 }
 
 @mixin btnResetDefault {
