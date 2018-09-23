@@ -17,11 +17,14 @@ const baseConf = (_path) => {
         'lesson-10': ['./src/lesson-10/lesson-10.js'],
         'lesson-11': ['./src/lesson-11/lesson-11.js'],
         'lesson-12': ['./src/lesson-12/lesson-12.js'],
+        'lesson-13': ['./src/lesson-13/lesson-13.js'],
+        'lesson-14': ['./src/lesson-14/lesson-14.js'],
         'hw-8': ['./src/hw-8/hw-8.js'],
         'hw-11': ['./src/hw-11/hw-11.js'],
         'hw-12': ['./src/hw-12/hw-12.js'],
         'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
         'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
+        'hw-13': ['./src/hw-13/hw-13.js'],
         'trafficlight': ['./src/trafficlight/trafficlight.js'],
 
     };
