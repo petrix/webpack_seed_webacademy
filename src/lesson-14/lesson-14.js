@@ -1,9 +1,12 @@
-import './lesson-14.scss';
+import { trafficLight } from './scripts/traffic-lighter';
 
-(function(){
-////самовызывающаяся функция////
-})();
+// import './lesson-14.scss';
 
+
+
+// trafficLight(document.querySelector('#lighter-1'));
+// trafficLight(document.querySelector('#lighter-2'));
+trafficLight(document.querySelector('.place-for-traffic-light'));
 
 
 

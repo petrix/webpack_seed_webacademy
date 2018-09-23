@@ -25,8 +25,6 @@ const baseConf = (_path) => {
         'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
         'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
         'hw-13': ['./src/hw-13/hw-13.js'],
-        'trafficlight': ['./src/trafficlight/trafficlight.js'],
-
     };
 
     const plugins = Object.keys(entry).reduce((acc, name) => {
