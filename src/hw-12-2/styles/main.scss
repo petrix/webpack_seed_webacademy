@@ -1,42 +1,33 @@
+$padding-left: 12.5px;
 body {
+    margin: 0 auto;
     @include flex-center;
-    // align-items: center;
-    font-family: 'Comfortaa';
-}
-.rows-widget{
-    width: 400px;
-    // height: 100%;
-    &>div{
 
-
-
-        // width: 100%;
-    margin-bottom: 15px;
-    // position: relative;
-    
-    
 }
+
+@mixin btnResetDefault {
+    border: none;
+    font-size: 1rem;
+    text-align: left;
+    background-color: transparent;
+    color: #fff;
 }
-.row-title{
-        font-size: 25px;
+
+.select {
+    display: inline-block;
+    width: 180px;
+    position: relative;
+    &__header {
+        @include btnResetDefault;
+        background-color: rgb(20, 38, 225);
         color: #fff;
-        height:40px;
-        @include flex-row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px 0 15px;
-        // background-image: linear-gradient(to right,#04082c, #04082c);
-        background-color: #04082c;
-        transition: all 500ms;
-
-        // background-image: linear-gradient(to right,#010289, #1d30d5);
-    
-    } 
-    .row-active{
-        transition: all 500ms;
-        background-image: linear-gradient(to right,#010289, #1d30d5);
-
+        text-align: left;
+        height: 25px;
+        width: 100%;
+        border-radius: 50px;
+        cursor: crosshair;
     }
+<<<<<<< HEAD
     .row-arrow{
         @include flex-row;
         transition: all 500ms;
@@ -101,14 +92,42 @@ body {
         margin: 0 auto;
         text-align: justify;
         transform: scaleY(1);
+=======
+    &__options {
+        position: absolute;
+        left: $padding-left;
+        background-color: rgb(4, 8, 44);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: calc(100% - #{$padding-left * 2});
+        visibility: hidden;
+        opacity: 0;
+        transition: all 400ms;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    &__option {
+        margin: $padding-left 0;
+    }
+    &__control {
+        @include btnResetDefault;
+        color: #fff;
+        padding: 0 $padding-left;
+        // margin: $padding-left 0;
+        width: 100%;
+        transition: all 400ms;
+        cursor: crosshair;
+        &:hover {
+            background-color: rgb(20, 38, 225);
+        }
+    }
+    &__opened {
+        .select__options {
+            transform: scaleY(1);
+            visibility: visible;
+            opacity: 1;
+        }
+>>>>>>> 35dd0a3c20e4d01b0871f581762c54168b045928
     }
 }
-// .visible{
-//     height: 100%;
-//     visibility: visible;
-//     transform-origin: top;
-//     // opacity: 1;
-//     transform: scaleY(1);
-//     transition: all 500ms;
-//     // display: block !important;
-// }

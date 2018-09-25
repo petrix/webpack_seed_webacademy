@@ -1,0 +1,59 @@
+body {
+    @include flex-center;
+    font-family: 'Comfortaa';
+}
+
+.hidden {
+    // display: none;
+    visibility: hidden;
+    transform-origin: top;
+    opacity: 0;
+    // transform: scaleY(0);
+    transition: all 300ms;
+}
+
+.selected-tab {
+    transition: all 300ms;
+    background-color: #1426e1 !important;
+}
+
+.tabs {
+    width: 400px;
+    height: 400px;
+    @include flex-column;
+    justify-content: flex-start;
+    // &_selector {
+    // }
+    &>ul {
+        @include flex-row;
+        justify-content: space-around;
+        font-size: 16px;
+        cursor: crosshair;
+        &>li {
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            height: 50px;
+            color: #fff;
+            @include flex-center;
+            background-color: #04082c;
+            &:hover {
+                background-color: #000969;
+                transition: all 300ms;
+            }
+        }
+    }
+    // &>ul:nth-child(2) {
+    &>div {
+        position: relative;
+        &>div {
+            // margin-top: 100px;
+            padding: 15px;
+            color: #656565;
+            border: 1px solid #656565;
+            font-size: 15px;
+            width: 400px;
+            position: absolute;
+        }
+    }
+}
