@@ -12,6 +12,7 @@ const baseConf = (_path) => {
         index: ['babel-polyfill', './src/index/index.js'],
         'ex-cast': ['./src/ex-cast/ex-cast.js'],
         'pmf': ['./src/pmf/pmf.js'],
+        'trafficlight': ['./src/trafficlight/trafficlight.js'],
         'lesson-8': ['./src/lesson-8/lesson-8.js'],
         'lesson-9': ['./src/lesson-9/lesson-9.js'],
         'lesson-10': ['./src/lesson-10/lesson-10.js'],
@@ -25,6 +26,7 @@ const baseConf = (_path) => {
         'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
         'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
         'hw-13': ['./src/hw-13/hw-13.js'],
+        'hw-14': ['./src/hw-14/hw-14.js'],
     };
 
     const plugins = Object.keys(entry).reduce((acc, name) => {
