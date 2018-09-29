@@ -60,56 +60,57 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 351);
+/******/ 	return __webpack_require__(__webpack_require__.s = 354);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 351:
+/***/ 354:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(352);
+module.exports = __webpack_require__(355);
 
 
 /***/ }),
 
-/***/ 352:
+/***/ 355:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(353);
+__webpack_require__(356);
 
-var container = document.querySelector('.select');
-var header = document.querySelector('.select__header');
-var controls = document.querySelectorAll('.select__control');
+// const container = document.querySelector('.select');
+// const header = document.querySelector('.select__header');
+// const controls = document.querySelectorAll('.select__control');
 
-for (var i = 0; i < controls.length; i++) {
-    controls[i].onclick = selectOption;
-}
+// for(let i = 0; i< controls.length; i++){
+//     controls[i].onclick = selectOption;
+// }
 
-function toggle() {
-    if (container.classList.contains('select__opened')) {
-        close();
-    } else {
-        open();
-    }
-}
-function close() {
-    container.classList.remove('select__opened');
-}
-function open() {
-    container.classList.add('select__opened');
-}
-header.onclick = toggle;
+// function toggle(){
+//     if(container.classList.contains('select__opened')){
+//         close();
+//     }else{
+//         open();
+//     }
+// }
+// function close(){
+//     container.classList.remove('select__opened');
+// }
+// function open(){
+//     container.classList.add('select__opened');
+// }
+// header.onclick = toggle;
 
-function selectOption() {
-    console.log(this);
-    var text = this.textContent;
-    header.textContent = text;
-    close();
-}
+// function selectOption(){
+//     console.log(this);
+//     const text = this.textContent;
+//     header.textContent = text;
+//     close();
+// }
+
 
 // var sum=0;
 // var i = 0;
@@ -120,13 +121,13 @@ function selectOption() {
 // console.log(sum);
 
 
-// $('#yyy').click(function(){
-//     $('#xxx').toggleClass('select__opened');
-// });
+$('#yyy').click(function () {
+    $('#xxx').toggleClass('select__opened');
+});
 
 /***/ }),
 
-/***/ 353:
+/***/ 356:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

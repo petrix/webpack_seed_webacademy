@@ -60,49 +60,50 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 357);
+/******/ 	return __webpack_require__(__webpack_require__.s = 367);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 357:
+/***/ 367:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(358);
+module.exports = __webpack_require__(368);
 
 
 /***/ }),
 
-/***/ 358:
+/***/ 368:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(359);
+__webpack_require__(369);
 
 var title = '#dropmenu-title';
 
 $('#dropmenu-item1').click(function () {
-    $(title).text('Name');
+    console.log($(this).text());
+    $(title).text($(this).text());
     $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
     $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
     dropmenuvisible = false;
 });
 $('#dropmenu-item2').click(function () {
-    $(title).text('Date');
+    $(title).text($(this).text());
     $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
     $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
     dropmenuvisible = false;
 });
 $('#dropmenu-item3').click(function () {
-    $(title).text('Price');
+    $(title).text($(this).text());
     $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
     $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
     dropmenuvisible = false;
 });
 $('#dropmenu-item4').click(function () {
-    $(title).text('Size');
+    $(title).text($(this).text());
     $('#dropmenu-items').css({ 'opacity': '0.5', 'transform': 'scaleY(0)' });
     $('#dropmenu-icon').html('<i class="fas fa-angle-down"></i>');
     dropmenuvisible = false;
@@ -125,7 +126,7 @@ $('#dropmenu_header').click(function () {
 
 /***/ }),
 
-/***/ 359:
+/***/ 369:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

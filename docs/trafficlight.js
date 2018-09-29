@@ -60,45 +60,34 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 363);
+/******/ 	return __webpack_require__(__webpack_require__.s = 339);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 363:
+/***/ 339:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(364);
+module.exports = __webpack_require__(340);
 
 
 /***/ }),
 
-/***/ 364:
+/***/ 340:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(365);
+__webpack_require__(341);
 
 ///////////////////////////////////////
 //////----USING JQUERY METHOD----//////
 ///////////////////////////////////////
 
-$('.j_color_red').click(function () {
-    $('.j_color_red').addClass('j_active');
-    $('.j_color_yellow').removeClass('j_active');
-    $('.j_color_green').removeClass('j_active');
-});
-$('.j_color_yellow').click(function () {
-    $('.j_color_red').removeClass('j_active');
-    $('.j_color_yellow').addClass('j_active');
-    $('.j_color_green').removeClass('j_active');
-});
-$('.j_color_green').click(function () {
-    $('.j_color_red').removeClass('j_active');
-    $('.j_color_yellow').removeClass('j_active');
-    $('.j_color_green').addClass('j_active');
+$('.j_circle').click(function () {
+    $(this).addClass('j_active');
+    $('.j_circle').not(this).removeClass('j_active');
 });
 
 ////////////////////////////////////////
@@ -114,10 +103,11 @@ $('.j_color_green').click(function () {
 var redcolor = document.querySelector('.color_red');
 var yellowcolor = document.querySelector('.color_yellow');
 var greencolor = document.querySelector('.color_green');
-var circle = document.querySelectorAll('.circle');
-for (var i = 0; i < circle.length; i++) {
-    var x = circle[i];
-    circle[i].onclick = selectOption;
+// const circle = document.querySelector('.circle');
+var circles = document.querySelectorAll('.circle');
+for (var i = 0; i < circles.length; i++) {
+    var x = circles[i];
+    circles[i].onclick = selectOption;
 }
 
 function selectOption() {
@@ -138,7 +128,7 @@ function selectOption() {
 
 /***/ }),
 
-/***/ 365:
+/***/ 341:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

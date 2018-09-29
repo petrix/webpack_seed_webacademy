@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 342);
+/******/ 	return __webpack_require__(__webpack_require__.s = 345);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 342:
+/***/ 345:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(343);
+module.exports = __webpack_require__(346);
 
 
 /***/ }),
 
-/***/ 343:
+/***/ 346:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(344);
+__webpack_require__(347);
 
 var openedClassName = 'global-nav_opened';
 var isOpened = false;
@@ -101,15 +101,13 @@ function toggle() {
 
 btnToggle.onclick = toggle;
 
-// $(function(){
-//     $('#globalnav-icon').click(function() {
-//         $('#global-nav').toggleClass('global-nav_opened')
-//     })
-// });
+// $('#globalnav-icon').click(function() {
+//     $('#global-nav').toggleClass('global-nav_opened')
+// })
 
 /***/ }),
 
-/***/ 344:
+/***/ 347:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
