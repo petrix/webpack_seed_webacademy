@@ -60,30 +60,58 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 364);
+/******/ 	return __webpack_require__(__webpack_require__.s = 357);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 364:
+/***/ 357:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(365);
+module.exports = __webpack_require__(358);
 
 
 /***/ }),
 
-/***/ 365:
+/***/ 358:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(366);
+__webpack_require__(359);
+
+function greetingWidget(parentNode) {
+    var btn = parentNode.querySelector('.control');
+    var block = parentNode.querySelector('.block');
+    btn.addEventListener('click', toggle);
+    btn.addEventListener('click', function () {
+        console.log(this);
+    });
+
+    function toggle() {
+        var name = prompt('enter your name');
+        console.log(name);
+        if (block.classList.contains('block_visible')) {
+            return;
+        } else {
+            block.classList.add('block_visible');
+        }
+        block.textContent = block.textContent + ' ' + name;
+    }
+}
+greetingWidget(document.querySelector('.row1'));
+greetingWidget(document.querySelector('.row2'));
+greetingWidget(document.querySelector('.row3'));
+greetingWidget(document.querySelector('.row4'));
+
+// $('button').click(function(){
+//     $(this).next().css('opacity', '1');
+// })
 
 /***/ }),
 
-/***/ 366:
+/***/ 359:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

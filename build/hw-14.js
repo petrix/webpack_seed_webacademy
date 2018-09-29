@@ -60,30 +60,42 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 364);
+/******/ 	return __webpack_require__(__webpack_require__.s = 382);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 364:
+/***/ 382:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(365);
+module.exports = __webpack_require__(383);
 
 
 /***/ }),
 
-/***/ 365:
+/***/ 383:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(366);
+__webpack_require__(384);
+
+/////нарисовать login окно
+
+$('button').click(function () {
+    $(this).parent().children('p').toggleClass('active');
+});
+$('.on-all').click(function () {
+    $(this).parent().parent().children().find('p').addClass('active');
+});
+$('.off-all').click(function () {
+    $(this).parent().parent().children().find('p').removeClass('active');
+});
 
 /***/ }),
 
-/***/ 366:
+/***/ 384:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

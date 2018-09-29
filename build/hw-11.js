@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 357);
+/******/ 	return __webpack_require__(__webpack_require__.s = 367);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 357:
+/***/ 367:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(358);
+module.exports = __webpack_require__(368);
 
 
 /***/ }),
 
-/***/ 358:
+/***/ 368:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(359);
+__webpack_require__(369);
 
 var title = '#dropmenu-title';
 
@@ -126,7 +126,7 @@ $('#dropmenu_header').click(function () {
 
 /***/ }),
 
-/***/ 359:
+/***/ 369:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

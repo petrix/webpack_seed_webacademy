@@ -60,64 +60,40 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 363);
+/******/ 	return __webpack_require__(__webpack_require__.s = 376);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 363:
+/***/ 376:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(364);
+module.exports = __webpack_require__(377);
 
 
 /***/ }),
 
-/***/ 364:
+/***/ 377:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(365);
+__webpack_require__(378);
 
 $(".row-title").click(function () {
     $(".row-content").not($(this).next()).slideUp(500);
     $(this).next().slideDown(500);
-    $(".row-arrow").not($(this).next()).removeClass('active');
-    $(this).children().next().addClass('active');
+    $(".row-arrow").not($(this).next()).removeClass('row-arrow-active');
+    $(this).children().next().addClass('row-arrow-active');
 
     $('.row-title').not($(this)).removeClass('row-active');
     $(this).addClass('row-active');
-
-    // $(this).next().toggleClass('active');
-    // $(this).css('border-radius', '10px 10px 0 0');
-
-    console.log(this);
 });
-// $(".row-title").click(function () {
-//     $(".row-content").not($(this).next()).removeClass('visible');
-//     $(this).next().toggleClass('visible');
-// });
-
-
-// const rows = document.querySelectorAll('.rows');
-// var i = 0;
-// for (i; i < rows.length ; i++){
-//     rows[i].onclick = show;
-//     console.log(rows[i]);
-//     // console.log(this);
-// }
-// function show(){
-//     // var x = div.querySelectorAll('.row-title');
-//     console.log(this.value);
-// console.log(x);
-// console.log(i);
-// }
 
 /***/ }),
 
-/***/ 365:
+/***/ 378:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

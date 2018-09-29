@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box; }
+  *:active, *:hover, *:focus {
+    outline: 0; }
+
+html {
+  height: 100%;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 12px; }
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+
+body, h1, h2, h3, h4, ul, ol, figure {
+  margin: 0;
+  padding: 0; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Regular.eot);
+  src: url(./assets/fonts/Russia-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Regular.woff2) format("woff2"), url(./assets/fonts/Russia-Regular.woff) format("woff"), url(./assets/fonts/Russia-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-BoldItalic.eot);
+  src: url(./assets/fonts/Russia-BoldItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-BoldItalic.woff2) format("woff2"), url(./assets/fonts/Russia-BoldItalic.woff) format("woff"), url(./assets/fonts/Russia-BoldItalic.ttf) format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-LightItalic.eot);
+  src: url(./assets/fonts/Russia-LightItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-LightItalic.woff2) format("woff2"), url(./assets/fonts/Russia-LightItalic.woff) format("woff"), url(./assets/fonts/Russia-LightItalic.ttf) format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-MediumItalic.eot);
+  src: url(./assets/fonts/Russia-MediumItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-MediumItalic.woff2) format("woff2"), url(./assets/fonts/Russia-MediumItalic.woff) format("woff"), url(./assets/fonts/Russia-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Medium.eot);
+  src: url(./assets/fonts/Russia-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Medium.woff2) format("woff2"), url(./assets/fonts/Russia-Medium.woff) format("woff"), url(./assets/fonts/Russia-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Bold.eot);
+  src: url(./assets/fonts/Russia-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Bold.woff2) format("woff2"), url(./assets/fonts/Russia-Bold.woff) format("woff"), url(./assets/fonts/Russia-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Light.eot);
+  src: url(./assets/fonts/Russia-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Light.woff2) format("woff2"), url(./assets/fonts/Russia-Light.woff) format("woff"), url(./assets/fonts/Russia-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Italic.eot);
+  src: url(./assets/fonts/Russia-Italic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Italic.woff2) format("woff2"), url(./assets/fonts/Russia-Italic.woff) format("woff"), url(./assets/fonts/Russia-Italic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Regular.eot);
+  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype"), url(./assets/images/Comfortaa-Regular.svg#Comfortaa-Regular) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Bold.eot);
+  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype"), url(./assets/images/Comfortaa-Bold.svg#Comfortaa-Bold) format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Bold.eot);
+  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype"), url(./assets/images/Jura-Bold.svg#Jura-Bold) format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Medium.eot);
+  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype"), url(./assets/images/Jura-Medium.svg#Jura-Medium) format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Regular.eot);
+  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype"), url(./assets/images/Jura-Regular.svg#Jura-Regular) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Light.eot);
+  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype"), url(./assets/images/Jura-Light.svg#Jura-Light) format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-SemiBold.eot);
+  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype"), url(./assets/images/Jura-SemiBold.svg#Jura-SemiBold) format("svg");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue Book';
+  src: url(./assets/fonts/BebasNeueBook.eot);
+  src: url(./assets/fonts/BebasNeueBook.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueBook.woff2) format("woff2"), url(./assets/fonts/BebasNeueBook.woff) format("woff"), url(./assets/fonts/BebasNeueBook.ttf) format("truetype"), url(./assets/images/BebasNeueBook.svg#BebasNeueBook) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeueBold.eot);
+  src: url(./assets/fonts/BebasNeueBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueBold.woff2) format("woff2"), url(./assets/fonts/BebasNeueBold.woff) format("woff"), url(./assets/fonts/BebasNeueBold.ttf) format("truetype"), url(./assets/images/BebasNeueBold.svg#BebasNeueBold) format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeue-Thin.eot);
+  src: url(./assets/fonts/BebasNeue-Thin.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeue-Thin.woff2) format("woff2"), url(./assets/fonts/BebasNeue-Thin.woff) format("woff"), url(./assets/fonts/BebasNeue-Thin.ttf) format("truetype"), url(./assets/images/BebasNeue-Thin.svg#BebasNeue-Thin) format("svg");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeueLight.eot);
+  src: url(./assets/fonts/BebasNeueLight.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueLight.woff2) format("woff2"), url(./assets/fonts/BebasNeueLight.woff) format("woff"), url(./assets/fonts/BebasNeueLight.ttf) format("truetype"), url(./assets/images/BebasNeueLight.svg#BebasNeueLight) format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeueRegular.eot);
+  src: url(./assets/fonts/BebasNeueRegular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueRegular.woff2) format("woff2"), url(./assets/fonts/BebasNeueRegular.woff) format("woff"), url(./assets/fonts/BebasNeueRegular.ttf) format("truetype"), url(./assets/images/BebasNeueRegular.svg#BebasNeueRegular) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  font-family: 'Comfortaa';
+  font-weight: bold; }
+
+button {
+  border: none;
+  display: inline-block;
+  outline: none;
+  padding: 0;
+  border-radius: 1rem;
+  font-size: 20px;
+  font-family: 'Comfortaa';
+  font-weight: bold; }
+
+.container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  height: 300px; }
+  .container > div {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    width: 180px;
+    height: 100%;
+    margin-right: 10px; }
+    .container > div > p {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center;
+      border-radius: 1rem;
+      font-family: 'Bebas Neue';
+      transition: all 500ms;
+      font-size: 50px;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      margin-bottom: 10px; }
+      .container > div > p.active {
+        background-color: darkred;
+        color: #fff; }
+    .container > div:nth-child(2) > p.active {
+      background-color: blueviolet; }
+    .container > div:nth-child(3) > p.active {
+      background-color: green; }
+    .container > div:nth-child(4) > p.active {
+      background-color: darkcyan; }
+    .container > div:nth-child(5) > p.active {
+      background-color: darkmagenta; }
+    .container > div > button {
+      height: 70px; }
+  .container > .switchers {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    height: 100%;
+    width: 200px; }
+    .container > .switchers > button {
+      width: 100%;
+      height: 145px;
+      font-family: 'Jura';
+      font-weight: normal;
+      font-size: 30px; }
+      .container > .switchers > button > strong {
+        font-size: 50px; }
