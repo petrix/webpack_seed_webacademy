@@ -183,7 +183,10 @@ button {
   border-radius: 1rem;
   font-size: 20px;
   font-family: 'Comfortaa';
-  font-weight: bold; }
+  font-weight: bold;
+  background-color: #eee; }
+  button:hover {
+    background-color: #ccc; }
 
 .container {
   display: -ms-flexbox;

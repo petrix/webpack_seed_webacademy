@@ -9,6 +9,10 @@ button{
     font-size: 20px;
     font-family: 'Comfortaa';
     font-weight: bold;
+    background-color: #eee;
+    &:hover{
+        background-color: #ccc;
+    }
 }
 .container{
     @include flex-row;
@@ -18,7 +22,7 @@ button{
         @include flex-column;
         justify-content: space-between;
         width: 180px;
-        height: 100%;        
+        height: 100%;
         margin-right: 10px;
         &>p{
             @include flex-center;
@@ -30,7 +34,7 @@ button{
             height: 100%;
             margin: 0 auto;
             margin-bottom: 10px;
-            
+
             &.active{
                 background-color: darkred;
                 color: #fff;
