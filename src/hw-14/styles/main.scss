@@ -2,46 +2,64 @@ body {
     @include flex-center;
     font-family: 'Comfortaa';
     font-weight: bold;
-    
 }
 button{
     @include btn-reset-default;
-    border-radius: 2rem;
-    font-size: 16px;
+    border-radius: 1rem;
+    font-size: 20px;
     font-family: 'Comfortaa';
     font-weight: bold;
-
 }
 .container{
     @include flex-row;
-    // align-items: flex-start;
-    // justify-content: space-around;
-    height: 200px;
+    height: 300px;
 
     &>div{
         @include flex-column;
-        height: 100%;
         justify-content: space-between;
+        width: 200px;
+        height: 100%;        
+        margin-right: 10px;
         &>p{
             @include flex-center;
-            border-radius: 2rem;
+            border-radius: 1rem;
             transition: all 500ms;
-            font-size: 20px;
-            width: 150px;
-            height: 150px;
+            font-size: 30px;
+            width: 100%;
+            height: 100%;
             margin: 0 auto;
+            margin-bottom: 10px;
             
             &.active{
-                background-color: rebeccapurple;
+                background-color: red;
                 color: #fff;
             }
         }
+        &:nth-child(2)>p.active{
+            background-color: blueviolet;
+        }
+        &:nth-child(3)>p.active{
+            background-color: green;
+        }
+        &:nth-child(4)>p.active{
+            background-color: darkcyan;
+        }
+        &:nth-child(5)>p.active{
+            background-color: darkmagenta;
+        }
         &>button{
-                height: 50px;
+            height: 70px;
         }
     }
-}
-.on-all{
+    &>.switchers{
+    @include flex-column;
+    justify-content: space-between;
+    height: 100%;
     width: 200px;
 
+    &>button{
+        width: 100%;
+        height: 145px;
+        }
+    }
 }

@@ -7,5 +7,8 @@ $('button').click(function(){
     $(this).parent().children('p').toggleClass('active');
 });
 $('.on-all').click(function(){
-    $(this).parent().children().find('p').addClass('active');
+    $(this).parent().parent().children().find('p').addClass('active');
+});
+$('.off-all').click(function(){
+    $(this).parent().parent().children().find('p').removeClass('active');
 });
