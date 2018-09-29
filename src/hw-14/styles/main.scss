@@ -17,21 +17,22 @@ button{
     &>div{
         @include flex-column;
         justify-content: space-between;
-        width: 200px;
+        width: 180px;
         height: 100%;        
         margin-right: 10px;
         &>p{
             @include flex-center;
             border-radius: 1rem;
+            font-family: 'Bebas Neue';
             transition: all 500ms;
-            font-size: 30px;
+            font-size: 50px;
             width: 100%;
             height: 100%;
             margin: 0 auto;
             margin-bottom: 10px;
             
             &.active{
-                background-color: red;
+                background-color: darkred;
                 color: #fff;
             }
         }
@@ -60,6 +61,13 @@ button{
     &>button{
         width: 100%;
         height: 145px;
+        font-family: 'Jura';
+        font-weight: normal;
+        font-size: 30px;
+
+        &>strong{
+            font-size: 50px;
+        }
         }
     }
 }
