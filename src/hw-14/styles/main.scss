@@ -12,6 +12,8 @@ button{
     background-color: #eee;
     &:hover{
         background-color: #ccc;
+        transition: all 500ms;
+
     }
 }
 .container{

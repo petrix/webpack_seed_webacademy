@@ -186,7 +186,8 @@ button {
   font-weight: bold;
   background-color: #eee; }
   button:hover {
-    background-color: #ccc; }
+    background-color: #ccc;
+    transition: all 500ms; }
 
 .container {
   display: -ms-flexbox;
