@@ -44,7 +44,7 @@ function trafficLight(parentNode) {
       }
       switchOff();
       lights[activeLightIndex].classList.add(ACTIVE_CLASS_NAME);
-      console.log(activeLightIndex);
+      // console.log(activeLightIndex);
     },2000);
   }
 
