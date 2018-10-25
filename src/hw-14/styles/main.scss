@@ -6,13 +6,17 @@ body {
 button{
     @include btn-reset-default;
     border-radius: 1rem;
-    font-size: 20px;
+    font-size: 50px;
     font-family: 'Comfortaa';
     font-weight: bold;
-    background-color: #eee;
+    color: #333;
+    background-color: #ccc;
+    transition: all 1000ms;
+
     &:hover{
-        background-color: #ccc;
-        transition: all 500ms;
+        background-color: #333;
+        color: #ccc;
+        transition: all 1000ms;
 
     }
 }

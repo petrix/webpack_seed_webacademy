@@ -1,10 +1,14 @@
 import './hw-14.scss';
+$(document).ready(function(){
+    
 
+    $.get("https://ipinfo.io", function(response) {
+        console.log(response.ip, response.country);
+      }, "jsonp")
 
 /////нарисовать login окно
 
 $('button').click(function(){
-    // $(this).parent().children('p').toggleClass('active');
     $(this).prev('p').toggleClass('active');
 });
 $('.on-all').click(function(){
@@ -12,4 +16,8 @@ $('.on-all').click(function(){
 });
 $('.off-all').click(function(){
     $(this).parent().parent().children().find('p').removeClass('active');
+});
+
+
+
 });

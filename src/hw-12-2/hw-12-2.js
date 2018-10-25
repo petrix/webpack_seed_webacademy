@@ -6,7 +6,6 @@ $(".row-title").click(function () {
     $(this).next().slideDown(500);
     $(".row-arrow").not($(this).next()).removeClass('row-arrow-active');
     $(this).children().next().addClass('row-arrow-active');
-    
     $('.row-title').not($(this)).removeClass('row-active');
     $(this).addClass('row-active');
 });
