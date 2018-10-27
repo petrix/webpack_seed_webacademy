@@ -1,0 +1,108 @@
+//diplom - scss
+body {
+    font-family: 'Muli';
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+header {
+    width: 100%;
+    height: 535px;
+    background: url('../../assets/images/diplom/header-backgnd.jpg') center bottom no-repeat;
+    background-size: cover;
+    @include flex-column;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFF;
+
+    &>nav {
+        @include flex-row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
+
+        &>div {
+            @include flex-row;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 12px;
+            text-shadow: 0px 1px 5px #000;
+
+            &>span {
+                padding: 0 25px;
+                white-space: nowrap;
+            }
+
+            &>button {
+                @include btn-reset-default;
+                background-color: #00a5f4;
+                padding: 0 25px;
+                height: 42px;
+                border-radius: 3px;
+                color: #FFF;
+            }
+        }
+    }
+
+    &>section {
+        font-size: 36px;
+        text-shadow: 0px 1px 5px #000;
+        width: 100%;
+        height: 100%;
+        @include flex-column;
+        justify-content: center;
+        align-items: center;
+
+        &>.header_selector {
+            width: 800px;
+
+            &>span {
+                font-size: 12px;
+                text-shadow: 0px 1px 5px #000;
+            }
+        }
+
+        &>.header_searchbar {
+            @include flex-row;
+            justify-content: space-between;
+            height: 50px;
+            width: 800px;
+            font-size: 13px;
+            font-weight: 300;
+            font-style: normal;
+
+            &>div {
+                @include flex-row;
+                align-items: center;
+                background-color: #FFF;
+                color: #7c7c7c;
+                text-shadow: 0 0 0 #000;
+                border-radius: 3px;
+                padding: 0 10px;
+                // margin: 0 10px;
+            }
+
+            &>button {
+                @include btn-reset-default;
+                color: #FFF;
+                background-color: #82c141;
+                border-radius: 3px;
+                width: 150px;
+                padding: 0 10px;
+                // margin: 0 10px;
+            }
+        }
+    }
+
+}
+
+// header>section>.header_selector>
+
+// nav>div{
+//     background: url('../../assets/images/diplom/logotype.png') center center no-repeat;
+//     height: 100%;
+//     width: 200px;
+//     // display: inline;
+// }
