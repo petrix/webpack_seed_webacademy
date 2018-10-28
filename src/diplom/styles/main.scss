@@ -5,6 +5,16 @@ body {
     letter-spacing: 0.5px;
 }
 
+p {
+    margin: 0 auto;
+    padding: 0;
+}
+button{
+    @include btn-reset-default;
+}
+section{
+    margin: 0 auto;
+}
 header {
     width: 100%;
     height: 535px;
@@ -20,27 +30,26 @@ header {
         align-items: center;
         justify-content: space-around;
         width: 100%;
-        height: 60px;
+        height: 100px;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
 
         &>div {
             @include flex-row;
+            // justify-content: flex-start;
             align-items: center;
-            justify-content: space-around;
+
             font-size: 12px;
             text-shadow: 0px 1px 5px #000;
 
             &>span {
-                padding: 0 25px;
+                padding: 0 20px;
                 white-space: nowrap;
             }
 
             &>button {
-                @include btn-reset-default;
                 background-color: #00a5f4;
                 padding: 0 25px;
                 height: 42px;
-                border-radius: 3px;
                 color: #FFF;
             }
         }
@@ -84,13 +93,341 @@ header {
             }
 
             &>button {
-                @include btn-reset-default;
                 color: #FFF;
                 background-color: #82c141;
-                border-radius: 3px;
                 width: 150px;
                 padding: 0 10px;
             }
         }
     }
 }
+
+.booking-module {
+    width: 100%;
+    height: 500px;
+    // background-color: #00a5f4;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+
+    &>p:nth-child(1) {
+        font-size: 35px;
+        color: #303030;
+        white-space: nowrap;
+    }
+
+    &>p:nth-child(2) {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #303030;
+        line-height: 24px;
+        text-align: center;
+        width: 680px;
+    }
+
+    &>div {
+        @include flex-row;
+        justify-content: space-around;
+        align-items: center;
+        width: 400px;
+        margin-top: 40px;
+        font-weight: bold;
+
+        &>button {
+            background-color: #82c141;
+            color: #FFF;
+            height: 50px;
+            padding: 0px 50px;
+            font-weight: bold;
+        }
+
+        &>span {
+            color: #82c141;
+            font-weight: bold;
+        }
+    }
+}
+
+.gallery-module {
+    @include flex-column;
+    align-items: center;
+    &>p {
+        font-size: 40px;
+        // text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.gallery-module div {
+    margin: 20px;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 18px;
+    text-shadow: 0px 1px 5px #000;
+    transition: all 0.5s;
+    &>p:nth-child(1) {
+        transform: translateY(40px);
+        transition: all 0.6s;
+    }
+
+    &>button {
+        background-color: #00a5f4;
+        color: #FFF;
+        padding: 11px;
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 0.5s;
+    }
+
+    &>p:nth-child(3) {
+        font-size: 11px;
+        border-bottom: 2px solid #fff;
+        opacity: 0;
+        transform: translateY(80px);
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        box-shadow:0px 3px 18px rgba(0, 0, 0, 0.65);
+        transition: all 0.5s;
+        &>p:nth-child(1) {
+            transform: translateY(0px);
+            transition: all 0.3s;
+        }
+
+        &>button {
+            opacity: 1;
+            transform: translateY(0px);
+
+            transition: all 0.5s;
+        }
+
+        &>p:nth-child(3) {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: all 0.6s;
+        }
+
+    }
+}
+
+.gallery-module_content {
+    width: 100%;
+    // background-color: #82c141;
+    // height: 1200px;
+    @include flex-row;
+    justify-content: center;
+
+    &>article:nth-child(1) {
+        @include flex-column;
+
+        &>:nth-child(1) {
+            width: 270px;
+            height: 270px;
+            background: url('../../assets/images/diplom/gallery/london.jpg') center center no-repeat;
+            background-size: cover;
+        }
+
+        &>:nth-child(2) {
+            width: 270px;
+            height: 580px;
+            background: url('../../assets/images/diplom/gallery/amsterdam1.jpg') center center no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &>article:nth-child(2) {
+        @include flex-column;
+
+        &>article:nth-child(1) {
+            @include flex-row;
+
+            &>article:nth-child(1) {
+                @include flex-column;
+
+
+                &>:nth-child(1) {
+                    width: 270px;
+                    height: 270px;
+                    background: url('../../assets/images/diplom/gallery/paris.jpg') center center no-repeat;
+                    background-size: cover;
+                }
+
+                &>:nth-child(2) {
+                    width: 270px;
+                    height: 270px;
+                    background: url('../../assets/images/diplom/gallery/rome2.jpg') center center no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            &>div {
+                width: 580px;
+                height: 580px;
+                background: url('../../assets/images/diplom/gallery/dubai3.jpg') center center no-repeat;
+                background-size: cover;
+                font-size: 22px;
+            }
+        }
+
+        &>article:nth-child(2) {
+            @include flex-row;
+
+            &>:nth-child(1) {
+                width: 580px;
+                height: 270px;
+                background: url('../../assets/images/diplom/gallery/new-york2.jpg') center center no-repeat;
+                background-size: cover;
+            }
+
+            &>:nth-child(2) {
+                width: 270px;
+                height: 270px;
+                background: url('../../assets/images/diplom/gallery/barcelona.jpg') center center no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+}
+.carselector-module{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    &>article:nth-child(1){
+        @include flex-row;
+        justify-content: space-between;
+        align-items: flex-start;
+    width: 1440px;
+        padding: 30px 60px;
+        &>span{
+            font-size: 40px;
+            margin-left: 60px;
+        }
+        &>article{
+            @include flex-row;
+
+        
+        &>button{
+            @include flex-row;
+            align-items: center;
+            justify-content: space-around;
+            height: 36px;
+            background-color: #f5a623;
+            color: #FFF;
+            font-weight: bold;
+            padding: 0 15px;
+            margin: 0 6px;
+            &>i{
+                color: #FFF;
+                font-size: 25px;
+                padding: 0 3px;
+            }
+            &>span{
+                padding: 0 3px;
+
+            }
+        }
+        }
+    }
+}
+
+
+
+footer{
+    width: 100%;
+    height: 400px;
+    background-color: #303030;
+    color: #FFF;
+    font-size: 13px;
+    &>hr{
+        border: 0;
+        height: 1px;
+        background: #535353;
+    }
+}
+    .footer-logo{
+        @include flex-center;
+        height: 120px;
+        &>div{
+            width: 139px;
+            height: 30px;
+            background: url('../../assets/images/diplom/fleetster-logo@2x.png') center center no-repeat;
+            background-size: cover;
+        }
+    }
+    .footer-content{
+        max-width:1200px;
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 73px;
+    }
+        .lang-currency{
+            @include flex-column;
+            &>span{
+                line-height: 32px;
+            }
+            &>select{
+                @include btn-reset-default;
+                width: 235px;
+                height: 35px;
+                font-size: 13px;
+                font-weight: 300;
+                padding-left: 13px;
+                padding: 5px 0;
+                &>option{
+                    height: 35px;
+                padding-left: 13px;
+                padding: 5px 0;
+                    background-color: #303030;
+                    color: #FFF;
+
+                }
+                &:nth-child(3){
+                    margin-top:15px;
+                }
+            }
+        }
+    
+.footer-links{
+    @include flex-row;
+    &>div{
+        @include flex-column;
+        align-items: flex-start;
+        width: 150px;
+        &>h3{
+            font-size: 16px;
+        }
+        &>h4{
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 32px;
+        }
+    }
+}
+.footer-bottom{
+    max-width:1200px;
+    height: 66px;
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    &>div{
+        @include flex-row;
+        justify-content: space-between;
+        font-size: 20px;
+        width: 100px;
+    }
+    &>span{
+        font-weight: 300;
+        font-size: 12px;
+    }
+}
+// body > footer > section:nth-child(2) > div > p
