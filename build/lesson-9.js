@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 345);
+/******/ 	return __webpack_require__(__webpack_require__.s = 359);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 345:
+/***/ 359:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(346);
+module.exports = __webpack_require__(360);
 
 
 /***/ }),
 
-/***/ 346:
+/***/ 360:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(347);
+__webpack_require__(361);
 
 var openedClassName = 'global-nav_opened';
 var isOpened = false;
@@ -107,7 +107,7 @@ btnToggle.onclick = toggle;
 
 /***/ }),
 
-/***/ 347:
+/***/ 361:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

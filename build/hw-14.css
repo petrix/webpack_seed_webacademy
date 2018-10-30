@@ -181,13 +181,16 @@ button {
   outline: none;
   padding: 0;
   border-radius: 1rem;
-  font-size: 20px;
+  font-size: 50px;
   font-family: 'Comfortaa';
   font-weight: bold;
-  background-color: #eee; }
+  color: #333;
+  background-color: #ccc;
+  transition: all 1000ms; }
   button:hover {
-    background-color: #ccc;
-    transition: all 500ms; }
+    background-color: #333;
+    color: #ccc;
+    transition: all 1000ms; }
 
 .container {
   display: -ms-flexbox;
@@ -232,7 +235,10 @@ button {
     .container > div:nth-child(5) > p.active {
       background-color: darkmagenta; }
     .container > div > button {
-      height: 70px; }
+      height: 70px;
+      color: #fff;
+      font-family: 'Jura';
+      font-weight: bold; }
   .container > .switchers {
     display: -ms-flexbox;
     display: flex;

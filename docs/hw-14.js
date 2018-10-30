@@ -60,42 +60,49 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 382);
+/******/ 	return __webpack_require__(__webpack_require__.s = 414);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 382:
+/***/ 414:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(383);
+module.exports = __webpack_require__(415);
 
 
 /***/ }),
 
-/***/ 383:
+/***/ 415:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(384);
+__webpack_require__(416);
 
-/////нарисовать login окно
+$(document).ready(function () {
 
-$('button').click(function () {
-    $(this).parent().children('p').toggleClass('active');
-});
-$('.on-all').click(function () {
-    $(this).parent().parent().children().find('p').addClass('active');
-});
-$('.off-all').click(function () {
-    $(this).parent().parent().children().find('p').removeClass('active');
+    $.get("https://ipinfo.io", function (response) {
+        console.log(response.ip, response.country);
+    }, "jsonp");
+
+    /////нарисовать login окно
+
+    $('button').click(function () {
+        $(this).prev('p').toggleClass('active');
+    });
+    $('.on-all').click(function () {
+        $(this).parent().parent().children().find('p').addClass('active');
+    });
+    $('.off-all').click(function () {
+        $(this).parent().parent().children().find('p').removeClass('active');
+    });
 });
 
 /***/ }),
 
-/***/ 384:
+/***/ 416:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
