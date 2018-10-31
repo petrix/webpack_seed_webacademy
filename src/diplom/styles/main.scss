@@ -153,7 +153,6 @@ header {
     align-items: center;
     &>p {
         font-size: 40px;
-        // text-align: center;
         margin-bottom: 20px;
     }
 }
@@ -161,6 +160,7 @@ header {
 .gallery-module div {
     margin: 20px;
     @include flex-column;
+    text-align: center;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -219,23 +219,23 @@ header {
 
 .gallery-module_content {
     width: 100%;
-    // background-color: #82c141;
-    // height: 1200px;
+    max-width: 1240px;
     @include flex-row;
     justify-content: center;
-
     &>article:nth-child(1) {
         @include flex-column;
-
+        width: 100%;
+        max-width: 310px;
         &>:nth-child(1) {
-            width: 270px;
+            width: 100%;
+            max-width: 270px;
             height: 270px;
             background: url('../../assets/images/diplom/gallery/london.jpg') center center no-repeat;
             background-size: cover;
         }
-
         &>:nth-child(2) {
-            width: 270px;
+            width: 100%;
+            max-width: 270px;
             height: 580px;
             background: url('../../assets/images/diplom/gallery/amsterdam1.jpg') center center no-repeat;
             background-size: cover;
@@ -244,50 +244,65 @@ header {
 
     &>article:nth-child(2) {
         @include flex-column;
-
+        width: 100%;
+        max-width: 930px;
         &>article:nth-child(1) {
             @include flex-row;
-
+            width: 100%;
+            max-width: 930px;
             &>article:nth-child(1) {
                 @include flex-column;
-
+                width: 100%;
+                max-width: 310px;
 
                 &>:nth-child(1) {
-                    width: 270px;
+            width: 100%;
+                    max-width: 270px;
                     height: 270px;
                     background: url('../../assets/images/diplom/gallery/paris.jpg') center center no-repeat;
                     background-size: cover;
                 }
 
                 &>:nth-child(2) {
-                    width: 270px;
+            width: 100%;
+            max-width: 270px;
                     height: 270px;
                     background: url('../../assets/images/diplom/gallery/rome2.jpg') center center no-repeat;
                     background-size: cover;
                 }
             }
+            &>article:nth-child(2) {
+                @include flex-row;
+                width: 100%;
+                max-width: 620px;
+            
 
-            &>div {
-                width: 580px;
+
+            &>:nth-child(1) {
+            width: 100%;
+            max-width: 580px;
                 height: 580px;
                 background: url('../../assets/images/diplom/gallery/dubai3.jpg') center center no-repeat;
                 background-size: cover;
                 font-size: 22px;
-            }
+            }}
         }
 
         &>article:nth-child(2) {
             @include flex-row;
-
+            width: 100%;
+            max-width: 930px;
             &>:nth-child(1) {
-                width: 580px;
+            width: 100%;
+            max-width: 580px;
                 height: 270px;
                 background: url('../../assets/images/diplom/gallery/new-york2.jpg') center center no-repeat;
                 background-size: cover;
             }
 
             &>:nth-child(2) {
-                width: 270px;
+            width: 100%;
+            max-width: 270px;
                 height: 270px;
                 background: url('../../assets/images/diplom/gallery/barcelona.jpg') center center no-repeat;
                 background-size: cover;

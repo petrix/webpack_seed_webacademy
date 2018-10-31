@@ -418,6 +418,7 @@ header {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
+  text-align: center;
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
@@ -469,6 +470,7 @@ header {
 
 .gallery-module_content {
   width: 100%;
+  max-width: 1240px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
@@ -479,14 +481,18 @@ header {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-        flex-direction: column; }
+        flex-direction: column;
+    width: 100%;
+    max-width: 310px; }
     .gallery-module_content > article:nth-child(1) > :nth-child(1) {
-      width: 270px;
+      width: 100%;
+      max-width: 270px;
       height: 270px;
       background: url(./assets/images/london.jpg) center center no-repeat;
       background-size: cover; }
     .gallery-module_content > article:nth-child(1) > :nth-child(2) {
-      width: 270px;
+      width: 100%;
+      max-width: 270px;
       height: 580px;
       background: url(./assets/images/amsterdam1.jpg) center center no-repeat;
       background-size: cover; }
@@ -494,45 +500,65 @@ header {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-        flex-direction: column; }
+        flex-direction: column;
+    width: 100%;
+    max-width: 930px; }
     .gallery-module_content > article:nth-child(2) > article:nth-child(1) {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: row;
-          flex-direction: row; }
+          flex-direction: row;
+      width: 100%;
+      max-width: 930px; }
       .gallery-module_content > article:nth-child(2) > article:nth-child(1) > article:nth-child(1) {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
-            flex-direction: column; }
+            flex-direction: column;
+        width: 100%;
+        max-width: 310px; }
         .gallery-module_content > article:nth-child(2) > article:nth-child(1) > article:nth-child(1) > :nth-child(1) {
-          width: 270px;
+          width: 100%;
+          max-width: 270px;
           height: 270px;
           background: url(./assets/images/paris.jpg) center center no-repeat;
           background-size: cover; }
         .gallery-module_content > article:nth-child(2) > article:nth-child(1) > article:nth-child(1) > :nth-child(2) {
-          width: 270px;
+          width: 100%;
+          max-width: 270px;
           height: 270px;
           background: url(./assets/images/rome2.jpg) center center no-repeat;
           background-size: cover; }
-      .gallery-module_content > article:nth-child(2) > article:nth-child(1) > div {
-        width: 580px;
-        height: 580px;
-        background: url(./assets/images/dubai3.jpg) center center no-repeat;
-        background-size: cover;
-        font-size: 22px; }
+      .gallery-module_content > article:nth-child(2) > article:nth-child(1) > article:nth-child(2) {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+            flex-direction: row;
+        width: 100%;
+        max-width: 620px; }
+        .gallery-module_content > article:nth-child(2) > article:nth-child(1) > article:nth-child(2) > :nth-child(1) {
+          width: 100%;
+          max-width: 580px;
+          height: 580px;
+          background: url(./assets/images/dubai3.jpg) center center no-repeat;
+          background-size: cover;
+          font-size: 22px; }
     .gallery-module_content > article:nth-child(2) > article:nth-child(2) {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: row;
-          flex-direction: row; }
+          flex-direction: row;
+      width: 100%;
+      max-width: 930px; }
       .gallery-module_content > article:nth-child(2) > article:nth-child(2) > :nth-child(1) {
-        width: 580px;
+        width: 100%;
+        max-width: 580px;
         height: 270px;
         background: url(./assets/images/new-york2.jpg) center center no-repeat;
         background-size: cover; }
       .gallery-module_content > article:nth-child(2) > article:nth-child(2) > :nth-child(2) {
-        width: 270px;
+        width: 100%;
+        max-width: 270px;
         height: 270px;
         background: url(./assets/images/barcelona.jpg) center center no-repeat;
         background-size: cover; }
