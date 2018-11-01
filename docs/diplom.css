@@ -27,19 +27,22 @@
     url(./assets/fonts/fa-solid-900.ttf) format("truetype"),
     url(./assets/images/fa-solid-900.svg#fontawesome) format("svg");
 }
+
 @font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
   src: url(./assets/fonts/fa-brands-400.eot);
-  src: url(./assets/fonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), 
-  url(./assets/fonts/fa-brands-400.woff2) format("woff2"), 
-  url(./assets/fonts/fa-brands-400.woff) format("woff"), 
-  url(./assets/fonts/fa-brands-400.ttf) format("truetype"), 
-  url(./assets/images/fa-brands-400.svg#fontawesome) format("svg"); }
+  src: url(./assets/fonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),
+    url(./assets/fonts/fa-brands-400.woff2) format("woff2"),
+    url(./assets/fonts/fa-brands-400.woff) format("woff"),
+    url(./assets/fonts/fa-brands-400.ttf) format("truetype"),
+    url(./assets/images/fa-brands-400.svg#fontawesome) format("svg");
+}
 
 .fab {
-  font-family: 'Font Awesome 5 Brands'; }
+  font-family: 'Font Awesome 5 Brands';
+}
 
 .fa,
 .fas {
@@ -62,17 +65,37 @@
 .fa-chart-line:before {
   content: "\F201";
 }
+
 .fa-facebook-f:before {
   content: "\F39E";
 }
+
 .fa-twitter:before {
   content: "\F099";
 }
+
 .fa-instagram:before {
   content: "\F16D";
 }
+
 .fa-envelope:before {
   content: "\F0E0";
+}
+
+.fa-users:before {
+  content: "\F0C0";
+}
+
+.fa-door-open:before {
+  content: "\F52B";
+}
+
+.fa-map-marker-alt:before {
+  content: "\F3C5";
+}
+
+.fa-calendar-alt:before {
+  content: "\F073";
 }* {
   box-sizing: border-box; }
   *:active, *:hover, *:focus {
@@ -261,7 +284,8 @@ button {
   display: inline-block;
   outline: none;
   padding: 0;
-  border-radius: 3px; }
+  border-radius: 3px;
+  cursor: crosshair; }
 
 section {
   margin: 0 auto; }
@@ -335,9 +359,7 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
       height: 50px;
-      width: 800px;
       font-size: 13px;
-      font-weight: 300;
       font-style: normal; }
       header > section > .header_searchbar > div {
         display: -ms-flexbox;
@@ -348,14 +370,27 @@ header {
             align-items: center;
         background-color: #FFF;
         color: #7c7c7c;
+        font-size: 13px;
+        font-weight: 300;
         text-shadow: 0 0 0 #000;
         border-radius: 3px;
-        padding: 0 10px; }
+        padding: 0 6px;
+        margin: 0 10px; }
+        header > section > .header_searchbar > div > i {
+          font-size: 18px;
+          margin-right: 6px; }
+        header > section > .header_searchbar > div > div:nth-child(1) {
+          width: 380px; }
+        header > section > .header_searchbar > div > div:nth-child(2) {
+          width: 213px; }
+        header > section > .header_searchbar > div > div:nth-child(3) {
+          width: 213px; }
       header > section > .header_searchbar > button {
         color: #FFF;
         background-color: #82c141;
         width: 150px;
-        padding: 0 10px; }
+        padding: 0 10px;
+        margin: 0 10px; }
 
 .booking-module {
   width: 100%;
@@ -414,15 +449,6 @@ header {
 
 .gallery-module div {
   margin: 20px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  text-align: center;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center;
   overflow: hidden;
   color: #FFF;
   font-weight: bold;
@@ -430,43 +456,59 @@ header {
   font-size: 18px;
   text-shadow: 0px 1px 5px #000;
   transition: all 0.5s; }
-  .gallery-module div > p:nth-child(1) {
-    -ms-transform: translateY(40px);
-        transform: translateY(40px);
-    transition: all 0.6s; }
-  .gallery-module div > button {
-    background-color: #00a5f4;
-    color: #FFF;
-    padding: 11px;
-    margin: 15px 0;
-    opacity: 0;
-    -ms-transform: translateY(60px);
-        transform: translateY(60px);
-    transition: all 0.5s; }
-  .gallery-module div > p:nth-child(3) {
-    font-size: 11px;
-    border-bottom: 2px solid #fff;
-    opacity: 0;
-    -ms-transform: translateY(80px);
-        transform: translateY(80px);
+  .gallery-module div > section {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    text-align: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 100%;
+    height: 100%;
     transition: all 0.3s; }
+    .gallery-module div > section > p:nth-child(1) {
+      -ms-transform: translateY(40px);
+          transform: translateY(40px);
+      transition: all 0.6s; }
+    .gallery-module div > section > button {
+      background-color: #00a5f4;
+      color: #FFF;
+      padding: 11px;
+      margin: 15px 0;
+      opacity: 0;
+      -ms-transform: translateY(60px);
+          transform: translateY(60px);
+      transition: all 0.5s; }
+    .gallery-module div > section > p:nth-child(3) {
+      font-size: 11px;
+      border-bottom: 2px solid #fff;
+      opacity: 0;
+      -ms-transform: translateY(80px);
+          transform: translateY(80px);
+      transition: all 0.3s; }
   .gallery-module div:hover {
     box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.65);
     transition: all 0.5s; }
-    .gallery-module div:hover > p:nth-child(1) {
-      -ms-transform: translateY(0px);
-          transform: translateY(0px);
-      transition: all 0.3s; }
-    .gallery-module div:hover > button {
-      opacity: 1;
-      -ms-transform: translateY(0px);
-          transform: translateY(0px);
-      transition: all 0.5s; }
-    .gallery-module div:hover > p:nth-child(3) {
-      opacity: 1;
-      -ms-transform: translateY(0px);
-          transform: translateY(0px);
-      transition: all 0.6s; }
+    .gallery-module div:hover > section {
+      transition: all 0.3s;
+      background-color: rgba(0, 0, 0, 0.3); }
+      .gallery-module div:hover > section > p:nth-child(1) {
+        -ms-transform: translateY(0px);
+            transform: translateY(0px);
+        transition: all 0.3s; }
+      .gallery-module div:hover > section > button {
+        opacity: 1;
+        -ms-transform: translateY(0px);
+            transform: translateY(0px);
+        transition: all 0.5s; }
+      .gallery-module div:hover > section > p:nth-child(3) {
+        opacity: 1;
+        -ms-transform: translateY(0px);
+            transform: translateY(0px);
+        transition: all 0.6s; }
 
 .gallery-module_content {
   width: 100%;
@@ -565,14 +607,20 @@ header {
 
 .carselector-module {
   width: 100%;
+  max-width: 1240px;
   height: 800px;
+  overflow: hidden;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: center;
-      justify-content: center; }
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center; }
   .carselector-module > article:nth-child(1) {
+    width: 100%;
+    max-width: 1240px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
@@ -581,7 +629,6 @@ header {
         justify-content: space-between;
     -ms-flex-align: start;
         align-items: flex-start;
-    width: 1440px;
     padding: 30px 60px; }
     .carselector-module > article:nth-child(1) > span {
       font-size: 40px;
@@ -612,6 +659,212 @@ header {
           padding: 0 3px; }
         .carselector-module > article:nth-child(1) > article > button > span {
           padding: 0 3px; }
+
+.disabled {
+  opacity: 0.5; }
+
+.carselector-timeline {
+  transition: all 0.5s;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  width: 100%;
+  -ms-transform: translateX(-200px);
+      transform: translateX(-200px); }
+
+.carselector-proposition:nth-child(1) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/hyundai-accent.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(2) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/chevrolet-tahoe.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(3) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/kia-sportage.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(4) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/mitsubishi-lancer-x.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(5) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/hyundai-accent.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(6) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/chevrolet-tahoe.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(7) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/kia-sportage.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(8) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/mitsubishi-lancer-x.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition:nth-child(9) > div {
+  transition: all 0.5s;
+  background: url(./assets/images/hyundai-accent.png) center center no-repeat;
+  background-size: contain, cover; }
+
+.carselector-proposition {
+  transition: all 0.5s;
+  margin: 60px 8px 0 8px;
+  height: 398px;
+  min-width: 321px;
+  color: #303030;
+  border: 1px solid #eee;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .carselector-proposition > div {
+    transition: all 0.5s;
+    width: 303px;
+    height: 202px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center; }
+  .carselector-proposition > article:nth-child(2) {
+    transition: all 0.5s;
+    padding-left: 14px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+    .carselector-proposition > article:nth-child(2) > div:nth-child(1) {
+      transition: all 0.5s;
+      width: 100%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -ms-flex-align: center;
+          align-items: center; }
+      .carselector-proposition > article:nth-child(2) > div:nth-child(1) > i {
+        transition: all 0.5s;
+        color: #82c141;
+        font-size: 12px; }
+      .carselector-proposition > article:nth-child(2) > div:nth-child(1) > span {
+        transition: all 0.5s;
+        padding-left: 12px;
+        font-size: 10px;
+        font-weight: 300;
+        text-transform: uppercase; }
+    .carselector-proposition > article:nth-child(2) > span:nth-child(2) {
+      transition: all 0.5s;
+      padding-top: 18px;
+      font-size: 22px;
+      letter-spacing: 0.4px; }
+    .carselector-proposition > article:nth-child(2) > span:nth-child(3) {
+      transition: all 0.5s;
+      padding-top: 6px;
+      font-weight: normal;
+      font-size: 15px; }
+    .carselector-proposition > article:nth-child(2) > span:nth-child(4) {
+      transition: all 0.5s;
+      padding-top: 5px;
+      font-size: 13px;
+      font-weight: 200; }
+  .carselector-proposition > article:nth-child(3) {
+    transition: all 0.5s;
+    padding: 10px 14px 20px 16px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center; }
+    .carselector-proposition > article:nth-child(3) > button {
+      transition: all 0.5s;
+      width: 130px;
+      height: 36px;
+      background-color: #00a5f4;
+      font-weight: bold;
+      font-size: 10px;
+      letter-spacing: 0.4px;
+      color: #FFF; }
+    .carselector-proposition > article:nth-child(3) > div {
+      transition: all 0.5s; }
+      .carselector-proposition > article:nth-child(3) > div > i {
+        transition: all 0.5s;
+        color: #f5a623;
+        font-size: 12px; }
+      .carselector-proposition > article:nth-child(3) > div > span {
+        transition: all 0.5s;
+        font-style: normal;
+        font-size: 15px; }
+
+.active {
+  transition: all 0.5s;
+  border-top: 4px solid #f5a623;
+  height: 570px;
+  min-width: 550px;
+  margin: 0 47px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1); }
+  .active > div {
+    transition: all 0.5s;
+    width: 507px;
+    height: 310px; }
+  .active > article:nth-child(2) {
+    transition: all 0.5s;
+    padding-left: 23px; }
+    .active > article:nth-child(2) > div:nth-child(1) {
+      transition: all 0.5s; }
+      .active > article:nth-child(2) > div:nth-child(1) > i {
+        transition: all 0.5s;
+        font-size: 18px; }
+      .active > article:nth-child(2) > div:nth-child(1) > span {
+        transition: all 0.5s;
+        padding-left: 10px;
+        font-size: 12px; }
+    .active > article:nth-child(2) > span:nth-child(2) {
+      transition: all 0.5s;
+      padding-top: 18px;
+      font-size: 32px;
+      letter-spacing: 0.6px; }
+    .active > article:nth-child(2) > span:nth-child(3) {
+      transition: all 0.5s;
+      padding-top: 6px;
+      font-weight: 600;
+      font-size: 18px; }
+    .active > article:nth-child(2) > span:nth-child(4) {
+      transition: all 0.5s;
+      padding-top: 5px;
+      font-size: 15px;
+      font-weight: 200; }
+  .active > article:nth-child(3) {
+    transition: all 0.5s;
+    padding: 10px 28px 27px 23px; }
+    .active > article:nth-child(3) > button {
+      transition: all 0.5s;
+      width: 200px;
+      height: 50px;
+      font-size: 12px;
+      letter-spacing: 0.5px; }
+    .active > article:nth-child(3) > div {
+      transition: all 0.5s; }
+      .active > article:nth-child(3) > div > i {
+        transition: all 0.5s;
+        font-size: 15px; }
+      .active > article:nth-child(3) > div > span {
+        transition: all 0.5s;
+        font-size: 18px; }
 
 .partners-module {
   height: 600px;

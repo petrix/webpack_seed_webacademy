@@ -27,19 +27,22 @@
     url("fa-solid-900.ttf") format("truetype"),
     url("fa-solid-900.svg#fontawesome") format("svg");
 }
+
 @font-face {
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
   src: url("fa-brands-400.eot");
-  src: url("fa-brands-400.eot?#iefix") format("embedded-opentype"), 
-  url("fa-brands-400.woff2") format("woff2"), 
-  url("fa-brands-400.woff") format("woff"), 
-  url("fa-brands-400.ttf") format("truetype"), 
-  url("fa-brands-400.svg#fontawesome") format("svg"); }
+  src: url("fa-brands-400.eot?#iefix") format("embedded-opentype"),
+    url("fa-brands-400.woff2") format("woff2"),
+    url("fa-brands-400.woff") format("woff"),
+    url("fa-brands-400.ttf") format("truetype"),
+    url("fa-brands-400.svg#fontawesome") format("svg");
+}
 
 .fab {
-  font-family: 'Font Awesome 5 Brands'; }
+  font-family: 'Font Awesome 5 Brands';
+}
 
 .fa,
 .fas {
@@ -62,15 +65,35 @@
 .fa-chart-line:before {
   content: "\f201";
 }
+
 .fa-facebook-f:before {
   content: "\f39e";
 }
+
 .fa-twitter:before {
   content: "\f099";
 }
+
 .fa-instagram:before {
   content: "\f16d";
 }
+
 .fa-envelope:before {
   content: "\f0e0";
+}
+
+.fa-users:before {
+  content: "\f0c0";
+}
+
+.fa-door-open:before {
+  content: "\f52b";
+}
+
+.fa-map-marker-alt:before {
+  content: "\f3c5";
+}
+
+.fa-calendar-alt:before {
+  content: "\f073";
 }
