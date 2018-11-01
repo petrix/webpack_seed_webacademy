@@ -1,0 +1,950 @@
+//diplom - scss
+// @import './mixins';
+
+@include mobile {
+    body {
+        font-family: 'Muli';
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        // overflow: hidden;
+    }
+
+    p {
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    button {
+        @include btn-reset-default;
+        cursor: crosshair;
+    }
+
+    section {
+        margin: 0 auto;
+    }
+
+    header {
+        width: 100%;
+        height: 100vh;
+        background: url('../../assets/images/diplom/header-backgnd.jpg') center bottom no-repeat;
+        background-size: cover;
+        @include flex-column;
+        justify-content: flex-start;
+        align-items: center;
+        color: #FFF;
+        transition: all 0.5s;
+
+        &>div.for-mobile {
+            width: 100vw;
+            height: 40px;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
+
+            position: fixed;
+            z-index: 100;
+        }
+
+
+        &>nav {
+            position: fixed;
+
+            opacity: 0;
+            @include flex-column;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(to top, rgba(0, 0, 7, 0.7), rgba(7, 0, 0, 0.7));
+            // background-color: #000;
+            // transition: all 0.5s ease-in-out;
+            // display: block;
+            transform: translateY(-70%) scaleY(0);
+            transition: transform 0.5s ease-in-out;
+
+
+            &.opened {
+                // display: block;
+                transform: translateY(0%) scaleY(1);
+                transition: transform 0.5s ease-in-out;
+            }
+
+            &>div {
+                @include flex-column;
+                justify-content: space-around;
+                align-items: center;
+                height: 30vh;
+                font-size: 12px;
+                text-shadow: 0px 1px 5px #000;
+                // background-color: #000;
+                // position: fixed;
+
+
+                &>span {
+                    white-space: nowrap;
+                }
+
+                &>button {
+                    background-color: #00a5f4;
+                    padding: 0 25px;
+                    height: 42px;
+                    color: #FFF;
+                }
+            }
+
+            &>img {
+                display: none;
+            }
+        }
+
+        &>section {
+            font-size: 36px;
+            text-shadow: 0px 1px 5px #000;
+            width: 100%;
+            height: 100%;
+            @include flex-column;
+            justify-content: center;
+            align-items: center;
+
+            &>.header_selector {
+                width: 800px;
+
+                &>span {
+                    font-size: 12px;
+                    text-shadow: 0px 1px 5px #000;
+                }
+            }
+
+            &>.header_searchbar {
+                @include flex-row;
+                justify-content: space-between;
+                height: 50px;
+                font-size: 13px;
+                font-style: normal;
+
+                &>div {
+                    @include flex-row;
+                    align-items: center;
+                    background-color: #FFF;
+                    color: #7c7c7c;
+                    font-size: 13px;
+                    font-weight: 300;
+                    text-shadow: 0 0 0 #000;
+                    border-radius: 3px;
+                    padding: 0 6px;
+                    margin: 0 10px;
+                    // width: 213px;
+
+                    &>i {
+                        font-size: 18px;
+                        margin-right: 6px;
+                    }
+
+                    &>div:nth-child(1) {
+                        width: 380px;
+                    }
+
+                    &>div:nth-child(2) {
+                        width: 213px;
+                    }
+
+                    &>div:nth-child(3) {
+                        width: 213px;
+                    }
+                }
+
+                &>button {
+                    color: #FFF;
+                    background-color: #82c141;
+                    width: 150px;
+                    padding: 0 10px;
+                    margin: 0 10px;
+
+                }
+            }
+        }
+    }
+
+    .booking-module {
+        width: 100%;
+        height: 500px;
+        // background-color: #00a5f4;
+        @include flex-column;
+        justify-content: center;
+        align-items: center;
+
+        &>p:nth-child(1) {
+            font-size: 35px;
+            color: #303030;
+            white-space: nowrap;
+        }
+
+        &>p:nth-child(2) {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #303030;
+            line-height: 24px;
+            text-align: center;
+            width: 680px;
+        }
+
+        &>div {
+            @include flex-row;
+            justify-content: space-around;
+            align-items: center;
+            width: 400px;
+            margin-top: 40px;
+            font-weight: bold;
+
+            &>button {
+                background-color: #82c141;
+                color: #FFF;
+                height: 50px;
+                padding: 0px 50px;
+                font-weight: bold;
+            }
+
+            &>span {
+                color: #82c141;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .gallery-module {
+        @include flex-column;
+        align-items: center;
+
+        &>p {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .gallery-module div {
+        margin: 20px;
+        overflow: hidden;
+        color: #FFF;
+        font-weight: bold;
+        border-radius: 3px;
+        font-size: 18px;
+        text-shadow: 0px 1px 5px #000;
+        transition: all 0.5s;
+
+        &>section {
+            @include flex-column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s;
+
+            &>p:nth-child(1) {
+                transform: translateY(40px);
+                transition: all 0.6s;
+            }
+
+            &>button {
+                background-color: #00a5f4;
+                color: #FFF;
+                padding: 11px;
+                margin: 15px 0;
+                opacity: 0;
+                transform: translateY(60px);
+                transition: all 0.5s;
+            }
+
+            &>p:nth-child(3) {
+                font-size: 11px;
+                border-bottom: 2px solid #fff;
+                opacity: 0;
+                transform: translateY(80px);
+                transition: all 0.3s;
+            }
+        }
+
+        &:hover {
+            box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.65);
+            transition: all 0.5s;
+
+            &>section {
+                transition: all 0.3s;
+                background-color: rgba(0, 0, 0, .3);
+
+                &>p:nth-child(1) {
+                    transform: translateY(0px);
+                    transition: all 0.3s;
+                }
+
+                &>button {
+                    opacity: 1;
+                    transform: translateY(0px);
+                    transition: all 0.5s;
+                }
+
+                &>p:nth-child(3) {
+                    opacity: 1;
+                    transform: translateY(0px);
+                    transition: all 0.6s;
+                }
+            }
+        }
+    }
+
+    .gallery-module_content {
+        width: 100%;
+        max-width: 1240px;
+        @include flex-row;
+        justify-content: center;
+
+        &>article:nth-child(1) {
+            @include flex-column;
+            width: 100%;
+            max-width: 310px;
+
+            &>:nth-child(1) {
+                width: 100%;
+                max-width: 270px;
+                height: 270px;
+                background: url('../../assets/images/diplom/gallery/london.jpg') center center no-repeat;
+                background-size: cover;
+            }
+
+            &>:nth-child(2) {
+                width: 100%;
+                max-width: 270px;
+                height: 580px;
+                background: url('../../assets/images/diplom/gallery/amsterdam1.jpg') center center no-repeat;
+                background-size: cover;
+            }
+        }
+
+        &>article:nth-child(2) {
+            @include flex-column;
+            width: 100%;
+            max-width: 930px;
+
+            &>article:nth-child(1) {
+                @include flex-row;
+                width: 100%;
+                max-width: 930px;
+
+                &>article:nth-child(1) {
+                    @include flex-column;
+                    width: 100%;
+                    max-width: 310px;
+
+                    &>:nth-child(1) {
+                        width: 100%;
+                        max-width: 270px;
+                        height: 270px;
+                        background: url('../../assets/images/diplom/gallery/paris.jpg') center center no-repeat;
+                        background-size: cover;
+                    }
+
+                    &>:nth-child(2) {
+                        width: 100%;
+                        max-width: 270px;
+                        height: 270px;
+                        background: url('../../assets/images/diplom/gallery/rome2.jpg') center center no-repeat;
+                        background-size: cover;
+                    }
+                }
+
+                &>article:nth-child(2) {
+                    @include flex-row;
+                    width: 100%;
+                    max-width: 620px;
+
+
+
+                    &>:nth-child(1) {
+                        width: 100%;
+                        max-width: 580px;
+                        height: 580px;
+                        background: url('../../assets/images/diplom/gallery/dubai3.jpg') center center no-repeat;
+                        background-size: cover;
+                        font-size: 22px;
+                    }
+                }
+            }
+
+            &>article:nth-child(2) {
+                @include flex-row;
+                width: 100%;
+                max-width: 930px;
+
+                &>:nth-child(1) {
+                    width: 100%;
+                    max-width: 580px;
+                    height: 270px;
+                    background: url('../../assets/images/diplom/gallery/new-york2.jpg') center center no-repeat;
+                    background-size: cover;
+                }
+
+                &>:nth-child(2) {
+                    width: 100%;
+                    max-width: 270px;
+                    height: 270px;
+                    background: url('../../assets/images/diplom/gallery/barcelona.jpg') center center no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+
+    .carselector-module {
+        width: 100%;
+        max-width: 1240px;
+        height: 800px;
+        overflow: hidden;
+        @include flex-column;
+        justify-content: flex-start;
+        align-items: center;
+
+        &>article:nth-child(1) {
+            width: 100%;
+            max-width: 1240px;
+            @include flex-row;
+            justify-content: space-between;
+            align-items: flex-start;
+            // width: 1440px;
+            padding: 30px 60px;
+
+            &>span {
+                font-size: 40px;
+                margin-left: 60px;
+            }
+
+            &>article {
+                @include flex-row;
+
+                &>button {
+                    @include flex-row;
+                    align-items: center;
+                    justify-content: space-around;
+                    height: 36px;
+                    background-color: #f5a623;
+                    color: #FFF;
+                    font-weight: bold;
+                    padding: 0 15px;
+                    margin: 0 6px;
+
+                    &>i {
+                        color: #FFF;
+                        font-size: 25px;
+                        padding: 0 3px;
+                    }
+
+                    &>span {
+                        padding: 0 3px;
+                    }
+                }
+            }
+        }
+    }
+
+    .disabled {
+        opacity: 0.5;
+    }
+
+    .carselector-timeline {
+        transition: all 0.5s;
+        @include flex-row;
+        width: 100%;
+        transform: translateX(-200px);
+    }
+
+    .carselector-proposition:nth-child(1)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/hyundai-accent.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(2)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/chevrolet-tahoe.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(3)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/kia-sportage.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(4)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/mitsubishi-lancer-x.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(5)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/hyundai-accent.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(6)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/chevrolet-tahoe.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(7)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/kia-sportage.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(8)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/mitsubishi-lancer-x.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition:nth-child(9)>div {
+        transition: all 0.5s;
+        background: url('../../assets/images/diplom/car-selector/hyundai-accent.png') center center no-repeat;
+        background-size: contain, cover;
+    }
+
+    .carselector-proposition {
+        transition: all 0.5s;
+        margin: 60px 8px 0 8px;
+        height: 398px;
+        min-width: 321px;
+        color: #303030;
+        border: 1px solid #eee;
+        @include flex-column;
+        justify-content: space-between;
+
+        &>div {
+            transition: all 0.5s;
+            width: 303px;
+            height: 202px;
+            align-self: center;
+        }
+
+        &>article:nth-child(2) {
+            transition: all 0.5s;
+            padding-left: 14px;
+            @include flex-column;
+
+            &>div:nth-child(1) {
+                transition: all 0.5s;
+                width: 100%;
+                @include flex-row;
+                align-items: center;
+
+                &>i {
+                    transition: all 0.5s;
+                    color: #82c141;
+                    font-size: 12px;
+                }
+
+                &>span {
+                    transition: all 0.5s;
+                    padding-left: 12px;
+                    font-size: 10px;
+                    font-weight: 300;
+                    text-transform: uppercase;
+                }
+            }
+
+            &>span:nth-child(2) {
+                transition: all 0.5s;
+                padding-top: 18px;
+                font-size: 22px;
+                letter-spacing: 0.4px;
+            }
+
+            &>span:nth-child(3) {
+                transition: all 0.5s;
+                padding-top: 6px;
+                font-weight: normal;
+                font-size: 15px;
+            }
+
+            &>span:nth-child(4) {
+                transition: all 0.5s;
+                padding-top: 5px;
+                font-size: 13px;
+                font-weight: 200;
+            }
+        }
+
+        &>article:nth-child(3) {
+            transition: all 0.5s;
+            padding: 10px 14px 20px 16px;
+            @include flex-row;
+            justify-content: space-between;
+            align-items: center;
+
+            &>button {
+                transition: all 0.5s;
+                width: 130px;
+                height: 36px;
+                background-color: #00a5f4;
+                font-weight: bold;
+                font-size: 10px;
+                letter-spacing: 0.4px;
+                color: #FFF;
+            }
+
+            &>div {
+                transition: all 0.5s;
+
+                &>i {
+                    transition: all 0.5s;
+                    color: #f5a623;
+                    font-size: 12px;
+                }
+
+                &>span {
+                    transition: all 0.5s;
+
+                    font : {
+                        style: normal;
+                        size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .active {
+        transition: all 0.5s;
+        border-top: 4px solid #f5a623;
+        height: 570px;
+        min-width: 550px;
+        margin: 0 47px;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+
+        &>div {
+            transition: all 0.5s;
+            width: 507px;
+            height: 310px;
+        }
+
+        &>article:nth-child(2) {
+            transition: all 0.5s;
+            padding-left: 23px;
+
+            &>div:nth-child(1) {
+                transition: all 0.5s;
+
+                &>i {
+                    transition: all 0.5s;
+                    font-size: 18px;
+                }
+
+                &>span {
+                    transition: all 0.5s;
+                    padding-left: 10px;
+                    font-size: 12px;
+                }
+            }
+
+            &>span:nth-child(2) {
+                transition: all 0.5s;
+                padding-top: 18px;
+                font-size: 32px;
+                letter-spacing: 0.6px;
+            }
+
+            &>span:nth-child(3) {
+                transition: all 0.5s;
+                padding-top: 6px;
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            &>span:nth-child(4) {
+                transition: all 0.5s;
+                padding-top: 5px;
+                font-size: 15px;
+                font-weight: 200;
+            }
+        }
+
+        &>article:nth-child(3) {
+            transition: all 0.5s;
+            padding: 10px 28px 27px 23px;
+
+            &>button {
+                transition: all 0.5s;
+                width: 200px;
+                height: 50px;
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            &>div {
+                transition: all 0.5s;
+
+                &>i {
+                    transition: all 0.5s;
+                    font-size: 15px;
+                }
+
+                &>span {
+                    transition: all 0.5s;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .partners-module {
+        height: 600px;
+        background-color: #f8f8f8;
+        @include flex-row;
+        justify-content: center;
+        align-items: center;
+
+        &>article {
+            width: 450px;
+
+            &>p:nth-child(1) {
+                font-size: 30px;
+                color: #303030;
+            }
+
+            &>p:nth-child(2) {
+                font-size: 15px;
+                line-height: 24px;
+                color: #303030;
+            }
+
+            &>article {
+                margin-top: 20px;
+                @include flex-row;
+                justify-content: space-between;
+                align-items: center;
+                width: 400px;
+
+                &>button {
+                    width: 232px;
+                    height: 50px;
+                    background-color: #00a5f4;
+                    color: #FFF;
+                }
+
+                &>span {
+                    color: #00a5f4;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+            }
+
+            &>p:nth-child(4) {
+                margin-top: 63px;
+                font-size: 20px;
+                color: #303030;
+            }
+
+            &>div {
+                margin-top: 16px;
+                @include flex-row;
+                width: 300px;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        &>img {
+            margin-left: 110px;
+        }
+    }
+
+    .subsription-module {
+        height: 570px;
+        @include flex-row;
+        justify-content: center;
+        align-items: center;
+
+        &>div {
+            width: 1px;
+            height: 436px;
+            background-color: #e8e8e8;
+            margin: 0 50px;
+        }
+
+        &>article {
+            @include flex-column;
+            width: 480px;
+
+            &>p:nth-child(1) {
+                font-size: 25px;
+                line-height: 48px;
+                letter-spacing: 0.4px;
+                color: #303030;
+                font-weight: 600;
+            }
+
+            &>p:nth-child(2) {
+                font-size: 18px;
+                letter-spacing: 0;
+                font-weight: 300;
+                text-align: center;
+            }
+
+            &>div {
+                @include flex-row;
+                justify-content: center;
+                margin-top: 45px;
+
+                &>img {
+                    width: 137px;
+                    height: 41px;
+                    display: inline-block;
+                    margin: 0 10px;
+                }
+            }
+
+            &>form {
+                @include flex-row;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 60px;
+                border: 1px solid #d1d1d1;
+                border-radius: 3px;
+
+                &>i {
+                    background-color: #FFF;
+                    font-size: 14px;
+                    color: #000;
+                    padding: 18px;
+                }
+
+                &>input {
+                    height: 50px;
+                    @include btn-reset-default;
+                    border-radius: 0px;
+
+                    &[type=text] {
+                        width: 260px;
+                        font-weight: 300;
+                    }
+
+                    &[type=submit] {
+                        width: 150px;
+                        background-color: #00a5f4;
+                        color: #FFF;
+                        font-weight: bold;
+                        font-size: 12px;
+                    }
+
+                    &>button {
+                        height: 50px;
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        height: 400px;
+        background-color: #303030;
+        color: #FFF;
+        font-size: 13px;
+
+        &>hr {
+            border: 0;
+            height: 1px;
+            background: #535353;
+        }
+    }
+
+    .footer-logo {
+        @include flex-center;
+        height: 120px;
+
+        &>div {
+            width: 139px;
+            height: 30px;
+            background: url('../../assets/images/diplom/fleetster-logo@2x.png') center center no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 73px;
+    }
+
+    .lang-currency {
+        @include flex-column;
+
+        &>span {
+            line-height: 32px;
+        }
+
+        &>select {
+            @include btn-reset-default;
+            width: 235px;
+            height: 35px;
+            font-size: 13px;
+            font-weight: 300;
+            padding-left: 13px;
+            padding: 5px 0;
+
+            &>option {
+                height: 35px;
+                padding-left: 13px;
+                padding: 5px 0;
+                background-color: #303030;
+                color: #FFF;
+
+            }
+
+            &:nth-child(3) {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .footer-links {
+        @include flex-row;
+
+        &>div {
+            @include flex-column;
+            align-items: flex-start;
+            width: 150px;
+
+            &>h3 {
+                font-size: 16px;
+            }
+
+            &>h4 {
+                font-size: 13px;
+                font-weight: 300;
+                line-height: 32px;
+            }
+        }
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        height: 66px;
+        @include flex-row;
+        justify-content: space-between;
+        align-items: center;
+
+        &>div {
+            @include flex-row;
+            justify-content: space-between;
+            font-size: 20px;
+            width: 100px;
+        }
+
+        &>span {
+            font-weight: 300;
+            font-size: 12px;
+        }
+    }
+}
