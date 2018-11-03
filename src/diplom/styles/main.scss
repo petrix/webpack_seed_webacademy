@@ -13,14 +13,16 @@ p {
 button {
     @include btn-reset-default;
     cursor: crosshair;
+
 }
 
 section {
     margin: 0 auto;
+    transition: all 0.5s;
 }
 
 header {
-    // width: 100%;
+    width: 100%;
     height: 535px;
     background: url('../../assets/images/diplom/header-backgnd.jpg') center bottom no-repeat;
     background-size: cover;
@@ -28,6 +30,7 @@ header {
     justify-content: space-between;
     align-items: center;
     color: #FFF;
+    transition: all 0.5s;
 
     &>nav {
         @include flex-row;
@@ -38,14 +41,15 @@ header {
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
 
         &>div {
-            @include flex-row;
-            // justify-content: flex-start;
+            @include flex-row; // justify-content: flex-start;
             align-items: center;
-
+            justify-content: center;
             font-size: 12px;
             text-shadow: 0px 1px 5px #000;
 
-            &>span {
+            &>a {
+                color: inherit;
+                text-decoration: inherit;
                 padding: 0 20px;
                 white-space: nowrap;
             }
@@ -62,16 +66,19 @@ header {
     &>section {
         font-size: 36px;
         text-shadow: 0px 1px 5px #000;
-        width: 100%;
+        // width: 100%;
         height: 100%;
         @include flex-column;
         justify-content: center;
         align-items: center;
 
         &>.header_selector {
-            width: 800px;
+            @include flex-row;
+            margin: 20px 10px;
+            align-self: flex-start;
 
             &>span {
+                margin: 0 10px;
                 font-size: 12px;
                 text-shadow: 0px 1px 5px #000;
             }
@@ -94,8 +101,7 @@ header {
                 text-shadow: 0 0 0 #000;
                 border-radius: 3px;
                 padding: 0 6px;
-                margin: 0 10px;
-                // width: 213px;
+                margin: 0 10px; // width: 213px;
 
                 &>i {
                     font-size: 18px;
@@ -121,7 +127,6 @@ header {
                 width: 150px;
                 padding: 0 10px;
                 margin: 0 10px;
-
             }
         }
     }
@@ -129,8 +134,7 @@ header {
 
 .booking-module {
     width: 100%;
-    height: 500px;
-    // background-color: #00a5f4;
+    height: 500px; // background-color: #00a5f4;
     @include flex-column;
     justify-content: center;
     align-items: center;
@@ -319,8 +323,6 @@ header {
                 width: 100%;
                 max-width: 620px;
 
-
-
                 &>:nth-child(1) {
                     width: 100%;
                     max-width: 580px;
@@ -370,8 +372,7 @@ header {
         max-width: 1240px;
         @include flex-row;
         justify-content: space-between;
-        align-items: flex-start;
-        // width: 1440px;
+        align-items: flex-start; // width: 1440px;
         padding: 30px 60px;
 
         &>span {
@@ -567,7 +568,7 @@ header {
             &>span {
                 transition: all 0.5s;
 
-                font : {
+                font: {
                     style: normal;
                     size: 15px;
                 }
@@ -661,9 +662,11 @@ header {
 
 .partners-module {
     height: 600px;
+    width: 100%;
+    max-width: 1240px;
     background-color: #f8f8f8;
     @include flex-row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
     &>article {
@@ -717,7 +720,9 @@ header {
     }
 
     &>img {
-        margin-left: 110px;
+        max-width: 400px;
+        width: 100%;
+        // margin-left: 110px;
     }
 }
 
@@ -810,7 +815,7 @@ header {
 
 footer {
     width: 100%;
-    height: 400px;
+    // height: 400px;
     background-color: #303030;
     color: #FFF;
     font-size: 13px;
@@ -864,7 +869,6 @@ footer {
             padding: 5px 0;
             background-color: #303030;
             color: #FFF;
-
         }
 
         &:nth-child(3) {
@@ -883,12 +887,28 @@ footer {
 
         &>h3 {
             font-size: 16px;
+            padding: 15px 10px;
         }
 
         &>h4 {
+            padding: 0 10px;
+            @include flex-row;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100%;
             font-size: 13px;
             font-weight: 300;
             line-height: 32px;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            transition: all 0.5s;
+
+            &:hover {
+                border-radius: 1px solid #fff;
+                background-color: #FFF;
+                color: #303030;
+                transition: all 0.5s;
+            }
         }
     }
 }
