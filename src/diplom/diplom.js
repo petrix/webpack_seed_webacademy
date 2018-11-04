@@ -27,44 +27,41 @@ $(document).ready(function () {
         $('.icon-mob-menu').click(function () {
             if (!mobmenu) {
                 mobmenu = true;
-                $(this).addClass('activated');
+
+                $('.icon-mob-menu').addClass('activated');
                 $('body>section').addClass('transparent');
-                $('.mob-nav').addClass('opened').animate({
+                $('.mob-nav').addClass('opened');
+                $('.opened').animate({
                     opacity: 1,
-                    transform: "translateY(0 % )",
-                    transition: "opacity 0.5s ease-in-out",
-                    transition: "transform 0.5s ease-in-out"
-                }, 300, function () {});
+                    transform: "scaleY(1)",
+                    transition: "all 0.3s"
+                }, 400);
 
 
             } else {
                 mobmenu = false;
-                $(this).removeClass('activated');
-                $('body>section').removeClass('transparent');
-                $('.mob-nav').animate({
+                $('.opened').animate({
                     opacity: 0,
-                    transform: "translateY(-70 % )",
-                    transition: "opacity 0.5s ease-in-out",
-                    transition: "transform 0.5s ease-in-out"
-                }, 300, function () {
-                    $('.mob-nav').removeClass('opened');
-                });
+                    transform: "scaleY(0)",
+                    transition: "all 0.3s"
+                }, 400);
+                $('.icon-mob-menu').removeClass('activated');
+                $('.opened').removeClass('opened');
+
             }
             console.log(mobmenu);
         });
         $(window).on('resize', function () {
             if ($(window).width() > 768) {
-                $('.icon-mob-menu').removeClass('activated');
-                $('body>section').removeClass('transparent');
-                $('.mob-nav').animate({
-                    opacity: 0,
-                    transform: "translateY(-70 % )",
-                    transition: "opacity 0.5s ease-in-out",
-                    transition: "transform 0.5s ease-in-out"
-                }, 300, function () {
-                    $('.mob-nav').removeClass('opened');
-                });
                 mobmenu = false;
+                $('.opened').animate({
+                    opacity: 0,
+                    transform: "scaleY(0)",
+                    transition: "all 0.3s"
+                }, 400);
+                $('.icon-mob-menu').removeClass('activated');
+                $('.opened').removeClass('opened');
+
             }
             console.log(mobmenu);
         });

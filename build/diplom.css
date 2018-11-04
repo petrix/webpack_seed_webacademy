@@ -2374,6 +2374,7 @@ footer {
       opacity: 0;
       display: -ms-flexbox;
       display: flex;
+      display: flex;
       -ms-flex-direction: column;
           flex-direction: column;
       -ms-flex-pack: center;
@@ -2384,15 +2385,11 @@ footer {
       height: 100vh;
       background-color: #303030;
       -ms-transform: translateY(-70%) scaleY(0);
-          transform: translateY(-70%) scaleY(0);
-      transition: transform 0.5s ease-in-out;
-      display: none; }
+          transform: translateY(-70%) scaleY(0); }
       header > .mob-nav.opened {
+        opacity: 1;
         -ms-transform: translateY(0%) scaleY(1);
-            transform: translateY(0%) scaleY(1);
-        transition: transform 0.5s ease-in-out;
-        display: -ms-flexbox;
-        display: flex; }
+            transform: translateY(0%) scaleY(1); }
       header > .mob-nav > p {
         position: relative;
         color: #fff;
