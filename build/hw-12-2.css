@@ -184,6 +184,4 @@ body {
   .row-content > p {
     padding: 20px;
     margin: 0 auto;
-    text-align: justify;
-    -ms-transform: scaleY(1);
-        transform: scaleY(1); }
+    text-align: justify; }

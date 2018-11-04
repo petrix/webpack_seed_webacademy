@@ -81,11 +81,71 @@ module.exports = __webpack_require__(418);
 
 __webpack_require__(419);
 
-$(document).ready(function () {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-    $.get("https://ipinfo.io", function (response) {
-        console.log(response.ip, response.country, response);
+$(document).ready(function () {
+    var responseLoc;
+    var response = $.get("https://ipinfo.io", function (response) {
+        console.log(response.ip, response.country, response.loc, response);
+        responseLoc = response.loc;
     }, "jsonp");
+    var regActive = false;
+    $('.register').click(function () {
+        $('.register-form').addClass('reg-active').animate({
+            opacity: 1
+        }, 500);
+        regActive = true;
+    });
+
+    $('.register-form-closebtn').click(function () {
+        $('.register-form').animate({
+            opacity: 0
+        }, 500, function () {
+            $('.register-form').removeClass('reg-active');
+        });
+        regActive = false;
+    });
+
+    var mobmenu = false;
+    $('.icon-mob-menu').click(function () {
+        if (!mobmenu) {
+            mobmenu = true;
+            $(this).addClass('activated');
+            $('body>section').addClass('transparent');
+            $('.mob-nav').addClass('opened').animate(_defineProperty({
+                opacity: 1,
+                transform: "translateY(0 % )",
+                transition: "opacity 0.5s ease-in-out"
+            }, "transition", "transform 0.5s ease-in-out"), 300, function () {});
+        } else {
+            mobmenu = false;
+            $(this).removeClass('activated');
+            $('body>section').removeClass('transparent');
+            $('.mob-nav').animate(_defineProperty({
+                opacity: 0,
+                transform: "translateY(-70 % )",
+                transition: "opacity 0.5s ease-in-out"
+            }, "transition", "transform 0.5s ease-in-out"), 300, function () {
+                $('.mob-nav').removeClass('opened');
+            });
+        }
+        console.log(mobmenu);
+    });
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) {
+            $('.icon-mob-menu').removeClass('activated');
+            $('body>section').removeClass('transparent');
+            $('.mob-nav').animate(_defineProperty({
+                opacity: 0,
+                transform: "translateY(-70 % )",
+                transition: "opacity 0.5s ease-in-out"
+            }, "transition", "transform 0.5s ease-in-out"), 300, function () {
+                $('.mob-nav').removeClass('opened');
+            });
+            mobmenu = false;
+        }
+        console.log(mobmenu);
+    });
     var selectorPosition = -200;
     var activeProp = 2;
     $('.carselector-next').click(function () {
