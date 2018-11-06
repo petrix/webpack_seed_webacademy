@@ -71,6 +71,7 @@
                     &>div:nth-child(3) {
                         transform: translateY(12px) rotate(45deg);
                     }
+
                 }
             }
         }
@@ -146,7 +147,7 @@
                 position: relative;
                 color: #fff;
                 text-decoration: none;
-                white-space: nowrap;
+                // white-space: nowrap;
                 width: 100%;
                 padding: 20px 0;
                 text-align: center;

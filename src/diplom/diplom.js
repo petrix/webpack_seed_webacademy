@@ -38,7 +38,7 @@ $(document).ready(function () {
                 $('.opened').removeClass('opened');
 
             }
-            console.log(mobmenu);
+            // console.log(mobmenu);
         });
         $(window).on('resize', function () {
             if ($(window).width() > 768) {
