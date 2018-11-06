@@ -29,22 +29,11 @@ $(document).ready(function () {
                 mobmenu = true;
 
                 $('.icon-mob-menu').addClass('activated');
-                $('body>section').addClass('transparent');
                 $('.mob-nav').addClass('opened');
-                $('.opened').animate({
-                    opacity: 1,
-                    transform: "scaleY(1)",
-                    transition: "all 0.3s"
-                }, 400);
 
 
             } else {
                 mobmenu = false;
-                $('.opened').animate({
-                    opacity: 0,
-                    transform: "scaleY(0)",
-                    transition: "all 0.3s"
-                }, 400);
                 $('.icon-mob-menu').removeClass('activated');
                 $('.opened').removeClass('opened');
 
@@ -53,14 +42,9 @@ $(document).ready(function () {
         });
         $(window).on('resize', function () {
             if ($(window).width() > 768) {
-                mobmenu = false;
-                $('.opened').animate({
-                    opacity: 0,
-                    transform: "scaleY(0)",
-                    transition: "all 0.3s"
-                }, 400);
                 $('.icon-mob-menu').removeClass('activated');
                 $('.opened').removeClass('opened');
+                mobmenu = false;
 
             }
             console.log(mobmenu);

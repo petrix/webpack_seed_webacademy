@@ -91,7 +91,6 @@
                 align-items: center; // position: relative;
                 padding-bottom: 30px;
 
-
                 &>div {
                     &>p {
                         align-self: flex-start;
@@ -112,13 +111,14 @@
                     padding: 0 25px;
                     width: 300px;
                     height: 70px;
-                    color: #FFF;
-                    // font-size: 30px;
+                    color: #FFF; // font-size: 30px;
                 }
             }
 
             &.reg-active {
                 display: flex;
+                // opacity: 1;
+                // transition: all 0.3s;
             }
         }
 
@@ -134,16 +134,16 @@
             height: 100vh;
             background-color: #303030;
             transform: translateY(-70%) scaleY(0);
-
+            transition: all 0.3s;
 
             &.opened {
                 opacity: 1;
                 transform: translateY(0%) scaleY(1);
+                transition: all 0.3s;
             }
 
             &>p {
                 position: relative;
-
                 color: #fff;
                 text-decoration: none;
                 white-space: nowrap;
@@ -412,16 +412,14 @@
     }
 
     .gallery-module_content {
-        width: 100%;
-        // max-width: 520px;
+        width: 100%; // max-width: 520px;
         @include flex-column;
         justify-content: center;
 
         &>article:nth-child(1) {
             @include flex-row;
             align-items: center;
-            width: 100%;
-            // max-width: 540px;
+            width: 100%; // max-width: 540px;
             transition: all 0.5s;
 
             &>:nth-child(1) {
@@ -443,13 +441,11 @@
 
         &>article:nth-child(2) {
             @include flex-column;
-            width: 100%;
-            // max-width: 480px;
+            width: 100%; // max-width: 480px;
 
             &>article:nth-child(1) {
                 @include flex-column;
-                width: 100%;
-                // max-width: 480px;
+                width: 100%; // max-width: 480px;
 
                 &>article:nth-child(1) {
                     @include flex-row;
@@ -484,9 +480,7 @@
 
                     &>:nth-child(1) {
                         width: 100%;
-                        max-width: 730px;
-
-                        // max-width: 480px;
+                        max-width: 730px; // max-width: 480px;
                         height: 240px;
                         background: url('../../assets/images/diplom/gallery/dubai3.jpg') center center no-repeat;
                         background-size: cover;
@@ -907,8 +901,7 @@
 
         &>article {
             @include flex-column; // 
-            max-width: 360px;
-            // width: 480px;
+            max-width: 360px; // width: 480px;
 
             &>p:nth-child(1) {
                 font-size: 25px;
