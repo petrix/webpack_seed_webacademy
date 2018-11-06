@@ -29,7 +29,6 @@ $(document).ready(function () {
                 mobmenu = true;
 
                 $('.icon-mob-menu').addClass('activated');
-                $('body>section').addClass('transparent');
                 $('.mob-nav').addClass('opened');
                 $('.opened').animate({
                     opacity: 1,
@@ -49,7 +48,7 @@ $(document).ready(function () {
                 $('.opened').removeClass('opened');
 
             }
-            console.log(mobmenu);
+            // console.log(mobmenu);
         });
         $(window).on('resize', function () {
             if ($(window).width() > 768) {
