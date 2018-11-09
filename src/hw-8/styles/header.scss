@@ -1,9 +1,36 @@
 @import './mixins';
 @import './variables';
 
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('#{$base-font-dir}ds-digital/DS-Digital.eot');
+    src: url('#{$base-font-dir}ds-digital/DS-Digital.eot?#iefix') format('embedded-opentype'),
+    url('#{$base-font-dir}ds-digital/DS-Digital.woff2') format('woff2'),
+    url('#{$base-font-dir}ds-digital/DS-Digital.woff') format('woff'),
+    url('#{$base-font-dir}ds-digital/DS-Digital.ttf') format('truetype'),
+    url('#{$base-font-dir}ds-digital/DS-Digital.svg#DS-Digital') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DS-Digital';
+    src: url('#{$base-font-dir}ds-digital/DS-Digital-Bold.eot');
+    src: url('#{$base-font-dir}ds-digital/DS-Digital-Bold.eot?#iefix') format('embedded-opentype'),
+    url('#{$base-font-dir}ds-digital/DS-Digital-Bold.woff2') format('woff2'),
+    url('#{$base-font-dir}ds-digital/DS-Digital-Bold.woff') format('woff'),
+    url('#{$base-font-dir}ds-digital/DS-Digital-Bold.ttf') format('truetype'),
+    url('#{$base-font-dir}ds-digital/DS-Digital-Bold.svg#DS-Digital-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-size: 80px;
+    font-family: 'DS-Digital';
+    font-weight: bold;
+    font-size: 20px;
     color: #fff;
+    background-color: #000;
 }
 
 main {
@@ -13,36 +40,54 @@ main {
 
 }
 
-div {
-    width: 80%;
-    height: 150px;
-    background-color: #500;
-    @include flex-column;
-    justify-content: center;
-    align-items: center;
-    // border-radius: 20px;
+.timer-module {
+    transform: translate(-40px, 400px);
 
-    &:nth-child(1) {
-        border-radius: 10px 10px 0 0;
+    &>span {
+        position: absolute;
+        transform: translate(-160px, -40px);
+        font-size: 120px;
+        color: #ff8f00;
 
     }
 
-    &:nth-last-child(1) {
-        border-radius: 0 0 10px 10px;
+    &>.seconds,
+    .minutes,
+    .hours {
 
+        &>div {
+            width: 40px;
+            height: 40px;
+            background-color: #500;
+            transition: all 0.2s;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &>.active {
+            background-color: #ff8f00;
+            color: #000;
+        }
     }
-}
 
-.green {
-    background-color: #050;
+    &>.hours {
+        transform: translate(-30px, -30px);
 
-    content: text('kkmkkmk');
-}
+        &>div {
+            width: 100px;
+            height: 100px;
+        }
+    }
 
-.blue {
-    background-color: #005;
-}
+    &>.minutes {
+        transform: translate(5px, 5px);
 
-.magenta {
-    background-color: #055;
+        &>div {
+            width: 30px;
+            height: 30px;
+        }
+    }
 }
