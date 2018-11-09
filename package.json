@@ -51,6 +51,8 @@
         "popper.js": "^1.14.4",
         "react": "^16.5.2",
         "react-dom": "^16.5.2",
-        "reveal.js": "^3.7.0"
+        "reveal.js": "^3.7.0",
+        "socket.io": "^2.1.1",
+        "socket.io-client": "^2.1.1"
     }
 }

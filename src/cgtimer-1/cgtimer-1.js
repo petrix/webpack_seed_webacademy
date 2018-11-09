@@ -1,4 +1,4 @@
-import './hw-8.scss';
+import './cgtimer-1.scss';
 import io from 'socket.io-client';
 const socket = io('http://p3xx.tk:4000');
 console.log(socket);

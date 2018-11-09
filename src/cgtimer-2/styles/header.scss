@@ -1,0 +1,142 @@
+@import './mixins';
+@import './variables';
+
+
+body {
+    font-family: 'DS-Digital';
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+}
+
+main {
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button {
+    @include btn-reset-default;
+    font-family: 'Comfortaa';
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 5px solid #000;
+    background-color: #333;
+    color: #fff;
+}
+
+.dircountdown-module {
+
+    &>article {
+        border: 2px solid #ff8f00;
+        border-radius: 30px;
+        font-size: 110px;
+        @include flex-column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        @include flex-column;
+
+        &>span:nth-child(1) {
+            font-family: 'Comfortaa';
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 100%;
+        }
+
+        &>span:nth-child(2) {
+            line-height: 65%;
+        }
+    }
+
+    &>.dircount-buttons {
+        overflow: hidden;
+        height: 150px;
+
+        button {
+            height: 80%;
+            width: 100px;
+        }
+
+        &>div {
+            height: 100%;
+            @include flex-row;
+            justify-content: center;
+            align-items: center;
+
+            &>div {
+                height: 80%;
+                @include flex-column;
+                justify-content: space-between;
+                align-items: center;
+
+                &>button {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &>.vtcountdown {
+
+        &>.vtcountdown-progressbar,
+        .vtcountdown-au1,
+        .vtcountdown-au2 {
+            width: 90%;
+            height: 20px;
+            background-color: #ff8f00;
+            border-radius: 10px;
+
+            &>div {
+                width: 90%;
+                height: 20px;
+                background-color: #ff0000;
+                border-radius: 10px;
+                transition: all 0.5s;
+            }
+        }
+
+        &>.vtcountdown-au1,
+        .vtcountdown-au2 {
+            height: 10px;
+            border-radius: 5px;
+            margin: 2px 0;
+
+            &>div {
+                width: 90%;
+                height: 10px;
+                background-color: #ff0000;
+                border-radius: 5px;
+                transition: all 0.5s;
+            }
+        }
+
+        &>.vtcountdown-progressbar {
+            margin-top: 10px;
+        }
+
+        &>.vtcountdown-au1 {
+            margin-top: -10px;
+        }
+    }
+
+    &>.settings-buttons {
+        button {
+            height: 80%;
+        }
+
+        height: 150px;
+        @include flex-row;
+        align-items: center;
+
+        &>div {
+            width: 200px;
+            height: 80%;
+            @include flex-column;
+        }
+    }
+}
