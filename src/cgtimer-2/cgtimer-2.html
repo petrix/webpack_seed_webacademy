@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
 </head>
 
 <body>
@@ -25,21 +26,24 @@
                 </article>
                 <article class="dircount-buttons">
                     <div>
-                        <button>PLAY</button>
-                        <div>
-                            <button>+10min</button>
-                            <button>-10min</button>
-                        </div>
-                        <div>
-                            <button>+1min</button>
-                            <button>-1min</button>
-                        </div>
-                        <div>
-                            <button>+10sec</button>
-                            <button>-10sec</button>
-                        </div>
-                        <button>RESET</button>
 
+                        <button class="reset" value="RESET">
+                            <i class="fas fa-flushed"></i></button>
+                        <div>
+                            <button value="+10min">+10min</button>
+                            <button value="-10min">-10min</button>
+                        </div>
+                        <div>
+                            <button value="+1min">+1min</button>
+                            <button value="-1min">-1min</button>
+                        </div>
+                        <div>
+                            <button value="+10sec">+10sec</button>
+                            <button value="-10sec">-10sec</button>
+                        </div>
+
+                        <button class="play" value="PLAY">
+                            <i class="fas fa-play"></i></button>
                     </div>
 
                 </article>
