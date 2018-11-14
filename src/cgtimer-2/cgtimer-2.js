@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 
 $(document).ready(function () {
-    const socket = io('http://localhost:4000');
+    const socket = io('http://p3xx.tk:4000');
 
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
