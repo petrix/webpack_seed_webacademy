@@ -25,6 +25,7 @@ $(document).ready(function () {
         //     }
         // });
         socket.on('timeofday', function (currentTime) {
+            // console.log(socket.id, 'socket connected');
             $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
 
         });
@@ -80,6 +81,34 @@ $(document).ready(function () {
             $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
         });
 
+
+        var activeDataTemp = 20;
+        var ccgActive = false;
+        socket.on('cg countdown active', function (activeData) {
+            // console.log(activeData);
+
+            if (activeData) {
+                // console.log('playing');
+                activeDataTemp = 20;
+                ccgActive = true;
+            } else {
+                activeDataTemp--;
+                if (activeDataTemp < 0) {
+                    // console.log(activeDataTemp);
+                    activeDataTemp = 0;
+                    ccgActive = false;
+                    // console.log('not playing');
+                    dataClasses.forEach(function (item) {
+                        $('.vtcountdown').removeClass(item);
+                    });
+                    activeDataTemp = 0;
+                }
+            }
+        });
+
+
+
+
         socket.on('cg countdown timeData', function (ccgTime, ccgTotalTime) {
             var procentTime = ((ccgTime * 100) / ccgTotalTime);
             $('.vtcountdown-progress-success').css('width', procentTime.toFixed(0) + '%');
@@ -110,8 +139,13 @@ $(document).ready(function () {
                     $('.vtcountdown').removeClass(item);
                 });
                 $('.vtcountdown').addClass('danger');
-
             }
+            if (ccgTime < 1) {
+                dataClasses.forEach(function (item) {
+                    $('.vtcountdown').removeClass(item);
+                });
+            }
+
         });
         socket.on('cg countdown path', function (path) {
             var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "");
@@ -152,15 +186,15 @@ $(document).ready(function () {
 
 
 
-        var end, start;
+        // var end, start;
 
-        start = new Date();
-        for (var i = 0; i < 360; i++) {
-            console.log(Math.sqrt(i));
-        }
-        end = new Date();
+        // start = new Date();
+        // for (var i = 0; i < 360; i++) {
+        //     console.log(Math.sqrt(i));
+        // }
+        // end = new Date();
 
-        console.log('Операция заняла ' + (end.getTime() - start.getTime()) + ' мсек');
+        // console.log('Операция заняла ' + (end.getTime() - start.getTime()) + ' мсек');
 
 
 
