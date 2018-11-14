@@ -402,19 +402,18 @@ header {
     background-color: #303030;
     -ms-transform: translateY(-70%) scaleY(0);
         transform: translateY(-70%) scaleY(0);
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.3s;
     display: none; }
     header > .mob-nav.opened {
       -ms-transform: translateY(0%) scaleY(1);
           transform: translateY(0%) scaleY(1);
-      transition: transform 0.5s ease-in-out;
+      transition: all 0.3s;
       display: -ms-flexbox;
       display: flex; }
     header > .mob-nav > p {
       position: relative;
       color: #fff;
       text-decoration: none;
-      white-space: nowrap;
       width: 100%;
       padding: 20px 0;
       text-align: center;
@@ -542,8 +541,7 @@ header {
       align-items: center; }
   .booking-module > p:nth-child(1) {
     font-size: 35px;
-    color: #303030;
-    white-space: nowrap; }
+    color: #303030; }
   .booking-module > p:nth-child(2) {
     margin-top: 20px;
     font-size: 16px;
@@ -1415,19 +1413,18 @@ footer {
       background-color: #303030;
       -ms-transform: translateY(-70%) scaleY(0);
           transform: translateY(-70%) scaleY(0);
-      transition: transform 0.5s ease-in-out;
+      transition: all 0.3s;
       display: none; }
       header > .mob-nav.opened {
         -ms-transform: translateY(0%) scaleY(1);
             transform: translateY(0%) scaleY(1);
-        transition: transform 0.5s ease-in-out;
+        transition: all 0.3s;
         display: -ms-flexbox;
         display: flex; }
       header > .mob-nav > p {
         position: relative;
         color: #fff;
         text-decoration: none;
-        white-space: nowrap;
         width: 100%;
         padding: 20px 0;
         text-align: center;
@@ -1554,8 +1551,7 @@ footer {
         align-items: center; }
     .booking-module > p:nth-child(1) {
       font-size: 35px;
-      color: #303030;
-      white-space: nowrap; }
+      color: #303030; }
     .booking-module > p:nth-child(2) {
       margin-top: 20px;
       font-size: 16px;
@@ -2385,16 +2381,17 @@ footer {
       height: 100vh;
       background-color: #303030;
       -ms-transform: translateY(-70%) scaleY(0);
-          transform: translateY(-70%) scaleY(0); }
+          transform: translateY(-70%) scaleY(0);
+      transition: all 0.3s; }
       header > .mob-nav.opened {
         opacity: 1;
         -ms-transform: translateY(0%) scaleY(1);
-            transform: translateY(0%) scaleY(1); }
+            transform: translateY(0%) scaleY(1);
+        transition: all 0.3s; }
       header > .mob-nav > p {
         position: relative;
         color: #fff;
         text-decoration: none;
-        white-space: nowrap;
         width: 100%;
         padding: 20px 0;
         text-align: center;

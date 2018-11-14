@@ -33,15 +33,17 @@ button {
 
 .active {
     background-color: darkgreen;
+    transition: all 0.3s;
 }
 
 .warning {
     background-color: darkorange;
+    transition: all 0.3s;
 }
 
 .danger {
     background-color: darkred;
-
+    transition: all 0.3s;
 }
 
 .dircountdown-module {
