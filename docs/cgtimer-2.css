@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box; }
+  *:active, *:hover, *:focus {
+    outline: 0; }
+
+html {
+  height: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px; }
+
+body {
+  background-color: get-color(global, body-bg-color);
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+
+body, h1, h2, h3, h4, ul, ol, figure {
+  margin: 0;
+  padding: 0; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+body {
+  font-family: 'DS-Digital';
+  font-weight: bold;
+  font-size: 20px;
+  color: #bbb;
+  background-color: #000; }
+
+main {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+
+button {
+  border: none;
+  display: inline-block;
+  outline: none;
+  font-family: 'Comfortaa';
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 10px;
+  border: 5px solid #000;
+  background-color: #333;
+  color: #bbb; }
+
+.active {
+  background-color: #002f04;
+  transition: all 0.3s; }
+
+.warning {
+  background-color: #864c00;
+  transition: all 0.3s; }
+
+.danger {
+  background-color: #f11;
+  transition: all 0.3s;
+  animation: blinker 2s steps(1, end) infinite; }
+
+@keyframes blinker {
+  50% {
+    background-color: #000; } }
+
+.dircountdown-module > article {
+  border: 2px solid #ff8f00;
+  border-radius: 30px;
+  font-size: 110px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column; }
+  .dircountdown-module > article > span:nth-child(1) {
+    font-family: 'Comfortaa';
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100%; }
+  .dircountdown-module > article > span:nth-child(2) {
+    line-height: 65%; }
+
+.dircountdown-module > .dircountdown {
+  transition: all 0.5s; }
+
+.dircountdown-module > .dircount-buttons {
+  height: 150px;
+  overflow: hidden; }
+  .dircountdown-module > .dircount-buttons button {
+    height: 100%;
+    width: 100px; }
+  .dircountdown-module > .dircount-buttons > div {
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+    .dircountdown-module > .dircount-buttons > div > button {
+      line-height: 50%;
+      font-size: 80px;
+      transition: all 0.5s; }
+    .dircountdown-module > .dircount-buttons > div > button:nth-child(1) {
+      background-color: darkred; }
+    .dircountdown-module > .dircount-buttons > div > .play {
+      background-color: darkgreen; }
+    .dircountdown-module > .dircount-buttons > div > .pause {
+      background-color: #e68200; }
+    .dircountdown-module > .dircount-buttons > div > div {
+      height: 100%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      -ms-flex-align: center;
+          align-items: center; }
+      .dircountdown-module > .dircount-buttons > div > div > button {
+        height: 100%;
+        width: 100%; }
+
+.dircountdown-module > .vtcountdown {
+  transition: all 0.3s; }
+  .dircountdown-module > .vtcountdown > .vtcountdown-progressbar,
+  .dircountdown-module > .vtcountdown .vtcountdown-au1,
+  .dircountdown-module > .vtcountdown .vtcountdown-au2 {
+    width: 90%;
+    height: 20px;
+    background-color: #ff8f00;
+    border-radius: 10px; }
+    .dircountdown-module > .vtcountdown > .vtcountdown-progressbar > div,
+    .dircountdown-module > .vtcountdown .vtcountdown-au1 > div,
+    .dircountdown-module > .vtcountdown .vtcountdown-au2 > div {
+      width: 90%;
+      height: 20px;
+      background-color: #ff0000;
+      border-radius: 10px;
+      transition: all 0.5s; }
+  .dircountdown-module > .vtcountdown > .vtcountdown-au1,
+  .dircountdown-module > .vtcountdown .vtcountdown-au2 {
+    height: 10px;
+    border-radius: 5px;
+    margin: 2px 0;
+    overflow: hidden; }
+    .dircountdown-module > .vtcountdown > .vtcountdown-au1 > div,
+    .dircountdown-module > .vtcountdown .vtcountdown-au2 > div {
+      width: 90%;
+      height: 10px;
+      background-color: #ff0000;
+      border-radius: 5px;
+      transition: all 0.5s; }
+  .dircountdown-module > .vtcountdown > .vtcountdown-progressbar {
+    margin-top: 10px;
+    overflow: hidden; }
+  .dircountdown-module > .vtcountdown > .vtcountdown-au1 {
+    margin-top: -10px; }
+
+.dircountdown-module > .settings-buttons {
+  height: 150px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center; }
+  .dircountdown-module > .settings-buttons button {
+    height: 100%; }
+  .dircountdown-module > .settings-buttons > div {
+    width: 200px;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Regular.eot);
+  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype"), url(./assets/images/Comfortaa-Regular.svg#Comfortaa-Regular) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Bold.eot);
+  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype"), url(./assets/images/Comfortaa-Bold.svg#Comfortaa-Bold) format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DS-Digital';
+  src: url(./assets/fonts/DS-Digital.eot);
+  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype"), url(./assets/images/DS-Digital.svg#DS-Digital) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DS-Digital';
+  src: url(./assets/fonts/DS-Digital-Bold.eot);
+  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype"), url(./assets/images/DS-Digital-Bold.svg#DS-Digital-Bold) format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Bold.eot);
+  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype"), url(./assets/images/Jura-Bold.svg#Jura-Bold) format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Medium.eot);
+  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype"), url(./assets/images/Jura-Medium.svg#Jura-Medium) format("svg");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Regular.eot);
+  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype"), url(./assets/images/Jura-Regular.svg#Jura-Regular) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Light.eot);
+  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype"), url(./assets/images/Jura-Light.svg#Jura-Light) format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-SemiBold.eot);
+  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype"), url(./assets/images/Jura-SemiBold.svg#Jura-SemiBold) format("svg");
+  font-weight: 600;
+  font-style: normal; }

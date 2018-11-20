@@ -32,16 +32,25 @@ button {
 }
 
 .active {
-    background-color: darkgreen;
+    background-color: #002f04;
+    transition: all 0.3s;
 }
 
 .warning {
-    background-color: darkorange;
+    background-color: #864c00;
+    transition: all 0.3s;
 }
 
 .danger {
-    background-color: darkred;
+    background-color: #f11;
+    transition: all 0.3s;
+    animation: blinker 2s steps(1, end) infinite;
+}
 
+@keyframes blinker {
+    50% {
+        background-color: #000;
+    }
 }
 
 .dircountdown-module {
@@ -124,6 +133,7 @@ button {
     }
 
     &>.vtcountdown {
+        transition: all 0.3s;
 
         &>.vtcountdown-progressbar,
         .vtcountdown-au1,

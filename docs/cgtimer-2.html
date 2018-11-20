@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CGtimer-2</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
+<link href="cgtimer-2.css" rel="stylesheet"></head>
+
+<body>
+    <main>
+        <section>
+            <article class="dircountdown-module">
+                <article class="current-time">
+                    <span>Current Time</span>
+                    <span class="current-time-digits">00:00:00</span>
+                </article>
+                <article class="dircountdown">
+                    <span>Director's Countdown</span>
+                    <span class="dircountdown-digits">00:00:00</span>
+                </article>
+                <article class="dircount-buttons">
+                    <div>
+
+                        <button class="reset" value="RESET">
+                            <i class="fas fa-flushed"></i></button>
+                        <div>
+                            <button value="+10min">+10min</button>
+                            <button value="-10min">-10min</button>
+                        </div>
+                        <div>
+                            <button value="+1min">+1min</button>
+                            <button value="-1min">-1min</button>
+                        </div>
+                        <div>
+                            <button value="+10sec">+10sec</button>
+                            <button value="-10sec">-10sec</button>
+                        </div>
+
+                        <button class="play" value="PLAY">
+                            <i class="fas fa-play"></i></button>
+                    </div>
+
+                </article>
+                <article class="vtcountdown">
+                    <span class="vtcountdown-title">title</span>
+                    <span class="vtcountdown-digits">00:00:00</span>
+                    <div class="vtcountdown-progressbar">
+                        <div class="vtcountdown-progress-success"></div>
+                    </div>
+                    <span class="vtouttime-digits">00:00:00</span>
+                    <div class="vtcountdown-au1">
+                        <div class="vtcountdown-progress-au1"></div>
+                    </div>
+                    <div class="vtcountdown-au2">
+                        <div class="vtcountdown-progress-au2"></div>
+                    </div>
+                </article>
+                <article class="settings-buttons">
+                    <div>
+
+                        <button>UP</button>
+                        <button>DOWN</button>
+                    </div>
+                    <button>SETTINGS</button>
+
+                </article>
+
+            </article>
+
+        </section>
+    </main>
+<script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="cgtimer-2.js"></script></body>
+
+</html>
