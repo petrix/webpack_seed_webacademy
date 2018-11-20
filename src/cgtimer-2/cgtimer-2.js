@@ -30,13 +30,13 @@
             });
             var dataClasses = ['active', 'warning', 'danger'];
             var dataDuration;
-            socket.on('countdown', function (data) {
-                dataDuration = (data.duration).toFixed(0);
-                console.log(data.active);
+            socket.on('countdown', function (dirDuration, dirActive) {
+                dataDuration = (dirDuration).toFixed(0);
+                console.log(dirActive);
                 dataClasses.forEach(function (item) {
                     $('.dircountdown').removeClass(item);
                 });
-                if (data.active) {
+                if (dirActive) {
                     if (dataDuration > 20) {
                         setPlayedButtons();
                         dataClasses.forEach(function (item) {
@@ -173,6 +173,9 @@
                         console.log(buttonValue + '---' + emitVal[i]);
                     }
                 });
+            });
+            $('.current-time').click(function(){
+                $(this).toggleClass('module-slideup');
             });
         }
 
