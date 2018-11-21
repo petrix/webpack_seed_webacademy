@@ -2364,18 +2364,17 @@ $(document).ready(function () {
         //     }
         // });
         socket.on('timeofday', function (currentTime) {
-            // console.log(socket.id, 'socket connected');
             $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
         });
         var dataClasses = ['active', 'warning', 'danger'];
-        // var dataDuration;
-        socket.on('countdown', function (dataDuration, dataActive) {
-            dataDuration = dataDuration.toFixed(0);
-            // console.log("dataActive - " +dataActive);
+        var dataDuration;
+        socket.on('countdown', function (dirDuration, dirActive) {
+            dataDuration = dirDuration.toFixed(0);
+            // console.log('dirActive -' + dirActive);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
             });
-            if (dataActive) {
+            if (dirActive) {
                 if (dataDuration > 20) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
@@ -2403,8 +2402,6 @@ $(document).ready(function () {
             } else {
                 setPausedButtons();
             }
-
-            // console.log('dataDuration -' + dataDuration);
             dataDuration > 0 ? hours = Math.floor(dataDuration / 3600) : hours = Math.abs(Math.ceil(dataDuration / 3600));
             dataDuration > 0 ? minutes = Math.floor((dataDuration - hours * 3600) / 60) : minutes = Math.abs(Math.ceil((dataDuration - hours * 3600) / 60));
             dataDuration > 0 ? seconds = dataDuration - (minutes * 60 + hours * 3600) : seconds = Math.abs(dataDuration - (minutes * 60 + hours * 3600));
@@ -2418,79 +2415,72 @@ $(document).ready(function () {
 
             $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
         });
-
-        var activeDataTemp = 20;
-        var ccgActive = false;
-        socket.on('cg countdown active', function (activeData) {
-            // console.log(activeData);
-
-            if (activeData) {
-                // console.log('playing');
-                activeDataTemp = 20;
-                ccgActive = true;
-            } else {
-                activeDataTemp--;
-                if (activeDataTemp < 0) {
-                    // console.log(activeDataTemp);
-                    activeDataTemp = 0;
-                    ccgActive = false;
-                    // console.log('not playing');
-                    dataClasses.forEach(function (item) {
-                        $('.vtcountdown').removeClass(item);
-                    });
-                    activeDataTemp = 0;
-                }
+        // var x = 15;
+        // var ccgActive = false;
+        // var ccgMsg = ['paused', 'not-paused', 'playing', 'ended']
+        socket.on('cg countdown active', function (ccgData) {
+            console.log(ccgData);
+            // if(ccgDataMsg=='')
+            if (ccgData != 'playing') {
+                dataClasses.forEach(function (item) {
+                    $('.vtcountdown').removeClass(item);
+                });
             }
         });
 
-        socket.on('cg countdown timeData', function (ccgTime, ccgTotalTime) {
-            var procentTime = ccgTime * 100 / ccgTotalTime;
+        socket.on('cg countdown timeData', function (time, totalTime) {
+            time = time.toFixed(0);
+            var procentTime = time * 100 / totalTime;
             $('.vtcountdown-progress-success').css('width', procentTime.toFixed(0) + '%');
-            // console.log('ccgTime -- ' + ccgTime.toFixed(0) + 'seconds');
-            var vtHours = Math.floor(ccgTime / 3600);
-            var vtMinutes = Math.floor((ccgTime - vtHours * 3600) / 60);
-            var vtSeconds = ccgTime - (vtMinutes * 60 + vtHours * 3600);
+            var vtHours = Math.floor(time / 3600);
+            var vtMinutes = Math.floor((time - vtHours * 3600) / 60);
+            var vtSeconds = time - (vtMinutes * 60 + vtHours * 3600);
             vtSeconds = Math.floor(vtSeconds);
             vtHours = (vtHours < 10 ? "0" : "") + vtHours;
             vtMinutes = (vtMinutes < 10 ? "0" : "") + vtMinutes;
             vtSeconds = (vtSeconds < 10 ? "0" : "") + vtSeconds;
             $('.vtcountdown-digits').text(vtHours + ':' + vtMinutes + ':' + vtSeconds);
-
-            if (ccgTime > 20) {
+            // console.log(time);
+            if (time > 20) {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
                 });
                 $('.vtcountdown').addClass('active');
             }
-            if (10 < ccgTime && ccgTime < 20) {
+            if (time < 20 && time > 10) {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
                 });
                 $('.vtcountdown').addClass('warning');
             }
-            if (ccgTime < 10) {
+            if (time < 10) {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
                 });
                 $('.vtcountdown').addClass('danger');
             }
-            if (ccgTime < 1) {
+            if (time <= 0) {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
                 });
             }
         });
         socket.on('cg countdown path', function (path) {
-            var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "");
+            var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
             if (ccgPath.length > 35) {
                 ccgPath = ccgPath.substr(0, 32) + "...";
             }
-            $('.vtcountdown-title').text(ccgPath);
+            $('.vtcountdown-label').text(ccgPath);
         });
+
+        ////////////////----CCG OUTDATA
         socket.on('cg countdown outdata', function (outTime) {
+            console.log(outTime);
             var mTime = moment.unix(outTime).format('HH:mm:ss');
             $('.vtouttime-digits').text(mTime);
         });
+        ////////////////----CCG OUTDATA
+
         socket.on('cg volume 1ch', function (volLeftCh) {
             $('.vtcountdown-progress-au1').css('width', (90 + volLeftCh).toFixed(1) + "%");
         });
@@ -2498,13 +2488,14 @@ $(document).ready(function () {
             $('.vtcountdown-progress-au2').css('width', (90 + volRightCh).toFixed(1) + "%");
         });
 
-        // socket.on('custom play', function () {
-        //     socket.emit('status off air');
-        // });
+        socket.on('custom play', function () {
+            // socket.emit('status off air');
+        });
 
-        // socket.on('custom pause', function () {
-        //     socket.emit('status on air reset');
-        // });
+        socket.on('custom pause', function () {
+
+            // socket.emit('status on air reset');
+        });
 
         function setPlayedButtons() {
             $('.reset > i').removeClass('fa-flushed').addClass('fa-grimace');
@@ -2541,6 +2532,10 @@ $(document).ready(function () {
                     console.log(buttonValue + '---' + emitVal[i]);
                 }
             });
+        });
+        var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
+        $('p').click(function () {
+            $(this).parent().toggleClass('module-slideup');
         });
     }
 });

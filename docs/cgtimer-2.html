@@ -17,58 +17,59 @@
         <section>
             <article class="dircountdown-module">
                 <article class="current-time">
-                    <span>Current Time</span>
-                    <span class="current-time-digits">00:00:00</span>
+                    <p class="current-time-label">Current Time</p>
+                    <span class="digits current-time-digits">00:00:00</span>
                 </article>
                 <article class="dircountdown">
-                    <span>Director's Countdown</span>
-                    <span class="dircountdown-digits">00:00:00</span>
-                </article>
-                <article class="dircount-buttons">
-                    <div>
+                    <p class="dircountdown-label">Director's Countdown</p>
+                    <article>
+                        <span class="digits dircountdown-digits">00:00:00</span>
+                        <div class="dircount-buttons">
+                            <button class="reset" value="RESET">
+                                <i class="fas fa-flushed"></i></button>
+                            <div>
+                                <button value="+10min">+10min</button>
+                                <button value="-10min">-10min</button>
+                            </div>
+                            <div>
+                                <button value="+1min">+1min</button>
+                                <button value="-1min">-1min</button>
+                            </div>
+                            <div>
+                                <button value="+10sec">+10sec</button>
+                                <button value="-10sec">-10sec</button>
+                            </div>
 
-                        <button class="reset" value="RESET">
-                            <i class="fas fa-flushed"></i></button>
-                        <div>
-                            <button value="+10min">+10min</button>
-                            <button value="-10min">-10min</button>
+                            <button class="play" value="PLAY">
+                                <i class="fas fa-play"></i></button>
                         </div>
-                        <div>
-                            <button value="+1min">+1min</button>
-                            <button value="-1min">-1min</button>
-                        </div>
-                        <div>
-                            <button value="+10sec">+10sec</button>
-                            <button value="-10sec">-10sec</button>
-                        </div>
-
-                        <button class="play" value="PLAY">
-                            <i class="fas fa-play"></i></button>
-                    </div>
-
+                    </article>
                 </article>
                 <article class="vtcountdown">
-                    <span class="vtcountdown-title">title</span>
-                    <span class="vtcountdown-digits">00:00:00</span>
-                    <div class="vtcountdown-progressbar">
-                        <div class="vtcountdown-progress-success"></div>
-                    </div>
-                    <span class="vtouttime-digits">00:00:00</span>
-                    <div class="vtcountdown-au1">
-                        <div class="vtcountdown-progress-au1"></div>
-                    </div>
-                    <div class="vtcountdown-au2">
-                        <div class="vtcountdown-progress-au2"></div>
-                    </div>
+                    <p class="vtcountdown-label">CCG Movie Title</p>
+                    <article>
+                        <span class="digits vtcountdown-digits">00:00:00</span>
+                        <div class="vtcountdown-progressbar">
+                            <div class="vtcountdown-progress-success"></div>
+                        </div>
+                        <span class=" digits vtouttime-digits">00:00:00</span>
+                        <div class="vtcountdown-au1">
+                            <div class="vtcountdown-progress-au1"></div>
+                        </div>
+                        <div class="vtcountdown-au2">
+                            <div class="vtcountdown-progress-au2"></div>
+                        </div>
+                    </article>
                 </article>
-                <article class="settings-buttons">
-                    <div>
-
-                        <button>UP</button>
-                        <button>DOWN</button>
-                    </div>
-                    <button>SETTINGS</button>
-
+                <article class="settings">
+                    <p>Settings</p>
+                    <article>
+                        <div>
+                            <button>UP</button>
+                            <button>DOWN</button>
+                        </div>
+                        <button value="settings">SETTINGS</button>
+                    </article>
                 </article>
 
             </article>
