@@ -54,11 +54,6 @@ for (var i = 9; i <= 20; i += 1) {
 }
 // $('.hours24').append('<div style="transform: translate(0px, -310px)" class="hr0">0</div>');
 
-
-
-
-
-
 socket.on('error', (error) => {
     console.log('error');
     location.reload();

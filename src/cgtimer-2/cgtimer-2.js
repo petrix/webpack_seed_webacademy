@@ -32,7 +32,7 @@
             var dataDuration;
             socket.on('countdown', function (dirDuration, dirActive) {
                 dataDuration = (dirDuration).toFixed(0);
-                console.log(dirActive);
+                // console.log('dirActive -' + dirActive);
                 dataClasses.forEach(function (item) {
                     $('.dircountdown').removeClass(item);
                 });
@@ -64,8 +64,6 @@
                 } else {
                     setPausedButtons();
                 }
-
-                console.log('dataDuration -' + dataDuration);
                 (dataDuration > 0) ? hours = Math.floor(dataDuration / 3600): hours = Math.abs(Math.ceil(dataDuration / 3600));
                 (dataDuration > 0) ? minutes = Math.floor((dataDuration - hours * 3600) / 60): minutes = Math.abs(Math.ceil((dataDuration - hours * 3600) / 60));
                 (dataDuration > 0) ? seconds = dataDuration - (minutes * 60 + hours * 3600): seconds = Math.abs(dataDuration - (minutes * 60 + hours * 3600));
@@ -79,11 +77,23 @@
 
                 $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
             });
+            // var x = 15;
+            // var ccgActive = false;
+            // var ccgMsg = ['paused', 'not-paused', 'playing', 'ended']
+            socket.on('cg countdown active', function (ccgData) {
+                console.log(ccgData);
+                // if(ccgDataMsg=='')
+                if (ccgData != 'playing') {
+                    dataClasses.forEach(function (item) {
+                        $('.vtcountdown').removeClass(item);
+                    });
+                }
+            });
 
             socket.on('cg countdown timeData', function (time, totalTime) {
+                time = time.toFixed(0);
                 var procentTime = ((time * 100) / totalTime);
                 $('.vtcountdown-progress-success').css('width', procentTime.toFixed(0) + '%');
-                console.log(time);
                 var vtHours = Math.floor(time / 3600);
                 var vtMinutes = Math.floor((time - vtHours * 3600) / 60);
                 var vtSeconds = time - (vtMinutes * 60 + vtHours * 3600);
@@ -92,25 +102,49 @@
                 vtMinutes = (vtMinutes < 10 ? "0" : "") + vtMinutes;
                 vtSeconds = (vtSeconds < 10 ? "0" : "") + vtSeconds;
                 $('.vtcountdown-digits').text(vtHours + ':' + vtMinutes + ':' + vtSeconds);
+                // console.log(time);
                 if (time > 20) {
-                    // dataClasses.forEach(function (item) {
-                    //     $('.vtcountdown').removeClass(item);
-                    // });
-                    // $('.vtcountdown').addClass('active');
+                    dataClasses.forEach(function (item) {
+                        $('.vtcountdown').removeClass(item);
+                    });
+                    $('.vtcountdown').addClass('active');
+                }
+                if (time < 20 && time > 10) {
+                    dataClasses.forEach(function (item) {
+                        $('.vtcountdown').removeClass(item);
+                    });
+                    $('.vtcountdown').addClass('warning');
+                }
+                if (time < 10) {
+                    dataClasses.forEach(function (item) {
+                        $('.vtcountdown').removeClass(item);
+                    });
+                    $('.vtcountdown').addClass('danger');
+                }
+                if (time <= 0) {
+                    dataClasses.forEach(function (item) {
+                        $('.vtcountdown').removeClass(item);
+                    });
+
 
                 }
             });
             socket.on('cg countdown path', function (path) {
-                var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "");
+                var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
                 if (ccgPath.length > 35) {
                     ccgPath = ccgPath.substr(0, 32) + "...";
                 }
-                $('.vtcountdown-title').text(ccgPath);
+                $('.vtcountdown-label').text(ccgPath);
             });
+
+            ////////////////----CCG OUTDATA
             socket.on('cg countdown outdata', function (outTime) {
+                console.log(outTime);
                 var mTime = moment.unix(outTime).format('HH:mm:ss');
                 $('.vtouttime-digits').text(mTime);
             });
+            ////////////////----CCG OUTDATA
+
             socket.on('cg volume 1ch', function (volLeftCh) {
                 $('.vtcountdown-progress-au1').css('width', (90 + volLeftCh).toFixed(1) + "%");
             });
@@ -140,15 +174,15 @@
 
 
 
-            var end, start;
+            // var end, start;
 
-            start = new Date();
-            for (var i = 0; i < 360; i++) {
-                console.log(Math.sqrt(i));
-            }
-            end = new Date();
+            // start = new Date();
+            // for (var i = 0; i < 360; i++) {
+            //     console.log(Math.sqrt(i));
+            // }
+            // end = new Date();
 
-            console.log('Операция заняла ' + (end.getTime() - start.getTime()) + ' мсек');
+            // console.log('Операция заняла ' + (end.getTime() - start.getTime()) + ' мсек');
 
 
 
@@ -174,8 +208,9 @@
                     }
                 });
             });
-            $('.current-time').click(function(){
-                $(this).toggleClass('module-slideup');
+            var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
+            $('p').click(function () {
+                $(this).parent().toggleClass('module-slideup');
             });
         }
 
