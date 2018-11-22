@@ -1,9 +1,14 @@
 @import './variables';
+$xsm-screen: 375px;
 $xs-screen: 576px;
 $sm-screen: 768px;
 $md-screen: 992px;
 $lg-screen: 1200px;
-
+@mixin xsm-mobile{
+    @media(max-width: #{$xsm-screen - 0.1px}){
+        @content;
+    }
+}
 @mixin xs-mobile {
     @media (max-width: #{$xs-screen - 0.1px}) {
         @content;
@@ -74,4 +79,10 @@ $lg-screen: 1200px;
 @mixin flex-column {
     display: flex;
     flex-direction: column;
+}
+@mixin flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

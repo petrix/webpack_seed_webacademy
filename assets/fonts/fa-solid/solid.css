@@ -97,3 +97,6 @@
 .fa-calendar-alt:before {
   content: "\f073";
 }
+
+.fa-play:before {
+  content: "\f04b"; }
