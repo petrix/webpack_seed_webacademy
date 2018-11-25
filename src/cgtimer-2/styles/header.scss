@@ -17,9 +17,11 @@ main {
 
 button {
     @include btn-reset-default;
+    margin: 0;
+    padding: 0;
     font-family: 'Comfortaa';
     font-weight: bold;
-    font-size: 24px;
+    font-size: 18px;
     border-radius: 10px;
     background-color: #333;
     color: #bbb;
@@ -53,6 +55,8 @@ p {
     line-height: 65%;
     overflow: hidden;
     margin: 5px;
+    font-size: 95px;
+
 }
 
 .active {
@@ -78,29 +82,17 @@ p {
 }
 
 .dircountdown-module {
-
-    // &>article {
-    //     transition: all 0.3s;
-    //     overflow: hidden;
-    //     border: 2px solid #ff8f00;
-    //     border-radius: 30px;
-    //     font-size: 110px;
-    //     @include flex-column;
-    //     justify-content: flex-start;
-    //     align-items: center;
-    //     padding: 10px 0;
-    // }
+width: 100vw;
     &>.current-time {
         transition: all 0.3s;
         overflow: hidden;
         border: 2px solid #ff8f00;
         border-radius: 30px;
-        font-size: 110px;
         @include flex-column;
         justify-content: flex-start;
         align-items: center;
         padding: 10px 0;
-        height: 135px;
+        height: 130px;
 
         &>.module-slideup {
             height: 46px;
@@ -123,7 +115,7 @@ p {
         justify-content: flex-start;
         align-items: center;
         padding: 10px; // 
-        height: 245px;
+        height: 210px;
 
         &>article {
             @include flex-column;
@@ -132,20 +124,20 @@ p {
 
             &>.dircount-buttons {
                 margin-top: 5px;
-                height: 105px;
+                height: 80px;
                 @include flex-row;
                 justify-content: center;
                 align-items: flex-start;
 
                 &>:nth-child(n) {
-                    width: 90px;
+                    width: 65px;
                     margin: 0 2px;
                 }
 
                 &>button {
                     height: 100%;
                     line-height: 50%;
-                    font-size: 80px;
+                    font-size: 50px;
                     transition: all 0.3s;
                 }
 
@@ -186,7 +178,7 @@ p {
         justify-content: flex-start;
         align-items: center;
         padding: 10px;
-        height: 285px;
+        height: 265px;
 
         &>article {
             width: 100%;
