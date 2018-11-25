@@ -206,7 +206,7 @@ $(document).ready(function () {
                 '</div>' +
                 '<span>' + dailysum + '</span>' +
 
-                '<div class="row2" style="background-image: linear-gradient(to right,#006ac0 ' + dailysunrisePercent + '%,' + '#c07600 ' + (dailysunrisePercent + 1) + '%,' + '#c07600 ' + (dailysunsetPercent - 1) + '%,' + '#006ac0 ' + dailysunsetPercent + '%' + ')">' +
+                '<div class="row2" style="background-image: linear-gradient(to right,#006ac0 ' + (dailysunrisePercent - 1) + '%,' + '#c07600 ' + (dailysunrisePercent) + '%,' + '#c07600 ' + (dailysunsetPercent - 1) + '%,' + '#006ac0 ' + dailysunsetPercent + '%' + ')">' +
                 '<div>' +
                 '<p>sunrise</p><b>' + dailysunrise + '</b>' +
                 '<p>sunset</p><b>' + dailysunset + '</b>' +
