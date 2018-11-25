@@ -32,6 +32,7 @@ const baseConf = (_path) => {
         'hw-13': ['./src/hw-13/hw-13.js'],
         'hw-14': ['./src/hw-14/hw-14.js'],
         'diplom': ['./src/diplom/diplom.js'],
+        'weather-js': ['./src/weather-js/weather-js.js']
     };
 
     const plugins = Object.keys(entry).reduce((acc, name) => {

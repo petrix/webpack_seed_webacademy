@@ -4,7 +4,7 @@
 
 
     $(document).ready(function () {
-        const socket = io('http://p3xx.tk:4000');
+        const socket = io('http://localhost:4000?token=DIRECTOR');
 
         var response = $.get("https://ipinfo.io", function (response) {
             console.log(response.ip, response.country, response.loc, response);
@@ -24,15 +24,17 @@
             //         socket.connect();
             //     }
             // });
+
             socket.on('timeofday', function (currentTime) {
                 $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
 
             });
             var dataClasses = ['active', 'warning', 'danger'];
             var dataDuration;
+            socket.emit('countdown-get', true);
             socket.on('countdown', function (dirDuration, dirActive) {
                 dataDuration = (dirDuration).toFixed(0);
-                // console.log('dirActive -' + dirActive);
+                console.log('dirActive -' + dirActive);
                 dataClasses.forEach(function (item) {
                     $('.dircountdown').removeClass(item);
                 });
