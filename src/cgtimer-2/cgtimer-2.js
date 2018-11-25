@@ -4,7 +4,7 @@
 
 
     $(document).ready(function () {
-        const socket = io('http://localhost:4000?token=DIRECTOR');
+        const socket = io('http://p3xx.tk:4000?token=DIRECTOR');
 
         var response = $.get("https://ipinfo.io", function (response) {
             console.log(response.ip, response.country, response.loc, response);

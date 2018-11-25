@@ -135,3 +135,6 @@ function timesync_module() {
     });
 
 }
+$('div').click(function () {
+    console.log($(this));
+})
