@@ -201,7 +201,7 @@
 
             var btnVal = ['+10min', '+1min', '+10sec', '-10sec', '-1min', '-10min', 'RESET', 'PLAY'];
             var emitVal = ['custom countdown 10m', 'custom countdown 1m', 'custom countdown 10s', 'custom countdown rm10s', 'custom countdown rm1m', 'custom countdown rm10m', 'reset custom countdown', 'toggle custom countdown'];
-            $('button').click(function () {
+            $('.dircount-buttons').on('click', 'button', function () {
                 var buttonValue = $(this).val();
                 btnVal.forEach(function (item, i) {
                     if (item == buttonValue) {
@@ -210,9 +210,16 @@
                     }
                 });
             });
+
             var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
             $('p').click(function () {
                 $(this).parent().toggleClass('module-slideup');
+            });
+            $('#settings').click(function () {
+
+                console.log($('#message').val());
+                $('#message').val('');
+
             });
         }
 
