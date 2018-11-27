@@ -215,12 +215,15 @@
             $('p').click(function () {
                 $(this).parent().toggleClass('module-slideup');
             });
-            $('#settings').click(function () {
 
+
+
+
+            $('#settings').click(function () {
                 console.log($('#message').val());
                 $('#message').val('');
-
             });
+
         }
 
     });

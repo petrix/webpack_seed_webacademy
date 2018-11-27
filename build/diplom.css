@@ -96,7 +96,10 @@
 
 .fa-calendar-alt:before {
   content: "\F073";
-}* {
+}
+
+.fa-play:before {
+  content: "\F04B"; }* {
   box-sizing: border-box; }
   *:active, *:hover, *:focus {
     outline: 0; }

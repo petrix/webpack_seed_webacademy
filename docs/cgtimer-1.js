@@ -2471,6 +2471,9 @@ function timesync_module() {
         console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
     });
 }
+$('div').click(function () {
+    console.log($(this));
+});
 
 /***/ }),
 

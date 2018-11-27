@@ -2344,7 +2344,7 @@ var _socket2 = _interopRequireDefault(_socket);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 $(document).ready(function () {
-    var socket = (0, _socket2.default)('http://p3xx.tk:4000');
+    var socket = (0, _socket2.default)('http://p3xx.tk:4000?token=DIRECTOR');
 
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
@@ -2363,14 +2363,16 @@ $(document).ready(function () {
         //         socket.connect();
         //     }
         // });
+
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
         });
         var dataClasses = ['active', 'warning', 'danger'];
         var dataDuration;
+        socket.emit('countdown-get', true);
         socket.on('countdown', function (dirDuration, dirActive) {
             dataDuration = dirDuration.toFixed(0);
-            // console.log('dirActive -' + dirActive);
+            console.log('dirActive -' + dirActive);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
             });
@@ -2524,7 +2526,7 @@ $(document).ready(function () {
 
         var btnVal = ['+10min', '+1min', '+10sec', '-10sec', '-1min', '-10min', 'RESET', 'PLAY'];
         var emitVal = ['custom countdown 10m', 'custom countdown 1m', 'custom countdown 10s', 'custom countdown rm10s', 'custom countdown rm1m', 'custom countdown rm10m', 'reset custom countdown', 'toggle custom countdown'];
-        $('button').click(function () {
+        $('.dircount-buttons').on('click', 'button', function () {
             var buttonValue = $(this).val();
             btnVal.forEach(function (item, i) {
                 if (item == buttonValue) {
@@ -2533,9 +2535,15 @@ $(document).ready(function () {
                 }
             });
         });
+
         var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
         $('p').click(function () {
             $(this).parent().toggleClass('module-slideup');
+        });
+
+        $('#settings').click(function () {
+            console.log($('#message').val());
+            $('#message').val('');
         });
     }
 });
