@@ -2343,8 +2343,10 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var message;
+
 $(document).ready(function () {
-    var socket = (0, _socket2.default)('http://p3xx.tk:4000?token=DIRECTOR');
+    var socket = (0, _socket2.default)('http://localhost:4000?token=DIRECTOR');
 
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
@@ -2421,7 +2423,7 @@ $(document).ready(function () {
         // var ccgActive = false;
         // var ccgMsg = ['paused', 'not-paused', 'playing', 'ended']
         socket.on('cg countdown active', function (ccgData) {
-            console.log(ccgData);
+            // console.log(ccgData);
             // if(ccgDataMsg=='')
             if (ccgData != 'playing') {
                 dataClasses.forEach(function (item) {
@@ -2477,7 +2479,7 @@ $(document).ready(function () {
 
         ////////////////----CCG OUTDATA
         socket.on('cg countdown outdata', function (outTime) {
-            console.log(outTime);
+            // console.log(outTime);
             var mTime = moment.unix(outTime).format('HH:mm:ss');
             $('.vtouttime-digits').text(mTime);
         });
@@ -2490,14 +2492,15 @@ $(document).ready(function () {
             $('.vtcountdown-progress-au2').css('width', (90 + volRightCh).toFixed(1) + "%");
         });
 
-        socket.on('custom play', function () {
-            // socket.emit('status off air');
-        });
+        // socket.on('messaging message', function (object) {
+        //     var messageObject = JSON.parse(object);
+        //     messageReceivedFunction(messageObject.message, messageObject.source);
+        // });
 
-        socket.on('custom pause', function () {
+        // socket.on('custom pause', function () {
 
-            // socket.emit('status on air reset');
-        });
+        // socket.emit('status on air reset');
+        // });
 
         function setPlayedButtons() {
             $('.reset > i').removeClass('fa-flushed').addClass('fa-grimace');
@@ -2536,14 +2539,26 @@ $(document).ready(function () {
             });
         });
 
+        $('.settings').on('click', 'button', function () {
+            var timeOffset = $(this).val();
+            socket.emit('timeofday-offset', timeOffset);
+        });
+
         var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
         $('p').click(function () {
             $(this).parent().toggleClass('module-slideup');
         });
 
-        $('#settings').click(function () {
-            console.log($('#message').val());
+        $('#submit').click(function () {
+            message = $('#message').val();
+            console.log(message);
+            socket.emit('clientmessage', message);
+            // messaging send message broadcast
             $('#message').val('');
+        });
+        socket.on('servermessage', function (srvMsg) {
+            console.log('srvMsg-' + srvMsg);
+            $('#messages').append(srvMsg + '<br>');
         });
     }
 });

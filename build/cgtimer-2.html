@@ -61,24 +61,44 @@
                         </div>
                     </article>
                 </article>
-                <article class="settings module-slideup">
+                <article class="settings">
                     <p>Settings</p>
                     <article>
 
                         <div>
                             <div>
-                                <button>UP</button>
-                                <button>DOWN</button>
+                                <button value="+1h">+1h</button>
+                                <button value="-1h">-1h</button>
                             </div>
-                            <button value="settings" id='settings'>SETTINGS</button>
+                            <div>
+                                <button value="+10m">+10m</button>
+                                <button value="-10m">-10m</button>
+                            </div>
+                            <div>
+                                <button value="+1m">+1m</button>
+                                <button value="-1m">-1m</button>
+                            </div>
+                            <div>
+                                <button value="+10s">+10s</button>
+                                <button value="-10s">-10s</button>
+                            </div>
+                            <div>
+                                <button value="+1s">+1s</button>
+                                <button value="-1s">-1s</button>
+                            </div>
+                            <div>
+                                <button value="0">0</button>
+                            </div>
+
                         </div>
                     </article>
                 </article>
-                <article class="chat">
+                <article class="chat module-slideup">
                     <p>Chat</p>
                     <div id="messages"></div>
-                    <input id='message' type="text" placeholder="Type something...">
-
+                    <section>
+                        <input id='message' type="text" placeholder="Type something...">
+                        <button id="submit">Submit</button></section>
                 </article>
 
             </article>

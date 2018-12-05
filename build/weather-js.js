@@ -218,12 +218,12 @@ $(document).ready(function () {
             var dailysunrisePercent = ((dailysunriseHour / 24 + dailysunriseMinute / 1440) * 100).toFixed(2);
             var dailysunsetPercent = ((dailysunsetHour / 24 + dailysunsetMinute / 1440) * 100).toFixed(2);
 
-            console.log('dailysunrise -' + dailysunrisePercent);
-            console.log('dailysunset -' + dailysunsetPercent);
+            // console.log('dailysunrise -' + dailysunrisePercent);
+            // console.log('dailysunset -' + dailysunsetPercent);
             iconvalue.forEach(function (item, i) {
                 if (item == daysumicon) {
                     mainIconbig = iconimagebig[i];
-                    console.log(daysumicon);
+                    console.log('icon-', daysumicon);
                 }
             });
             $(".daily").append('<div class="row1">' + '<span>' + dailytime + '</span>' + mainIconbig + '</div>' + '<span>' + dailysum + '</span>' + '<div class="row2" style="background-image: linear-gradient(to right,#006ac0 ' + (dailysunrisePercent - 1) + '%,' + '#c07600 ' + dailysunrisePercent + '%,' + '#c07600 ' + (dailysunsetPercent - 1) + '%,' + '#006ac0 ' + dailysunsetPercent + '%' + ')">' + '<div>' + '<p>sunrise</p><b>' + dailysunrise + '</b>' + '<p>sunset</p><b>' + dailysunset + '</b>' + '</div>' + '<div>' + '<p>tempHigh</p><b>' + dailytemperatureHigh + '</b>' + '<b> - ' + dailytemperatureHighTime + '</b>' + '<p>tempLow</p><b>' + dailytemperatureLow + '</b>' + '<b> - ' + dailytemperatureLowTime + '</b>' + '</div>' + '<div>' + '<p>apparentTempHigh</p><b>' + dailyapparentTemperatureHigh + '</b>' + '<b> - ' + dailyapparentTemperatureHighTime + '</b>' + '<p>tempHigh</p><b>' + dailyapparentTemperatureLow + '</b>' + '<b> - ' + dailyapparentTemperatureLowTime + '</b>' + '</div>' + '<div>' + '<p>moonPhase</p><b>' + daymoonPhase + '</b>' + '<p>visibility</p><b>' + dayvisibility + '</b>' + '<p>pressure</p><b>' + daypressure + '</b>' + '</div>' + '<div>' + '<p>cloudCover</p><b>' + daycloudCover + '</b>' + '<p>humidity</p><b>' + dayhumidity + '</b>' + '<p>dewPoint</p><b>' + daydewPoint + '</b>' + '</div>' + '<div>' + '<p>ozone</p><b>' + dayozone + '</b>' + '<p>uvIndex</p><b>' + dayuvIndex + '</b>' + '<b> - ' + dayuvIndexTime + '</b>' + '</div>' + '<div class="precip' + dayprecipShow + '">' + '<p>precipProbability</p><b>' + dayprecipProbability + '</b>' + '<b> - ' + dayprecipIntensityMaxTime + '</b>' + '<b> - ' + dayprecipType + '</b>' + '</div>' + '</div>');

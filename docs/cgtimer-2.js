@@ -2539,6 +2539,11 @@ $(document).ready(function () {
             });
         });
 
+        $('.settings').on('click', 'button', function () {
+            var timeOffset = $(this).val();
+            socket.emit('timeofday-offset', timeOffset);
+        });
+
         var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
         $('p').click(function () {
             $(this).parent().toggleClass('module-slideup');
@@ -2549,7 +2554,6 @@ $(document).ready(function () {
             console.log(message);
             socket.emit('clientmessage', message);
             // messaging send message broadcast
-
             $('#message').val('');
         });
         socket.on('servermessage', function (srvMsg) {
