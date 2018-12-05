@@ -4373,21 +4373,43 @@ p {
 .chat {
   height: 300px; }
   .chat > div {
-    width: 500px;
+    width: 636px;
     height: 500px;
     background-color: #bbb;
-    border-radius: 10px; }
-  .chat > input {
-    border: none;
-    display: inline-block;
-    outline: none;
-    text-decoration: none;
-    height: 50px;
-    font-size: 36px;
-    font-family: 'Comfortaa';
-    font-weight: bold;
     border-radius: 10px;
-    padding: 0 10px; }
+    color: #000;
+    font-family: 'Comfortaa';
+    font-weight: bold; }
+  .chat > div {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row; }
+  .chat > section {
+    padding: 10px 10px; }
+    .chat > section > input {
+      border: none;
+      display: inline-block;
+      outline: none;
+      text-decoration: none;
+      height: 50px;
+      font-size: 36px;
+      font-family: 'Comfortaa';
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 0 10px; }
+    .chat > section > button {
+      height: 100%;
+      border: none;
+      display: inline-block;
+      outline: none;
+      text-decoration: none;
+      height: 50px;
+      font-size: 36px;
+      font-family: 'Comfortaa';
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 0 10px; }
 
 @font-face {
   font-family: 'Comfortaa';

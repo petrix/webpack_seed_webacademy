@@ -191,12 +191,12 @@ $(document).ready(function () {
             var dailysunrisePercent = ((dailysunriseHour / 24 + dailysunriseMinute / 1440) * 100).toFixed(2);
             var dailysunsetPercent = ((dailysunsetHour / 24 + dailysunsetMinute / 1440) * 100).toFixed(2);
 
-            console.log('dailysunrise -' + dailysunrisePercent);
-            console.log('dailysunset -' + dailysunsetPercent);
+            // console.log('dailysunrise -' + dailysunrisePercent);
+            // console.log('dailysunset -' + dailysunsetPercent);
             iconvalue.forEach(function (item, i) {
                 if (item == daysumicon) {
                     mainIconbig = iconimagebig[i];
-                    console.log(daysumicon);
+                    console.log('icon-', daysumicon);
                 }
             });
             $(".daily").append(
