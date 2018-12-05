@@ -2343,7 +2343,7 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var socket = (0, _socket2.default)('http://localhost:4000');
+var socket = (0, _socket2.default)('http://p3xx.tk:4000');
 console.log(socket);
 console.log('init');
 
@@ -2443,7 +2443,7 @@ function timesync_module() {
         $('.hours').find('.hr' + hours).addClass('hours-active');
         $('.hours24').find('.hr' + hours).addClass('hours-active');
 
-        console.log(hours);
+        // console.log(hours);
         if (hours > 11) {
             $('.hours').css({
                 'opacity': '0'
@@ -2468,12 +2468,12 @@ function timesync_module() {
         if (seconds >= 59 && miliseconds > 500) {
             $('.seconds').children().removeClass('seconds-active');
         }
-        console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
+        // console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
     });
 }
-$('div').click(function () {
-    console.log($(this));
-});
+// $('div').click(function () {
+//     console.log($(this));
+// })
 
 /***/ }),
 
