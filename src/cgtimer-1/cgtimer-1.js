@@ -1,8 +1,20 @@
 import './cgtimer-1.scss';
 import io from 'socket.io-client';
-const socket = io('http://p3xx.tk:4000');
+const socket = io('http://localhost:4000');
 console.log(socket);
 console.log('init');
+
+
+socket.on('refresh', function (refresher) {
+    console.log(refresher);
+    if (refresher == 1) {
+        location.reload();
+    }
+});
+socket.emit('brightness-get', true);
+socket.on('brightness value', function (brightnessValue) {
+    $('body').css('filter', 'brightness(' + brightnessValue + '%)');
+});
 
 // socket.on('connect', onConnect);
 
@@ -11,7 +23,6 @@ console.log('init');
 // }
 var response = $.get("https://ipinfo.io", function (response) {
     console.log(response.ip, response.country, response.loc, response);
-    // responseLoc = response.loc;
 }, "jsonp");
 
 
