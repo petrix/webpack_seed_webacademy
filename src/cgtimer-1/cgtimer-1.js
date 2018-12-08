@@ -1,8 +1,20 @@
 import './cgtimer-1.scss';
 import io from 'socket.io-client';
-const socket = io('http://p3xx.tk:4000');
+const socket = io('http://localhost:4000');
 console.log(socket);
 console.log('init');
+
+
+socket.on('refresh', function (refresher) {
+    console.log(refresher);
+    if (refresher == 1) {
+        location.reload();
+    }
+});
+socket.emit('brightness-get', true);
+socket.on('brightness value', function (brightnessValue) {
+    $('body').css('filter', 'brightness(' + brightnessValue + '%)');
+});
 
 // socket.on('connect', onConnect);
 
@@ -11,7 +23,6 @@ console.log('init');
 // }
 var response = $.get("https://ipinfo.io", function (response) {
     console.log(response.ip, response.country, response.loc, response);
-    // responseLoc = response.loc;
 }, "jsonp");
 
 
@@ -105,7 +116,7 @@ function timesync_module() {
         $('.hours').find('.hr' + hours).addClass('hours-active');
         $('.hours24').find('.hr' + hours).addClass('hours-active');
 
-        console.log(hours);
+        // console.log(hours);
         if (hours > 11) {
             $('.hours').css({
                 'opacity': '0'
@@ -130,8 +141,11 @@ function timesync_module() {
         if (seconds >= 59 && miliseconds > 500) {
             $('.seconds').children().removeClass('seconds-active');
         }
-        console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
+        // console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
 
     });
 
 }
+// $('div').click(function () {
+//     console.log($(this));
+// })

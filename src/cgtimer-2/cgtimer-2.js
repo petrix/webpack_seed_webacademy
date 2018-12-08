@@ -1,10 +1,12 @@
     import './cgtimer-2.scss';
     import io from 'socket.io-client';
-
+    var message;
 
 
     $(document).ready(function () {
-        const socket = io('http://localhost:4000');
+
+        const socket = io('http://p3xx.tk:4000?token=DIRECTOR');
+
 
         var response = $.get("https://ipinfo.io", function (response) {
             console.log(response.ip, response.country, response.loc, response);
@@ -24,15 +26,17 @@
             //         socket.connect();
             //     }
             // });
+
             socket.on('timeofday', function (currentTime) {
                 $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
 
             });
             var dataClasses = ['active', 'warning', 'danger'];
             var dataDuration;
+            socket.emit('countdown-get', true);
             socket.on('countdown', function (dirDuration, dirActive) {
                 dataDuration = (dirDuration).toFixed(0);
-                // console.log('dirActive -' + dirActive);
+                console.log('dirActive -' + dirActive);
                 dataClasses.forEach(function (item) {
                     $('.dircountdown').removeClass(item);
                 });
@@ -77,12 +81,7 @@
 
                 $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
             });
-            // var x = 15;
-            // var ccgActive = false;
-            // var ccgMsg = ['paused', 'not-paused', 'playing', 'ended']
             socket.on('cg countdown active', function (ccgData) {
-                console.log(ccgData);
-                // if(ccgDataMsg=='')
                 if (ccgData != 'playing') {
                     dataClasses.forEach(function (item) {
                         $('.vtcountdown').removeClass(item);
@@ -139,7 +138,7 @@
 
             ////////////////----CCG OUTDATA
             socket.on('cg countdown outdata', function (outTime) {
-                console.log(outTime);
+                // console.log(outTime);
                 var mTime = moment.unix(outTime).format('HH:mm:ss');
                 $('.vtouttime-digits').text(mTime);
             });
@@ -152,15 +151,6 @@
                 $('.vtcountdown-progress-au2').css('width', (90 + volRightCh).toFixed(1) + "%");
             });
 
-            socket.on('custom play', function () {
-                // socket.emit('status off air');
-            });
-
-            socket.on('custom pause', function () {
-
-                // socket.emit('status on air reset');
-            });
-
             function setPlayedButtons() {
                 $('.reset > i').removeClass('fa-flushed').addClass('fa-grimace');
                 $('.play').addClass('pause').children('i').removeClass('fa-play').addClass('fa-pause');
@@ -170,9 +160,11 @@
                 $('.reset > i').removeClass('fa-grimace').addClass('fa-flushed');
                 $('.play').removeClass('pause').children('i').removeClass('fa-pause').addClass('fa-play');
             }
+            socket.emit('ip-get', true);
 
-
-
+            socket.on('ip', function (ip) {
+                $('#ip').html(ip);
+            });
 
             // var end, start;
 
@@ -197,9 +189,10 @@
             ///////////////------SENDING------------//////////////////
             //////////////////////////////////////////////////////
 
-            var btnVal = ['+10min', '+1min', '+10sec', '-10sec', '-1min', '-10min', 'RESET', 'PLAY'];
-            var emitVal = ['custom countdown 10m', 'custom countdown 1m', 'custom countdown 10s', 'custom countdown rm10s', 'custom countdown rm1m', 'custom countdown rm10m', 'reset custom countdown', 'toggle custom countdown'];
-            $('button').click(function () {
+
+            $('.dircount-buttons').on('click', 'button', function () {
+                var btnVal = ['+10min', '+1min', '+10sec', '-10sec', '-1min', '-10min', 'RESET', 'PLAY'];
+                var emitVal = ['custom countdown 10m', 'custom countdown 1m', 'custom countdown 10s', 'custom countdown rm10s', 'custom countdown rm1m', 'custom countdown rm10m', 'reset custom countdown', 'toggle custom countdown'];
                 var buttonValue = $(this).val();
                 btnVal.forEach(function (item, i) {
                     if (item == buttonValue) {
@@ -208,10 +201,41 @@
                     }
                 });
             });
-            var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
+            $('.brightness').on('click', 'button', function () {
+                var btnVal = ['up', 'down'];
+                var emitVal = ['brightness plus', 'brightness minus'];
+                var buttonValue = $(this).val();
+                btnVal.forEach(function (item, i) {
+                    if (item == buttonValue) {
+                        socket.emit(emitVal[i]);
+                    }
+                });
+            });
+            $('.refresh').click(function () {
+                socket.emit('refresh wall', 1);
+                console.log('refresh wall');
+            });
+
             $('p').click(function () {
                 $(this).parent().toggleClass('module-slideup');
             });
+
+
+
+
+            $('#submit').click(function () {
+                message = $('#message').val();
+                console.log(message);
+                socket.emit('clientmessage', message);
+                // messaging send message broadcast
+                $('#message').val('');
+            });
+            socket.on('servermessage', function (srvMsg) {
+                console.log('srvMsg-' + srvMsg);
+                $('#messages').append(srvMsg + '<br>');
+            });
+
+
         }
 
     });

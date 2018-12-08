@@ -2443,7 +2443,7 @@ function timesync_module() {
         $('.hours').find('.hr' + hours).addClass('hours-active');
         $('.hours24').find('.hr' + hours).addClass('hours-active');
 
-        console.log(hours);
+        // console.log(hours);
         if (hours > 11) {
             $('.hours').css({
                 'opacity': '0'
@@ -2468,9 +2468,12 @@ function timesync_module() {
         if (seconds >= 59 && miliseconds > 500) {
             $('.seconds').children().removeClass('seconds-active');
         }
-        console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
+        // console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
     });
 }
+// $('div').click(function () {
+//     console.log($(this));
+// })
 
 /***/ }),
 

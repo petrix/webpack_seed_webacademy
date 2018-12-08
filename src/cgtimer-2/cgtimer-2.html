@@ -20,7 +20,7 @@
                     <p class="current-time-label">Current Time</p>
                     <span class="digits current-time-digits">00:00:00</span>
                 </article>
-                <article class="dircountdown">
+                <article class="dircountdown module-slideup">
                     <p class="dircountdown-label">Director's Countdown</p>
                     <article>
                         <span class="digits dircountdown-digits">00:00:00</span>
@@ -45,7 +45,7 @@
                         </div>
                     </article>
                 </article>
-                <article class="vtcountdown">
+                <article class="vtcountdown module-slideup">
                     <p class="vtcountdown-label">CCG Movie Title</p>
                     <article>
                         <span class="digits vtcountdown-digits">00:00:00</span>
@@ -64,12 +64,30 @@
                 <article class="settings">
                     <p>Settings</p>
                     <article>
-                        <div>
-                            <button>UP</button>
-                            <button>DOWN</button>
+                        <div class="brightness">
+                            <span>Brightness:</span>
+                            <div>
+
+                                <button value="up">UP</button>
+                                <button value="down">DOWN</button></div>
+
                         </div>
-                        <button value="settings">SETTINGS</button>
+                        <div class="refresh">
+                            <span>Refresh</span>
+                            <div>
+                                <button class="refresh">Refresh</button></div>
+                        </div>
+                        <span>LOCAL IP ADDR:</span>
+                        <span id="ip">ip</span>
+
                     </article>
+                </article>
+                <article class="chat module-slideup">
+                    <p>Chat</p>
+                    <div id="messages"></div>
+                    <section>
+                        <input id='message' type="text" placeholder="Type something...">
+                        <button id="submit">Submit</button></section>
                 </article>
 
             </article>
