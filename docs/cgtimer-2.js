@@ -2346,6 +2346,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var message;
 
 $(document).ready(function () {
+
     var socket = (0, _socket2.default)('http://p3xx.tk:4000?token=DIRECTOR');
 
     var response = $.get("https://ipinfo.io", function (response) {
@@ -2419,12 +2420,7 @@ $(document).ready(function () {
 
             $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
         });
-        // var x = 15;
-        // var ccgActive = false;
-        // var ccgMsg = ['paused', 'not-paused', 'playing', 'ended']
         socket.on('cg countdown active', function (ccgData) {
-            // console.log(ccgData);
-            // if(ccgDataMsg=='')
             if (ccgData != 'playing') {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
@@ -2492,16 +2488,6 @@ $(document).ready(function () {
             $('.vtcountdown-progress-au2').css('width', (90 + volRightCh).toFixed(1) + "%");
         });
 
-        // socket.on('messaging message', function (object) {
-        //     var messageObject = JSON.parse(object);
-        //     messageReceivedFunction(messageObject.message, messageObject.source);
-        // });
-
-        // socket.on('custom pause', function () {
-
-        // socket.emit('status on air reset');
-        // });
-
         function setPlayedButtons() {
             $('.reset > i').removeClass('fa-flushed').addClass('fa-grimace');
             $('.play').addClass('pause').children('i').removeClass('fa-play').addClass('fa-pause');
@@ -2511,6 +2497,11 @@ $(document).ready(function () {
             $('.reset > i').removeClass('fa-grimace').addClass('fa-flushed');
             $('.play').removeClass('pause').children('i').removeClass('fa-pause').addClass('fa-play');
         }
+        socket.emit('ip-get', true);
+
+        socket.on('ip', function (ip) {
+            $('#ip').html(ip);
+        });
 
         // var end, start;
 
@@ -2527,9 +2518,10 @@ $(document).ready(function () {
         ///////////////------SENDING------------//////////////////
         //////////////////////////////////////////////////////
 
-        var btnVal = ['+10min', '+1min', '+10sec', '-10sec', '-1min', '-10min', 'RESET', 'PLAY'];
-        var emitVal = ['custom countdown 10m', 'custom countdown 1m', 'custom countdown 10s', 'custom countdown rm10s', 'custom countdown rm1m', 'custom countdown rm10m', 'reset custom countdown', 'toggle custom countdown'];
+
         $('.dircount-buttons').on('click', 'button', function () {
+            var btnVal = ['+10min', '+1min', '+10sec', '-10sec', '-1min', '-10min', 'RESET', 'PLAY'];
+            var emitVal = ['custom countdown 10m', 'custom countdown 1m', 'custom countdown 10s', 'custom countdown rm10s', 'custom countdown rm1m', 'custom countdown rm10m', 'reset custom countdown', 'toggle custom countdown'];
             var buttonValue = $(this).val();
             btnVal.forEach(function (item, i) {
                 if (item == buttonValue) {
@@ -2538,13 +2530,21 @@ $(document).ready(function () {
                 }
             });
         });
-
-        $('.settings').on('click', 'button', function () {
-            var timeOffset = $(this).val();
-            socket.emit('timeofday-offset', timeOffset);
+        $('.brightness').on('click', 'button', function () {
+            var btnVal = ['up', 'down'];
+            var emitVal = ['brightness plus', 'brightness minus'];
+            var buttonValue = $(this).val();
+            btnVal.forEach(function (item, i) {
+                if (item == buttonValue) {
+                    socket.emit(emitVal[i]);
+                }
+            });
+        });
+        $('.refresh').click(function () {
+            socket.emit('refresh wall', 1);
+            console.log('refresh wall');
         });
 
-        var labelVal = ['current-time-label', 'dircountdown-label', 'vtcountdown-label'];
         $('p').click(function () {
             $(this).parent().toggleClass('module-slideup');
         });
