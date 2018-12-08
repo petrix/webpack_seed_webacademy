@@ -2343,7 +2343,7 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var socket = (0, _socket2.default)('http://localhost:4000');
+var socket = (0, _socket2.default)('http://p3xx.tk:4000');
 console.log(socket);
 console.log('init');
 
