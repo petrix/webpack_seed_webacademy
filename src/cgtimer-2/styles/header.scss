@@ -172,6 +172,11 @@ p {
         font-size: 110px;
         height: 275px;
 
+        &>.vtcountdown-label {
+            height: 30px;
+            white-space: nowrap;
+        }
+
         &>article {
             width: 100%;
             @include flex-column;
@@ -303,6 +308,7 @@ p {
         font-size: 26px;
         padding: 10px;
         overflow-y: auto;
+        line-height: 90%;
         // overflow: hidden;
     }
 
