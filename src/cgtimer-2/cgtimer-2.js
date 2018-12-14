@@ -1,7 +1,7 @@
     import './cgtimer-2.scss';
     import io from 'socket.io-client';
     var message;
-
+    var windowWidth;
 
     $(document).ready(function () {
 
@@ -128,6 +128,7 @@
 
                 }
             });
+
             socket.on('cg countdown path', function (path) {
                 var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
                 if (ccgPath.length > 35) {
@@ -135,6 +136,16 @@
                 }
                 $('.vtcountdown-label').text(ccgPath);
             });
+            windowWidth = $('.vtcountdown').width();
+            console.log(windowWidth);
+
+            $(window).resize(function () {
+                windowWidth = $('.vtcountdown').width();
+                console.log(windowWidth);
+
+            });
+
+
 
             ////////////////----CCG OUTDATA
             socket.on('cg countdown outdata', function (outTime) {
@@ -221,18 +232,30 @@
             });
 
 
-
-
-            $('#submit').click(function () {
-                message = $('#message').val();
-                console.log(message);
-                socket.emit('clientmessage', message);
-                // messaging send message broadcast
-                $('#message').val('');
+            $('.chat').keypress(function (e) {
+                if (e.which == 13 || event.keyCode == 13) {
+                    submitMessage();
+                }
             });
+
+            $('#submit').on('click', function () {
+                submitMessage();
+            });
+
+            function submitMessage() {
+                message = $('#message').val();
+                if (message != '') {
+                    console.log(message);
+                    socket.emit('clientmessage', message);
+                    // messaging send message broadcast
+                    $('#message').val('');
+                }
+            }
+
+
             socket.on('servermessage', function (srvMsg) {
                 console.log('srvMsg-' + srvMsg);
-                $('#messages').append(srvMsg + '<br>');
+                $('#messages').prepend(srvMsg + '<br>');
             });
 
 
