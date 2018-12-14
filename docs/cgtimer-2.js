@@ -2343,12 +2343,68 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import './styles/notifications.js';
+
 var message;
+var windowWidth;
+var ccgPathLength = 35;
+var ovner = 'Director';
+
+var margintop = 45;
+var notifications = [];
 
 $(document).ready(function () {
+    function notifyUser(title, description, durration) {
+        var notificationDiv = document.createElement("div");
+        var titleElement = document.createElement("h2");
+        var descriptionElement = document.createElement("h3");
+        var text1 = document.createTextNode(title);
+        var text2 = document.createTextNode(description);
+        var id = makeId();
+        notifications.push(id);
+        notificationDiv.id = id;
+        notificationDiv.style.marginTop = margintop + "px";
+        titleElement.appendChild(text1);
+        descriptionElement.appendChild(text2);
+        notificationDiv.appendChild(titleElement);
+        notificationDiv.appendChild(descriptionElement);
+        document.body.appendChild(notificationDiv);
+        margintop += 85;
+        var idof = "#" + id;
+        console.log(idof);
+        $(idof).addClass("notification animated bounceInRight");
+        setTimeout(function () {
+            $(idof).removeClass("bounceInRight");
+            $(idof).addClass("bounceOutRight");
+        }, durration);
+        var durr = durration + 450;
+        setTimeout(function () {
+            var indexOf = notifications.indexOf(id);
+            if (indexOf > -1) {
+                notifications.splice(indexOf, 1);
+                $(idof).remove();
+            }
+        }, durr);
+    }
+    setInterval(function () {
+        margintop = 45;
+        for (var i = 0; i < notifications.length; i++) {
+            var currNot = document.getElementById(notifications[i]);
+            currNot.style.marginTop = margintop + "px";
+            margintop += 85;
+        }
+    }, 100);
 
-    var socket = (0, _socket2.default)('http://p3xx.tk:4000?token=DIRECTOR');
+    function makeId() {
+        var text = "notification";
+        var possible = "0123456789";
+        for (var i = 0; i < 5; i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return text;
+    }
 
+    var socket = (0, _socket2.default)('http://p3xx.tk:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -2466,9 +2522,10 @@ $(document).ready(function () {
             }
         });
         socket.on('cg countdown path', function (path) {
+            $(window).resize(function () {});
             var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
-            if (ccgPath.length > 35) {
-                ccgPath = ccgPath.substr(0, 32) + "...";
+            if (ccgPath.length > ccgPathLength) {
+                ccgPath = ccgPath.substr(0, ccgPathLength - 3) + "...";
             }
             $('.vtcountdown-label').text(ccgPath);
         });
@@ -2549,16 +2606,28 @@ $(document).ready(function () {
             $(this).parent().toggleClass('module-slideup');
         });
 
-        $('#submit').click(function () {
-            message = $('#message').val();
-            console.log(message);
-            socket.emit('clientmessage', message);
-            // messaging send message broadcast
-            $('#message').val('');
+        $('.chat').keypress(function (e) {
+            if (e.which == 13 || event.keyCode == 13) {
+                submitMessage();
+            }
         });
-        socket.on('servermessage', function (srvMsg) {
+
+        $('#submit').on('click', function () {
+            submitMessage();
+        });
+
+        function submitMessage() {
+            message = $('#message').val();
+            if (message != '') {
+                console.log(message);
+                socket.emit('clientmessage', ovner, message);
+                $('#message').val('');
+            }
+        }
+        socket.on('servermessage', function (srvOvner, srvMsg) {
             console.log('srvMsg-' + srvMsg);
-            $('#messages').append(srvMsg + '<br>');
+            $('#messages').prepend(srvOvner + ': ' + srvMsg + '<br>');
+            notifyUser(ovner, srvMsg, 5000);
         });
     }
 });

@@ -4116,7 +4116,41 @@ readers do not read off random characters that represent icons */
   overflow: visible;
   position: static;
   width: auto; }
-* {
+.notification {
+
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  border-radius: 8px;
+  opacity: 0.8;
+  margin: 45px;
+  margin-top: 0px;
+  padding: 12px;
+  -webkit-transition: margin-top 0.3s;
+  transition: margin-top 0.3s;
+  font-family: 'Comfortaa';
+  font-weight: bold;
+}
+
+.notification h2 {
+
+  color: #fff;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 4px;
+
+}
+
+.notification h3 {
+
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+
+}* {
   box-sizing: border-box; }
   *:active, *:hover, *:focus {
     outline: 0; }
@@ -4223,7 +4257,8 @@ p {
     background-color: #000; } }
 
 .dircountdown-module {
-  width: 100vw; }
+  width: 100%;
+  max-width: 800px; }
   .dircountdown-module > article {
     transition: all 0.3s;
     overflow: hidden;
@@ -4299,6 +4334,9 @@ p {
   .dircountdown-module > .vtcountdown {
     font-size: 110px;
     height: 275px; }
+    .dircountdown-module > .vtcountdown > .vtcountdown-label {
+      height: 30px;
+      white-space: nowrap; }
     .dircountdown-module > .vtcountdown > article {
       width: 100%;
       display: -ms-flexbox;
@@ -4378,7 +4416,7 @@ p {
         .settings > article > div > div > button {
           height: 48%;
           width: 100%; }
-    .settings > article > div.refresh {
+    .settings > article > div:nth-child(2) {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: column;
@@ -4390,7 +4428,7 @@ p {
       width: 150px;
       height: 100px;
       margin: 0 2px; }
-      .settings > article > div.refresh > div {
+      .settings > article > div:nth-child(2) > div {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -4399,43 +4437,54 @@ p {
             justify-content: space-between;
         width: 100%;
         height: 100%; }
-        .settings > article > div.refresh > div > button {
+        .settings > article > div:nth-child(2) > div > button {
           height: 100%;
           width: 100%; }
-      .settings > article > div.refresh > span {
+      .settings > article > div:nth-child(2) > span {
         font-size: 20px; }
-      .settings > article > div.refresh > button {
+      .settings > article > div:nth-child(2) > button {
         height: 100%;
         width: 100%; }
 
 .chat {
-  height: 300px; }
+  height: 300px;
+  padding: 10px; }
   .chat > div {
-    width: 636px;
-    height: 500px;
+    width: 100%;
+    max-width: 500px;
+    height: 220px;
     background-color: #bbb;
     border-radius: 10px;
     color: #000;
     font-family: 'Comfortaa';
-    font-weight: bold; }
-  .chat > div {
+    font-weight: bold;
+    font-size: 26px;
+    padding: 10px;
+    overflow-y: auto;
+    line-height: 90%; }
+  .chat > section {
+    padding: 10px 0;
+    width: 100%;
+    max-width: 500px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
-        flex-direction: row; }
-  .chat > section {
-    padding: 10px 10px; }
+        flex-direction: row;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
     .chat > section > input {
       border: none;
       display: inline-block;
       outline: none;
       text-decoration: none;
       height: 50px;
-      font-size: 36px;
+      font-size: 26px;
       font-family: 'Comfortaa';
       font-weight: bold;
       border-radius: 10px;
-      padding: 0 10px; }
+      padding: 0 10px;
+      width: 100%;
+      max-width: 330px; }
     .chat > section > button {
       height: 100%;
       border: none;
