@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 402);
+/******/ 	return __webpack_require__(__webpack_require__.s = 404);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 402:
+/***/ 404:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(403);
+module.exports = __webpack_require__(405);
 
 
 /***/ }),
 
-/***/ 403:
+/***/ 405:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(404);
+__webpack_require__(406);
 
 // const tabs = document.querySelectorAll('.tabs_selector');
 // const tabcontent1 = document.querySelector('.tabcontent1');
@@ -135,7 +135,7 @@ $(".selecttab3").click(function () {
 
 /***/ }),
 
-/***/ 404:
+/***/ 406:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

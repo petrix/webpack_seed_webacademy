@@ -1,7 +1,8 @@
 import './cgtimer-2.scss';
 import io from 'socket.io-client';
+var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
-
+moment.locale('uk');
 var message;
 var windowWidth;
 var ccgPathLength = 35;
