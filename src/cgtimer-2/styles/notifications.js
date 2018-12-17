@@ -23,7 +23,7 @@ function notifyUser(title, description, durration) {
     $(idof).removeClass("bounceInRight");
     $(idof).addClass("bounceOutRight");
   }, durration);
-  durr = durration + 450;
+  var durr = durration + 450;
   setTimeout(function () {
     var indexOf = notifications.indexOf(id);
     if (indexOf > -1) {
@@ -33,7 +33,7 @@ function notifyUser(title, description, durration) {
   }, durr);
 }
 setInterval(function () {
-  margintop = 45;
+  margintop = 15;
   for (var i = 0; i < notifications.length; i++) {
     var currNot = document.getElementById(notifications[i]);
     currNot.style.marginTop = margintop + "px";
@@ -49,3 +49,5 @@ function makeId() {
   }
   return text;
 }
+
+module.exports = notifyUser;

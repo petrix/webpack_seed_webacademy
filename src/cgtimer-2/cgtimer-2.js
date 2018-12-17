@@ -1,68 +1,15 @@
 import './cgtimer-2.scss';
 import io from 'socket.io-client';
-// import './styles/notifications.js';
+var notifyUser = require('./styles/notifications.js');
 
 var message;
 var windowWidth;
 var ccgPathLength = 35;
 var ovner = 'Director';
 
-var margintop = 45;
-var notifications = [];
-
-
 $(document).ready(function () {
-    function notifyUser(title, description, durration) {
-        var notificationDiv = document.createElement("div");
-        var titleElement = document.createElement("h2");
-        var descriptionElement = document.createElement("h3");
-        var text1 = document.createTextNode(title);
-        var text2 = document.createTextNode(description);
-        var id = makeId();
-        notifications.push(id);
-        notificationDiv.id = id;
-        notificationDiv.style.marginTop = margintop + "px";
-        titleElement.appendChild(text1);
-        descriptionElement.appendChild(text2);
-        notificationDiv.appendChild(titleElement);
-        notificationDiv.appendChild(descriptionElement);
-        document.body.appendChild(notificationDiv);
-        margintop += 85;
-        var idof = "#" + id;
-        console.log(idof);
-        $(idof).addClass("notification animated bounceInRight");
-        setTimeout(function () {
-            $(idof).removeClass("bounceInRight");
-            $(idof).addClass("bounceOutRight");
-        }, durration);
-        var durr = durration + 450;
-        setTimeout(function () {
-            var indexOf = notifications.indexOf(id);
-            if (indexOf > -1) {
-                notifications.splice(indexOf, 1);
-                $(idof).remove();
-            }
-        }, durr);
-    }
-    setInterval(function () {
-        margintop = 45;
-        for (var i = 0; i < notifications.length; i++) {
-            var currNot = document.getElementById(notifications[i]);
-            currNot.style.marginTop = margintop + "px";
-            margintop += 85;
-        }
-    }, 100);
 
-    function makeId() {
-        var text = "notification";
-        var possible = "0123456789";
-        for (var i = 0; i < 5; i++) {
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        return text;
-    }
-
-    var socket = io('http://p3xx.tk:4000');
+    var socket = io('http://localhost:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -82,7 +29,7 @@ $(document).ready(function () {
         // });
 
         socket.on('timeofday', function (currentTime) {
-            $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
+            $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
 
         });
         var dataClasses = ['active', 'warning', 'danger'];
@@ -233,15 +180,6 @@ $(document).ready(function () {
 
         // console.log('Операция заняла ' + (end.getTime() - start.getTime()) + ' мсек');
 
-
-
-
-
-
-
-
-
-
         //////////////////////////////////////////////////////
         ///////////////------SENDING------------//////////////////
         //////////////////////////////////////////////////////
@@ -291,15 +229,18 @@ $(document).ready(function () {
         function submitMessage() {
             message = $('#message').val();
             if (message != '') {
-                console.log(message);
                 socket.emit('clientmessage', ovner, message);
                 $('#message').val('');
             }
         }
         socket.on('servermessage', function (srvOvner, srvMsg) {
-            console.log('srvMsg-' + srvMsg);
-            $('#messages').prepend(srvOvner + ': ' + srvMsg + '<br>');
+            var elem = $('#messages');
+            elem.prepend(srvOvner + ': ' + srvMsg + '<br>');
             notifyUser(ovner, srvMsg, 5000);
+            // window.setInterval(function () {
+            //     elem.scrollTop = elem.scrollHeight;
+            // }, 5000);
+
         });
     }
 });
