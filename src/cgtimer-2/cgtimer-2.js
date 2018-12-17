@@ -1,6 +1,6 @@
 import './cgtimer-2.scss';
 import io from 'socket.io-client';
-var notifyUser = require('./styles/notifications.js');
+var notifyUser = require('./js/notifications.js');
 
 var message;
 var windowWidth;
@@ -9,7 +9,7 @@ var ovner = 'Director';
 
 $(document).ready(function () {
 
-    var socket = io('http://localhost:4000');
+    var socket = io('http://p3xx.tk:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -37,7 +37,6 @@ $(document).ready(function () {
         socket.emit('countdown-get', true);
         socket.on('countdown', function (dirDuration, dirActive) {
             dataDuration = (dirDuration).toFixed(0);
-            console.log('dirActive -' + dirActive);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
             });
@@ -82,6 +81,7 @@ $(document).ready(function () {
 
             $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
         });
+
         socket.on('cg countdown active', function (ccgData) {
             if (ccgData != 'playing') {
                 dataClasses.forEach(function (item) {
@@ -225,6 +225,11 @@ $(document).ready(function () {
         $('#submit').on('click', function () {
             submitMessage();
         });
+        $('.cleartxt').on('click', function () {
+            socket.emit('clear-serverfile', true);
+            $('#messages').children().remove();
+
+        });
 
         function submitMessage() {
             message = $('#message').val();
@@ -233,14 +238,22 @@ $(document).ready(function () {
                 $('#message').val('');
             }
         }
-        socket.on('servermessage', function (srvOvner, srvMsg) {
-            var elem = $('#messages');
-            elem.prepend(srvOvner + ': ' + srvMsg + '<br>');
-            notifyUser(ovner, srvMsg, 5000);
-            // window.setInterval(function () {
-            //     elem.scrollTop = elem.scrollHeight;
-            // }, 5000);
+        socket.emit('read-servermessage', true);
+        socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
 
+            if (!$('section.' + dDate).length) {
+                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+            }
+            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
+            // notifyUser(srvOvner, srvMsg, 5000);
+        });
+        socket.on('servermessage', function (dDate, dTime, srvOvner, srvMsg) {
+
+            if (!$('section.' + dDate).length) {
+                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+            }
+            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
+            notifyUser(srvOvner, srvMsg, 5000);
         });
     }
 });

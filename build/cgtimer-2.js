@@ -2343,66 +2343,14 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import './styles/notifications.js';
+var notifyUser = __webpack_require__(392);
 
 var message;
 var windowWidth;
 var ccgPathLength = 35;
 var ovner = 'Director';
 
-var margintop = 45;
-var notifications = [];
-
 $(document).ready(function () {
-    function notifyUser(title, description, durration) {
-        var notificationDiv = document.createElement("div");
-        var titleElement = document.createElement("h2");
-        var descriptionElement = document.createElement("h3");
-        var text1 = document.createTextNode(title);
-        var text2 = document.createTextNode(description);
-        var id = makeId();
-        notifications.push(id);
-        notificationDiv.id = id;
-        notificationDiv.style.marginTop = margintop + "px";
-        titleElement.appendChild(text1);
-        descriptionElement.appendChild(text2);
-        notificationDiv.appendChild(titleElement);
-        notificationDiv.appendChild(descriptionElement);
-        document.body.appendChild(notificationDiv);
-        margintop += 85;
-        var idof = "#" + id;
-        console.log(idof);
-        $(idof).addClass("notification animated bounceInRight");
-        setTimeout(function () {
-            $(idof).removeClass("bounceInRight");
-            $(idof).addClass("bounceOutRight");
-        }, durration);
-        var durr = durration + 450;
-        setTimeout(function () {
-            var indexOf = notifications.indexOf(id);
-            if (indexOf > -1) {
-                notifications.splice(indexOf, 1);
-                $(idof).remove();
-            }
-        }, durr);
-    }
-    setInterval(function () {
-        margintop = 45;
-        for (var i = 0; i < notifications.length; i++) {
-            var currNot = document.getElementById(notifications[i]);
-            currNot.style.marginTop = margintop + "px";
-            margintop += 85;
-        }
-    }, 100);
-
-    function makeId() {
-        var text = "notification";
-        var possible = "0123456789";
-        for (var i = 0; i < 5; i++) {
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        return text;
-    }
 
     var socket = (0, _socket2.default)('http://p3xx.tk:4000');
     var response = $.get("https://ipinfo.io", function (response) {
@@ -2424,14 +2372,13 @@ $(document).ready(function () {
         // });
 
         socket.on('timeofday', function (currentTime) {
-            $('.current-time-digits').html(moment(currentTime).format('HH:mm:ss'));
+            $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });
         var dataClasses = ['active', 'warning', 'danger'];
         var dataDuration;
         socket.emit('countdown-get', true);
         socket.on('countdown', function (dirDuration, dirActive) {
             dataDuration = dirDuration.toFixed(0);
-            console.log('dirActive -' + dirActive);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
             });
@@ -2476,6 +2423,7 @@ $(document).ready(function () {
 
             $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
         });
+
         socket.on('cg countdown active', function (ccgData) {
             if (ccgData != 'playing') {
                 dataClasses.forEach(function (item) {
@@ -2570,7 +2518,6 @@ $(document).ready(function () {
 
         // console.log('Операция заняла ' + (end.getTime() - start.getTime()) + ' мсек');
 
-
         //////////////////////////////////////////////////////
         ///////////////------SENDING------------//////////////////
         //////////////////////////////////////////////////////
@@ -2615,19 +2562,34 @@ $(document).ready(function () {
         $('#submit').on('click', function () {
             submitMessage();
         });
+        $('.cleartxt').on('click', function () {
+            socket.emit('clear-serverfile', true);
+            $('#messages').children().remove();
+        });
 
         function submitMessage() {
             message = $('#message').val();
             if (message != '') {
-                console.log(message);
                 socket.emit('clientmessage', ovner, message);
                 $('#message').val('');
             }
         }
-        socket.on('servermessage', function (srvOvner, srvMsg) {
-            console.log('srvMsg-' + srvMsg);
-            $('#messages').prepend(srvOvner + ': ' + srvMsg + '<br>');
-            notifyUser(ovner, srvMsg, 5000);
+        socket.emit('read-servermessage', true);
+        socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
+
+            if (!$('section.' + dDate).length) {
+                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+            }
+            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
+            // notifyUser(srvOvner, srvMsg, 5000);
+        });
+        socket.on('servermessage', function (dDate, dTime, srvOvner, srvMsg) {
+
+            if (!$('section.' + dDate).length) {
+                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+            }
+            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
+            notifyUser(srvOvner, srvMsg, 5000);
         });
     }
 });
@@ -2638,6 +2600,68 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 392:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var margintop = 45;
+var notifications = [];
+
+function notifyUser(title, description, durration) {
+  var notificationDiv = document.createElement("div");
+  var titleElement = document.createElement("h2");
+  var descriptionElement = document.createElement("h3");
+  var text1 = document.createTextNode(title);
+  var text2 = document.createTextNode(description);
+  var id = makeId();
+  notifications.push(id);
+  notificationDiv.id = id;
+  notificationDiv.style.marginTop = margintop + "px";
+  titleElement.appendChild(text1);
+  descriptionElement.appendChild(text2);
+  notificationDiv.appendChild(titleElement);
+  notificationDiv.appendChild(descriptionElement);
+  document.body.appendChild(notificationDiv);
+  margintop += 85;
+  var idof = "#" + id;
+  $(idof).addClass("notification animated bounceInRight");
+  setTimeout(function () {
+    $(idof).removeClass("bounceInRight");
+    $(idof).addClass("bounceOutRight");
+  }, durration);
+  var durr = durration + 450;
+  setTimeout(function () {
+    var indexOf = notifications.indexOf(id);
+    if (indexOf > -1) {
+      notifications.splice(indexOf, 1);
+      $(idof).remove();
+    }
+  }, durr);
+}
+setInterval(function () {
+  margintop = 15;
+  for (var i = 0; i < notifications.length; i++) {
+    var currNot = document.getElementById(notifications[i]);
+    currNot.style.marginTop = margintop + "px";
+    margintop += 85;
+  }
+}, 100);
+
+function makeId() {
+  var text = "notification";
+  var possible = "0123456789";
+  for (var i = 0; i < 5; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+}
+
+module.exports = notifyUser;
 
 /***/ }),
 
