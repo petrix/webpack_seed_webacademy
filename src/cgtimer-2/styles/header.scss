@@ -84,6 +84,27 @@ p {
     }
 }
 
+.login-window {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000a;
+    z-index: 1000;
+    top: 0;
+    @include flex-center;
+
+    &>form {
+        &>select {
+            font-family: 'Comfortaa';
+            font-size: 40px;
+            font-weight: bold;
+
+            &>option {}
+        }
+    }
+
+}
+
 .dircountdown-module {
     width: 100%;
     max-width: 800px;
@@ -130,7 +151,8 @@ p {
                 align-items: flex-start;
 
                 &>:nth-child(n) {
-                    width: 65px;
+                    width: 80px;
+                    // width: 65px;
                     margin: 0 2px;
                 }
 

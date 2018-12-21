@@ -242,7 +242,9 @@ $(document).ready(function () {
         socket.emit('read-servermessage', true);
         socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
 
+
             if (!$('section.' + dDate).length) {
+                // $('#messages').children().remove();
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
             $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
