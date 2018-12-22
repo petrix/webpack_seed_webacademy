@@ -2,11 +2,53 @@ import './cgtimer-2.scss';
 import io from 'socket.io-client';
 var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
+require('./js/jquery.gesture.password.js');
+
+$("#gesturepwd").GesturePasswd({
+    backgroundColor: "#2980B9", //背景色
+    color: "#FFFFFF", //主要的控件颜色
+    roundRadii: 50, //大圆点的半径
+    pointRadii: 12, //大圆点被选中时显示的圆心的半径
+    space: 60, //大圆点之间的间隙
+    width: 480, //整个组件的宽度
+    height: 480, //整个组件的高度
+    lineColor: "#ECF0F1", //用户划出线条的颜色
+    zindex: 100 //整个组件的css z-index属性
+});
+$("#gesturepwd").on("hasPasswd", function (e, passwd) {
+    var result;
+
+    if (passwd == "1235789") {
+
+        result = true;
+    } else {
+        result = false;
+    }
+
+
+
+    if (result == true) {
+        $("#gesturepwd").trigger("passwdRight");
+        setTimeout(function () {
+
+            //密码验证正确后的其他操作，打开新的页面等。。。
+            alert("Pattern is correct")
+        }, 500); //延迟半秒以照顾视觉效果
+    } else {
+        $("#gesturepwd").trigger("passwdWrong");
+
+        //密码验证错误后的其他操作。。。
+
+    }
+});
+
+
+
 moment.locale('uk');
 var message;
 var windowWidth;
 var ccgPathLength = 35;
-var ovner = 'Director';
+var ovner = 'CameraMan';
 
 $(document).ready(function () {
 
@@ -14,6 +56,25 @@ $(document).ready(function () {
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
+
+
+
+
+    $("select").change(function () {
+        var str;
+        $("select option:selected").each(function () {
+            str = $(this).text();
+        });
+        console.log(str);
+        ovner = str;
+    }).trigger("change");
+    $('.login').click(function () {
+        $('.login-window').remove();
+    });
+
+
+
+
 
     socket.on('connect', dir_module);
     var date, hours, minutes, seconds, miliseconds;
