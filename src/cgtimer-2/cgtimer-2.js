@@ -12,7 +12,7 @@ moment.locale('uk');
 var message;
 var windowWidth;
 var ccgPathLength = 35;
-var ovner = 'CameraMan';
+
 
 $(document).ready(function () {
 
@@ -45,34 +45,41 @@ $(document).ready(function () {
                 socket.connect();
             }
         });
+        var ovner = 'Director';
+
         socket.emit('read-roles', true);
         var feedBack = 1;
         socket.on('roles-feedback', function (rolesFeedback) {
-            if (feedBack < 1) {
-                $('.target').append('<option value=' + rolesFeedback + '>' + rolesFeedback + '</option>');
-            } else {
-                $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
-                feedBack--;
-            }
+                if (feedBack < 1) {
+                    $('.target').append('<option value=' + rolesFeedback + '>' + rolesFeedback + '</option>');
+                } else {
+                    $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
+                    feedBack--;
+                }
 
+                ovner = $('select option:selected').text();
+                console.log(ovner);
 
-            console.log(rolesFeedback);
-        });
+                console.log(rolesFeedback);
+            }),
+            function () {
 
-        $("select").change(function () {
+            };
+
+        $('select').change(function () {
             var str;
-            $("select option:selected").each(function () {
+
+            $('select option:selected').each(function () {
                 str = $(this).text();
             });
-            console.log(str);
             ovner = str;
-        }).trigger("change");
+        }).trigger('change');
 
 
 
-        $("#gesturepwd").GesturePasswd({
-            backgroundColor: "#6666", //背景色
-            color: "#FFFFFF", //主要的控件颜色
+        $('#gesturepwd').GesturePasswd({
+            backgroundColor: '#6666', //背景色
+            color: '#FFFFFF', //主要的控件颜色
             roundRadii: 42, //大圆点的半径
             pointRadii: 15, //大圆点被选中时显示的圆心的半径
             space: 42, //大圆点之间的间隙
@@ -81,30 +88,33 @@ $(document).ready(function () {
             lineColor: "#ECF0F1", //用户划出线条的颜色
             zindex: 100 //整个组件的css z-index属性
         });
-        $("#gesturepwd").on("hasPasswd", function (e, passwd) {
-            var result;
+        $('#gesturepwd').on('hasPasswd', function (e, passwd) {
+            // var result;
+            socket.emit('checkPasswd', ovner, passwd);
 
-            if (passwd == "1235789") {
+            // if (passwd == '1235789') {
+            //     console.log(ovner);
 
-                result = true;
-            } else {
-                result = false;
-            }
+            //     result = true;
+            // } else {
+            //     result = false;
+            // }
 
+
+        });
+        socket.on('passwd-feedback', function (result) {
+            console.log(result);
             if (result == true) {
-                $("#gesturepwd").trigger("passwdRight");
+                $('#gesturepwd').trigger('passwdRight');
                 setTimeout(function () {
                     $('.login-window').remove();
                     // runSocket();
                 }, 500); //延迟半秒以照顾视觉效果
             } else {
-                $("#gesturepwd").trigger("passwdWrong");
-
+                $('#gesturepwd').trigger('passwdWrong');
                 //密码验证错误后的其他操作。。。
-
             }
         });
-
 
 
 
@@ -334,7 +344,7 @@ $(document).ready(function () {
             $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
             // notifyUser(srvOvner, srvMsg, 5000);
         });
-        socket.on(ovner + '-servermessage', function (dDate, dTime, srvOvner, srvMsg) {
+        socket.on('servermessage', function (dDate, dTime, srvOvner, srvMsg) {
 
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
