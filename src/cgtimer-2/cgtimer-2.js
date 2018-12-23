@@ -4,43 +4,7 @@ var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
 
-$("#gesturepwd").GesturePasswd({
-    backgroundColor: "#2980B9", //背景色
-    color: "#FFFFFF", //主要的控件颜色
-    roundRadii: 50, //大圆点的半径
-    pointRadii: 12, //大圆点被选中时显示的圆心的半径
-    space: 60, //大圆点之间的间隙
-    width: 480, //整个组件的宽度
-    height: 480, //整个组件的高度
-    lineColor: "#ECF0F1", //用户划出线条的颜色
-    zindex: 100 //整个组件的css z-index属性
-});
-$("#gesturepwd").on("hasPasswd", function (e, passwd) {
-    var result;
 
-    if (passwd == "1235789") {
-
-        result = true;
-    } else {
-        result = false;
-    }
-
-
-
-    if (result == true) {
-        $("#gesturepwd").trigger("passwdRight");
-        setTimeout(function () {
-
-            //密码验证正确后的其他操作，打开新的页面等。。。
-            alert("Pattern is correct")
-        }, 500); //延迟半秒以照顾视觉效果
-    } else {
-        $("#gesturepwd").trigger("passwdWrong");
-
-        //密码验证错误后的其他操作。。。
-
-    }
-});
 
 
 
@@ -52,7 +16,7 @@ var ovner = 'CameraMan';
 
 $(document).ready(function () {
 
-    var socket = io('http://p3xx.tk:4000');
+    var socket = io('http://localhost:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -60,35 +24,97 @@ $(document).ready(function () {
 
 
 
-    $("select").change(function () {
-        var str;
-        $("select option:selected").each(function () {
-            str = $(this).text();
-        });
-        console.log(str);
-        ovner = str;
-    }).trigger("change");
-    $('.login').click(function () {
-        $('.login-window').remove();
-    });
 
-
-
-
-
+    // function runSocket() {
     socket.on('connect', dir_module);
+    // }
+
+
+
+
     var date, hours, minutes, seconds, miliseconds;
 
     function dir_module() {
-        // socket.on('error', (error) => {
-        //     console.log('error');
-        // });
-        // socket.on('disconnect', (reason) => {
-        //     if (reason === 'io server disconnect') {
-        //         console.log('disconnected');
-        //         socket.connect();
-        //     }
-        // });
+
+        socket.on('error', (error) => {
+            console.log('error');
+        });
+        socket.on('disconnect', (reason) => {
+            if (reason === 'io server disconnect') {
+                console.log('disconnected');
+                socket.connect();
+            }
+        });
+        socket.emit('read-roles', true);
+        var feedBack = 1;
+        socket.on('roles-feedback', function (rolesFeedback) {
+            if (feedBack < 1) {
+                $('.target').append('<option value=' + rolesFeedback + '>' + rolesFeedback + '</option>');
+            } else {
+                $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
+                feedBack--;
+            }
+
+
+            console.log(rolesFeedback);
+        });
+
+        $("select").change(function () {
+            var str;
+            $("select option:selected").each(function () {
+                str = $(this).text();
+            });
+            console.log(str);
+            ovner = str;
+        }).trigger("change");
+
+
+
+        $("#gesturepwd").GesturePasswd({
+            backgroundColor: "#6666", //背景色
+            color: "#FFFFFF", //主要的控件颜色
+            roundRadii: 42, //大圆点的半径
+            pointRadii: 15, //大圆点被选中时显示的圆心的半径
+            space: 42, //大圆点之间的间隙
+            width: 380, //整个组件的宽度
+            height: 380, //整个组件的高度
+            lineColor: "#ECF0F1", //用户划出线条的颜色
+            zindex: 100 //整个组件的css z-index属性
+        });
+        $("#gesturepwd").on("hasPasswd", function (e, passwd) {
+            var result;
+
+            if (passwd == "1235789") {
+
+                result = true;
+            } else {
+                result = false;
+            }
+
+            if (result == true) {
+                $("#gesturepwd").trigger("passwdRight");
+                setTimeout(function () {
+                    $('.login-window').remove();
+                    // runSocket();
+                }, 500); //延迟半秒以照顾视觉效果
+            } else {
+                $("#gesturepwd").trigger("passwdWrong");
+
+                //密码验证错误后的其他操作。。。
+
+            }
+        });
+
+
+
+
+        socket.emit('ip-get', true);
+
+        socket.emit('countdown-get', true);
+
+        socket.emit(ovner + '-read-servermessage', true);
+
+
 
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
@@ -96,7 +122,6 @@ $(document).ready(function () {
         });
         var dataClasses = ['active', 'warning', 'danger'];
         var dataDuration;
-        socket.emit('countdown-get', true);
         socket.on('countdown', function (dirDuration, dirActive) {
             dataDuration = (dirDuration).toFixed(0);
             dataClasses.forEach(function (item) {
@@ -226,7 +251,6 @@ $(document).ready(function () {
             $('.reset > i').removeClass('fa-grimace').addClass('fa-flushed');
             $('.play').removeClass('pause').children('i').removeClass('fa-pause').addClass('fa-play');
         }
-        socket.emit('ip-get', true);
 
         socket.on('ip', function (ip) {
             $('#ip').html(ip);
@@ -300,8 +324,7 @@ $(document).ready(function () {
                 $('#message').val('');
             }
         }
-        socket.emit('read-servermessage', true);
-        socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
+        socket.on(ovner + '-servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
 
 
             if (!$('section.' + dDate).length) {
@@ -311,7 +334,7 @@ $(document).ready(function () {
             $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
             // notifyUser(srvOvner, srvMsg, 5000);
         });
-        socket.on('servermessage', function (dDate, dTime, srvOvner, srvMsg) {
+        socket.on(ovner + '-servermessage', function (dDate, dTime, srvOvner, srvMsg) {
 
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');

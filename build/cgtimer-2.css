@@ -7455,6 +7455,29 @@ p {
   50% {
     background-color: #000; } }
 
+.login-window {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000a;
+  z-index: 1000;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .login-window > form > select {
+    font-family: 'Comfortaa';
+    font-size: 40px;
+    font-weight: bold; }
+  .login-window > button {
+    width: 200px;
+    height: 50px; }
+
 .dircountdown-module {
   width: 100%;
   max-width: 800px; }
@@ -7504,7 +7527,7 @@ p {
         -ms-flex-align: start;
             align-items: flex-start; }
         .dircountdown-module > .dircountdown > article > .dircount-buttons > :nth-child(n) {
-          width: 65px;
+          width: 80px;
           margin: 0 2px; }
         .dircountdown-module > .dircountdown > article > .dircount-buttons > button {
           height: 100%;

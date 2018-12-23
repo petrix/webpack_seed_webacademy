@@ -10,17 +10,30 @@
     <!-- <script src="https://momentjs.com/downloads/moment-with-locales.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
     minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- <script src="http://p3xx.tk/js-scripts/jquery.gesture.password.js"></script> -->
 <link href="cgtimer-2.css" rel="stylesheet"></head>
 
 <body>
     <main>
+        <section class="login-window">
+            <form>
+                <!-- <input class="target" type="text" value="Field 1"> -->
+                <select class="target">
+                    <option value="CameraMan" selected="selected">CameraMan</option>
+                    <option value="Director">Director</option>
+                </select>
+            </form>
+            <div id="gesturepwd"></div>
+            <!-- <button class="login">Login</button> -->
+
+        </section>
         <section class="dircountdown-module">
             <!-- <article > -->
             <article class="current-time">
                 <p class="current-time-label">Current Time</p>
                 <span class="digits current-time-digits">00:00:00</span>
             </article>
-            <article class="dircountdown module-slideup">
+            <article class="dircountdown">
                 <p class="dircountdown-label">Director's Countdown</p>
                 <article>
                     <span class="digits dircountdown-digits">00:00:00</span>
@@ -45,7 +58,7 @@
                     </div>
                 </article>
             </article>
-            <article class="vtcountdown module-slideup">
+            <article class="vtcountdown">
                 <p class="vtcountdown-label">CCG Movie Title</p>
                 <article>
                     <span class="digits vtcountdown-digits">00:00:00</span>
@@ -61,7 +74,7 @@
                     </div>
                 </article>
             </article>
-            <article class="settings module-slideup">
+            <article class="settings">
                 <p>Settings</p>
                 <article>
                     <div class="brightness">
@@ -87,7 +100,7 @@
 
                 </article>
             </article>
-            <article class="chat module-slideup">
+            <article class="chat">
                 <p>Chat</p>
                 <div id="messages"></div>
                 <section>
