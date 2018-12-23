@@ -7455,12 +7455,28 @@ p {
   50% {
     background-color: #000; } }
 
+.splashscreen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000f;
+  z-index: 1000;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+
 .login-window {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: #000a;
-  z-index: 1000;
+  background-color: #000f;
+  z-index: 100;
   top: 0;
   display: -ms-flexbox;
   display: flex;
@@ -7473,7 +7489,15 @@ p {
   .login-window > form > select {
     font-family: 'Comfortaa';
     font-size: 40px;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #fff;
+    background-color: #000; }
+    .login-window > form > select > option {
+      font-family: 'Comfortaa';
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #000; }
   .login-window > button {
     width: 200px;
     height: 50px; }

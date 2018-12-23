@@ -83,23 +83,43 @@ p {
         background-color: #000;
     }
 }
-
+.splashscreen{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000f;
+        z-index: 1000;
+        top: 0;
+        @include flex-column;
+        justify-content: center;
+        align-items: center;
+}
 .login-window {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: #000a;
-    z-index: 1000;
+    background-color: #000f;
+    z-index: 100;
     top: 0;
-    @include flex-center;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
 
     &>form {
         &>select {
             font-family: 'Comfortaa';
             font-size: 40px;
             font-weight: bold;
+            color: #fff;
+            background-color: #000;
 
-            &>option {}
+            &>option {
+                            font-family: 'Comfortaa';
+                            font-size: 40px;
+                            font-weight: bold;
+                            color: #fff;
+                            background-color: #000;
+            }
         }
     }
 

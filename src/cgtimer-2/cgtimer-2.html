@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,7 @@
     <title>CGtimer-2</title>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"> -->
     <!-- <script src="https://momentjs.com/downloads/moment-with-locales.js"></script> -->
+    <!-- <script src="./js/moment-with-locales.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
     minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- <script src="http://p3xx.tk/js-scripts/jquery.gesture.password.js"></script> -->
@@ -15,6 +16,7 @@
 
 <body>
     <main>
+        <section class="splashscreen"></section>
         <section class="login-window">
             <form>
                 <!-- <input class="target" type="text" value="Field 1"> -->
@@ -33,7 +35,7 @@
                 <p class="current-time-label">Current Time</p>
                 <span class="digits current-time-digits">00:00:00</span>
             </article>
-            <article class="dircountdown">
+            <article class="dircountdown module-slideup">
                 <p class="dircountdown-label">Director's Countdown</p>
                 <article>
                     <span class="digits dircountdown-digits">00:00:00</span>
@@ -58,7 +60,7 @@
                     </div>
                 </article>
             </article>
-            <article class="vtcountdown">
+            <article class="vtcountdown module-slideup">
                 <p class="vtcountdown-label">CCG Movie Title</p>
                 <article>
                     <span class="digits vtcountdown-digits">00:00:00</span>
@@ -74,7 +76,7 @@
                     </div>
                 </article>
             </article>
-            <article class="settings">
+<article class="settings module-slideup">
                 <p>Settings</p>
                 <article>
                     <div class="brightness">
@@ -100,7 +102,7 @@
 
                 </article>
             </article>
-            <article class="chat">
+<article class="chat module-slideup">
                 <p>Chat</p>
                 <div id="messages"></div>
                 <section>
