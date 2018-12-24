@@ -127,7 +127,7 @@ function authentificate(){
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
-            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
+            $('#messages').find('section.' + dDate).find('p').after('<div><div><span>' + dTime + '</span><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div>');
 }
         });
 socket.on('servermessage-updated',function(){
@@ -330,9 +330,12 @@ socket.on('servermessage-updated',function(){
         });
         $('.cleartxt').on('click', function () {
             socket.emit('clear-serverfile', true);
-            $('#messages').children().remove();
-
+           
         });
+        socket.on('serverfile-empty',function(){
+            $('#messages').children().remove();
+        });
+         
 
         function submitMessage() {
             var message = $('#message').val();
@@ -347,7 +350,7 @@ socket.on('servermessage-updated',function(){
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
-            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
+            $('#messages').find('section.' + dDate).find('p').after('<div><div><span>' + dTime + '</span><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div>');
             if(srvOvner!=ovner){
                  notifyUser(srvOvner, srvMsg, 5000);
             }

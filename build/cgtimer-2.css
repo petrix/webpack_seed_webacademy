@@ -7731,6 +7731,23 @@ p {
     padding: 10px;
     overflow-y: auto;
     line-height: 100%; }
+    .chat > div#messages > section > div {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+      .chat > div#messages > section > div > div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+        .chat > div#messages > section > div > div > span {
+          font-size: 14px;
+          line-height: 100%; }
+      .chat > div#messages > section > div > span {
+        margin-left: 10px; }
   .chat > section {
     padding: 10px 0;
     width: 100%;

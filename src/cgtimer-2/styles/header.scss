@@ -377,9 +377,24 @@ p {
         padding: 10px;
         overflow-y: auto;
         line-height: 100%;
-        // resize: both;
-        // vertical-align: sub;
-        // overflow: hidden;
+        &>section{
+            &>div{
+ @include flex-row;
+                &>div{
+                    @include flex-column;
+                    align-items: flex-start;
+                    
+                    &>span{
+                        font-size: 14px;
+                        line-height: 100%;
+                    }
+        }
+        &>span{
+            margin-left: 10px;
+        }
+    }
+        }
+
     }
 
 
