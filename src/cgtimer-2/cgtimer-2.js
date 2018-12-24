@@ -5,16 +5,16 @@ var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
 
-        $('p').click(function () {
-            $(this).parent().toggleClass('module-slideup');
-        });
+    $('p').click(function () {
+        $(this).parent().toggleClass('module-slideup');
+    });
 
 
 
-moment.locale('uk');
-// var message;
-// var windowWidth;
-var ccgPathLength = 35;
+    moment.locale('uk');
+    // var message;
+    // var windowWidth;
+    var ccgPathLength = 35;
 
 
 
@@ -33,106 +33,107 @@ var ccgPathLength = 35;
     socket.on('connect', authentificate);
     // }
 
-var ovner='Anonimous';
-function authentificate(){
-    socket.on('error', (error) => {
-        console.log('error');
-    });
-    socket.on('disconnect', (reason) => {
-        if (reason === 'io server disconnect') {
-            console.log('disconnected');
-            socket.connect();
-        }
-    });
+    var ovner = 'Anonimous';
+
+    function authentificate() {
+        socket.on('error', (error) => {
+            console.log('error');
+        });
+        socket.on('disconnect', (reason) => {
+            if (reason === 'io server disconnect') {
+                console.log('disconnected');
+                socket.connect();
+            }
+        });
 
         socket.emit('read-roles', true);
-            var feedBack = 1;
-            socket.on('roles-feedback', function (rolesFeedback) {
-                if (feedBack < 1) {
-                    $('.target').append('<option value=' + rolesFeedback + '>' + rolesFeedback + '</option>');
-                } else {
-                    $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
-                    feedBack--;
-                }
-                ovner = $('select option:selected').text();
-                    $('.splashscreen').animate({
+        var feedBack = 1;
+        socket.on('roles-feedback', function (rolesFeedback) {
+            if (feedBack < 1) {
+                $('.target').append('<option value=' + rolesFeedback + '>' + rolesFeedback + '</option>');
+            } else {
+                $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
+                feedBack--;
+            }
+            ovner = $('select option:selected').text();
+            $('.splashscreen').animate({
+                opacity: 0
+            }, 500, function () {
+                $('.splashscreen').remove();
+            });
+        });
+
+
+        $('select').change(function () {
+            var str;
+
+            $('select option:selected').each(function () {
+                str = $(this).text();
+            });
+            ovner = str;
+        }).trigger('change');
+
+
+
+        $('#gesturepwd').GesturePasswd({
+            backgroundColor: '#6666', //背景色
+            color: '#FFFFFF', //主要的控件颜色
+            roundRadii: 30, //大圆点的半径
+            pointRadii: 15, //大圆点被选中时显示的圆心的半径
+            space: 30, //大圆点之间的间隙
+            width: 274, //整个组件的宽度
+            height: 274, //整个组件的高度
+            lineColor: "#ECF0F1", //用户划出线条的颜色
+            zindex: 100 //整个组件的css z-index属性
+        });
+        $('#gesturepwd').on('hasPasswd', function (e, passwd) {
+            socket.emit('checkPasswd', ovner, passwd);
+        });
+        socket.on('passwd-feedback', function (result) {
+            console.log(result);
+            if (result == true) {
+                $('#gesturepwd').trigger('passwdRight');
+
+                setTimeout(function () {
+                    $('.login-window').animate({
                         opacity: 0
                     }, 500, function () {
-                        $('.splashscreen').remove();
+                        $('.login-window').remove();
+                        dir_module();
                     });
-            });
+                    // runSocket();
+                }, 500); //延迟半秒以照顾视觉效果
+            } else {
+                $('#gesturepwd').trigger('passwdWrong');
+                //密码验证错误后的其他操作。。。
+            }
+        });
 
-
-                   $('select').change(function () {
-                       var str;
-
-                       $('select option:selected').each(function () {
-                           str = $(this).text();
-                       });
-                       ovner = str;
-                   }).trigger('change');
-
-
-
-                   $('#gesturepwd').GesturePasswd({
-                       backgroundColor: '#6666', //背景色
-                       color: '#FFFFFF', //主要的控件颜色
-                       roundRadii: 30, //大圆点的半径
-                       pointRadii: 15, //大圆点被选中时显示的圆心的半径
-                       space: 30, //大圆点之间的间隙
-                       width: 274, //整个组件的宽度
-                       height: 274, //整个组件的高度
-                       lineColor: "#ECF0F1", //用户划出线条的颜色
-                       zindex: 100 //整个组件的css z-index属性
-                   });
-                   $('#gesturepwd').on('hasPasswd', function (e, passwd) {
-                       socket.emit('checkPasswd', ovner, passwd);
-                   });
-                   socket.on('passwd-feedback', function (result) {
-                       console.log(result);
-                       if (result == true) {
-                           $('#gesturepwd').trigger('passwdRight');
-                           
-                           setTimeout(function () {
-                               $('.login-window').animate({
-                                   opacity:0
-                               }, 500,function(){
-                                   $('.login-window').remove();
-                                   dir_module();
-                               });
-                               // runSocket();
-                           }, 500); //延迟半秒以照顾视觉效果
-                       } else {
-                           $('#gesturepwd').trigger('passwdWrong');
-                           //密码验证错误后的其他操作。。。
-                       }
-                   });
-                   
-}
+    }
 
     var date, hours, minutes, seconds, miliseconds;
 
     function dir_module() {
-            notifyUser('You are logged in as:', ovner, 5000);
+        notifyUser('You are logged in as:', ovner, 5000);
 
         socket.emit('ip-get', true);
 
         socket.emit('countdown-get', true);
 
         socket.emit('read-servermessage', ovner);
-    // console.log(ovner);
-    var servermessageUpdate=true;
+        // console.log(ovner);
+        var servermessageUpdate = true;
         socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
-            if(servermessageUpdate){
-            if (!$('section.' + dDate).length) {
-                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+            if (servermessageUpdate) {
+                if (!$('section.' + dDate).length) {
+                    $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+                }
+                $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
             }
-            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
-}
         });
-socket.on('servermessage-updated',function(){
-    servermessageUpdate=false;
-});
+        socket.on('servermessage-updated', function () {
+            servermessageUpdate = false;
+        });
 
 
         socket.on('timeofday', function (currentTime) {
@@ -347,11 +348,12 @@ socket.on('servermessage-updated',function(){
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
+
             $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
-            if(srvOvner!=ovner){
-                 notifyUser(srvOvner, srvMsg, 5000);
+            if (srvOvner != ovner) {
+                notifyUser(srvOvner, srvMsg, 5000);
             }
-           
+
         });
     }
 });
