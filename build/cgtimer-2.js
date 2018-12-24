@@ -2396,6 +2396,7 @@ $(document).ready(function () {
     // }
 
     var ovner = 'Anonimous';
+
     function authentificate() {
         socket.on('error', function (error) {
             console.log('error');
@@ -2485,7 +2486,12 @@ $(document).ready(function () {
                 if (!$('section.' + dDate).length) {
                     $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
                 }
-                $('#messages').find('section.' + dDate).find('p').after('<div><div><span>' + dTime + '</span><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div>');
+                var dTimeArr = dTime.split(':');
+                if (srvOvner == ovner) {
+                    $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+                } else {
+                    $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                }
             }
         });
         socket.on('servermessage-updated', function () {
@@ -2697,7 +2703,13 @@ $(document).ready(function () {
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
-            $('#messages').find('section.' + dDate).find('p').after('<div><div><span>' + dTime + '</span><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div>');
+            // var dDateArray=
+            var dTimeArr = dTime.split(':');
+            if (srvOvner == ovner) {
+                $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+            } else {
+                $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+            }
             if (srvOvner != ovner) {
                 notifyUser(srvOvner, srvMsg, 5000);
             }
