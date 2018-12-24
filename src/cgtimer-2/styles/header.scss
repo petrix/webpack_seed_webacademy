@@ -371,26 +371,96 @@ p {
         background-color: #bbb;
         border-radius: 10px;
         color: #000;
-        font-family: 'Comfortaa';
+        font-family: 'Jura';
         font-weight: bold;
+        line-height: 100%;
         font-size: 26px;
         padding: 10px;
         overflow-y: auto;
         line-height: 100%;
         &>section{
-            &>div{
+            &>p{
+                text-decoration: underline;
+            }
+            &>hr{
+                    margin: 1px auto;
+                    background-color: #000;
+                    height: 1px;
+                    border: 0;
+            }
+            &>.ovnermessage{
  @include flex-row;
+                        align-items: center;
+                        justify-content: flex-end;
+
+ &>div{
+                    @include flex-column;
+                        font-size: 14px;
+                        line-height: 100%;
+                            align-items: flex-start;
+                                border: 1px solid #000;
+                                border-radius: 4px;
+                                padding: 5px;
+                                // background-color: #000;
+                                // color: #fff;
+                                
+                        // align-items: center;
+                &>div {
+                    @include flex-row;
+                    align-items: center;
+                    &>span{
+                        font-size: 28px;
+                    }
                 &>div{
                     @include flex-column;
                     align-items: flex-start;
-                    
                     &>span{
-                        font-size: 14px;
+                        font-size: 12px;
                         line-height: 100%;
                     }
+        }}
         }
         &>span{
-            margin-left: 10px;
+            margin: 10px;
+            text-align: right;
+        }
+    }
+    &>.guestmessage {
+        @include flex-row;
+        align-items: center;
+
+        &>div {
+            @include flex-column;
+            font-size: 14px;
+            line-height: 100%;
+            align-items: flex-end;
+                                border: 1px solid #000;
+    border-radius: 4px;
+    padding: 5px;
+
+            &>div {
+                @include flex-row;
+                align-items: center;
+
+                &>span {
+                    font-size: 28px;
+                }
+
+                &>div {
+                    @include flex-column;
+                    align-items: flex-start;
+
+                    &>span {
+                        font-size: 12px;
+                        line-height: 100%;
+                    }
+                }
+            }
+        }
+
+        &>span {
+            margin: 10px;
+            text-align: left;
         }
     }
         }
