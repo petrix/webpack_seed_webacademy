@@ -351,6 +351,7 @@ $(document).ready(function () {
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
+            // var dDateArray=
             $('#messages').find('section.' + dDate).find('p').after('<div><div><span>' + dTime + '</span><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div>');
             if (srvOvner != ovner) {
                 notifyUser(srvOvner, srvMsg, 5000);
