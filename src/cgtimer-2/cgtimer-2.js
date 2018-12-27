@@ -6,7 +6,8 @@ require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
 
     $('p').click(function () {
-        $(this).parent().addClass('module-slideup').not($(this).parrent()).addClass('module-slideup');
+        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
+        // $('.dircountdown-module').children('article').not($(this).parent()).addClass('module-slideup');
     });
 
 

@@ -38,10 +38,10 @@ p {
     padding: 0;
     width: 100%;
     text-align: center;
-    font-family: 'Comfortaa';
+    font-family: 'Jura';
     font-size: 30px;
     font-weight: bold;
-    line-height: 100%;
+    line-height: 80%;
     cursor: crosshair;
 }
 
@@ -220,7 +220,7 @@ p {
     }
 
     &>.dircountdown {
-        height: 140px;
+        height: 130px;
     }
 
     &>.vtcountdown {
@@ -392,7 +392,7 @@ p {
             }
 
             &>hr {
-                margin: 1px auto;
+                margin: 1px 3px;
                 background-color: #000;
                 height: 1px;
                 border: 0;

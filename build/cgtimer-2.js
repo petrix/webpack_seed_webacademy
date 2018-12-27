@@ -2378,7 +2378,8 @@ __webpack_require__(396);
 $(document).ready(function () {
 
     $('p').click(function () {
-        $(this).parent().toggleClass('module-slideup');
+        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
+        // $('.dircountdown-module').children('article').not($(this).parent()).addClass('module-slideup');
     });
 
     moment.locale('uk');

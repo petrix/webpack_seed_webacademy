@@ -7416,10 +7416,10 @@ p {
   padding: 0;
   width: 100%;
   text-align: center;
-  font-family: 'Comfortaa';
+  font-family: 'Jura';
   font-size: 30px;
   font-weight: bold;
-  line-height: 100%;
+  line-height: 80%;
   cursor: crosshair; }
 
 .module-slideup {
@@ -7585,7 +7585,7 @@ p {
             height: 48%;
             width: 100%; }
   .dircountdown-module > .dircountdown {
-    height: 140px; }
+    height: 130px; }
   .dircountdown-module > .vtcountdown {
     font-size: 110px;
     height: 275px; }
@@ -7744,7 +7744,7 @@ p {
     .chat > div#messages > section > p {
       text-decoration: underline; }
     .chat > div#messages > section > hr {
-      margin: 1px auto;
+      margin: 1px 3px;
       background-color: #000;
       height: 1px;
       border: 0; }
