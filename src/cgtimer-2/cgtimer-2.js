@@ -89,6 +89,17 @@ $(document).ready(function () {
         $('#gesturepwd').on('hasPasswd', function (e, passwd) {
             socket.emit('checkPasswd', ovner, passwd);
         });
+/////////////////BROOTFORCE///////////////////
+// $('.brootforce').click(function(){
+// for(var i=100000;i<999999;i++){
+//     socket.emit('checkPasswd', ovner, i);
+//     $('.passvalue').text(ovner+' : '+i);
+//     console.log(ovner,i);
+// }
+// });
+
+
+
         socket.on('passwd-feedback', function (result) {
             console.log(result);
             if (result == true) {
