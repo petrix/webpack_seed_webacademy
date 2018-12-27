@@ -95,12 +95,12 @@ var GesturePasswd = function (element, options) {
         if (that.sList.length > 0) {
             for (var p in that.sList) {
                 if (p == 0) {
-                    console.log(that.sList[p]["x"], that.sList[p]["y"]);
+                    // console.log(that.sList[p]["x"], that.sList[p]["y"]);
                     that.$ctx.moveTo(that.sList[p]["x"], that.sList[p]["y"]);
                     continue;
                 }
                 that.$ctx.lineTo(that.sList[p]["x"], that.sList[p]["y"]);
-                console.log(that.sList[p]["x"], that.sList[p]["y"]);
+                // console.log(that.sList[p]["x"], that.sList[p]["y"]);
             }
 
         }
@@ -175,13 +175,13 @@ var GesturePasswd = function (element, options) {
             x = x - that.$element.offset().left;
             y = y - that.$element.offset().top;
             var p = e.data.that.isIn(x, y);
-            console.log(x)
+            // console.log(x)
             if (p != 0) {
                 if (!e.data.that.pointInList(p, e.data.that.sList)) {
                     e.data.that.sList.push(p);
                 }
             }
-            console.log(e.data.that.sList);
+            // console.log(e.data.that.sList);
             e.data.that.draw(x, y);
         }
 

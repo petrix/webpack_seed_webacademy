@@ -4117,39 +4117,36 @@ readers do not read off random characters that represent icons */
   position: static;
   width: auto; }
 .notification {
-
   position: fixed;
   right: 0;
   top: 0;
-  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  /* background: linear-gradient(270deg, #6f2cd3, #8c2cd6); */
   border-radius: 8px;
+  border: 2px solid #ff8f00;
   opacity: 0.9;
   margin: 45px;
   margin-top: 0px;
   padding: 12px;
   -webkit-transition: margin-top 0.3s;
   transition: margin-top 0.3s;
-  font-family: 'Comfortaa';
+  font-family: 'Jura';
   font-weight: bold;
+  background-color: #704000;
 }
 
 .notification h2 {
-
   color: #fff;
   font-size: 22px;
   font-weight: normal;
   margin: 0;
   margin-bottom: 4px;
-
 }
 
 .notification h3 {
-
   color: #fff;
   font-size: 18px;
   font-weight: normal;
   margin: 0;
-
 }@charset "UTF-8";
 /*!
  * animate.css -http://daneden.me/animate
@@ -7527,10 +7524,12 @@ p {
       .dircountdown-module > .current-time > .module-slideup > :nth-child(2) {
         opacity: 0;
         transition: all 0.3s; }
-  .dircountdown-module > .dircountdown {
+  .dircountdown-module > .dircountdown,
+  .dircountdown-module .dircountdown-advanced {
     font-size: 110px;
     height: 220px; }
-    .dircountdown-module > .dircountdown > article {
+    .dircountdown-module > .dircountdown > article,
+    .dircountdown-module .dircountdown-advanced > article {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: column;
@@ -7539,7 +7538,8 @@ p {
           justify-content: flex-start;
       -ms-flex-align: center;
           align-items: center; }
-      .dircountdown-module > .dircountdown > article > .dircount-buttons {
+      .dircountdown-module > .dircountdown > article > .dircount-buttons,
+      .dircountdown-module .dircountdown-advanced > article > .dircount-buttons {
         margin-top: 5px;
         height: 80px;
         display: -ms-flexbox;
@@ -7550,21 +7550,27 @@ p {
             justify-content: center;
         -ms-flex-align: start;
             align-items: flex-start; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > :nth-child(n) {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > :nth-child(n),
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > :nth-child(n) {
           width: 80px;
           margin: 0 2px; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > button {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > button,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > button {
           height: 100%;
           line-height: 50%;
           font-size: 50px;
           transition: all 0.3s; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > .reset {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > .reset,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > .reset {
           background-color: darkred; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > .play {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > .play,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > .play {
           background-color: darkgreen; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > .pause {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > .pause,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > .pause {
           background-color: #e68200; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > div {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > div,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > div {
           height: 100%;
           display: -ms-flexbox;
           display: flex;
@@ -7574,9 +7580,12 @@ p {
               justify-content: space-between;
           -ms-flex-align: center;
               align-items: center; }
-          .dircountdown-module > .dircountdown > article > .dircount-buttons > div > button {
+          .dircountdown-module > .dircountdown > article > .dircount-buttons > div > button,
+          .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > div > button {
             height: 48%;
             width: 100%; }
+  .dircountdown-module > .dircountdown {
+    height: 140px; }
   .dircountdown-module > .vtcountdown {
     font-size: 110px;
     height: 275px; }

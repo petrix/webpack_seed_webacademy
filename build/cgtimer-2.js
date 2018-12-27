@@ -2387,17 +2387,18 @@ $(document).ready(function () {
     var ccgPathLength = 35;
 
     var socket = (0, _socket2.default)('http://p3xx.cf:4000');
-    var response = $.get("https://ipinfo.io", function (response) {
-        console.log(response.ip, response.country, response.loc, response);
-    }, "jsonp");
+    // var response = $.get("https://ipinfo.io", function (response) {
+    //     // console.log(response.ip, response.country, response.loc, response);
+    // }, "jsonp");
+
 
     // function runSocket() {
     socket.on('connect', authentificate);
     // }
 
-    var ovner = 'Anonimous';
 
     function authentificate() {
+        var ovner = 'Anonimous';
         socket.on('error', function (error) {
             console.log('error');
         });
@@ -2450,7 +2451,7 @@ $(document).ready(function () {
         });
         socket.on('passwd-feedback', function (result) {
             console.log(result);
-            if (result == true) {
+            if (result) {
                 $('#gesturepwd').trigger('passwdRight');
 
                 setTimeout(function () {
@@ -2458,7 +2459,8 @@ $(document).ready(function () {
                         opacity: 0
                     }, 500, function () {
                         $('.login-window').remove();
-                        dir_module();
+                        dir_module(ovner);
+                        return false;
                     });
                     // runSocket();
                 }, 500); //延迟半秒以照顾视觉效果
@@ -2471,7 +2473,7 @@ $(document).ready(function () {
 
     var date, hours, minutes, seconds, miliseconds;
 
-    function dir_module() {
+    function dir_module(ovner) {
         notifyUser('You are logged in as:', ovner, 5000);
 
         socket.emit('ip-get', true);
@@ -2507,29 +2509,37 @@ $(document).ready(function () {
             dataDuration = dirDuration.toFixed(0);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
+                $('.dircountdown-advanced').removeClass(item);
             });
             if (dirActive) {
                 if (dataDuration > 20) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                     });
                     $('.dircountdown').addClass('active');
+                    $('.dircountdown-advanced').addClass('active');
                 } else if (dataDuration > 10) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                     });
                     $('.dircountdown').addClass('warning');
+                    $('.dircountdown-advanced').addClass('warning');
                 } else if (dataDuration > 0) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                     });
                     $('.dircountdown').addClass('danger');
+                    $('.dircountdown-advanced').addClass('danger');
                 } else {
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                         setPausedButtons();
                     });
                 }
@@ -17154,12 +17164,12 @@ var GesturePasswd = function GesturePasswd(element, options) {
         if (that.sList.length > 0) {
             for (var p in that.sList) {
                 if (p == 0) {
-                    console.log(that.sList[p]["x"], that.sList[p]["y"]);
+                    // console.log(that.sList[p]["x"], that.sList[p]["y"]);
                     that.$ctx.moveTo(that.sList[p]["x"], that.sList[p]["y"]);
                     continue;
                 }
                 that.$ctx.lineTo(that.sList[p]["x"], that.sList[p]["y"]);
-                console.log(that.sList[p]["x"], that.sList[p]["y"]);
+                // console.log(that.sList[p]["x"], that.sList[p]["y"]);
             }
         }
     };
@@ -17229,13 +17239,13 @@ var GesturePasswd = function GesturePasswd(element, options) {
             x = x - that.$element.offset().left;
             y = y - that.$element.offset().top;
             var p = e.data.that.isIn(x, y);
-            console.log(x);
+            // console.log(x)
             if (p != 0) {
                 if (!e.data.that.pointInList(p, e.data.that.sList)) {
                     e.data.that.sList.push(p);
                 }
             }
-            console.log(e.data.that.sList);
+            // console.log(e.data.that.sList);
             e.data.that.draw(x, y);
         }
     });

@@ -6,7 +6,7 @@ require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
 
     $('p').click(function () {
-        $(this).parent().toggleClass('module-slideup');
+        $(this).parent().addClass('module-slideup').not($(this).parrent()).addClass('module-slideup');
     });
 
 
@@ -21,9 +21,9 @@ $(document).ready(function () {
 
 
     var socket = io('http://p3xx.cf:4000');
-    var response = $.get("https://ipinfo.io", function (response) {
-        console.log(response.ip, response.country, response.loc, response);
-    }, "jsonp");
+    // var response = $.get("https://ipinfo.io", function (response) {
+    //     // console.log(response.ip, response.country, response.loc, response);
+    // }, "jsonp");
 
 
 
@@ -33,9 +33,10 @@ $(document).ready(function () {
     socket.on('connect', authentificate);
     // }
 
-    var ovner = 'Anonimous';
+
 
     function authentificate() {
+        var ovner = 'Anonimous';
         socket.on('error', (error) => {
             console.log('error');
         });
@@ -91,7 +92,7 @@ $(document).ready(function () {
         });
         socket.on('passwd-feedback', function (result) {
             console.log(result);
-            if (result == true) {
+            if (result) {
                 $('#gesturepwd').trigger('passwdRight');
 
                 setTimeout(function () {
@@ -99,7 +100,8 @@ $(document).ready(function () {
                         opacity: 0
                     }, 500, function () {
                         $('.login-window').remove();
-                        dir_module();
+                        dir_module(ovner);
+                        return false;
                     });
                     // runSocket();
                 }, 500); //延迟半秒以照顾视觉效果
@@ -113,7 +115,7 @@ $(document).ready(function () {
 
     var date, hours, minutes, seconds, miliseconds;
 
-    function dir_module() {
+    function dir_module(ovner) {
         notifyUser('You are logged in as:', ovner, 5000);
 
         socket.emit('ip-get', true);
@@ -128,13 +130,13 @@ $(document).ready(function () {
                 if (!$('section.' + dDate).length) {
                     $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
                 }
-                var dTimeArr=dTime.split(':');
-                if(srvOvner==ovner){
-                $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
-            }else{
-                $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                var dTimeArr = dTime.split(':');
+                if (srvOvner == ovner) {
+                    $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+                } else {
+                    $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                }
             }
-        }
         });
         socket.on('servermessage-updated', function () {
             servermessageUpdate = false;
@@ -151,29 +153,42 @@ $(document).ready(function () {
             dataDuration = (dirDuration).toFixed(0);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
+                $('.dircountdown-advanced').removeClass(item);
             });
             if (dirActive) {
                 if (dataDuration > 20) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
+
                     });
                     $('.dircountdown').addClass('active');
+                    $('.dircountdown-advanced').addClass('active');
+
                 } else if (dataDuration > 10) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
+
                     });
                     $('.dircountdown').addClass('warning');
+                    $('.dircountdown-advanced').addClass('warning');
                 } else if (dataDuration > 0) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
+
                     });
                     $('.dircountdown').addClass('danger');
+                    $('.dircountdown-advanced').addClass('danger');
+
                 } else {
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                         setPausedButtons();
                     });
                 }
@@ -357,12 +372,12 @@ $(document).ready(function () {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
             // var dDateArray=
-                var dTimeArr = dTime.split(':');
-if (srvOvner == ovner) {
-    $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
-} else {
-    $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
-}
+            var dTimeArr = dTime.split(':');
+            if (srvOvner == ovner) {
+                $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+            } else {
+                $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+            }
             if (srvOvner != ovner) {
                 notifyUser(srvOvner, srvMsg, 5000);
             }
