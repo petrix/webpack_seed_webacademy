@@ -90,19 +90,25 @@ $(document).ready(function () {
         });
         $('#gesturepwd').on('hasPasswd', function (e, passwd) {
             socket.emit('checkPasswd', ovner, passwd);
+
         });
-/////////////////BROOTFORCE///////////////////
-// $('.brootforce').click(function(){
-// for(var i=100000;i<999999;i++){
-//     socket.emit('checkPasswd', ovner, i);
-//     $('.passvalue').text(ovner+' : '+i);
-//     console.log(ovner,i);
-// }
-// });
+        /////////////////BROOTFORCE///////////////////
+        // $('.brootforce').click(function () {
+        //     for (var i = 1; i < 100; i++) {
+        //         socket.emit('checkPasswd', ovner, i);
+        //         $('.passvalue').text(ovner + ' : ' + i);
+        //         console.log(ovner, i);
 
-
-
+        //     }
+        // });
+        // socket.on('passwd-feedback', function (result) {
+        //     passFeedback(result);
+        // });
         socket.on('passwd-feedback', function (result) {
+            passFeedback(result);
+        });
+
+        function passFeedback(result) {
             console.log(result);
             if (result) {
                 $('#gesturepwd').trigger('passwdRight');
@@ -113,7 +119,7 @@ $(document).ready(function () {
                     }, 500, function () {
                         $('.login-window').remove();
                         dir_module(ovner);
-                        return false;
+                        // return false;
                     });
                     // runSocket();
                 }, 500); //延迟半秒以照顾视觉效果
@@ -121,7 +127,7 @@ $(document).ready(function () {
                 $('#gesturepwd').trigger('passwdWrong');
                 //密码验证错误后的其他操作。。。
             }
-        });
+        }
 
     }
 

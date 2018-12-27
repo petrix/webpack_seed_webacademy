@@ -5,7 +5,7 @@
   /* background: linear-gradient(270deg, #6f2cd3, #8c2cd6); */
   border-radius: 8px;
   border: 2px solid #ff8f00;
-  opacity: 0.9;
+  /* opacity: 0.5; */
   margin: 45px;
   margin-top: 0px;
   padding: 12px;
@@ -13,7 +13,7 @@
   transition: margin-top 0.3s;
   font-family: 'Jura';
   font-weight: bold;
-  background-color: #704000;
+  background-color: #ff91008e;
 }
 
 .notification h2 {
