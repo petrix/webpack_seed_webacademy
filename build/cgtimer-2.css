@@ -4123,7 +4123,7 @@ readers do not read off random characters that represent icons */
   /* background: linear-gradient(270deg, #6f2cd3, #8c2cd6); */
   border-radius: 8px;
   border: 2px solid #ff8f00;
-  opacity: 0.9;
+  /* opacity: 0.5; */
   margin: 45px;
   margin-top: 0px;
   padding: 12px;
@@ -4131,7 +4131,7 @@ readers do not read off random characters that represent icons */
   transition: margin-top 0.3s;
   font-family: 'Jura';
   font-weight: bold;
-  background-color: #704000;
+  background-color: #ff91008e;
 }
 
 .notification h2 {
@@ -7483,18 +7483,24 @@ p {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center; }
-  .login-window > form > select {
-    font-family: 'Comfortaa';
-    font-size: 40px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #000; }
-    .login-window > form > select > option {
-      font-family: 'Comfortaa';
+  .login-window > form {
+    font-family: 'Jura'; }
+    .login-window > form > select {
+      border: none;
+      display: inline-block;
+      outline: none;
+      font-family: 'Jura';
       font-size: 40px;
       font-weight: bold;
       color: #fff;
-      background-color: #000; }
+      background-color: #000;
+      border: 1px solid #ff8f00;
+      border-radius: 10px 10px 0 0; }
+      .login-window > form > select > option {
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #000; }
   .login-window > button {
     width: 200px;
     height: 50px; }

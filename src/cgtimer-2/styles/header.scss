@@ -108,10 +108,13 @@ p {
     align-items: center;
 
     &>form {
+        font-family: 'Jura';
 
         &>select {
             @include btn-reset-default;
-            font-family: 'Comfortaa';
+            // font-family: 'Comfortaa';
+            font-family: 'Jura';
+
             font-size: 40px;
             font-weight: bold;
             color: #fff;
@@ -120,20 +123,12 @@ p {
             border-radius: 10px 10px 0 0;
 
             &>option {
-                font-family: 'Comfortaa';
+
                 font-size: 40px;
                 font-weight: bold;
                 color: #fff;
                 background-color: #000;
             }
-        }
-    }
-
-    &>#gesturepwd {
-        &>canvas {
-            border: 1px solid #ff8f00;
-            border-radius: 10px;
-            margin: 1px;
         }
     }
 
