@@ -1,0 +1,37 @@
+doctype html
+html
+	head(lang="en")
+		title #{title}
+		include inc/meta
+		link(rel="stylesheet", href="//yandex.st/highlightjs/8.0/styles/default.min.css")
+		link(rel="stylesheet", href="css/style.css", type="text/css")
+		script(type="text/javascript", src="//code.jquery.com/jquery-1.11.0.min.js")
+		script(type="text/javascript", src="//yandex.st/highlightjs/8.0/highlight.min.js")
+		script(type="text/javascript", src="build/jquery/jquery.vibrate.min.js")
+		script.
+			hljs.initHighlightingOnLoad();
+	body
+		img.ui.image.fluid(src="images/logo.svg", alt="Jquery Vibrate Js")
+
+		.container
+			.ui.inverted.text.main.menu.large
+				.left.menu
+					a(href="http://github.com/illyism/jquery.vibrate.js").item
+						i.icon.github
+						| GitHub
+					a(href="https://github.com/Illyism/jquery.vibrate.js/archive/master.zip").item
+						i.icon.download
+						| Download
+				.right.menu
+					a(href="http://il.ly/vibrate").item Read the Article
+		.page.container
+			block content
+		.container
+			.ui.inverted.text.main.menu.large
+				.left.menu
+					a(href="http://github.com/illyism/jquery.vibrate.js").item.icon
+						i.icon.github
+					a(href="https://github.com/Illyism/jquery.vibrate.js/archive/master.zip").item.icon
+						i.icon.download
+				.right.menu
+					a(href="http://il.ly/vibrate").item  il.ly/vibrate
