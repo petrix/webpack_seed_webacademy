@@ -90,26 +90,8 @@ $(document).ready(function () {
         });
         $('#gesturepwd').on('hasPasswd', function (e, passwd) {
             socket.emit('checkPasswd', ovner, passwd);
-
         });
-        /////////////////BROOTFORCE///////////////////
-        // $('.brootforce').click(function () {
-        //     for (var i = 1; i < 100; i++) {
-        //         socket.emit('checkPasswd', ovner, i);
-        //         $('.passvalue').text(ovner + ' : ' + i);
-        //         console.log(ovner, i);
-
-        //     }
-        // });
-        // socket.on('passwd-feedback', function (result) {
-        //     passFeedback(result);
-        // });
         socket.on('passwd-feedback', function (result) {
-            passFeedback(result);
-        });
-
-        function passFeedback(result) {
-            console.log(result);
             if (result) {
                 $('#gesturepwd').trigger('passwdRight');
 
@@ -127,7 +109,9 @@ $(document).ready(function () {
                 $('#gesturepwd').trigger('passwdWrong');
                 //密码验证错误后的其他操作。。。
             }
-        }
+
+
+        });
 
     }
 
