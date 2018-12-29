@@ -4131,7 +4131,7 @@ readers do not read off random characters that represent icons */
   transition: margin-top 0.3s;
   font-family: 'Jura';
   font-weight: bold;
-  background-color: #ff91008e;
+  background-color: #221300;
 }
 
 .notification h2 {
@@ -7877,62 +7877,62 @@ p {
 @font-face {
   font-family: 'Comfortaa';
   src: url(./assets/fonts/Comfortaa-Regular.eot);
-  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype"), url(./assets/images/Comfortaa-Regular.svg#Comfortaa-Regular) format("svg");
+  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Comfortaa';
   src: url(./assets/fonts/Comfortaa-Bold.eot);
-  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype"), url(./assets/images/Comfortaa-Bold.svg#Comfortaa-Bold) format("svg");
+  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital.eot);
-  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype"), url(./assets/images/DS-Digital.svg#DS-Digital) format("svg");
+  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital-Bold.eot);
-  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype"), url(./assets/images/DS-Digital-Bold.svg#DS-Digital-Bold) format("svg");
+  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Bold.eot);
-  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype"), url(./assets/images/Jura-Bold.svg#Jura-Bold) format("svg");
+  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Medium.eot);
-  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype"), url(./assets/images/Jura-Medium.svg#Jura-Medium) format("svg");
+  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Regular.eot);
-  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype"), url(./assets/images/Jura-Regular.svg#Jura-Regular) format("svg");
+  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Light.eot);
-  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype"), url(./assets/images/Jura-Light.svg#Jura-Light) format("svg");
+  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-SemiBold.eot);
-  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype"), url(./assets/images/Jura-SemiBold.svg#Jura-SemiBold) format("svg");
+  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal; }

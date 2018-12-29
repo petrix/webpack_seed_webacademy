@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 419);
+/******/ 	return __webpack_require__(__webpack_require__.s = 421);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 419:
+/***/ 421:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(420);
+module.exports = __webpack_require__(422);
 
 
 /***/ }),
 
-/***/ 420:
+/***/ 422:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(421);
+__webpack_require__(423);
 
 // import './js/moment-with-locales.js';
 // import './js/skycons.js';
@@ -246,7 +246,7 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 421:
+/***/ 423:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

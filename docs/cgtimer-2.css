@@ -4117,39 +4117,36 @@ readers do not read off random characters that represent icons */
   position: static;
   width: auto; }
 .notification {
-
   position: fixed;
   right: 0;
   top: 0;
-  background: linear-gradient(270deg, #6f2cd3, #8c2cd6);
+  /* background: linear-gradient(270deg, #6f2cd3, #8c2cd6); */
   border-radius: 8px;
-  opacity: 0.9;
+  border: 2px solid #ff8f00;
+  /* opacity: 0.5; */
   margin: 45px;
   margin-top: 0px;
   padding: 12px;
   -webkit-transition: margin-top 0.3s;
   transition: margin-top 0.3s;
-  font-family: 'Comfortaa';
+  font-family: 'Jura';
   font-weight: bold;
+  background-color: #221300;
 }
 
 .notification h2 {
-
   color: #fff;
   font-size: 22px;
   font-weight: normal;
   margin: 0;
   margin-bottom: 4px;
-
 }
 
 .notification h3 {
-
   color: #fff;
   font-size: 18px;
   font-weight: normal;
   margin: 0;
-
 }@charset "UTF-8";
 /*!
  * animate.css -http://daneden.me/animate
@@ -7419,10 +7416,10 @@ p {
   padding: 0;
   width: 100%;
   text-align: center;
-  font-family: 'Comfortaa';
+  font-family: 'Jura';
   font-size: 30px;
   font-weight: bold;
-  line-height: 100%;
+  line-height: 80%;
   cursor: crosshair; }
 
 .module-slideup {
@@ -7455,6 +7452,59 @@ p {
   50% {
     background-color: #000; } }
 
+.splashscreen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000f;
+  z-index: 1000;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.login-window {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000f;
+  z-index: 100;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .login-window > form {
+    font-family: 'Jura'; }
+    .login-window > form > select {
+      border: none;
+      display: inline-block;
+      outline: none;
+      font-family: 'Jura';
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #000;
+      border: 1px solid #ff8f00;
+      border-radius: 10px 10px 0 0; }
+      .login-window > form > select > option {
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #000; }
+  .login-window > button {
+    width: 200px;
+    height: 50px; }
+
 .dircountdown-module {
   width: 100%;
   max-width: 800px; }
@@ -7480,10 +7530,12 @@ p {
       .dircountdown-module > .current-time > .module-slideup > :nth-child(2) {
         opacity: 0;
         transition: all 0.3s; }
-  .dircountdown-module > .dircountdown {
+  .dircountdown-module > .dircountdown,
+  .dircountdown-module .dircountdown-advanced {
     font-size: 110px;
     height: 220px; }
-    .dircountdown-module > .dircountdown > article {
+    .dircountdown-module > .dircountdown > article,
+    .dircountdown-module .dircountdown-advanced > article {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: column;
@@ -7492,7 +7544,8 @@ p {
           justify-content: flex-start;
       -ms-flex-align: center;
           align-items: center; }
-      .dircountdown-module > .dircountdown > article > .dircount-buttons {
+      .dircountdown-module > .dircountdown > article > .dircount-buttons,
+      .dircountdown-module .dircountdown-advanced > article > .dircount-buttons {
         margin-top: 5px;
         height: 80px;
         display: -ms-flexbox;
@@ -7503,21 +7556,27 @@ p {
             justify-content: center;
         -ms-flex-align: start;
             align-items: flex-start; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > :nth-child(n) {
-          width: 65px;
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > :nth-child(n),
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > :nth-child(n) {
+          width: 80px;
           margin: 0 2px; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > button {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > button,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > button {
           height: 100%;
           line-height: 50%;
           font-size: 50px;
           transition: all 0.3s; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > .reset {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > .reset,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > .reset {
           background-color: darkred; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > .play {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > .play,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > .play {
           background-color: darkgreen; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > .pause {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > .pause,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > .pause {
           background-color: #e68200; }
-        .dircountdown-module > .dircountdown > article > .dircount-buttons > div {
+        .dircountdown-module > .dircountdown > article > .dircount-buttons > div,
+        .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > div {
           height: 100%;
           display: -ms-flexbox;
           display: flex;
@@ -7527,9 +7586,12 @@ p {
               justify-content: space-between;
           -ms-flex-align: center;
               align-items: center; }
-          .dircountdown-module > .dircountdown > article > .dircount-buttons > div > button {
+          .dircountdown-module > .dircountdown > article > .dircount-buttons > div > button,
+          .dircountdown-module .dircountdown-advanced > article > .dircount-buttons > div > button {
             height: 48%;
             width: 100%; }
+  .dircountdown-module > .dircountdown {
+    height: 130px; }
   .dircountdown-module > .vtcountdown {
     font-size: 110px;
     height: 275px; }
@@ -7678,12 +7740,104 @@ p {
     background-color: #bbb;
     border-radius: 10px;
     color: #000;
-    font-family: 'Comfortaa';
+    font-family: 'Jura';
     font-weight: bold;
+    line-height: 100%;
     font-size: 26px;
     padding: 10px;
     overflow-y: auto;
     line-height: 100%; }
+    .chat > div#messages > section > p {
+      text-decoration: underline; }
+    .chat > div#messages > section > hr {
+      margin: 1px 3px;
+      background-color: #000;
+      height: 1px;
+      border: 0; }
+    .chat > div#messages > section > .ovnermessage {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+      .chat > div#messages > section > .ovnermessage > div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        font-size: 14px;
+        line-height: 100%;
+        -ms-flex-align: start;
+            align-items: flex-start;
+        border: 1px solid #000;
+        border-radius: 4px;
+        padding: 5px; }
+        .chat > div#messages > section > .ovnermessage > div > div {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: row;
+              flex-direction: row;
+          -ms-flex-align: center;
+              align-items: center; }
+          .chat > div#messages > section > .ovnermessage > div > div > span {
+            font-size: 28px; }
+          .chat > div#messages > section > .ovnermessage > div > div > div {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+                flex-direction: column;
+            -ms-flex-align: start;
+                align-items: flex-start; }
+            .chat > div#messages > section > .ovnermessage > div > div > div > span {
+              font-size: 12px;
+              line-height: 100%; }
+      .chat > div#messages > section > .ovnermessage > span {
+        margin: 10px;
+        text-align: right; }
+    .chat > div#messages > section > .guestmessage {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: row;
+          flex-direction: row;
+      -ms-flex-align: center;
+          align-items: center; }
+      .chat > div#messages > section > .guestmessage > div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+            flex-direction: column;
+        font-size: 14px;
+        line-height: 100%;
+        -ms-flex-align: end;
+            align-items: flex-end;
+        border: 1px solid #000;
+        border-radius: 4px;
+        padding: 5px; }
+        .chat > div#messages > section > .guestmessage > div > div {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: row;
+              flex-direction: row;
+          -ms-flex-align: center;
+              align-items: center; }
+          .chat > div#messages > section > .guestmessage > div > div > span {
+            font-size: 28px; }
+          .chat > div#messages > section > .guestmessage > div > div > div {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+                flex-direction: column;
+            -ms-flex-align: start;
+                align-items: flex-start; }
+            .chat > div#messages > section > .guestmessage > div > div > div > span {
+              font-size: 12px;
+              line-height: 100%; }
+      .chat > div#messages > section > .guestmessage > span {
+        margin: 10px;
+        text-align: left; }
   .chat > section {
     padding: 10px 0;
     width: 100%;
@@ -7723,62 +7877,62 @@ p {
 @font-face {
   font-family: 'Comfortaa';
   src: url(./assets/fonts/Comfortaa-Regular.eot);
-  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype"), url(./assets/images/Comfortaa-Regular.svg#Comfortaa-Regular) format("svg");
+  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Comfortaa';
   src: url(./assets/fonts/Comfortaa-Bold.eot);
-  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype"), url(./assets/images/Comfortaa-Bold.svg#Comfortaa-Bold) format("svg");
+  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital.eot);
-  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype"), url(./assets/images/DS-Digital.svg#DS-Digital) format("svg");
+  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital-Bold.eot);
-  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype"), url(./assets/images/DS-Digital-Bold.svg#DS-Digital-Bold) format("svg");
+  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Bold.eot);
-  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype"), url(./assets/images/Jura-Bold.svg#Jura-Bold) format("svg");
+  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Medium.eot);
-  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype"), url(./assets/images/Jura-Medium.svg#Jura-Medium) format("svg");
+  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Regular.eot);
-  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype"), url(./assets/images/Jura-Regular.svg#Jura-Regular) format("svg");
+  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-Light.eot);
-  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype"), url(./assets/images/Jura-Light.svg#Jura-Light) format("svg");
+  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
   font-family: 'Jura';
   src: url(./assets/fonts/Jura-SemiBold.eot);
-  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype"), url(./assets/images/Jura-SemiBold.svg#Jura-SemiBold) format("svg");
+  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal; }

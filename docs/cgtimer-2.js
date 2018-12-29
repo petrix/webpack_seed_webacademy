@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 389);
+/******/ 	return __webpack_require__(__webpack_require__.s = 391);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1075,6 +1075,35 @@ function localstorage() {
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)))
+
+/***/ }),
+
+/***/ 142:
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
 
 /***/ }),
 
@@ -2321,21 +2350,21 @@ Transport.prototype.onClose = function () {
 
 /***/ }),
 
-/***/ 389:
+/***/ 391:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(390);
+module.exports = __webpack_require__(392);
 
 
 /***/ }),
 
-/***/ 390:
+/***/ 392:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(391);
+__webpack_require__(393);
 
 var _socket = __webpack_require__(73);
 
@@ -2343,68 +2372,161 @@ var _socket2 = _interopRequireDefault(_socket);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var moment = __webpack_require__(392);
-var notifyUser = __webpack_require__(394);
-moment.locale('uk');
-var message;
-var windowWidth;
-var ccgPathLength = 35;
-var ovner = 'Director';
-
+var moment = __webpack_require__(394);
+var notifyUser = __webpack_require__(395);
+__webpack_require__(396);
 $(document).ready(function () {
+    if ("vibrate" in navigator) {
+        // vibration API supported
+        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        console.log('vibrate!');
+    }
+    $('p').click(function () {
+        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
+        navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
+    });
+    moment.locale('uk');
+    var ccgPathLength = 35;
+    var socket = (0, _socket2.default)('http://p3xx.cf:4000');
+    // var response = $.get("https://ipinfo.io", function (response) {
+    //     // console.log(response.ip, response.country, response.loc, response);
+    // }, "jsonp");
+    socket.on('connect', authentificate);
 
-    var socket = (0, _socket2.default)('http://p3xx.tk:4000');
-    var response = $.get("https://ipinfo.io", function (response) {
-        console.log(response.ip, response.country, response.loc, response);
-    }, "jsonp");
+    function authentificate() {
+        var ovner = 'Anonimous';
+        socket.on('error', function (error) {
+            console.log('error');
+        });
+        socket.on('disconnect', function (reason) {
+            if (reason === 'io server disconnect') {
+                console.log('disconnected');
+                socket.connect();
+            }
+        });
+        socket.emit('read-roles', true);
+        var feedBack = 1;
+        socket.on('roles-feedback', function (rolesFeedback) {
+            if (feedBack < 1) {
+                $('.target').append('<option value=' + rolesFeedback + '>' + rolesFeedback + '</option>');
+            } else {
+                $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
+                feedBack--;
+            }
+            ovner = $('select option:selected').text();
+            $('.splashscreen').animate({
+                opacity: 0
+            }, 500, function () {
+                $('.splashscreen').remove();
+            });
+        });
 
-    socket.on('connect', dir_module);
+        $('select').change(function () {
+            var str;
+
+            $('select option:selected').each(function () {
+                str = $(this).text();
+            });
+            ovner = str;
+        }).trigger('change');
+
+        $('#gesturepwd').GesturePasswd({
+            backgroundColor: '#6666', //背景色
+            color: '#FFFFFF', //主要的控件颜色
+            roundRadii: 30, //大圆点的半径
+            pointRadii: 15, //大圆点被选中时显示的圆心的半径
+            space: 30, //大圆点之间的间隙
+            width: 274, //整个组件的宽度
+            height: 274, //整个组件的高度
+            lineColor: "#ECF0F1", //用户划出线条的颜色
+            zindex: 100 //整个组件的css z-index属性
+        });
+        $('#gesturepwd').on('hasPasswd', function (e, passwd) {
+            socket.emit('checkPasswd', ovner, passwd);
+        });
+        socket.on('passwd-feedback', function (result) {
+            if (result) {
+                $('#gesturepwd').trigger('passwdRight');
+                navigator.vibrate([50, 100, 50, 200, 200]); // Бесконечная вибрация.
+                setTimeout(function () {
+                    $('.login-window').animate({
+                        opacity: 0
+                    }, 500, function () {
+                        $('.login-window').remove();
+                        dir_module(ovner);
+                    });
+                }, 500); //延迟半秒以照顾视觉效果
+            } else {
+                $('#gesturepwd').trigger('passwdWrong');
+                navigator.vibrate([50]); // Бесконечная вибрация.
+            }
+        });
+    }
     var date, hours, minutes, seconds, miliseconds;
 
-    function dir_module() {
-        // socket.on('error', (error) => {
-        //     console.log('error');
-        // });
-        // socket.on('disconnect', (reason) => {
-        //     if (reason === 'io server disconnect') {
-        //         console.log('disconnected');
-        //         socket.connect();
-        //     }
-        // });
-
+    function dir_module(ovner) {
+        notifyUser('You are logged in as:', ovner, 5000);
+        socket.emit('ip-get', true);
+        socket.emit('countdown-get', true);
+        socket.emit('read-servermessage', ovner);
+        // console.log(ovner);
+        var servermessageUpdate = true;
+        socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
+            if (servermessageUpdate) {
+                if (!$('section.' + dDate).length) {
+                    $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+                }
+                var dTimeArr = dTime.split(':');
+                if (srvOvner == ovner) {
+                    $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+                } else {
+                    $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                }
+            }
+        });
+        socket.on('servermessage-updated', function () {
+            servermessageUpdate = false;
+        });
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });
         var dataClasses = ['active', 'warning', 'danger'];
         var dataDuration;
-        socket.emit('countdown-get', true);
         socket.on('countdown', function (dirDuration, dirActive) {
             dataDuration = dirDuration.toFixed(0);
             dataClasses.forEach(function (item) {
                 $('.dircountdown').removeClass(item);
+                $('.dircountdown-advanced').removeClass(item);
             });
             if (dirActive) {
                 if (dataDuration > 20) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                     });
                     $('.dircountdown').addClass('active');
+                    $('.dircountdown-advanced').addClass('active');
                 } else if (dataDuration > 10) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                     });
                     $('.dircountdown').addClass('warning');
+                    $('.dircountdown-advanced').addClass('warning');
                 } else if (dataDuration > 0) {
                     setPlayedButtons();
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                     });
                     $('.dircountdown').addClass('danger');
+                    $('.dircountdown-advanced').addClass('danger');
                 } else {
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
+                        $('.dircountdown-advanced').removeClass(item);
                         setPausedButtons();
                     });
                 }
@@ -2503,7 +2625,6 @@ $(document).ready(function () {
             $('.reset > i').removeClass('fa-grimace').addClass('fa-flushed');
             $('.play').removeClass('pause').children('i').removeClass('fa-pause').addClass('fa-play');
         }
-        socket.emit('ip-get', true);
 
         socket.on('ip', function (ip) {
             $('#ip').html(ip);
@@ -2530,6 +2651,7 @@ $(document).ready(function () {
             var buttonValue = $(this).val();
             btnVal.forEach(function (item, i) {
                 if (item == buttonValue) {
+                    navigator.vibrate([50]); // Бесконечная вибрация.
                     socket.emit(emitVal[i]);
                     console.log(buttonValue + '---' + emitVal[i]);
                 }
@@ -2550,10 +2672,6 @@ $(document).ready(function () {
             console.log('refresh wall');
         });
 
-        $('p').click(function () {
-            $(this).parent().toggleClass('module-slideup');
-        });
-
         $('.chat').keypress(function (e) {
             if (e.which == 13 || event.keyCode == 13) {
                 submitMessage();
@@ -2565,46 +2683,49 @@ $(document).ready(function () {
         });
         $('.cleartxt').on('click', function () {
             socket.emit('clear-serverfile', true);
+        });
+        socket.on('serverfile-empty', function () {
             $('#messages').children().remove();
         });
 
         function submitMessage() {
-            message = $('#message').val();
+            var message = $('#message').val();
             if (message != '') {
                 socket.emit('clientmessage', ovner, message);
                 $('#message').val('');
             }
         }
-        socket.emit('read-servermessage', true);
-        socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
 
-            if (!$('section.' + dDate).length) {
-                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
-            }
-            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
-            // notifyUser(srvOvner, srvMsg, 5000);
-        });
         socket.on('servermessage', function (dDate, dTime, srvOvner, srvMsg) {
 
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
-            $('#messages').find('section.' + dDate).find('p').after(dTime + ' - ' + srvOvner + ' : ' + srvMsg + '<br>');
-            notifyUser(srvOvner, srvMsg, 5000);
+            // var dDateArray=
+            var dTimeArr = dTime.split(':');
+            if (srvOvner == ovner) {
+                $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+            } else {
+                $('#messages').find('section.' + dDate).find('p').after('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+            }
+            if (srvOvner != ovner) {
+                notifyUser(srvOvner, srvMsg, 5000);
+                navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
+            }
         });
     }
 });
 
 /***/ }),
 
-/***/ 391:
+/***/ 393:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 392:
+/***/ 394:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16870,40 +16991,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     return hooks;
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(393)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(142)(module)))
 
 /***/ }),
 
-/***/ 393:
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-
-/***/ 394:
+/***/ 395:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16962,6 +17054,254 @@ function makeId() {
 }
 
 module.exports = notifyUser;
+
+/***/ }),
+
+/***/ 396:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+// ;
+// (function ($) {
+
+
+var GesturePasswd = function GesturePasswd(element, options) {
+    this.$element = $(element);
+    this.options = options;
+    var that = this;
+    this.pr = options.pointRadii;
+    this.rr = options.roundRadii;
+    this.o = options.space;
+    this.color = options.color;
+    //全局样式
+    this.$element.css({
+        "position": "relation",
+        "width": this.options.width,
+        "height": this.options.height,
+        "background-color": options.backgroundColor,
+        "overflow": "hidden",
+        "cursor": "default"
+    });
+
+    //选择器规范
+    if (!$(element).attr("id")) $(element).attr("id", (Math.random() * 65535).toString());
+    this.id = "#" + $(element).attr("id");
+
+    var Point = function Point(x, y) {
+        this.x = x;
+        this.y = y;
+    };
+
+    this.result = "";
+    this.pList = [];
+    this.sList = [];
+    this.tP = new Point(0, 0);
+
+    this.$element.append('<canvas class="main-c" width="' + options.width + '" height="' + options.height + '" >');
+    //this.$element.append('<canvas class="main-p" width="'+options.width+'" height="'+options.height+'" >');
+    this.$c = $(this.id + " .main-c")[0];
+    this.$ctx = this.$c.getContext('2d');
+
+    this.initDraw = function () {
+        this.$ctx.strokeStyle = this.color;
+        this.$ctx.lineWidth = 2;
+        for (var j = 0; j < 3; j++) {
+            for (var i = 0; i < 3; i++) {
+                this.$ctx.moveTo(this.o / 2 + this.rr * 2 + i * (this.o + 2 * this.rr), this.o / 2 + this.rr + j * (this.o + 2 * this.rr));
+                this.$ctx.arc(this.o / 2 + this.rr + i * (this.o + 2 * this.rr), this.o / 2 + this.rr + j * (this.o + 2 * this.rr), this.rr, 0, 2 * Math.PI);
+                var tem = new Point(this.o / 2 + this.rr + i * (this.o + 2 * this.rr), this.o / 2 + this.rr + j * (this.o + 2 * this.rr));
+                if (that.pList.length < 9) this.pList.push(tem);
+            }
+        }
+        this.$ctx.stroke();
+        this.initImg = this.$ctx.getImageData(0, 0, this.options.width, this.options.height);
+    };
+    this.initDraw();
+    //this.$ctx.stroke();
+    this.isIn = function (x, y) {
+
+        for (var p in that.pList) {
+            //console.log(that.pList[p][x]);
+            //  console.log(( Math.pow((x-that.pList[p][x]),2)+Math.pow((y-that.pList[p][y]),2)));
+            if (Math.pow(x - that.pList[p]["x"], 2) + Math.pow(y - that.pList[p]["y"], 2) < Math.pow(this.rr, 2)) {
+                return that.pList[p];
+            }
+        }
+        return 0;
+    };
+
+    this.pointDraw = function (c) {
+        if (arguments.length > 0) {
+            that.$ctx.strokeStyle = c;
+            that.$ctx.fillStyle = c;
+        }
+        for (var p in that.sList) {
+            that.$ctx.moveTo(that.sList[p]["x"] + that.pr, that.sList[p]["y"]);
+            that.$ctx.arc(that.sList[p]["x"], that.sList[p]["y"], that.pr, 0, 2 * Math.PI);
+            that.$ctx.fill();
+        }
+    };
+    this.lineDraw = function (c) {
+        if (arguments.length > 0) {
+            that.$ctx.strokeStyle = c;
+            that.$ctx.fillStyle = c;
+        }
+        if (that.sList.length > 0) {
+            for (var p in that.sList) {
+                if (p == 0) {
+                    // console.log(that.sList[p]["x"], that.sList[p]["y"]);
+                    that.$ctx.moveTo(that.sList[p]["x"], that.sList[p]["y"]);
+                    continue;
+                }
+                that.$ctx.lineTo(that.sList[p]["x"], that.sList[p]["y"]);
+                // console.log(that.sList[p]["x"], that.sList[p]["y"]);
+            }
+        }
+    };
+
+    this.allDraw = function (c) {
+        if (arguments.length > 0) {
+            this.pointDraw(c);
+            this.lineDraw(c);
+            that.$ctx.stroke();
+        } else {
+            this.pointDraw();
+            this.lineDraw();
+        }
+    };
+
+    this.draw = function (x, y) {
+        that.$ctx.clearRect(0, 0, that.options.width, that.options.height);
+        that.$ctx.beginPath();
+        //that.initDraw();
+        that.$ctx.putImageData(this.initImg, 0, 0);
+        that.$ctx.lineWidth = 4;
+        that.pointDraw(that.options.lineColor);
+        that.lineDraw(that.options.lineColor);
+        that.$ctx.lineTo(x, y);
+        that.$ctx.stroke();
+    };
+
+    this.pointInList = function (poi, list) {
+        for (var p in list) {
+            if (poi["x"] == list[p]["x"] && poi["y"] == list[p]["y"]) {
+                return ++p;
+            }
+        }
+        return false;
+    };
+
+    this.touched = false;
+    $(this.id).on("mousedown touchstart", {
+        that: that
+    }, function (e) {
+        e.data.that.touched = true;
+    });
+    $(this.id).on("mouseup touchend", {
+        that: that
+    }, function (e) {
+        e.data.that.touched = false;
+        that.$ctx.clearRect(0, 0, that.options.width, that.options.height);
+        that.$ctx.beginPath();
+        that.$ctx.putImageData(e.data.that.initImg, 0, 0);
+        that.allDraw(that.options.lineColor);
+        // that.$ctx.stroke();
+        for (var p in that.sList) {
+            if (e.data.that.pointInList(that.sList[p], e.data.that.pList)) {
+                e.data.that.result = e.data.that.result + e.data.that.pointInList(that.sList[p], e.data.that.pList).toString();
+            }
+        }
+        $(element).trigger("hasPasswd", that.result);
+    });
+
+    //
+    $(this.id).on('touchmove mousemove', {
+        that: that
+    }, function (e) {
+        if (e.data.that.touched) {
+            var x = e.pageX || e.originalEvent.targetTouches[0].pageX;
+            var y = e.pageY || e.originalEvent.targetTouches[0].pageY;
+            x = x - that.$element.offset().left;
+            y = y - that.$element.offset().top;
+            var p = e.data.that.isIn(x, y);
+            // console.log(x)
+            if (p != 0) {
+                if (!e.data.that.pointInList(p, e.data.that.sList)) {
+                    e.data.that.sList.push(p);
+                }
+            }
+            // console.log(e.data.that.sList);
+            e.data.that.draw(x, y);
+        }
+    });
+
+    $(this.id).on('passwdWrong', {
+        that: that
+    }, function (e) {
+        that.$ctx.clearRect(0, 0, that.options.width, that.options.height);
+        that.$ctx.beginPath();
+        that.$ctx.putImageData(that.initImg, 0, 0);
+        that.allDraw("#cc1c21");
+        that.result = "";
+        that.pList = [];
+        that.sList = [];
+
+        setTimeout(function () {
+            that.$ctx.clearRect(0, 0, that.options.width, that.options.height);
+            that.$ctx.beginPath();
+            that.initDraw();
+        }, 500);
+    });
+
+    $(this.id).on('passwdRight', {
+        that: that
+    }, function (e) {
+        that.$ctx.clearRect(0, 0, that.options.width, that.options.height);
+        that.$ctx.beginPath();
+        that.$ctx.putImageData(that.initImg, 0, 0);
+        that.allDraw("#00a254");
+        that.result = "";
+        that.pList = [];
+        that.sList = [];
+        setTimeout(function () {
+            that.$ctx.clearRect(0, 0, that.options.width, that.options.height);
+            that.$ctx.beginPath();
+            that.initDraw();
+        }, 500);
+    });
+};
+
+GesturePasswd.DEFAULTS = {
+    zindex: 100,
+    roundRadii: 25,
+    pointRadii: 6,
+    space: 30,
+    width: 240,
+    height: 240,
+    lineColor: "#00aec7",
+    backgroundColor: "#252736",
+    color: "#FFFFFF"
+};
+
+function Plugin(option, arg) {
+    return this.each(function () {
+        var $this = $(this);
+        var options = $.extend({}, GesturePasswd.DEFAULTS, (typeof option === "undefined" ? "undefined" : _typeof(option)) == 'object' && option);
+        var data = $this.data('GesturePasswd');
+        var action = typeof option == 'string' ? option : NaN;
+        if (!data) $this.data('danmu', data = new GesturePasswd(this, options));
+        if (action) data[action](arg);
+    });
+}
+
+$.fn.GesturePasswd = Plugin;
+$.fn.GesturePasswd.Constructor = GesturePasswd;
+
+// })(jQuery);
 
 /***/ }),
 

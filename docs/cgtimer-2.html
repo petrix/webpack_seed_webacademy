@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CGtimer-2</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"> -->
-    <!-- <script src="https://momentjs.com/downloads/moment-with-locales.js"></script> -->
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
     minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <link href="cgtimer-2.css" rel="stylesheet"></head>
 
 <body>
     <main>
+        <section class="splashscreen"></section>
+        <section class="login-window">
+            <form>
+                <!-- <input class="target" type="text" value="Field 1"> -->
+                <select class="target">
+                    <!-- <option value="CameraMan" selected="selected">CameraMan</option>
+                    <option value="Director">Director</option> -->
+                </select>
+            </form>
+            <div id="gesturepwd"></div>
+            <!-- <button class="button">Login</button> -->
+        </section>
         <section class="dircountdown-module">
             <!-- <article > -->
             <article class="current-time">
                 <p class="current-time-label">Current Time</p>
                 <span class="digits current-time-digits">00:00:00</span>
             </article>
-            <article class="dircountdown module-slideup">
+            <article class="dircountdown-advanced module-slideup">
                 <p class="dircountdown-label">Director's Countdown</p>
                 <article>
                     <span class="digits dircountdown-digits">00:00:00</span>
@@ -39,10 +52,15 @@
                             <button value="+10sec">+10sec</button>
                             <button value="-10sec">-10sec</button>
                         </div>
-
                         <button class="play" value="PLAY">
                             <i class="fas fa-play"></i></button>
                     </div>
+                </article>
+            </article>
+            <article class="dircountdown module-slideup">
+                <p class="dircountdown-label">Director's Countdown</p>
+                <article>
+                    <span class="digits dircountdown-digits">00:00:00</span>
                 </article>
             </article>
             <article class="vtcountdown module-slideup">

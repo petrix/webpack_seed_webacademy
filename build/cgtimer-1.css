@@ -31,14 +31,14 @@ a {
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital.eot);
-  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype"), url(./assets/images/DS-Digital.svg#DS-Digital) format("svg");
+  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital-Bold.eot);
-  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype"), url(./assets/images/DS-Digital-Bold.svg#DS-Digital-Bold) format("svg");
+  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal; }
 
@@ -59,67 +59,74 @@ main {
   -ms-flex-align: center;
       align-items: center; }
 
-.timer-module {
-  -ms-transform: translate(-40px, 400px);
-      transform: translate(-40px, 400px); }
-  .timer-module > .current-time {
-    position: absolute;
-    -ms-transform: translate(-260px, -60px);
-        transform: translate(-260px, -60px);
-    font-size: 160px;
-    color: #ff8f00; }
-  .timer-module > .rasp-time {
-    position: absolute;
-    -ms-transform: translate(-120px, 80px);
-        transform: translate(-120px, 80px);
-    font-size: 80px;
-    color: #ff8f00; }
-  .timer-module > .seconds > div,
-  .timer-module .minutes > div,
-  .timer-module .hours > div,
-  .timer-module .hours24 > div {
-    width: 40px;
-    height: 40px;
-    background-color: #500;
-    transition: all 0.3s;
-    border-radius: 50%;
-    position: absolute;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center; }
-  .timer-module > .seconds > .minutes-active,
-  .timer-module .minutes > .minutes-active,
-  .timer-module .hours > .minutes-active,
-  .timer-module .hours24 > .minutes-active {
-    transition: all 0.3s;
-    background-color: #ff8f00;
-    color: #000; }
-  .timer-module > .hours {
-    -ms-transform: translate(-10px, -10px);
-        transform: translate(-10px, -10px); }
-    .timer-module > .hours > div {
-      width: 60px;
-      height: 60px; }
-    .timer-module > .hours > .hours-active {
-      border: 10px solid #ff8f00; }
-  .timer-module > .hours24 {
-    -ms-transform: translate(-10px, -10px);
-        transform: translate(-10px, -10px); }
-    .timer-module > .hours24 > div {
-      width: 60px;
-      height: 60px; }
-    .timer-module > .hours24 > .hours-active {
-      border: 10px solid #ff8f00; }
-  .timer-module > .seconds {
-    -ms-transform: translate(2px, 2px);
-        transform: translate(2px, 2px); }
-    .timer-module > .seconds > div {
-      width: 36px;
-      height: 36px; }
-    .timer-module > .seconds > .seconds-active {
+.wall-body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+  .wall-body .timer-module {
+    -ms-transform: translate(-15px, 400px);
+        transform: translate(-15px, 400px); }
+    .wall-body .timer-module > .current-time {
+      position: absolute;
+      -ms-transform: translate(-260px, -60px);
+          transform: translate(-260px, -60px);
+      font-size: 160px;
+      color: #ff8f00; }
+    .wall-body .timer-module > .rasp-time {
+      position: absolute;
+      -ms-transform: translate(-120px, 80px);
+          transform: translate(-120px, 80px);
+      font-size: 80px;
+      color: #ff8f00; }
+    .wall-body .timer-module > .seconds > div,
+    .wall-body .timer-module .minutes > div,
+    .wall-body .timer-module .hours > div,
+    .wall-body .timer-module .hours24 > div {
+      width: 40px;
+      height: 40px;
+      background-color: #500;
+      transition: all 0.3s;
+      border-radius: 50%;
+      position: absolute;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center; }
+    .wall-body .timer-module > .seconds > .minutes-active,
+    .wall-body .timer-module .minutes > .minutes-active,
+    .wall-body .timer-module .hours > .minutes-active,
+    .wall-body .timer-module .hours24 > .minutes-active {
       transition: all 0.3s;
       background-color: #ff8f00;
       color: #000; }
+    .wall-body .timer-module > .hours {
+      -ms-transform: translate(-10px, -10px);
+          transform: translate(-10px, -10px); }
+      .wall-body .timer-module > .hours > div {
+        width: 60px;
+        height: 60px; }
+      .wall-body .timer-module > .hours > .hours-active {
+        border: 10px solid #ff8f00; }
+    .wall-body .timer-module > .hours24 {
+      -ms-transform: translate(-10px, -10px);
+          transform: translate(-10px, -10px); }
+      .wall-body .timer-module > .hours24 > div {
+        width: 60px;
+        height: 60px; }
+      .wall-body .timer-module > .hours24 > .hours-active {
+        border: 10px solid #ff8f00; }
+    .wall-body .timer-module > .seconds {
+      -ms-transform: translate(2px, 2px);
+          transform: translate(2px, 2px); }
+      .wall-body .timer-module > .seconds > div {
+        width: 36px;
+        height: 36px; }
+      .wall-body .timer-module > .seconds > .seconds-active {
+        transition: all 0.3s;
+        background-color: #ff8f00;
+        color: #000; }

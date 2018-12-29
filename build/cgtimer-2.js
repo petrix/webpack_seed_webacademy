@@ -2376,27 +2376,22 @@ var moment = __webpack_require__(394);
 var notifyUser = __webpack_require__(395);
 __webpack_require__(396);
 $(document).ready(function () {
-
+    if ("vibrate" in navigator) {
+        // vibration API supported
+        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        console.log('vibrate!');
+    }
     $('p').click(function () {
         $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
-        // $('.dircountdown-module').children('article').not($(this).parent()).addClass('module-slideup');
+        navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
     });
-
     moment.locale('uk');
-    // var message;
-    // var windowWidth;
     var ccgPathLength = 35;
-
     var socket = (0, _socket2.default)('http://p3xx.cf:4000');
     // var response = $.get("https://ipinfo.io", function (response) {
     //     // console.log(response.ip, response.country, response.loc, response);
     // }, "jsonp");
-
-
-    // function runSocket() {
     socket.on('connect', authentificate);
-    // }
-
 
     function authentificate() {
         var ovner = 'Anonimous';
@@ -2409,7 +2404,6 @@ $(document).ready(function () {
                 socket.connect();
             }
         });
-
         socket.emit('read-roles', true);
         var feedBack = 1;
         socket.on('roles-feedback', function (rolesFeedback) {
@@ -2450,53 +2444,30 @@ $(document).ready(function () {
         $('#gesturepwd').on('hasPasswd', function (e, passwd) {
             socket.emit('checkPasswd', ovner, passwd);
         });
-        /////////////////BROOTFORCE///////////////////
-        // $('.brootforce').click(function () {
-        //     for (var i = 1; i < 100; i++) {
-        //         socket.emit('checkPasswd', ovner, i);
-        //         $('.passvalue').text(ovner + ' : ' + i);
-        //         console.log(ovner, i);
-
-        //     }
-        // });
-        // socket.on('passwd-feedback', function (result) {
-        //     passFeedback(result);
-        // });
         socket.on('passwd-feedback', function (result) {
-            passFeedback(result);
-        });
-
-        function passFeedback(result) {
-            console.log(result);
             if (result) {
                 $('#gesturepwd').trigger('passwdRight');
-
+                navigator.vibrate([50, 100, 50, 200, 200]); // Бесконечная вибрация.
                 setTimeout(function () {
                     $('.login-window').animate({
                         opacity: 0
                     }, 500, function () {
                         $('.login-window').remove();
                         dir_module(ovner);
-                        // return false;
                     });
-                    // runSocket();
                 }, 500); //延迟半秒以照顾视觉效果
             } else {
                 $('#gesturepwd').trigger('passwdWrong');
-                //密码验证错误后的其他操作。。。
+                navigator.vibrate([50]); // Бесконечная вибрация.
             }
-        }
+        });
     }
-
     var date, hours, minutes, seconds, miliseconds;
 
     function dir_module(ovner) {
         notifyUser('You are logged in as:', ovner, 5000);
-
         socket.emit('ip-get', true);
-
         socket.emit('countdown-get', true);
-
         socket.emit('read-servermessage', ovner);
         // console.log(ovner);
         var servermessageUpdate = true;
@@ -2516,7 +2487,6 @@ $(document).ready(function () {
         socket.on('servermessage-updated', function () {
             servermessageUpdate = false;
         });
-
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });
@@ -2681,6 +2651,7 @@ $(document).ready(function () {
             var buttonValue = $(this).val();
             btnVal.forEach(function (item, i) {
                 if (item == buttonValue) {
+                    navigator.vibrate([50]); // Бесконечная вибрация.
                     socket.emit(emitVal[i]);
                     console.log(buttonValue + '---' + emitVal[i]);
                 }
@@ -2739,6 +2710,7 @@ $(document).ready(function () {
             }
             if (srvOvner != ovner) {
                 notifyUser(srvOvner, srvMsg, 5000);
+                navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
             }
         });
     }

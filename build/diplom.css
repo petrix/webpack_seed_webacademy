@@ -248,7 +248,7 @@ a {
 @font-face {
   font-family: 'Bebas Neue';
   src: url(./assets/fonts/BebasNeue-Thin.eot);
-  src: url(./assets/fonts/BebasNeue-Thin.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeue-Thin.woff2) format("woff2"), url(./assets/fonts/BebasNeue-Thin.woff) format("woff"), url(./assets/fonts/BebasNeue-Thin.ttf) format("truetype"), url(./assets/images/BebasNeue-Thin.svg#BebasNeue-Thin) format("svg");
+  src: url(./assets/fonts/BebasNeue-Thin.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeue-Thin.woff2) format("woff2"), url(./assets/fonts/BebasNeue-Thin.woff) format("woff"), url(./assets/fonts/BebasNeue-Thin.ttf) format("truetype");
   font-weight: 100;
   font-style: normal; }
 
@@ -262,7 +262,7 @@ a {
 @font-face {
   font-family: 'Bebas Neue';
   src: url(./assets/fonts/BebasNeueRegular.eot);
-  src: url(./assets/fonts/BebasNeueRegular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueRegular.woff2) format("woff2"), url(./assets/fonts/BebasNeueRegular.woff) format("woff"), url(./assets/fonts/BebasNeueRegular.ttf) format("truetype"), url(./assets/images/BebasNeueRegular.svg#BebasNeueRegular) format("svg");
+  src: url(./assets/fonts/BebasNeueRegular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueRegular.woff2) format("woff2"), url(./assets/fonts/BebasNeueRegular.woff) format("woff"), url(./assets/fonts/BebasNeueRegular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal; }
 

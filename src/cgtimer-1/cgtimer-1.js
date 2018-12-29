@@ -134,11 +134,5 @@ function timesync_module() {
         if (seconds >= 59 && miliseconds > 500) {
             $('.seconds').children().removeClass('seconds-active');
         }
-        console.log('seconds - ' + seconds + ' - miliseconds - ' + miliseconds);
-
     });
-
 }
-// $('div').click(function () {
-//     console.log($(this));
-// });
