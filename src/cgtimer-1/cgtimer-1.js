@@ -1,6 +1,6 @@
 import './cgtimer-1.scss';
 import io from 'socket.io-client';
-var moment = require('./js/moment-with-locales.js');
+var moment = require('./js/moment-with-locales');
 
 
 // socket.on('connect', onConnect);
@@ -63,19 +63,19 @@ drawClock();
 //     console.log('error');
 // });
 
-const socket = io('http://localhost:4000');
+const socket = io('http://p3xx.tk:4000');
 
 
 socket.on('connect', timesync_module);
 var date, hours, minutes, seconds, miliseconds;
 
 
-// socket.on('disconnect', (reason) => {
-//     if (reason === 'io server disconnect') {
-//         console.log('disconnected');
-//         socket.connect();
-//     }
-// });
+socket.on('disconnect', (reason) => {
+    if (reason === 'io server disconnect') {
+        console.log('disconnected');
+        socket.connect();
+    }
+});
 
 function updateClockInterface() {
 
@@ -89,7 +89,11 @@ function updateClockInterface() {
 
 
 function timesync_module() {
-
+    socket.on('brightness', function (brightnessValue) {
+        $('.wall-body').css({
+            'filter': 'brightness(' + brightnessValue + '%)'
+        });
+    });
 
     socket.on('timeofday', function (newDate) {
         // socket.emit('current time', newDate);
@@ -100,7 +104,6 @@ function timesync_module() {
         seconds = date.getSeconds();
         miliseconds = date.getMilliseconds();
         updateClockInterface();
-        // updateClockInterface(minutes, seconds);
         $('.current-time').text(moment(newDate).format('HH:mm:ss'));
         $('.rasp-time').text(moment(newDate).format('HH:mm:ss'));
 
@@ -109,7 +112,6 @@ function timesync_module() {
         $('.hours').find('.hr' + hours).addClass('hours-active');
         $('.hours24').find('.hr' + hours).addClass('hours-active');
 
-        // console.log(hours);
         if (hours > 11) {
             $('.hours').css({
                 'opacity': '0'
