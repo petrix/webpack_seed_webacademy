@@ -97,18 +97,18 @@ function timesync_module() {
             'filter': 'brightness(' + brightnessValue + '%)'
         });
     });
-    var windowWidth = $(window).width();
-    console.log(windowWidth);
-    $('.timer-module').css(
-        'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
-    );
-    $(window).on('resize', function () {
-        windowWidth = $(window).width();
-        console.log(windowWidth);
-        $('.timer-module').css(
-            'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
-        );
-    });
+    // var windowWidth = $(window).width();
+    // console.log(windowWidth);
+    // $('.timer-module').css(
+    //     'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
+    // );
+    // $(window).on('resize', function () {
+    //     windowWidth = $(window).width();
+    //     console.log(windowWidth);
+    //     $('.timer-module').css(
+    //         'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
+    //     );
+    // });
     socket.on('timeofday', function (newDate) {
         // socket.emit('current time', newDate);
 
