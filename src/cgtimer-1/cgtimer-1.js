@@ -13,13 +13,14 @@ var moment = require('./js/moment-with-locales');
 //     console.log(response.ip, response.country, response.loc, response);
 //     // responseLoc = response.loc;
 // }, "jsonp");
+var div = 360 / 60;
+var secRadius = 500;
+var minRadius = 560;
+var hoursRadius = 430;
+// var hours24Radius = 430;
 
 function drawClock() {
-    var div = 360 / 60;
-    var secRadius = 360;
-    var minRadius = 400;
-    var hoursRadius = 310;
-    var hours24Radius = 310;
+
     var countSeconds = 0,
         countMinutes = 0,
         countHours = 0;
@@ -89,12 +90,25 @@ function updateClockInterface() {
 
 
 function timesync_module() {
-    socket.on('brightness', function (brightnessValue) {
+
+    socket.emit('brightness-get', true);
+    socket.on('brightness value', function (brightnessValue) {
         $('.wall-body').css({
             'filter': 'brightness(' + brightnessValue + '%)'
         });
     });
-
+    var windowWidth = $(window).width();
+    console.log(windowWidth);
+    $('.timer-module').css(
+        'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
+    );
+    $(window).on('resize', function () {
+        windowWidth = $(window).width();
+        console.log(windowWidth);
+        $('.timer-module').css(
+            'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
+        );
+    });
     socket.on('timeofday', function (newDate) {
         // socket.emit('current time', newDate);
 

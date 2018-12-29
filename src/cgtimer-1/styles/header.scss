@@ -46,100 +46,97 @@ main {
 
 
 
-.wall-body {
-    @include flex-row;
-    justify-content: flex-start;
 
-    .timer-module {
-        transform: translate(-15px, 400px);
 
-        &>.current-time {
+.timer-module {
+    transform: translate(-15px, 400px);
+
+    &>.current-time {
+        position: absolute;
+        transform: translate(-260px, -60px);
+        font-size: 160px;
+        color: #ff8f00;
+    }
+
+    &>.rasp-time {
+        position: absolute;
+        transform: translate(-120px, 80px);
+        font-size: 80px;
+        color: #ff8f00;
+    }
+
+    &>.seconds,
+    .minutes,
+    .hours,
+    .hours24 {
+
+        &>div {
+            width: 58px;
+            height: 58px;
+            background-color: #500;
+            transition: all 0.3s;
+            border-radius: 50%;
             position: absolute;
-            transform: translate(-260px, -60px);
-            font-size: 160px;
-            color: #ff8f00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        &>.rasp-time {
-            position: absolute;
-            transform: translate(-120px, 80px);
-            font-size: 80px;
-            color: #ff8f00;
+        &>.minutes-active {
+            // border: 20px solid #ff8f00;
+            transition: all 0.3s;
+            background-color: #ff8f00;
+            color: #000;
         }
 
-        &>.seconds,
-        .minutes,
-        .hours,
-        .hours24 {
+    }
 
-            &>div {
-                width: 40px;
-                height: 40px;
-                background-color: #500;
-                transition: all 0.3s;
-                border-radius: 50%;
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+    &>.hours {
+        transform: translate(-10px, -10px);
 
-            &>.minutes-active {
-                // border: 20px solid #ff8f00;
-                transition: all 0.3s;
-                background-color: #ff8f00;
-                color: #000;
-            }
-
+        &>div {
+            width: 76px;
+            height: 76px;
+            // border: 10px solid #ff8f00;
         }
 
-        &>.hours {
-            transform: translate(-10px, -10px);
+        &>.hours-active {
+            border: 10px solid #ff8f00;
+        }
+    }
 
-            &>div {
-                width: 60px;
-                height: 60px;
-                // border: 10px solid #ff8f00;
-            }
+    &>.hours24 {
+        transform: translate(-10px, -10px);
 
-            &>.hours-active {
-                border: 10px solid #ff8f00;
-            }
+        &>div {
+            width: 76px;
+            height: 76px;
         }
 
-        &>.hours24 {
-            transform: translate(-10px, -10px);
+        &>.hours-active {
+            border: 10px solid #ff8f00;
+        }
 
-            &>div {
-                width: 60px;
-                height: 60px;
-            }
 
-            &>.hours-active {
-                border: 10px solid #ff8f00;
-            }
 
+    }
+
+
+    &>.seconds {
+        transform: translate(2px, 2px);
+
+        &>div {
+            width: 52px;
+            height: 52px;
 
 
         }
 
-
-        &>.seconds {
-            transform: translate(2px, 2px);
-
-            &>div {
-                width: 36px;
-                height: 36px;
-
-
-            }
-
-            &>.seconds-active {
-                // border: 18px solid #ff8f00;
-                transition: all 0.3s;
-                background-color: #ff8f00;
-                color: #000;
-            }
+        &>.seconds-active {
+            // border: 18px solid #ff8f00;
+            transition: all 0.3s;
+            background-color: #ff8f00;
+            color: #000;
         }
     }
 }

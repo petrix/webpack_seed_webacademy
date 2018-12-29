@@ -300,9 +300,15 @@ $(document).ready(function () {
             btnVal.forEach(function (item, i) {
                 if (item == buttonValue) {
                     socket.emit(emitVal[i]);
+                    console.log(emitVal[i]);
                 }
             });
         });
+        socket.emit('brightness-get', true);
+        socket.on('brightness value', function (brightnessValue) {
+            $('.bright-value').text(brightnessValue + '%');
+        });
+
         $('.refresh').click(function () {
             socket.emit('refresh wall', 1);
             console.log('refresh wall');
