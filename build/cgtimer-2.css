@@ -7468,6 +7468,38 @@ p {
   -ms-flex-align: center;
       align-items: center; }
 
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 40;
+  -ms-transform: translateY(-150%);
+      transform: translateY(-150%);
+  transition: all 0.5s;
+  opacity: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .modal > div {
+    width: 274px;
+    height: 274px; }
+  .modal > button {
+    width: 200px;
+    height: 50px;
+    font-size: 30px; }
+
+.modal-active {
+  opacity: 1;
+  -ms-transform: translateY(0%);
+      transform: translateY(0%);
+  transition: all 0.5s; }
+
 .login-window {
   position: fixed;
   width: 100vw;
