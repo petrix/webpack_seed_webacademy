@@ -10,6 +10,7 @@ body {
     color: #fff;
     background-color: #000;
     overflow: hidden;
+    line-height: 360%;
 }
 
 main {
@@ -39,7 +40,7 @@ p {
 
 
 .timer-module {
-    transform: translate(560px, 540px);
+    transform: translate(560px, 560px);
 
     &>.current-time {
         position: absolute;
@@ -135,10 +136,109 @@ article {
     margin: 5px;
 }
 
+.active {
+    background-color: #002f04;
+    transition: all 0.3s;
+}
+
+.warning {
+    background-color: #864c00;
+    transition: all 0.3s;
+}
+
+.danger {
+    background-color: #f11;
+    transition: all 0.3s;
+    animation: blinker 1s steps(1, end) infinite;
+}
+
+@keyframes blinker {
+    50% {
+        background-color: #000;
+    }
+}
 
 .right-column {
-    transform: translateX(1200px);
-    width: 540px;
+    transform: translateX(1220px);
+    width: 640px;
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    &>article {
+        transition: all 0.3s;
+        overflow: hidden;
+        border: 2px solid #ff8f00;
+        border-radius: 30px;
+        @include flex-column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 0;
+        transition: all 0.5s;
+        width: 100%;
+    }
+
+    &>.dircountdown,
+    .dircountdown-advanced {
+        font-size: 110px;
+        height: 220px;
+
+        &>article {
+            @include flex-column;
+            justify-content: flex-start;
+            align-items: center;
+
+            &>.dircount-buttons {
+                margin-top: 5px;
+                height: 80px;
+                @include flex-row;
+                justify-content: center;
+                align-items: flex-start;
+
+                &>:nth-child(n) {
+                    width: 80px;
+                    // width: 65px;
+                    margin: 0 2px;
+                }
+
+                &>button {
+                    height: 100%;
+                    line-height: 50%;
+                    font-size: 50px;
+                    transition: all 0.3s;
+                }
+
+                &>.reset {
+                    background-color: darkred;
+                }
+
+                &>.play {
+                    background-color: darkgreen;
+                }
+
+                &>.pause {
+                    background-color: #e68200;
+                }
+
+                &>div {
+                    height: 100%;
+                    @include flex-column;
+                    justify-content: space-between;
+                    align-items: center; // margin: 0 6px;
+
+                    &>button {
+                        height: 48%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &>.dircountdown {
+        height: 130px;
+    }
 
     &>.vtcountdown {
         font-size: 110px;

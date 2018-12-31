@@ -28,40 +28,33 @@ ul, ol {
 a {
   text-decoration: none; }
 
-@font-face {
-  font-family: 'DS-Digital';
-  src: url(./assets/fonts/DS-Digital.eot);
-  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'DS-Digital';
-  src: url(./assets/fonts/DS-Digital-Bold.eot);
-  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype");
-  font-weight: bold;
-  font-style: normal; }
-
 body {
   font-family: 'DS-Digital';
   font-weight: bold;
   font-size: 20px;
   color: #fff;
-  background-color: #000; }
+  background-color: #000;
+  overflow: hidden;
+  line-height: 360%; }
 
 main {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center; }
+  margin: 0 auto; }
+
+p {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Jura';
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 80%;
+  cursor: crosshair; }
 
 .timer-module {
-  -ms-transform: translate(-15px, 400px);
-      transform: translate(-15px, 400px); }
+  -ms-transform: translate(560px, 560px);
+      transform: translate(560px, 560px); }
   .timer-module > .current-time {
     position: absolute;
     -ms-transform: translate(-260px, -60px);
@@ -123,3 +116,331 @@ main {
       transition: all 0.3s;
       background-color: #ff8f00;
       color: #000; }
+
+article {
+  margin: 5px; }
+
+.active {
+  background-color: #002f04;
+  transition: all 0.3s; }
+
+.warning {
+  background-color: #864c00;
+  transition: all 0.3s; }
+
+.danger {
+  background-color: #f11;
+  transition: all 0.3s;
+  animation: blinker 1s steps(1, end) infinite; }
+
+@keyframes blinker {
+  50% {
+    background-color: #000; } }
+
+.right-column {
+  -ms-transform: translateX(1220px);
+      transform: translateX(1220px);
+  width: 640px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 100vh; }
+  .right-column > article {
+    transition: all 0.3s;
+    overflow: hidden;
+    border: 2px solid #ff8f00;
+    border-radius: 30px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 10px 0;
+    transition: all 0.5s;
+    width: 100%; }
+  .right-column > .dircountdown,
+  .right-column .dircountdown-advanced {
+    font-size: 110px;
+    height: 220px; }
+    .right-column > .dircountdown > article,
+    .right-column .dircountdown-advanced > article {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+      -ms-flex-align: center;
+          align-items: center; }
+      .right-column > .dircountdown > article > .dircount-buttons,
+      .right-column .dircountdown-advanced > article > .dircount-buttons {
+        margin-top: 5px;
+        height: 80px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+            flex-direction: row;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+        .right-column > .dircountdown > article > .dircount-buttons > :nth-child(n),
+        .right-column .dircountdown-advanced > article > .dircount-buttons > :nth-child(n) {
+          width: 80px;
+          margin: 0 2px; }
+        .right-column > .dircountdown > article > .dircount-buttons > button,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > button {
+          height: 100%;
+          line-height: 50%;
+          font-size: 50px;
+          transition: all 0.3s; }
+        .right-column > .dircountdown > article > .dircount-buttons > .reset,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > .reset {
+          background-color: darkred; }
+        .right-column > .dircountdown > article > .dircount-buttons > .play,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > .play {
+          background-color: darkgreen; }
+        .right-column > .dircountdown > article > .dircount-buttons > .pause,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > .pause {
+          background-color: #e68200; }
+        .right-column > .dircountdown > article > .dircount-buttons > div,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > div {
+          height: 100%;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: column;
+              flex-direction: column;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+          -ms-flex-align: center;
+              align-items: center; }
+          .right-column > .dircountdown > article > .dircount-buttons > div > button,
+          .right-column .dircountdown-advanced > article > .dircount-buttons > div > button {
+            height: 48%;
+            width: 100%; }
+  .right-column > .dircountdown {
+    height: 130px; }
+  .right-column > .vtcountdown {
+    font-size: 110px;
+    height: 275px;
+    transition: all 0.3s;
+    overflow: hidden;
+    border: 2px solid #ff8f00;
+    border-radius: 30px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 10px 0; }
+    .right-column > .vtcountdown > .vtcountdown-label {
+      height: 30px;
+      font-size: 38px;
+      white-space: nowrap;
+      font-family: 'Jura'; }
+    .right-column > .vtcountdown > article {
+      width: 100%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+      -ms-flex-align: center;
+          align-items: center; }
+      .right-column > .vtcountdown > article > .vtcountdown-progressbar,
+      .right-column > .vtcountdown > article .vtcountdown-au1,
+      .right-column > .vtcountdown > article .vtcountdown-au2 {
+        width: 90%;
+        height: 20px;
+        background-color: #ff8f00;
+        border-radius: 10px;
+        overflow: hidden; }
+        .right-column > .vtcountdown > article > .vtcountdown-progressbar > div,
+        .right-column > .vtcountdown > article .vtcountdown-au1 > div,
+        .right-column > .vtcountdown > article .vtcountdown-au2 > div {
+          width: 90%;
+          height: 20px;
+          background-color: #ff0000;
+          border-radius: 10px;
+          transition: all 0.3s; }
+      .right-column > .vtcountdown > article > .vtcountdown-au1,
+      .right-column > .vtcountdown > article .vtcountdown-au2 {
+        height: 10px;
+        border-radius: 5px;
+        margin: 4px 0;
+        overflow: hidden; }
+        .right-column > .vtcountdown > article > .vtcountdown-au1 > div,
+        .right-column > .vtcountdown > article .vtcountdown-au2 > div {
+          width: 90%;
+          height: 10px;
+          background-color: #ff0000;
+          border-radius: 5px;
+          transition: all 0.3s; }
+      .right-column > .vtcountdown > article > .vtcountdown-progressbar {
+        margin: 5px; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Regular.eot);
+  src: url(./assets/fonts/Russia-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Regular.woff2) format("woff2"), url(./assets/fonts/Russia-Regular.woff) format("woff"), url(./assets/fonts/Russia-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-BoldItalic.eot);
+  src: url(./assets/fonts/Russia-BoldItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-BoldItalic.woff2) format("woff2"), url(./assets/fonts/Russia-BoldItalic.woff) format("woff"), url(./assets/fonts/Russia-BoldItalic.ttf) format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-LightItalic.eot);
+  src: url(./assets/fonts/Russia-LightItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-LightItalic.woff2) format("woff2"), url(./assets/fonts/Russia-LightItalic.woff) format("woff"), url(./assets/fonts/Russia-LightItalic.ttf) format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-MediumItalic.eot);
+  src: url(./assets/fonts/Russia-MediumItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-MediumItalic.woff2) format("woff2"), url(./assets/fonts/Russia-MediumItalic.woff) format("woff"), url(./assets/fonts/Russia-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Medium.eot);
+  src: url(./assets/fonts/Russia-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Medium.woff2) format("woff2"), url(./assets/fonts/Russia-Medium.woff) format("woff"), url(./assets/fonts/Russia-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Bold.eot);
+  src: url(./assets/fonts/Russia-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Bold.woff2) format("woff2"), url(./assets/fonts/Russia-Bold.woff) format("woff"), url(./assets/fonts/Russia-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Light.eot);
+  src: url(./assets/fonts/Russia-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Light.woff2) format("woff2"), url(./assets/fonts/Russia-Light.woff) format("woff"), url(./assets/fonts/Russia-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Russia';
+  src: url(./assets/fonts/Russia-Italic.eot);
+  src: url(./assets/fonts/Russia-Italic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Italic.woff2) format("woff2"), url(./assets/fonts/Russia-Italic.woff) format("woff"), url(./assets/fonts/Russia-Italic.ttf) format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Regular.eot);
+  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Bold.eot);
+  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DS-Digital';
+  src: url(./assets/fonts/DS-Digital.eot);
+  src: url(./assets/fonts/DS-Digital.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital.woff2) format("woff2"), url(./assets/fonts/DS-Digital.woff) format("woff"), url(./assets/fonts/DS-Digital.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'DS-Digital';
+  src: url(./assets/fonts/DS-Digital-Bold.eot);
+  src: url(./assets/fonts/DS-Digital-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/DS-Digital-Bold.woff2) format("woff2"), url(./assets/fonts/DS-Digital-Bold.woff) format("woff"), url(./assets/fonts/DS-Digital-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Bold.eot);
+  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Medium.eot);
+  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Regular.eot);
+  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Light.eot);
+  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-SemiBold.eot);
+  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue Book';
+  src: url(./assets/fonts/BebasNeueBook.eot);
+  src: url(./assets/fonts/BebasNeueBook.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueBook.woff2) format("woff2"), url(./assets/fonts/BebasNeueBook.woff) format("woff"), url(./assets/fonts/BebasNeueBook.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeueBold.eot);
+  src: url(./assets/fonts/BebasNeueBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueBold.woff2) format("woff2"), url(./assets/fonts/BebasNeueBold.woff) format("woff"), url(./assets/fonts/BebasNeueBold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeue-Thin.eot);
+  src: url(./assets/fonts/BebasNeue-Thin.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeue-Thin.woff2) format("woff2"), url(./assets/fonts/BebasNeue-Thin.woff) format("woff"), url(./assets/fonts/BebasNeue-Thin.ttf) format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeueLight.eot);
+  src: url(./assets/fonts/BebasNeueLight.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueLight.woff2) format("woff2"), url(./assets/fonts/BebasNeueLight.woff) format("woff"), url(./assets/fonts/BebasNeueLight.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url(./assets/fonts/BebasNeueRegular.eot);
+  src: url(./assets/fonts/BebasNeueRegular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueRegular.woff2) format("woff2"), url(./assets/fonts/BebasNeueRegular.woff) format("woff"), url(./assets/fonts/BebasNeueRegular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }

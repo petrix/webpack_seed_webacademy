@@ -2465,14 +2465,18 @@ function timesync_module() {
             'filter': 'brightness(' + brightnessValue + '%)'
         });
     });
-    var windowWidth = $(window).width();
-    console.log(windowWidth);
-    $('.timer-module').css('transform', 'translate(' + (1920 - (windowWidth / 2 + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)');
-    $(window).on('resize', function () {
-        windowWidth = $(window).width();
-        console.log(windowWidth);
-        $('.timer-module').css('transform', 'translate(' + (1920 - (windowWidth / 2 + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)');
-    });
+    // var windowWidth = $(window).width();
+    // console.log(windowWidth);
+    // $('.timer-module').css(
+    //     'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
+    // );
+    // $(window).on('resize', function () {
+    //     windowWidth = $(window).width();
+    //     console.log(windowWidth);
+    //     $('.timer-module').css(
+    //         'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
+    //     );
+    // });
     socket.on('timeofday', function (newDate) {
         // socket.emit('current time', newDate);
 
@@ -2514,6 +2518,124 @@ function timesync_module() {
         if (seconds >= 59 && miliseconds > 500) {
             $('.seconds').children().removeClass('seconds-active');
         }
+    });
+    var dataClasses = ['active', 'warning', 'danger'];
+    var dataDuration;
+    socket.on('cg countdown active', function (ccgData) {
+        if (ccgData != 'playing') {
+            dataClasses.forEach(function (item) {
+                $('.vtcountdown').removeClass(item);
+            });
+        }
+    });
+    socket.on('countdown', function (dirDuration, dirActive) {
+        dataDuration = dirDuration.toFixed(0);
+        dataClasses.forEach(function (item) {
+            $('.dircountdown').removeClass(item);
+            $('.dircountdown-advanced').removeClass(item);
+        });
+        if (dirActive) {
+            if (dataDuration > 20) {
+                dataClasses.forEach(function (item) {
+                    $('.dircountdown').removeClass(item);
+                    $('.dircountdown-advanced').removeClass(item);
+                });
+                $('.dircountdown').addClass('active');
+                $('.dircountdown-advanced').addClass('active');
+            } else if (dataDuration > 10) {
+                dataClasses.forEach(function (item) {
+                    $('.dircountdown').removeClass(item);
+                    $('.dircountdown-advanced').removeClass(item);
+                });
+                $('.dircountdown').addClass('warning');
+                $('.dircountdown-advanced').addClass('warning');
+            } else if (dataDuration > 0) {
+                dataClasses.forEach(function (item) {
+                    $('.dircountdown').removeClass(item);
+                    $('.dircountdown-advanced').removeClass(item);
+                });
+                $('.dircountdown').addClass('danger');
+                $('.dircountdown-advanced').addClass('danger');
+            } else {
+                dataClasses.forEach(function (item) {
+                    $('.dircountdown').removeClass(item);
+                    $('.dircountdown-advanced').removeClass(item);
+                });
+            }
+        } else {}
+        dataDuration > 0 ? hours = Math.floor(dataDuration / 3600) : hours = Math.abs(Math.ceil(dataDuration / 3600));
+        dataDuration > 0 ? minutes = Math.floor((dataDuration - hours * 3600) / 60) : minutes = Math.abs(Math.ceil((dataDuration - hours * 3600) / 60));
+        dataDuration > 0 ? seconds = dataDuration - (minutes * 60 + hours * 3600) : seconds = Math.abs(dataDuration - (minutes * 60 + hours * 3600));
+        seconds = Math.floor(seconds);
+        hours = (hours < 10 && hours >= 0 ? "0" : "") + hours;
+        minutes = (minutes < 10 && minutes >= 0 ? "0" : "") + minutes;
+        if (dataDuration < 0) {
+            hours = "-" + hours;
+        }
+        seconds = (seconds < 10 && seconds >= 0 ? "0" : "") + seconds;
+
+        $('.dircountdown-digits').text(hours + ':' + minutes + ':' + seconds);
+    });
+    socket.on('cg countdown timeData', function (time, totalTime) {
+        time = time.toFixed(0);
+        var procentTime = time * 100 / totalTime;
+        $('.vtcountdown-progress-success').css('width', procentTime.toFixed(0) + '%');
+        var vtHours = Math.floor(time / 3600);
+        var vtMinutes = Math.floor((time - vtHours * 3600) / 60);
+        var vtSeconds = time - (vtMinutes * 60 + vtHours * 3600);
+        vtSeconds = Math.floor(vtSeconds);
+        vtHours = (vtHours < 10 ? "0" : "") + vtHours;
+        vtMinutes = (vtMinutes < 10 ? "0" : "") + vtMinutes;
+        vtSeconds = (vtSeconds < 10 ? "0" : "") + vtSeconds;
+        $('.vtcountdown-digits').text(vtHours + ':' + vtMinutes + ':' + vtSeconds);
+        // console.log(time);
+        if (time > 20) {
+            dataClasses.forEach(function (item) {
+                $('.vtcountdown').removeClass(item);
+            });
+            $('.vtcountdown').addClass('active');
+        }
+        if (time < 20 && time > 10) {
+            dataClasses.forEach(function (item) {
+                $('.vtcountdown').removeClass(item);
+            });
+            $('.vtcountdown').addClass('warning');
+        }
+        if (time < 10) {
+            dataClasses.forEach(function (item) {
+                $('.vtcountdown').removeClass(item);
+            });
+            $('.vtcountdown').addClass('danger');
+        }
+        if (time <= 0) {
+            dataClasses.forEach(function (item) {
+                $('.vtcountdown').removeClass(item);
+            });
+        }
+    });
+    var ccgPathLength = 35;
+    socket.on('cg countdown path', function (path) {
+        // $(window).resize(function () {});
+        var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
+        if (ccgPath.length > ccgPathLength) {
+            ccgPath = ccgPath.substr(0, ccgPathLength - 3) + "...";
+        }
+        $('.vtcountdown-label').text(ccgPath);
+    });
+
+    ////////////////----CCG OUTDATA
+    socket.on('cg countdown outdata', function (outTime) {
+        // console.log(outTime);
+        var mTime = moment.unix(outTime).format('HH:mm:ss');
+        $('.vtouttime-digits').text(mTime);
+    });
+    // ////////////////----CCG OUTDATA
+
+    socket.on('cg volume 1ch', function (volLeftCh) {
+        $('.vtcountdown-progress-au1').css('width', (90 + volLeftCh).toFixed(1) + "%");
+    });
+    socket.on('cg volume 2ch', function (volRightCh) {
+        $('.vtcountdown-progress-au2').css('width', (90 + volRightCh).toFixed(1) + "%");
     });
 }
 

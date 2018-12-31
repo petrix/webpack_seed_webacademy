@@ -2458,7 +2458,7 @@ $(document).ready(function () {
                 }, 500); //延迟半秒以照顾视觉效果
             } else {
                 $('#gesturepwd').trigger('passwdWrong');
-                navigator.vibrate([50]); // Бесконечная вибрация.
+                navigator.vibrate([150, 50, 50]); // Бесконечная вибрация.
             }
         });
     }
