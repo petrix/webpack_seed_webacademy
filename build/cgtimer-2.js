@@ -2431,8 +2431,8 @@ $(document).ready(function () {
         }).trigger('change');
 
         $('#gesturepwd').GesturePasswd({
-            backgroundColor: '#6666', //背景色
-            color: '#FFFFFF', //主要的控件颜色
+            backgroundColor: '#0000', //背景色
+            color: '#FF8f00', //主要的控件颜色
             roundRadii: 30, //大圆点的半径
             pointRadii: 15, //大圆点被选中时显示的圆心的半径
             space: 30, //大圆点之间的间隙
@@ -2458,7 +2458,7 @@ $(document).ready(function () {
                 }, 500); //延迟半秒以照顾视觉效果
             } else {
                 $('#gesturepwd').trigger('passwdWrong');
-                navigator.vibrate([150, 50, 50]); // Бесконечная вибрация.
+                navigator.vibrate([100, 100, 50]); // Бесконечная вибрация.
             }
         });
     }
@@ -2523,6 +2523,7 @@ $(document).ready(function () {
                     });
                     $('.dircountdown').addClass('danger');
                     $('.dircountdown-advanced').addClass('danger');
+                    navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
                 } else {
                     dataClasses.forEach(function (item) {
                         $('.dircountdown').removeClass(item);
@@ -2585,6 +2586,7 @@ $(document).ready(function () {
                     $('.vtcountdown').removeClass(item);
                 });
                 $('.vtcountdown').addClass('danger');
+                navigator.vibrate([10]); // Бесконечная вибрация.
             }
             if (time <= 0) {
                 dataClasses.forEach(function (item) {
