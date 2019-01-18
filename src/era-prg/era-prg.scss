@@ -1,0 +1,16 @@
+// @import'~bootstrap/scss/bootstrap.scss';
+// $fa-font-path: "~font-awesome/fonts";
+// @import '~font-awesome/scss/font-awesome.scss';
+
+@import '../common/styles/base';
+@import './styles/variables';
+@import './styles/mixins';
+// @import'./styles/buttons';
+@import './styles/header';
+// @import'./styles/hw8base';
+@import './styles/fonts.scss';
+@import './styles/notifications.css';
+@import './styles/animate.css';
+
+// $fa-font-path: "../../node_modules/font-awesome/fonts";
+// @import '~font-awesome/scss/font-awesome.scss';

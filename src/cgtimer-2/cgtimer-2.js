@@ -325,6 +325,7 @@ $(document).ready(function () {
         ///////////////////////////////////////////////////////////
 
 
+<<<<<<< HEAD
 $('.chngpwdbtn').click(function(){
     $('.chngpwd').append('<p class"p-chngpwd">Current password:</p><div id="chngpwd-current"></div><button>Cancel</button>');
     $('#chngpwd-current').GesturePasswd({
@@ -407,6 +408,91 @@ $('.chngpwd').on('click','button',function(){
 });
        
        
+=======
+        $('.chngpwdbtn').click(function () {
+            $('.chngpwd').append('<p class"p-chngpwd">Current password:</p><div id="chngpwd-current"></div><button>Cancel</button>');
+            $('#chngpwd-current').GesturePasswd({
+                backgroundColor: '#0000', //背景色
+                color: '#FF8f00', //主要的控件颜色
+                roundRadii: 30, //大圆点的半径
+                pointRadii: 15, //大圆点被选中时显示的圆心的半径
+                space: 30, //大圆点之间的间隙
+                width: 274, //整个组件的宽度
+                height: 274, //整个组件的高度
+                lineColor: "#ECF0F1", //用户划出线条的颜色
+                zindex: 100 //整个组件的css z-index属性
+            });
+            $('.chngpwd').addClass('modal-active');
+            $('#chngpwd-current').on('hasPasswd', function (e, passwd) {
+                socket.emit('checkPasswd', ovner, passwd);
+                console.log(ovner, passwd);
+            });
+            socket.on('passwd-feedback', function (result) {
+                console.log(result);
+                if (result) {
+                    $('#chngpwd-current').trigger('passwdRight');
+                    navigator.vibrate([50, 100, 50, 200, 200]);
+                    changePasswd();
+                    return;
+                } else {
+                    $('#chngpwd-current').trigger('passwdWrong');
+                    navigator.vibrate([100, 100, 50]); // Бесконечная вибрация.
+                }
+            });
+        });
+
+        function changePasswd() {
+            var newPasswd;
+            $('.chngpwd').children().remove();
+            $('.chngpwd').append('<p class"p-chngpwd">New password:</p><div id="chngpwd-new"></div><button>Cancel</button>');
+            $('#chngpwd-new').GesturePasswd({
+                backgroundColor: '#0000', //背景色
+                color: '#FF8f00', //主要的控件颜色
+                roundRadii: 30, //大圆点的半径
+                pointRadii: 15, //大圆点被选中时显示的圆心的半径
+                space: 30, //大圆点之间的间隙
+                width: 274, //整个组件的宽度
+                height: 274, //整个组件的高度
+                lineColor: "#ECF0F1", //用户划出线条的颜色
+                zindex: 100 //整个组件的css z-index属性
+            });
+            $('#chngpwd-new').on('hasPasswd', function (e, passwd) {
+                console.log(ovner, passwd);
+                newPasswd = passwd;
+                $('#chngpwd-new').trigger('passwdRight');
+                $('.chngpwd').children().remove();
+                $('.chngpwd').append('<p class"p-chngpwd">Reenter password:</p><div id="chngpwd-renew"></div><button>Cancel</button>');
+
+                $('#chngpwd-renew').GesturePasswd({
+                    backgroundColor: '#0000', //背景色
+                    color: '#FF8f00', //主要的控件颜色
+                    roundRadii: 30, //大圆点的半径
+                    pointRadii: 15, //大圆点被选中时显示的圆心的半径
+                    space: 30, //大圆点之间的间隙
+                    width: 274, //整个组件的宽度
+                    height: 274, //整个组件的高度
+                    lineColor: "#ECF0F1", //用户划出线条的颜色
+                    zindex: 100 //整个组件的css z-index属性
+                });
+                $('#chngpwd-renew').on('hasPasswd', function (e, passwd) {
+                    if (passwd == newPasswd) {
+                        $('#chngpwd-renew').trigger('passwdRight');
+                        navigator.vibrate([50, 100, 50, 200, 200]);
+                        socket.emit('update-roles', ovner, newPasswd);
+                        $('.chngpwd').removeClass('modal-active').children().remove();
+                    } else {
+                        $('#chngpwd-renew').trigger('passwdWrong');
+                        navigator.vibrate([100, 100, 50]);
+                    }
+                });
+            });
+        }
+        $('.chngpwd').on('click', 'button', function () {
+            $('.chngpwd').removeClass('modal-active').children().remove();
+        });
+
+
+>>>>>>> 40a3b186346a4d76814db743f1a684ab41f3613b
 
 
 
