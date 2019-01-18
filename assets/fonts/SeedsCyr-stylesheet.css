@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Seeds Cyr';
+    src: url('SeedsCyr-Medium.woff2') format('woff2'),
+        url('SeedsCyr-Medium.woff') format('woff'),
+        url('SeedsCyr-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}

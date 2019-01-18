@@ -25,9 +25,10 @@ function drawClock() {
         countMinutes = 0,
         countHours = 0;
     for (var i = 45; i <= 104; i += 1) {
+        var angle=(i-45)*6;
         var posY = Math.sin((div * i) * (Math.PI / 180)) * secRadius;
         var posX = Math.cos((div * i) * (Math.PI / -180)) * secRadius;
-        $('.seconds').append('<div style="transform: translate(' + posX.toFixed(0) + 'px, ' + posY.toFixed(0) + 'px)" class="sec' + countSeconds + '"' + '>' + '</div>');
+        $('.seconds').append('<div style="transform: translate(' + posX.toFixed(0) + 'px, ' + posY.toFixed(0) + 'px) rotate('+angle+'deg)" class="sec' + countSeconds + '"' + '>' + '</div>');
         countSeconds++;
     }
 
@@ -63,6 +64,16 @@ drawClock();
 // socket.on('error', (error) => {
 //     console.log('error');
 // });
+function updateClockInterface() {
+
+    for (var i = 0; i <= seconds; i++) {
+        $('.seconds').find('.sec' + i).addClass('seconds-active');
+    }
+    for (var i = 0; i <= minutes; i++) {
+        $('.minutes').find('.min' + i).addClass('minutes-active');
+    }
+}
+
 
 const socket = io('http://p3xx.tk:4000');
 
@@ -78,15 +89,7 @@ socket.on('disconnect', (reason) => {
     }
 });
 
-function updateClockInterface() {
 
-    for (var i = 0; i <= seconds; i++) {
-        $('.seconds').find('.sec' + i).addClass('seconds-active');
-    }
-    for (var i = 0; i <= minutes; i++) {
-        $('.minutes').find('.min' + i).addClass('minutes-active');
-    }
-}
 
 
 function timesync_module() {

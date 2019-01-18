@@ -7474,8 +7474,8 @@ p {
   height: 100vh;
   background-color: #000;
   z-index: 40;
-  -ms-transform: translateY(-150%);
-      transform: translateY(-150%);
+  -ms-transform: translateY(-100%);
+      transform: translateY(-100%);
   transition: all 0.5s;
   opacity: 0;
   display: -ms-flexbox;

@@ -14,9 +14,12 @@ $(document).ready(function () {
         navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
 
     });
+    $('button').click(function(){
+        navigator.vibrate([50]); // Бесконечная вибрация.
+    });
     moment.locale('uk');
     var ccgPathLength = 35;
-    var socket = io('http://p3xx.cf:4000');
+    var socket = io('http://p3xx.tk:4000');
     // var response = $.get("https://ipinfo.io", function (response) {
     //     // console.log(response.ip, response.country, response.loc, response);
     // }, "jsonp");
@@ -312,7 +315,6 @@ $(document).ready(function () {
 
         $('.refresh').click(function () {
             socket.emit('refresh wall', 1);
-            console.log('refresh wall');
         });
 
 
@@ -339,13 +341,12 @@ $('.chngpwdbtn').click(function(){
     $('.chngpwd').addClass('modal-active');
     $('#chngpwd-current').on('hasPasswd', function (e, passwd) {
            socket.emit('checkPasswd', ovner, passwd);
-           console.log(ovner, passwd);
        });
        socket.on('passwd-feedback', function (result) {
            console.log(result);
            if (result) {
                $('#chngpwd-current').trigger('passwdRight');
-               navigator.vibrate([50, 100, 50, 200, 200]);
+               navigator.vibrate([50, 100, 50, 200, 200]);               
                 changePasswd();
                 return;
            } else {
@@ -370,8 +371,8 @@ $('#chngpwd-new').GesturePasswd({
     zindex: 100 //整个组件的css z-index属性
 });
 $('#chngpwd-new').on('hasPasswd', function (e, passwd) {
-    console.log(ovner, passwd);
     newPasswd=passwd;
+                   navigator.vibrate([50, 100, 100]);
                $('#chngpwd-new').trigger('passwdRight');
     $('.chngpwd').children().remove();
     $('.chngpwd').append('<p class"p-chngpwd">Reenter password:</p><div id="chngpwd-renew"></div><button>Cancel</button>');
@@ -401,6 +402,7 @@ socket.emit('update-roles',ovner,newPasswd);
 });
 }
 $('.chngpwd').on('click','button',function(){
+                   navigator.vibrate([50]);
     $('.chngpwd').removeClass('modal-active').children().remove();
 });
        
