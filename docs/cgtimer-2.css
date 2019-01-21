@@ -1,4 +1,11 @@
-/*!
+@font-face {
+    font-family: 'Seeds Cyr';
+    src: url(./assets/fonts/SeedsCyr-Medium.woff2) format('woff2'),
+        url(./assets/fonts/SeedsCyr-Medium.woff) format('woff'),
+        url(./assets/fonts/SeedsCyr-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}/*!
  * Font Awesome Free 5.4.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -7422,6 +7429,25 @@ p {
   line-height: 80%;
   cursor: crosshair; }
 
+circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 10px;
+  animation: rotation 2000ms ease-in-out infinite alternate; }
+
+svg {
+  -ms-transform: translateX(-50px);
+      transform: translateX(-50px);
+  filter: drop-shadow(100px 0 0 #00ccff); }
+
+@keyframes rotation {
+  0% {
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 70; }
+  100% {
+    stroke-dasharray: 20 20;
+    stroke-dashoffset: -600; } }
+
 .module-slideup {
   height: 46px !important;
   transition: all 0.3s; }
@@ -7468,6 +7494,38 @@ p {
   -ms-flex-align: center;
       align-items: center; }
 
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 40;
+  -ms-transform: translateY(-100%);
+      transform: translateY(-100%);
+  transition: all 0.5s;
+  opacity: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center; }
+  .modal > div {
+    width: 274px;
+    height: 274px; }
+  .modal > button {
+    width: 200px;
+    height: 50px;
+    font-size: 30px; }
+
+.modal-active {
+  opacity: 1;
+  -ms-transform: translateY(0%);
+      transform: translateY(0%);
+  transition: all 0.5s; }
+
 .login-window {
   position: fixed;
   width: 100vw;
@@ -7494,8 +7552,8 @@ p {
       font-weight: bold;
       color: #fff;
       background-color: #000;
-      border: 1px solid #ff8f00;
-      border-radius: 10px 10px 0 0; }
+      border: 2px solid #ff8f00;
+      border-radius: 10px; }
       .login-window > form > select > option {
         font-size: 40px;
         font-weight: bold;
@@ -7512,7 +7570,7 @@ p {
     transition: all 0.3s;
     overflow: hidden;
     border: 2px solid #ff8f00;
-    border-radius: 30px;
+    border-radius: 23px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -7661,7 +7719,7 @@ p {
       -ms-flex-align: center;
           align-items: center;
       width: 150px;
-      height: 100px;
+      height: 130px;
       margin: 0 2px; }
       .settings > article > div > span {
         font-family: 'Comfortaa'; }
@@ -7687,7 +7745,7 @@ p {
       -ms-flex-align: center;
           align-items: center;
       width: 150px;
-      height: 100px;
+      height: 130px;
       margin: 0 2px; }
       .settings > article > div:nth-child(2) > span {
         font-size: 20px; }
@@ -7713,7 +7771,7 @@ p {
       -ms-flex-align: center;
           align-items: center;
       width: 150px;
-      height: 100px;
+      height: 130px;
       margin: 0 2px; }
       .settings > article > div:nth-child(3) > span {
         font-size: 20px; }

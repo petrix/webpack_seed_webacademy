@@ -15,7 +15,11 @@
 
 <body>
     <main>
-        <section class="splashscreen"></section>
+<section class="splashscreen">
+    <?xml version="1.0" encoding="utf-8"?>
+    <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="95" />
+    </svg></section>
         <section class="login-window">
             <form>
                 <!-- <input class="target" type="text" value="Field 1"> -->
@@ -84,22 +88,25 @@
                 <article>
                     <div class="brightness">
                         <span>Brightness:</span>
+                        <span class="bright-value"></span>
                         <div>
-
                             <button value="up">UP</button>
                             <button value="down">DOWN</button></div>
-
-                    </div>
-                    <div>
-                        <span>Refresh</span>
-                        <div>
-                            <button class="refresh">Refresh</button></div>
                     </div>
                     <div>
                         <span>Clear chat</span>
                         <div>
                             <button class="cleartxt">Clear</button></div>
                     </div>
+                        
+                    <div>
+<span>Refresh</span>
+                        <div>
+                            <button class="refresh">Refresh</button>
+                            <button class="chngpwdbtn">Change password</button>
+                        </div>
+                    </div>
+                        
                     <span>LOCAL IP ADDR:</span>
                     <span id="ip">ip</span>
 
@@ -117,6 +124,9 @@
             <!-- </article> -->
 
         </section>
+   <section class="chngpwd modal">
+    <!-- <div id="chngpwd-current"></div> -->
+   </section>     
     </main>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="cgtimer-2.js"></script></body>
 

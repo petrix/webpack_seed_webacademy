@@ -10,7 +10,7 @@ const baseConf = (_path) => {
     const VENDORS_NAME = 'vendors';
     const entry = {
         index: ['babel-polyfill', './src/index/index.js'],
-        // 'ex-cast': ['./src/ex-cast/ex-cast.js'],
+        'ex-cast': ['./src/ex-cast/ex-cast.js'],
         // 'pmf': ['./src/pmf/pmf.js'],
         // 'trafficlight': ['./src/trafficlight/trafficlight.js'],
         // 'lesson-8': ['./src/lesson-8/lesson-8.js'],
@@ -25,12 +25,12 @@ const baseConf = (_path) => {
         'cgtimer-1': ['./src/cgtimer-1/cgtimer-1.js'],
         'cgtimer-2': ['./src/cgtimer-2/cgtimer-2.js'],
         // 'hw-8': ['./src/hw-8/hw-8.js'],
-        'hw-11': ['./src/hw-11/hw-11.js'],
-        'hw-12': ['./src/hw-12/hw-12.js'],
-        'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
-        'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
-        'hw-13': ['./src/hw-13/hw-13.js'],
-        'hw-14': ['./src/hw-14/hw-14.js'],
+        // 'hw-11': ['./src/hw-11/hw-11.js'],
+        // 'hw-12': ['./src/hw-12/hw-12.js'],
+        // 'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
+        // 'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
+        // 'hw-13': ['./src/hw-13/hw-13.js'],
+        // 'hw-14': ['./src/hw-14/hw-14.js'],
         // 'diplom': ['./src/diplom/diplom.js'],
         'era-prg': ['./src/era-prg/era-prg.js'],
         'weather-js': ['./src/weather-js/weather-js.js']

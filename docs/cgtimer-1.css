@@ -1,4 +1,4 @@
-* {
+@import url(#{$base-font-dir}SeedsCyr-stylesheet.css);* {
   box-sizing: border-box; }
   *:active, *:hover, *:focus {
     outline: 0; }
@@ -28,6 +28,283 @@ ul, ol {
 a {
   text-decoration: none; }
 
+body {
+  font-family: 'DS-Digital';
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  background-color: #000;
+  overflow: hidden;
+  line-height: 360%; }
+
+main {
+  margin: 0 auto; }
+
+p {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Jura';
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 80%;
+  cursor: crosshair; }
+
+.timer-module {
+  -ms-transform: translate(560px, 560px);
+      transform: translate(560px, 560px); }
+  .timer-module > .current-time {
+    position: absolute;
+    -ms-transform: translate(-317px, -6px);
+        transform: translate(-317px, -6px);
+    font-size: 200px;
+    color: #ff8f00; }
+  .timer-module > .rasp-time {
+    position: absolute;
+    -ms-transform: translate(-120px, 80px);
+        transform: translate(-120px, 80px);
+    font-size: 80px;
+    color: #ff8f00; }
+  .timer-module > .seconds > div,
+  .timer-module .minutes > div,
+  .timer-module .hours > div,
+  .timer-module .hours24 > div {
+    width: 58px;
+    height: 58px;
+    background-color: #500;
+    transition: all 0.3s;
+    border-radius: 50%;
+    position: absolute;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+  .timer-module > .seconds > .minutes-active,
+  .timer-module .minutes > .minutes-active,
+  .timer-module .hours > .minutes-active,
+  .timer-module .hours24 > .minutes-active {
+    transition: all 0.3s;
+    background-color: #ff8f00;
+    color: #000; }
+  .timer-module > .hours {
+    -ms-transform: translate(-9px, -9px);
+        transform: translate(-9px, -9px); }
+    .timer-module > .hours > div {
+      width: 76px;
+      height: 76px; }
+    .timer-module > .hours > .hours-active {
+      border: 10px solid #ff8f00; }
+  .timer-module > .hours24 {
+    -ms-transform: translate(-9px, -9px);
+        transform: translate(-9px, -9px); }
+    .timer-module > .hours24 > div {
+      width: 76px;
+      height: 76px; }
+    .timer-module > .hours24 > .hours-active {
+      border: 10px solid #ff8f00; }
+  .timer-module > .seconds {
+    -ms-transform: translate(19px, 3px);
+        transform: translate(19px, 3px); }
+    .timer-module > .seconds > div {
+      width: 20px;
+      height: 52px; }
+    .timer-module > .seconds > .seconds-active {
+      transition: all 0.3s;
+      background-color: #ff8f00;
+      color: #000; }
+
+article {
+  margin: 5px; }
+
+.active {
+  background-color: #002f04;
+  transition: all 0.3s; }
+
+.warning {
+  background-color: #864c00;
+  transition: all 0.3s; }
+
+.danger {
+  background-color: #f11;
+  transition: all 0.3s;
+  animation: blinker 1s steps(1, end) infinite; }
+
+@keyframes blinker {
+  50% {
+    background-color: #000; } }
+
+.right-column {
+  -ms-transform: translateX(1220px);
+      transform: translateX(1220px);
+  width: 640px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 100vh; }
+  .right-column > article {
+    transition: all 0.3s;
+    overflow: hidden;
+    border: 2px solid #ff8f00;
+    border-radius: 23px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 10px 0;
+    transition: all 0.5s;
+    width: 100%; }
+  .right-column > .dircountdown,
+  .right-column .dircountdown-advanced {
+    font-size: 110px;
+    height: 220px; }
+    .right-column > .dircountdown > article,
+    .right-column .dircountdown-advanced > article {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+      -ms-flex-align: center;
+          align-items: center; }
+      .right-column > .dircountdown > article > .dircount-buttons,
+      .right-column .dircountdown-advanced > article > .dircount-buttons {
+        margin-top: 5px;
+        height: 80px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+            flex-direction: row;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+        .right-column > .dircountdown > article > .dircount-buttons > :nth-child(n),
+        .right-column .dircountdown-advanced > article > .dircount-buttons > :nth-child(n) {
+          width: 80px;
+          margin: 0 2px; }
+        .right-column > .dircountdown > article > .dircount-buttons > button,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > button {
+          height: 100%;
+          line-height: 50%;
+          font-size: 50px;
+          transition: all 0.3s; }
+        .right-column > .dircountdown > article > .dircount-buttons > .reset,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > .reset {
+          background-color: darkred; }
+        .right-column > .dircountdown > article > .dircount-buttons > .play,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > .play {
+          background-color: darkgreen; }
+        .right-column > .dircountdown > article > .dircount-buttons > .pause,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > .pause {
+          background-color: #e68200; }
+        .right-column > .dircountdown > article > .dircount-buttons > div,
+        .right-column .dircountdown-advanced > article > .dircount-buttons > div {
+          height: 100%;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-direction: column;
+              flex-direction: column;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+          -ms-flex-align: center;
+              align-items: center; }
+          .right-column > .dircountdown > article > .dircount-buttons > div > button,
+          .right-column .dircountdown-advanced > article > .dircount-buttons > div > button {
+            height: 48%;
+            width: 100%; }
+  .right-column > .dircountdown {
+    height: 130px; }
+  .right-column > .vtcountdown {
+    font-size: 110px;
+    height: 275px;
+    transition: all 0.3s;
+    overflow: hidden;
+    border: 2px solid #ff8f00;
+    border-radius: 30px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-align: center;
+        align-items: center;
+    padding: 10px 0; }
+    .right-column > .vtcountdown > .vtcountdown-label {
+      height: 30px;
+      font-size: 38px;
+      white-space: nowrap;
+      font-family: 'Jura'; }
+    .right-column > .vtcountdown > article {
+      width: 100%;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+      -ms-flex-align: center;
+          align-items: center; }
+      .right-column > .vtcountdown > article > .vtcountdown-progressbar,
+      .right-column > .vtcountdown > article .vtcountdown-au1,
+      .right-column > .vtcountdown > article .vtcountdown-au2 {
+        width: 90%;
+        height: 20px;
+        background-color: #ff8f00;
+        border-radius: 10px;
+        overflow: hidden; }
+        .right-column > .vtcountdown > article > .vtcountdown-progressbar > div,
+        .right-column > .vtcountdown > article .vtcountdown-au1 > div,
+        .right-column > .vtcountdown > article .vtcountdown-au2 > div {
+          width: 90%;
+          height: 20px;
+          background-color: #ff0000;
+          border-radius: 10px;
+          transition: all 0.3s; }
+      .right-column > .vtcountdown > article > .vtcountdown-au1,
+      .right-column > .vtcountdown > article .vtcountdown-au2 {
+        height: 10px;
+        border-radius: 5px;
+        margin: 4px 0;
+        overflow: hidden; }
+        .right-column > .vtcountdown > article > .vtcountdown-au1 > div,
+        .right-column > .vtcountdown > article .vtcountdown-au2 > div {
+          width: 90%;
+          height: 10px;
+          background-color: #ff0000;
+          border-radius: 5px;
+          transition: all 0.3s; }
+      .right-column > .vtcountdown > article > .vtcountdown-progressbar {
+        margin: 5px; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Regular.eot);
+  src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url(./assets/fonts/Comfortaa-Bold.eot);
+  src: url(./assets/fonts/Comfortaa-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Bold.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Bold.woff) format("woff"), url(./assets/fonts/Comfortaa-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
 @font-face {
   font-family: 'DS-Digital';
   src: url(./assets/fonts/DS-Digital.eot);
@@ -42,91 +319,37 @@ a {
   font-weight: bold;
   font-style: normal; }
 
-body {
-  font-family: 'DS-Digital';
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Bold.eot);
+  src: url(./assets/fonts/Jura-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Bold.woff2) format("woff2"), url(./assets/fonts/Jura-Bold.woff) format("woff"), url(./assets/fonts/Jura-Bold.ttf) format("truetype");
   font-weight: bold;
-  font-size: 20px;
-  color: #fff;
-  background-color: #000; }
+  font-style: normal; }
 
-main {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center; }
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Medium.eot);
+  src: url(./assets/fonts/Jura-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Medium.woff2) format("woff2"), url(./assets/fonts/Jura-Medium.woff) format("woff"), url(./assets/fonts/Jura-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal; }
 
-.wall-body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: start;
-      justify-content: flex-start; }
-  .wall-body .timer-module {
-    -ms-transform: translate(-15px, 400px);
-        transform: translate(-15px, 400px); }
-    .wall-body .timer-module > .current-time {
-      position: absolute;
-      -ms-transform: translate(-260px, -60px);
-          transform: translate(-260px, -60px);
-      font-size: 160px;
-      color: #ff8f00; }
-    .wall-body .timer-module > .rasp-time {
-      position: absolute;
-      -ms-transform: translate(-120px, 80px);
-          transform: translate(-120px, 80px);
-      font-size: 80px;
-      color: #ff8f00; }
-    .wall-body .timer-module > .seconds > div,
-    .wall-body .timer-module .minutes > div,
-    .wall-body .timer-module .hours > div,
-    .wall-body .timer-module .hours24 > div {
-      width: 40px;
-      height: 40px;
-      background-color: #500;
-      transition: all 0.3s;
-      border-radius: 50%;
-      position: absolute;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: center;
-          justify-content: center;
-      -ms-flex-align: center;
-          align-items: center; }
-    .wall-body .timer-module > .seconds > .minutes-active,
-    .wall-body .timer-module .minutes > .minutes-active,
-    .wall-body .timer-module .hours > .minutes-active,
-    .wall-body .timer-module .hours24 > .minutes-active {
-      transition: all 0.3s;
-      background-color: #ff8f00;
-      color: #000; }
-    .wall-body .timer-module > .hours {
-      -ms-transform: translate(-10px, -10px);
-          transform: translate(-10px, -10px); }
-      .wall-body .timer-module > .hours > div {
-        width: 60px;
-        height: 60px; }
-      .wall-body .timer-module > .hours > .hours-active {
-        border: 10px solid #ff8f00; }
-    .wall-body .timer-module > .hours24 {
-      -ms-transform: translate(-10px, -10px);
-          transform: translate(-10px, -10px); }
-      .wall-body .timer-module > .hours24 > div {
-        width: 60px;
-        height: 60px; }
-      .wall-body .timer-module > .hours24 > .hours-active {
-        border: 10px solid #ff8f00; }
-    .wall-body .timer-module > .seconds {
-      -ms-transform: translate(2px, 2px);
-          transform: translate(2px, 2px); }
-      .wall-body .timer-module > .seconds > div {
-        width: 36px;
-        height: 36px; }
-      .wall-body .timer-module > .seconds > .seconds-active {
-        transition: all 0.3s;
-        background-color: #ff8f00;
-        color: #000; }
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Regular.eot);
+  src: url(./assets/fonts/Jura-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Regular.woff2) format("woff2"), url(./assets/fonts/Jura-Regular.woff) format("woff"), url(./assets/fonts/Jura-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-Light.eot);
+  src: url(./assets/fonts/Jura-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-Light.woff2) format("woff2"), url(./assets/fonts/Jura-Light.woff) format("woff"), url(./assets/fonts/Jura-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Jura';
+  src: url(./assets/fonts/Jura-SemiBold.eot);
+  src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal; }
