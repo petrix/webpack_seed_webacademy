@@ -15,7 +15,7 @@
 
 <body>
     <main>
-        <section class="splashscreen"></section>
+
         <section class="login-window">
             <form>
                 <!-- <input class="target" type="text" value="Field 1"> -->
@@ -84,22 +84,25 @@
                 <article>
                     <div class="brightness">
                         <span>Brightness:</span>
+                        <span class="bright-value"></span>
                         <div>
-
                             <button value="up">UP</button>
                             <button value="down">DOWN</button></div>
-
-                    </div>
-                    <div>
-                        <span>Refresh</span>
-                        <div>
-                            <button class="refresh">Refresh</button></div>
                     </div>
                     <div>
                         <span>Clear chat</span>
                         <div>
                             <button class="cleartxt">Clear</button></div>
                     </div>
+
+                    <div>
+                        <span>Refresh</span>
+                        <div>
+                            <button class="refresh">Refresh</button>
+                            <button class="chngpwdbtn">Change password</button>
+                        </div>
+                    </div>
+
                     <span>LOCAL IP ADDR:</span>
                     <span id="ip">ip</span>
 
@@ -114,8 +117,9 @@
                 </section>
             </article>
 
-            <!-- </article> -->
 
+        </section>
+        <section class="chngpwd modal">
         </section>
     </main>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="cgtimer-2.js"></script></body>
