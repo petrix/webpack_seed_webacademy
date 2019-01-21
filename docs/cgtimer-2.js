@@ -7043,7 +7043,7 @@ $(document).ready(function () {
     });
     moment.locale('uk');
     var ccgPathLength = 35;
-    var socket = (0, _socket2.default)('http://localhost:4000');
+    var socket = (0, _socket2.default)('http://p3xx.tk:4000');
     // var response = $.get("https://ipinfo.io", function (response) {
     //     // console.log(response.ip, response.country, response.loc, response);
     // }, "jsonp");
