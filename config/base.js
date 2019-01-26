@@ -31,7 +31,7 @@ const baseConf = (_path) => {
         'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
         'hw-13': ['./src/hw-13/hw-13.js'],
         'hw-14': ['./src/hw-14/hw-14.js'],
-        // 'diplom': ['./src/diplom/diplom.js'],
+        'diplom': ['./src/diplom/diplom.js'],
         'era-prg': ['./src/era-prg/era-prg.js'],
         'weather-js': ['./src/weather-js/weather-js.js']
 
