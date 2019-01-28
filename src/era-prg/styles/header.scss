@@ -7,24 +7,31 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background-color: #000;
 }
 
-.circle {
-    width: 200px;
-    height: 200px;
-    background-color: rebeccapurple;
-    transition: all 1s;
-}
+.calc {
+    width: 400px;
+    height: 500px;
+    border: 2px solid #ff8f00;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column;
 
-.active {
-    transform: translateX(400px);
-}
+    &>.main-screen {
+        font-family: 'DS-Digital';
+        font-weight: bold;
+        font-size: 100px;
+        color: #bbb;
+        overflow: hidden;
+        width: 90%;
+        // background-color: #ff8f00;
+    }
 
-@media (max-width: 400px) {
-    .circle {
-        width: 100px;
-        height: 100px;
-        background-color: red;
-        transition: all 1s;
+    &>.buttons {
+
+        @include btn-reset-default;
+
     }
 }
