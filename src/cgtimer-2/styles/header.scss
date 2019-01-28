@@ -479,7 +479,7 @@ svg {
                     padding: 5px;
                     background-color: #000;
                     color: #fff;
-
+                    font-weight: normal;
                     // align-items: center;
                     &>div {
                         @include flex-row;

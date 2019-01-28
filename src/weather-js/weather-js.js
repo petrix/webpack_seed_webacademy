@@ -1,7 +1,9 @@
 import './weather-js.scss';
 // import './js/moment-with-locales.js';
 // import './js/skycons.js';
+var moment = require('./js/moment-with-locales.js');
 
+require('./js/jquery.location-region-picker.js');
 $(document).ready(function () {
 
     var apiKey = "7d7fb208bc708b6bd2657291246a83e6";
@@ -27,8 +29,8 @@ $(document).ready(function () {
         '<div class="iconbig partly-cloudy-night"></div>',
         '<div class="iconbig fog"></div>'
     ];
-    moment.locale('uk');
-    $.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=uk&callback=?", function (data) {
+    moment.locale('be');
+    $.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=be&callback=?", function (data) {
         var lvivicon = data.currently.icon;
         var lvivsumicon = data.hourly.icon;
         var tempcolor = 'darkred';

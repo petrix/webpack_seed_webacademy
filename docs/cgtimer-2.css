@@ -7835,7 +7835,8 @@ svg {
         border-radius: 4px;
         padding: 5px;
         background-color: #000;
-        color: #fff; }
+        color: #fff;
+        font-weight: normal; }
         .chat > div#messages > section > .ovnermessage > div > div {
           display: -ms-flexbox;
           display: flex;
