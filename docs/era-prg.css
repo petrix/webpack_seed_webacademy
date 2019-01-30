@@ -7383,24 +7383,31 @@ body {
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-pack: center;
-      justify-content: center; }
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #000; }
 
-.circle {
-  width: 200px;
-  height: 200px;
-  background-color: rebeccapurple;
-  transition: all 1s; }
-
-.active {
-  -ms-transform: translateX(400px);
-      transform: translateX(400px); }
-
-@media (max-width: 400px) {
-  .circle {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    transition: all 1s; } }
+.calc {
+  width: 400px;
+  height: 500px;
+  border: 2px solid #ff8f00;
+  border-radius: 23px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .calc > .main-screen {
+    font-family: 'DS-Digital';
+    font-weight: bold;
+    font-size: 100px;
+    color: #bbb;
+    overflow: hidden;
+    width: 90%; }
+  .calc > .buttons {
+    border: none;
+    display: inline-block;
+    outline: none; }
 
 @font-face {
   font-family: 'Comfortaa';

@@ -10,8 +10,25 @@ $(document).ready(function () {
         navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
         // console.log('vibrate!');
     }
-    $('p').click(function () {
-        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
+    // $('p').click(function () {
+        var chatWindow=false;
+    $('.dircountdown-module').on('click','p',function () {
+        // $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
+        if ($(this).text() != 'Chat'){
+            $(this).parent().toggleClass('module-slideup');
+        }else{
+            if (!chatWindow){
+                        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).hide();
+            console.log($(this).text());
+                chatWindow=true
+            }else{
+                        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).show();                
+            chatWindow=false;
+                    }
+
+        }
+        
+        
         navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
 
     });

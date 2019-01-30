@@ -1,4 +1,11 @@
-/*!
+@font-face {
+    font-family: 'Seeds Cyr';
+    src: url(./assets/fonts/SeedsCyr-Medium.woff2) format('woff2'),
+        url(./assets/fonts/SeedsCyr-Medium.woff) format('woff'),
+        url(./assets/fonts/SeedsCyr-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}/*!
  * Font Awesome Free 5.4.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -7422,6 +7429,25 @@ p {
   line-height: 80%;
   cursor: crosshair; }
 
+circle {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 10px;
+  animation: rotation 2000ms ease-in-out infinite alternate; }
+
+svg {
+  -ms-transform: translateX(-50px);
+      transform: translateX(-50px);
+  filter: drop-shadow(100px 0 0 #00ccff); }
+
+@keyframes rotation {
+  0% {
+    stroke-dasharray: 100 100;
+    stroke-dashoffset: 70; }
+  100% {
+    stroke-dasharray: 20 20;
+    stroke-dashoffset: -600; } }
+
 .module-slideup {
   height: 46px !important;
   transition: all 0.3s; }
@@ -7544,7 +7570,7 @@ p {
     transition: all 0.3s;
     overflow: hidden;
     border: 2px solid #ff8f00;
-    border-radius: 30px;
+    border-radius: 23px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -7780,7 +7806,8 @@ p {
     overflow-y: auto;
     line-height: 100%; }
     .chat > div#messages > section > p {
-      text-decoration: underline; }
+      border-bottom: 4px solid black;
+      margin-bottom: 2px; }
     .chat > div#messages > section > hr {
       margin: 1px 3px;
       background-color: #000;
@@ -7806,7 +7833,10 @@ p {
             align-items: flex-start;
         border: 1px solid #000;
         border-radius: 4px;
-        padding: 5px; }
+        padding: 5px;
+        background-color: #000;
+        color: #fff;
+        font-weight: normal; }
         .chat > div#messages > section > .ovnermessage > div > div {
           display: -ms-flexbox;
           display: flex;
@@ -7886,25 +7916,24 @@ p {
       outline: none;
       text-decoration: none;
       height: 50px;
-      font-size: 26px;
-      font-family: 'Comfortaa';
+      font-size: 24px;
+      font-family: 'Jura';
       font-weight: bold;
       border-radius: 10px;
       padding: 0 10px;
-      width: 100%;
-      max-width: 330px; }
+      width: 100%; }
     .chat > section > button {
-      height: 100%;
       border: none;
       display: inline-block;
       outline: none;
       text-decoration: none;
       height: 50px;
-      font-size: 36px;
-      font-family: 'Comfortaa';
+      font-size: 24px;
+      font-family: 'Jura';
       font-weight: bold;
       border-radius: 10px;
-      padding: 0 10px; }
+      text-align: center;
+      width: 100px; }
 
 @font-face {
   font-family: 'Comfortaa';

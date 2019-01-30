@@ -18,17 +18,20 @@
         <section class="splashscreen"></section>
         <section class="login-window">
             <form>
-                <!-- <input class="target" type="text" value="Field 1"> -->
                 <select class="target">
-                    <!-- <option value="CameraMan" selected="selected">CameraMan</option>
-                    <option value="Director">Director</option> -->
                 </select>
             </form>
             <div id="gesturepwd"></div>
-            <!-- <button class="button">Login</button> -->
         </section>
         <section class="dircountdown-module">
-            <!-- <article > -->
+<article class="chat module-slideup">
+    <p>Chat</p>
+    <div id="messages"></div>
+    <section>
+        <input id='message' type="text" placeholder="Type something...">
+        <button id="submit">Submit</button>
+    </section>
+</article>
             <article class="current-time">
                 <p class="current-time-label">Current Time</p>
                 <span class="digits current-time-digits">00:00:00</span>
@@ -94,35 +97,26 @@
                         <div>
                             <button class="cleartxt">Clear</button></div>
                     </div>
-                        
+
                     <div>
-<span>Refresh</span>
+                        <span>Refresh</span>
                         <div>
                             <button class="refresh">Refresh</button>
                             <button class="chngpwdbtn">Change password</button>
                         </div>
                     </div>
-                        
+
                     <span>LOCAL IP ADDR:</span>
                     <span id="ip">ip</span>
 
                 </article>
             </article>
-            <article class="chat module-slideup">
-                <p>Chat</p>
-                <div id="messages"></div>
-                <section>
-                    <input id='message' type="text" placeholder="Type something...">
-                    <button id="submit">Submit</button>
-                </section>
-            </article>
 
-            <!-- </article> -->
+
 
         </section>
-   <section class="chngpwd modal">
-    <!-- <div id="chngpwd-current"></div> -->
-   </section>     
+        <section class="chngpwd modal">
+        </section>
     </main>
 <script type="text/javascript" src="vendors.js"></script><script type="text/javascript" src="cgtimer-2.js"></script></body>
 

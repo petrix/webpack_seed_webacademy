@@ -1,4 +1,4 @@
-* {
+@import url(#{$base-font-dir}SeedsCyr-stylesheet.css);* {
   box-sizing: border-box; }
   *:active, *:hover, *:focus {
     outline: 0; }
@@ -57,9 +57,9 @@ p {
       transform: translate(560px, 560px); }
   .timer-module > .current-time {
     position: absolute;
-    -ms-transform: translate(-260px, -60px);
-        transform: translate(-260px, -60px);
-    font-size: 160px;
+    -ms-transform: translate(-317px, -6px);
+        transform: translate(-317px, -6px);
+    font-size: 200px;
     color: #ff8f00; }
   .timer-module > .rasp-time {
     position: absolute;
@@ -91,26 +91,26 @@ p {
     background-color: #ff8f00;
     color: #000; }
   .timer-module > .hours {
-    -ms-transform: translate(-10px, -10px);
-        transform: translate(-10px, -10px); }
+    -ms-transform: translate(-9px, -9px);
+        transform: translate(-9px, -9px); }
     .timer-module > .hours > div {
       width: 76px;
       height: 76px; }
     .timer-module > .hours > .hours-active {
       border: 10px solid #ff8f00; }
   .timer-module > .hours24 {
-    -ms-transform: translate(-10px, -10px);
-        transform: translate(-10px, -10px); }
+    -ms-transform: translate(-9px, -9px);
+        transform: translate(-9px, -9px); }
     .timer-module > .hours24 > div {
       width: 76px;
       height: 76px; }
     .timer-module > .hours24 > .hours-active {
       border: 10px solid #ff8f00; }
   .timer-module > .seconds {
-    -ms-transform: translate(2px, 2px);
-        transform: translate(2px, 2px); }
+    -ms-transform: translate(19px, 3px);
+        transform: translate(19px, 3px); }
     .timer-module > .seconds > div {
-      width: 52px;
+      width: 20px;
       height: 52px; }
     .timer-module > .seconds > .seconds-active {
       transition: all 0.3s;
@@ -292,62 +292,6 @@ article {
         margin: 5px; }
 
 @font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-Regular.eot);
-  src: url(./assets/fonts/Russia-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Regular.woff2) format("woff2"), url(./assets/fonts/Russia-Regular.woff) format("woff"), url(./assets/fonts/Russia-Regular.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-BoldItalic.eot);
-  src: url(./assets/fonts/Russia-BoldItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-BoldItalic.woff2) format("woff2"), url(./assets/fonts/Russia-BoldItalic.woff) format("woff"), url(./assets/fonts/Russia-BoldItalic.ttf) format("truetype");
-  font-weight: bold;
-  font-style: italic; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-LightItalic.eot);
-  src: url(./assets/fonts/Russia-LightItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-LightItalic.woff2) format("woff2"), url(./assets/fonts/Russia-LightItalic.woff) format("woff"), url(./assets/fonts/Russia-LightItalic.ttf) format("truetype");
-  font-weight: 300;
-  font-style: italic; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-MediumItalic.eot);
-  src: url(./assets/fonts/Russia-MediumItalic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-MediumItalic.woff2) format("woff2"), url(./assets/fonts/Russia-MediumItalic.woff) format("woff"), url(./assets/fonts/Russia-MediumItalic.ttf) format("truetype");
-  font-weight: 500;
-  font-style: italic; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-Medium.eot);
-  src: url(./assets/fonts/Russia-Medium.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Medium.woff2) format("woff2"), url(./assets/fonts/Russia-Medium.woff) format("woff"), url(./assets/fonts/Russia-Medium.ttf) format("truetype");
-  font-weight: 500;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-Bold.eot);
-  src: url(./assets/fonts/Russia-Bold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Bold.woff2) format("woff2"), url(./assets/fonts/Russia-Bold.woff) format("woff"), url(./assets/fonts/Russia-Bold.ttf) format("truetype");
-  font-weight: bold;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-Light.eot);
-  src: url(./assets/fonts/Russia-Light.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Light.woff2) format("woff2"), url(./assets/fonts/Russia-Light.woff) format("woff"), url(./assets/fonts/Russia-Light.ttf) format("truetype");
-  font-weight: 300;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Russia';
-  src: url(./assets/fonts/Russia-Italic.eot);
-  src: url(./assets/fonts/Russia-Italic.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Russia-Italic.woff2) format("woff2"), url(./assets/fonts/Russia-Italic.woff) format("woff"), url(./assets/fonts/Russia-Italic.ttf) format("truetype");
-  font-weight: normal;
-  font-style: italic; }
-
-@font-face {
   font-family: 'Comfortaa';
   src: url(./assets/fonts/Comfortaa-Regular.eot);
   src: url(./assets/fonts/Comfortaa-Regular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Comfortaa-Regular.woff2) format("woff2"), url(./assets/fonts/Comfortaa-Regular.woff) format("woff"), url(./assets/fonts/Comfortaa-Regular.ttf) format("truetype");
@@ -408,39 +352,4 @@ article {
   src: url(./assets/fonts/Jura-SemiBold.eot);
   src: url(./assets/fonts/Jura-SemiBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/Jura-SemiBold.woff2) format("woff2"), url(./assets/fonts/Jura-SemiBold.woff) format("woff"), url(./assets/fonts/Jura-SemiBold.ttf) format("truetype");
   font-weight: 600;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Bebas Neue Book';
-  src: url(./assets/fonts/BebasNeueBook.eot);
-  src: url(./assets/fonts/BebasNeueBook.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueBook.woff2) format("woff2"), url(./assets/fonts/BebasNeueBook.woff) format("woff"), url(./assets/fonts/BebasNeueBook.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url(./assets/fonts/BebasNeueBold.eot);
-  src: url(./assets/fonts/BebasNeueBold.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueBold.woff2) format("woff2"), url(./assets/fonts/BebasNeueBold.woff) format("woff"), url(./assets/fonts/BebasNeueBold.ttf) format("truetype");
-  font-weight: bold;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url(./assets/fonts/BebasNeue-Thin.eot);
-  src: url(./assets/fonts/BebasNeue-Thin.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeue-Thin.woff2) format("woff2"), url(./assets/fonts/BebasNeue-Thin.woff) format("woff"), url(./assets/fonts/BebasNeue-Thin.ttf) format("truetype");
-  font-weight: 100;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url(./assets/fonts/BebasNeueLight.eot);
-  src: url(./assets/fonts/BebasNeueLight.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueLight.woff2) format("woff2"), url(./assets/fonts/BebasNeueLight.woff) format("woff"), url(./assets/fonts/BebasNeueLight.ttf) format("truetype");
-  font-weight: 300;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url(./assets/fonts/BebasNeueRegular.eot);
-  src: url(./assets/fonts/BebasNeueRegular.eot?#iefix) format("embedded-opentype"), url(./assets/fonts/BebasNeueRegular.woff2) format("woff2"), url(./assets/fonts/BebasNeueRegular.woff) format("woff"), url(./assets/fonts/BebasNeueRegular.ttf) format("truetype");
-  font-weight: normal;
   font-style: normal; }

@@ -81,17 +81,6 @@ module.exports = __webpack_require__(413);
 
 __webpack_require__(414);
 
-var int;
-
-$('.circle').on('click', function () {
-    clearInterval(int);
-    int = setInterval(function () {
-        var date = new Date();
-        $('.circle').toggleClass('active');
-        console.log($('.circle').position(), date);
-    }, 1000);
-});
-
 /***/ }),
 
 /***/ 414:
