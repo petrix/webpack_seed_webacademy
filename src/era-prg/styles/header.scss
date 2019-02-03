@@ -30,8 +30,32 @@ body {
     }
 
     &>.buttons {
+        &>section {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 100px 100px 100px;
 
-        @include btn-reset-default;
+            &>button {
+                @include btn-reset-default;
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                border: 2px solid #ff8f00;
+                background-color: #000;
+                color: #fff;
+                transition: all 0.5s;
+                font-family: 'DS-Digital';
+                font-size: 50px;
+
+
+                &:hover {
+                    background-color: #ff8f00;
+                    transition: all 0.5s;
+
+                }
+            }
+        }
+
 
     }
 }

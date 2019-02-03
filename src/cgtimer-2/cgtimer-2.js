@@ -5,30 +5,35 @@ var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
+    var socket = io('http://localhost:4000');
+    var response = $.get("https://ipinfo.io", function (response) {
+        console.log(response.ip, response.country, response.loc, response);
+    }, "jsonp");
+    socket.on('connect', authentificate);
     if ("vibrate" in navigator) {
         // vibration API supported
         navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
         // console.log('vibrate!');
     }
     // $('p').click(function () {
-        var chatWindow=false;
-    $('.dircountdown-module').on('click','p',function () {
+    var chatWindow = false;
+    $('.dircountdown-module').on('click', 'p', function () {
         // $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
-        if ($(this).text() != 'Chat'){
+        if ($(this).text() != 'Chat') {
             $(this).parent().toggleClass('module-slideup');
-        }else{
-            if (!chatWindow){
-                        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).hide();
-            console.log($(this).text());
-                chatWindow=true
-            }else{
-                        $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).show();                
-            chatWindow=false;
-                    }
+        } else {
+            if (!chatWindow) {
+                $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).hide();
+                console.log($(this).text());
+                chatWindow = true
+            } else {
+                $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).show();
+                chatWindow = false;
+            }
 
         }
-        
-        
+
+
         navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
 
     });
@@ -38,11 +43,7 @@ $(document).ready(function () {
     moment.locale('uk');
     var ccgPathLength = 35;
     // var socket = io('http://localhost:4000');
-    var socket = io('http://p3xx.tk:4000');
-    var response = $.get("https://ipinfo.io", function (response) {
-        console.log(response.ip, response.country, response.loc, response);
-    }, "jsonp");
-    socket.on('connect', authentificate);
+
 
     function authentificate() {
         var ovner = 'Anonimous';
@@ -206,6 +207,7 @@ $(document).ready(function () {
         });
 
         socket.on('cg countdown active', function (ccgData) {
+            // console.log(ccgData);
             if (ccgData != 'playing') {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
