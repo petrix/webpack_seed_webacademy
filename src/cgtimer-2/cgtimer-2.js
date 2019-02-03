@@ -141,6 +141,9 @@ $(document).ready(function () {
         socket.on('servermessage-updated', function () {
             servermessageUpdate = true;
         });
+        socket.on('check-user', function () {
+            socket.emit('user-online', ovner);
+        });
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });
