@@ -5,7 +5,7 @@ var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
-    var socket = io('http://localhost:4000');
+    var socket = io('http://p3xx.tk:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 
     function authentificate() {
-        var ovner = 'Anonimous';
+        var owner = 'Anonimous';
         socket.on('error', (error) => {
             console.log('error');
         });
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 $('.target').append('<option value=' + rolesFeedback + ' selected="selected">' + rolesFeedback + '</option>');
                 feedBack--;
             }
-            ovner = $('select option:selected').text();
+            owner = $('select option:selected').text();
             $('.splashscreen').animate({
                 opacity: 0
             }, 500, function () {
@@ -79,7 +79,7 @@ $(document).ready(function () {
             $('select option:selected').each(function () {
                 str = $(this).text();
             });
-            ovner = str;
+            owner = str;
         }).trigger('change');
 
         $('#gesturepwd').GesturePasswd({
@@ -94,7 +94,7 @@ $(document).ready(function () {
             zindex: 100 //整个组件的css z-index属性
         });
         $('#gesturepwd').on('hasPasswd', function (e, passwd) {
-            socket.emit('checkPasswd', ovner, passwd);
+            socket.emit('checkPasswd', owner, passwd);
         });
         socket.on('passwd-feedback', function (result) {
             if (result) {
@@ -105,7 +105,7 @@ $(document).ready(function () {
                         opacity: 0
                     }, 500, function () {
                         $('.login-window').remove();
-                        dir_module(ovner);
+                        dir_module(owner);
                     });
                 }, 500); //延迟半秒以照顾视觉效果
             } else {
@@ -116,24 +116,25 @@ $(document).ready(function () {
     }
     var date, hours, minutes, seconds, miliseconds;
 
-    function dir_module(ovner) {
-        notifyUser('You are logged in as:', ovner, 5000);
+    function dir_module(owner) {
+        notifyUser('You are logged in as:', owner, 5000);
         socket.emit('ip-get', true);
         socket.emit('countdown-get', true);
-        socket.emit('read-servermessage', ovner);
-        // console.log(ovner);
+        socket.emit('read-servermessage', owner);
+        socket.emit('user-online', owner);
+        // console.log(owner);
         var servermessageUpdate = false;
-        socket.on('servermessage-update', function (dDate, dTime, srvOvner, srvMsg) {
+        socket.on('servermessage-update', function (dDate, dTime, srvowner, srvMsg) {
             if (!servermessageUpdate) {
                 if (!$('section.' + dDate).length) {
                     $('#messages').append('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
                 }
                 var dTimeArr = dTime.split(':');
-                if (srvOvner == ovner) {
-                    // $('#messages').find('section.' + dDate).find('p').after('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
-                    $('#messages').find('section.' + dDate).append('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+                if (srvowner == owner) {
+                    // $('#messages').find('section.' + dDate).find('p').after('<div class="ownermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
+                    $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
                 } else {
-                    $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                    $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div><span>' + srvMsg + '</span></div><hr>');
                 }
                 $('#messages').scrollTop($('#messages')[0].scrollHeight);
             }
@@ -141,8 +142,9 @@ $(document).ready(function () {
         socket.on('servermessage-updated', function () {
             servermessageUpdate = true;
         });
-        socket.on('check-user', function () {
-            socket.emit('user-online', ovner);
+        socket.on('check-user', function (x) {
+            console.log('check-user' + x);
+            socket.emit('user-online', owner);
         });
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
@@ -365,7 +367,7 @@ $(document).ready(function () {
             });
             $('.chngpwd').addClass('modal-active');
             $('#chngpwd-current').on('hasPasswd', function (e, passwd) {
-                socket.emit('checkPasswd', ovner, passwd);
+                socket.emit('checkPasswd', owner, passwd);
             });
             socket.on('passwd-feedback', function (result) {
                 console.log(result);
@@ -418,7 +420,7 @@ $(document).ready(function () {
                     if (passwd == newPasswd) {
                         $('#chngpwd-renew').trigger('passwdRight');
                         navigator.vibrate([50, 100, 50, 200, 200]);
-                        socket.emit('update-roles', ovner, newPasswd);
+                        socket.emit('update-roles', owner, newPasswd);
                         $('.chngpwd').removeClass('modal-active').children().remove();
                     } else {
                         $('#chngpwd-renew').trigger('passwdWrong');
@@ -453,26 +455,26 @@ $(document).ready(function () {
         function submitMessage() {
             var message = $('#message').val();
             if (message != '') {
-                socket.emit('clientmessage', ovner, message);
+                socket.emit('clientmessage', owner, message);
                 $('#message').val('');
             }
         }
 
-        socket.on('servermessage', function (dDate, dTime, srvOvner, srvMsg) {
+        socket.on('servermessage', function (dDate, dTime, srvowner, srvMsg) {
 
             if (!$('section.' + dDate).length) {
                 $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
             // var dDateArray=
             var dTimeArr = dTime.split(':');
-            if (srvOvner == ovner) {
-                $('#messages').find('section.' + dDate).append('<div class="ovnermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div></div><hr>');
+            if (srvowner == owner) {
+                $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
             } else {
-                $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvOvner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div><span>' + srvMsg + '</span></div><hr>');
             }
             $('#messages').scrollTop($('#messages')[0].scrollHeight);
-            if (srvOvner != ovner) {
-                notifyUser(srvOvner, srvMsg, 5000);
+            if (srvowner != owner) {
+                notifyUser(srvowner, srvMsg, 5000);
                 navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
             }
 

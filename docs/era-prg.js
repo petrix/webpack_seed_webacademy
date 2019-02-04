@@ -81,6 +81,18 @@ module.exports = __webpack_require__(413);
 
 __webpack_require__(414);
 
+$(document).ready(function () {
+    function drawButtons() {
+        for (var i = 1; i < 10; i++) {
+            $('.buttonsrows').append('<button>' + i + '</button>');
+            console.log(i);
+            // console.log(i);
+            // console.log();
+        }
+    }
+    drawButtons();
+});
+
 /***/ }),
 
 /***/ 414:

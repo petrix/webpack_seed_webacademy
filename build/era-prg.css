@@ -7404,10 +7404,29 @@ body {
     color: #bbb;
     overflow: hidden;
     width: 90%; }
-  .calc > .buttons {
-    border: none;
-    display: inline-block;
-    outline: none; }
+  .calc > .buttons > section {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    -ms-grid-columns: 100px 100px 100px;
+        grid-template-columns: 100px 100px 100px; }
+    .calc > .buttons > section > button {
+      border: none;
+      display: inline-block;
+      outline: none;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid #ff8f00;
+      background-color: #000;
+      color: #fff;
+      transition: all 0.5s;
+      font-family: 'DS-Digital';
+      font-size: 50px; }
+      .calc > .buttons > section > button:hover {
+        background-color: #ff8f00;
+        transition: all 0.5s; }
 
 @font-face {
   font-family: 'Comfortaa';

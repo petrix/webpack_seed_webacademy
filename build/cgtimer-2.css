@@ -7813,7 +7813,7 @@ svg {
       background-color: #000;
       height: 1px;
       border: 0; }
-    .chat > div#messages > section > .ovnermessage {
+    .chat > div#messages > section > .ownermessage {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-direction: row;
@@ -7822,7 +7822,7 @@ svg {
           align-items: center;
       -ms-flex-pack: end;
           justify-content: flex-end; }
-      .chat > div#messages > section > .ovnermessage > div {
+      .chat > div#messages > section > .ownermessage > div {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-direction: column;
@@ -7837,26 +7837,26 @@ svg {
         background-color: #000;
         color: #fff;
         font-weight: normal; }
-        .chat > div#messages > section > .ovnermessage > div > div {
+        .chat > div#messages > section > .ownermessage > div > div {
           display: -ms-flexbox;
           display: flex;
           -ms-flex-direction: row;
               flex-direction: row;
           -ms-flex-align: center;
               align-items: center; }
-          .chat > div#messages > section > .ovnermessage > div > div > span {
+          .chat > div#messages > section > .ownermessage > div > div > span {
             font-size: 28px; }
-          .chat > div#messages > section > .ovnermessage > div > div > div {
+          .chat > div#messages > section > .ownermessage > div > div > div {
             display: -ms-flexbox;
             display: flex;
             -ms-flex-direction: column;
                 flex-direction: column;
             -ms-flex-align: start;
                 align-items: flex-start; }
-            .chat > div#messages > section > .ovnermessage > div > div > div > span {
+            .chat > div#messages > section > .ownermessage > div > div > div > span {
               font-size: 12px;
               line-height: 100%; }
-      .chat > div#messages > section > .ovnermessage > span {
+      .chat > div#messages > section > .ownermessage > span {
         margin: 10px;
         text-align: right; }
     .chat > div#messages > section > .guestmessage {
