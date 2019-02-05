@@ -210,6 +210,13 @@ svg {
         justify-content: flex-start;
         align-items: center;
         padding: 10px 0;
+
+        &>p {
+            &>button {
+                width: 100%;
+                background-color: transparent;
+            }
+        }
     }
 
     &>.current-time {

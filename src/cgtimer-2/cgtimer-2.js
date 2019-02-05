@@ -5,7 +5,7 @@ var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
-    var socket = io('http://p3xx.tk:4000');
+    var socket = io('http://localhost:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -17,7 +17,8 @@ $(document).ready(function () {
     }
     // $('p').click(function () {
     var chatWindow = false;
-    $('.dircountdown-module').on('click', 'p', function () {
+    // $('.dircountdown-module').on('click', 'p', function () {
+    $('.dircountdown-module article p').click(function () {
         // $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
         if ($(this).text() != 'Chat') {
             $(this).parent().toggleClass('module-slideup');
@@ -25,7 +26,7 @@ $(document).ready(function () {
             if (!chatWindow) {
                 $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).hide();
                 console.log($(this).text());
-                chatWindow = true
+                chatWindow = true;
             } else {
                 $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).show();
                 chatWindow = false;
@@ -57,6 +58,12 @@ $(document).ready(function () {
             }
         });
         socket.emit('read-roles', true);
+        socket.on('reload-users', function () {
+            console.log('reload-users');
+            $('.target').children().remove();
+            socket.emit('read-roles', true);
+
+        });
         var feedBack = 1;
         socket.on('roles-feedback', function (rolesFeedback) {
             if (feedBack < 1) {
