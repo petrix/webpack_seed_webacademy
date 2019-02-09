@@ -5,7 +5,7 @@ var moment = require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
-    var socket = io('http://localhost:4000');
+    var socket = io('http://10.0.1.11:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -18,33 +18,28 @@ $(document).ready(function () {
     // $('p').click(function () {
     var chatWindow = false;
     // $('.dircountdown-module').on('click', 'p', function () {
-    $('.dircountdown-module article p').click(function () {
-        // $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).addClass('module-slideup');
+    $('.dircountdown-module article p').on('click', 'button', function () {
+        navigator.vibrate([50, 50, 50]);
         if ($(this).text() != 'Chat') {
-            $(this).parent().toggleClass('module-slideup');
+            $(this).parent().parent().toggleClass('module-slideup');
         } else {
             if (!chatWindow) {
-                $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).hide();
+                $(this).parent().parent().toggleClass('module-slideup').parent().children('article').not($(this).parent().parent()).hide();
                 console.log($(this).text());
                 chatWindow = true;
             } else {
-                $(this).parent().toggleClass('module-slideup').parent().children('article').not($(this).parent()).show();
+                $(this).parent().parent().toggleClass('module-slideup').parent().children('article').not($(this).parent().parent()).show();
                 chatWindow = false;
             }
 
         }
 
-
-        navigator.vibrate([50, 50, 50]); // Бесконечная вибрация.
-
     });
-    $('button').click(function () {
+    $('dircount-buttons').on('click', 'button', function () {
         navigator.vibrate([50]); // Бесконечная вибрация.
     });
     moment.locale('uk');
     var ccgPathLength = 35;
-    // var socket = io('http://localhost:4000');
-
 
     function authentificate() {
         var owner = 'Anonimous';
@@ -128,7 +123,7 @@ $(document).ready(function () {
         socket.emit('ip-get', true);
         socket.emit('countdown-get', true);
         socket.emit('read-servermessage', owner);
-        socket.emit('user-online', owner);
+        // socket.emit('user-online', owner);
         // console.log(owner);
         var servermessageUpdate = false;
         socket.on('servermessage-update', function (dDate, dTime, srvowner, srvMsg) {
@@ -149,10 +144,10 @@ $(document).ready(function () {
         socket.on('servermessage-updated', function () {
             servermessageUpdate = true;
         });
-        socket.on('check-user', function (x) {
-            console.log('check-user' + x);
-            socket.emit('user-online', owner);
-        });
+        // socket.on('check-user', function (x) {
+        //     console.log('check-user' + x);
+        //     socket.emit('user-online', owner);
+        // });
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });

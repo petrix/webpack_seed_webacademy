@@ -7580,6 +7580,14 @@ svg {
     -ms-flex-align: center;
         align-items: center;
     padding: 10px 0; }
+    .dircountdown-module > article > p {
+      height: 26px;
+      margin: 0 auto; }
+      .dircountdown-module > article > p > button {
+        width: 100%;
+        background-color: transparent;
+        font-size: 24px;
+        height: 26px; }
   .dircountdown-module > .current-time {
     height: 130px; }
     .dircountdown-module > .current-time > .module-slideup {
@@ -7649,7 +7657,7 @@ svg {
             height: 48%;
             width: 100%; }
   .dircountdown-module > .dircountdown {
-    height: 130px; }
+    height: 131px; }
   .dircountdown-module > .vtcountdown {
     font-size: 110px;
     height: 275px; }

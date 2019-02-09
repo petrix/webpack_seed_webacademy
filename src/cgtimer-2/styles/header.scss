@@ -212,9 +212,14 @@ svg {
         padding: 10px 0;
 
         &>p {
+            height: 26px;
+            margin: 0 auto;
+
             &>button {
                 width: 100%;
                 background-color: transparent;
+                font-size: 24px;
+                height: 26px;
             }
         }
     }
@@ -291,7 +296,7 @@ svg {
     }
 
     &>.dircountdown {
-        height: 130px;
+        height: 131px;
     }
 
     &>.vtcountdown {
