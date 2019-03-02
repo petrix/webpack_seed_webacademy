@@ -1,7 +1,7 @@
 import './weather-js.scss';
 // import './js/moment-with-locales.js';
 // import './js/skycons.js';
-var moment = require('./js/moment-with-locales.js');
+var moment = require('moment');
 
 require('./js/jquery.location-region-picker.js');
 $(document).ready(function () {

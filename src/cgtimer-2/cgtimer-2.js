@@ -1,6 +1,6 @@
 import './cgtimer-2.scss';
 import io from 'socket.io-client';
-var moment = require('./js/moment-with-locales.js');
+var moment = require('moment');
 // require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 require('./js/jquery.gesture.password.js');
