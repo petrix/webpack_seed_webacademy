@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 var moment = require('moment');
 // require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
-require('./js/jquery.gesture.password.js');
+var GesturePasswd = require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
     var socket = io('http://p3xx.tk:4000');
     var response = $.get("https://ipinfo.io", function (response) {
