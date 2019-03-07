@@ -259,10 +259,10 @@ function Plugin(option, arg) {
         if (action) data[action](arg);
     })
 }
-
-
 $.fn.GesturePasswd = Plugin;
 $.fn.GesturePasswd.Constructor = GesturePasswd;
+module.exports = GesturePasswd;
+
 
 
 

@@ -60,39 +60,38 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 536);
+/******/ 	return __webpack_require__(__webpack_require__.s = 516);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 536:
+/***/ 516:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(537);
+module.exports = __webpack_require__(517);
 
 
 /***/ }),
 
-/***/ 537:
+/***/ 517:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(538);
+__webpack_require__(518);
 
-$(".row-title").click(function () {
-    $(".row-content").not($(this).next()).slideUp(500);
-    $(this).next().slideDown(500);
-    $(".row-arrow").not($(this).next()).removeClass('row-arrow-active');
-    $(this).children().next().addClass('row-arrow-active');
-    $('.row-title').not($(this)).removeClass('row-active');
-    $(this).addClass('row-active');
-});
+// import 'bootstrap';
+$('.audioDemo').trigger('load');
+$('.audioDemo').trigger('play');
+
+// $('.audioDemo').bind('load', function () {
+//     $('.alert-success').html('Audio Loaded succesfully');
+// });
 
 /***/ }),
 
-/***/ 538:
+/***/ 518:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

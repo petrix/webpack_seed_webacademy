@@ -2,9 +2,42 @@ import './weather-js.scss';
 // import './js/moment-with-locales.js';
 // import './js/skycons.js';
 var moment = require('moment');
+var LocationRegionPicker = require('./js/jquery.location-region-picker.js');
 
-require('./js/jquery.location-region-picker.js');
-$(document).ready(function () {
+
+// $(document).ready(function () {
+function getLocation() {
+    $('.location-region-picker').LocationRegionPicker({
+        'google_api_key': 'AIzaSyCuDOES3KAJB0y-wsN40-dYUl7iiKQOYrg',
+        'types': '(regions)'
+    });
+}
+
+
+var weatherLat, weatherLong;
+
+function firtStep() {
+    getLocation();
+    // if (!$('#latitude')) {
+    weatherLat = $('#latitude').html();
+    weatherLong = $('#longitude').html();
+    console.log(weatherLat, weatherLong);
+    // }
+}
+firtStep();
+
+// 
+// weatherLat = this.place.geometry.location.lat();
+// weatherLong = this.place.geometry.location.lng();
+
+
+
+function mainWeather(weatherLat, weatherLong, timeOffset) {
+    console.log(weatherLat, weatherLong);
+
+    $('.sumhr1').children().remove();
+    $('.sumhr2').children().remove();
+    $('.daily').children().remove();
 
     var apiKey = "7d7fb208bc708b6bd2657291246a83e6";
     var url = "https://api.darksky.net/forecast/";
@@ -15,22 +48,34 @@ $(document).ready(function () {
         'snow',
         'partly-cloudy-day',
         'partly-cloudy-night',
+<<<<<<< HEAD
         'fog',
         'wind'
+=======
+        'fog', 'rain'
+>>>>>>> ede7bdfe740941fd0c52713e88df06bf1036b312
     ];
     var iconimage = ['<div class="icon cloudy"></div>',
         '<div class="icon snow"></div>',
         '<div class="icon partly-cloudy-day"></div>',
         '<div class="icon partly-cloudy-night"></div>',
         '<div class="icon fog"></div>',
+<<<<<<< HEAD
         '<div class="icon wind"></div>'
+=======
+        '<div class="icon rain"></div>'
+>>>>>>> ede7bdfe740941fd0c52713e88df06bf1036b312
     ];
     var iconimagebig = ['<div class="iconbig cloudy"></div>',
         '<div class="iconbig snow"></div>',
         '<div class="iconbig partly-cloudy-day"></div>',
         '<div class="iconbig partly-cloudy-night"></div>',
         '<div class="iconbig fog"></div>',
+<<<<<<< HEAD
         '<div class="iconbig wind"></div>'
+=======
+        '<div class="iconbig rain"></div>'
+>>>>>>> ede7bdfe740941fd0c52713e88df06bf1036b312
     ];
     moment.locale('be');
     $.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=be&callback=?", function (data) {
@@ -268,5 +313,6 @@ $(document).ready(function () {
     $('.hourly').on('click', 'div', function () {
         console.log($(this).attr('class'));
     });
+}
 
-});
+// });

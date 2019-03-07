@@ -1,6 +1,6 @@
 import './cgtimer-1.scss';
 import io from 'socket.io-client';
-var moment = require('./js/moment-with-locales');
+var moment = require('moment');
 
 
 // socket.on('connect', onConnect);
@@ -25,10 +25,10 @@ function drawClock() {
         countMinutes = 0,
         countHours = 0;
     for (var i = 45; i <= 104; i += 1) {
-        var angle=(i-45)*6;
+        var angle = (i - 45) * 6;
         var posY = Math.sin((div * i) * (Math.PI / 180)) * secRadius;
         var posX = Math.cos((div * i) * (Math.PI / -180)) * secRadius;
-        $('.seconds').append('<div style="transform: translate(' + posX.toFixed(0) + 'px, ' + posY.toFixed(0) + 'px) rotate('+angle+'deg)" class="sec' + countSeconds + '"' + '>' + '</div>');
+        $('.seconds').append('<div style="transform: translate(' + posX.toFixed(0) + 'px, ' + posY.toFixed(0) + 'px) rotate(' + angle + 'deg)" class="sec' + countSeconds + '"' + '>' + '</div>');
         countSeconds++;
     }
 
