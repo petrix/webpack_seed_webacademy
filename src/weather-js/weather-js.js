@@ -1,7 +1,7 @@
 import './weather-js.scss';
 // import './js/moment-with-locales.js';
 // import './js/skycons.js';
-var moment = require('./js/moment-with-locales.js');
+var moment = require('moment');
 
 require('./js/jquery.location-region-picker.js');
 $(document).ready(function () {
@@ -15,19 +15,22 @@ $(document).ready(function () {
         'snow',
         'partly-cloudy-day',
         'partly-cloudy-night',
-        'fog'
+        'fog',
+        'wind'
     ];
     var iconimage = ['<div class="icon cloudy"></div>',
         '<div class="icon snow"></div>',
         '<div class="icon partly-cloudy-day"></div>',
         '<div class="icon partly-cloudy-night"></div>',
-        '<div class="icon fog"></div>'
+        '<div class="icon fog"></div>',
+        '<div class="icon wind"></div>'
     ];
     var iconimagebig = ['<div class="iconbig cloudy"></div>',
         '<div class="iconbig snow"></div>',
         '<div class="iconbig partly-cloudy-day"></div>',
         '<div class="iconbig partly-cloudy-night"></div>',
-        '<div class="iconbig fog"></div>'
+        '<div class="iconbig fog"></div>',
+        '<div class="iconbig wind"></div>'
     ];
     moment.locale('be');
     $.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=be&callback=?", function (data) {
