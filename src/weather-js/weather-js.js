@@ -53,16 +53,7 @@ function mainWeather(weatherLat, weatherLong) {
         'snow',
         'partly-cloudy-day',
         'partly-cloudy-night',
-<<<<<<< HEAD
         'fog', 'rain', 'wind', 'clear-night'
-=======
-<<<<<<< HEAD
-        'fog',
-        'wind'
-=======
-        'fog', 'rain'
->>>>>>> ede7bdfe740941fd0c52713e88df06bf1036b312
->>>>>>> b82fbfee6b7f24a09a806a5805744be309cda34b
     ];
     var iconimage = ['<div class="icon clear-day"></div>',
         '<div class="icon cloudy"></div>',
@@ -70,17 +61,9 @@ function mainWeather(weatherLat, weatherLong) {
         '<div class="icon partly-cloudy-day"></div>',
         '<div class="icon partly-cloudy-night"></div>',
         '<div class="icon fog"></div>',
-<<<<<<< HEAD
         '<div class="icon rain"></div>',
         '<div class="icon wind"></div>',
         '<div class="icon clear-night"></div>'
-=======
-<<<<<<< HEAD
-        '<div class="icon wind"></div>'
-=======
-        '<div class="icon rain"></div>'
->>>>>>> ede7bdfe740941fd0c52713e88df06bf1036b312
->>>>>>> b82fbfee6b7f24a09a806a5805744be309cda34b
     ];
     var iconimagebig = [
         '<div class="iconbig clear-day"></div>',
@@ -89,17 +72,9 @@ function mainWeather(weatherLat, weatherLong) {
         '<div class="iconbig partly-cloudy-day"></div>',
         '<div class="iconbig partly-cloudy-night"></div>',
         '<div class="iconbig fog"></div>',
-<<<<<<< HEAD
         '<div class="iconbig rain"></div>',
         '<div class="iconbig wind"></div>',
         '<div class="iconbig clear-night"></div>'
-=======
-<<<<<<< HEAD
-        '<div class="iconbig wind"></div>'
-=======
-        '<div class="iconbig rain"></div>'
->>>>>>> ede7bdfe740941fd0c52713e88df06bf1036b312
->>>>>>> b82fbfee6b7f24a09a806a5805744be309cda34b
     ];
 
     moment.locale('be');
