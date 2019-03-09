@@ -27061,9 +27061,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var moment = __webpack_require__(0);
 // require('./js/moment-with-locales.js');
 var notifyUser = __webpack_require__(525);
-__webpack_require__(526);
+var GesturePasswd = __webpack_require__(526);
 $(document).ready(function () {
-    var socket = (0, _socket2.default)();
+    var socket = (0, _socket2.default)('http://p3xx.tk:4000');
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -27837,9 +27837,9 @@ function Plugin(option, arg) {
         if (action) data[action](arg);
     });
 }
-
 $.fn.GesturePasswd = Plugin;
 $.fn.GesturePasswd.Constructor = GesturePasswd;
+module.exports = GesturePasswd;
 
 // })(jQuery);
 

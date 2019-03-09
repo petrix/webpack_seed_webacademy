@@ -30,6 +30,13 @@ b {
     font-weight: bold;
 }
 
+#map {
+    margin: 20px auto;
+    width: 98%;
+    height: 300px;
+    border-radius: 10px;
+}
+
 .day {
     background-color: #c07600;
 }
@@ -198,8 +205,8 @@ b {
     align-self: center;
 }
 
-.cloudy {
-    background: url(../../assets/images/weather/svg/003-cloud-1.svg) center center no-repeat;
+.clear-day {
+    background: url(../../assets/images/weather/svg/024-sunny.svg) center center no-repeat;
     background-size: cover;
 }
 
@@ -225,5 +232,20 @@ b {
 
 .rain {
     background: url(../../assets/images/weather/svg/010-rain.svg) center center no-repeat;
+    background-size: cover;
+}
+
+.wind {
+    background: url(../../assets/images/weather/svg/006-windy.svg) center center no-repeat;
+    background-size: cover;
+}
+
+.cloudy {
+    background: url(../../assets/images/weather/svg/003-cloud-1.svg) center center no-repeat;
+    background-size: cover;
+}
+
+.clear-night {
+    background: url(../../assets/images/weather/svg/009-night.svg) center center no-repeat;
     background-size: cover;
 }

@@ -2,37 +2,42 @@ import './weather-js.scss';
 // import './js/moment-with-locales.js';
 // import './js/skycons.js';
 var moment = require('moment');
-var LocationRegionPicker = require('./js/jquery.location-region-picker.js');
+var moment = require('moment-timezone');
 
+var confirmBtn = document.getElementById('confirmPosition');
+var onClickPositionView = document.getElementById('onClickPositionView');
+var onIdlePositionView = document.getElementById('onIdlePositionView');
 
-// $(document).ready(function () {
-function getLocation() {
-    $('.location-region-picker').LocationRegionPicker({
-        'google_api_key': 'AIzaSyCuDOES3KAJB0y-wsN40-dYUl7iiKQOYrg',
-        'types': '(regions)'
-    });
-}
-
-
+// Initialize locationPicker plugin
+var lp = new locationPicker('map', {
+    setCurrentPosition: true, // You can omit this, defaults to true
+}, {
+    zoom: 5 // You can set any google map options here, zoom defaults to 15
+});
 var weatherLat, weatherLong;
+// Listen to button onclick event
+confirmBtn.onclick = function () {
+    // Get current location and show it in HTML
+    var location = lp.getMarkerPosition();
+    onClickPositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+    weatherLat = location.lat;
+    weatherLong = location.lng;
+    mainWeather(weatherLat, weatherLong);
 
-function firtStep() {
-    getLocation();
-    // if (!$('#latitude')) {
-    weatherLat = $('#latitude').html();
-    weatherLong = $('#longitude').html();
-    console.log(weatherLat, weatherLong);
-    // }
-}
-firtStep();
+};
 
-// 
-// weatherLat = this.place.geometry.location.lat();
-// weatherLong = this.place.geometry.location.lng();
+// Listen to map idle event, listening to idle event more accurate than listening to ondrag event
+google.maps.event.addListener(lp.map, 'idle', function (event) {
+    // Get current location and show it in HTML
+    var location = lp.getMarkerPosition();
+    onIdlePositionView.innerHTML = 'The chosen location is ' + location.lat + ',' + location.lng;
+    // weatherLat = location.lat;
+    // weatherLong = location.lng;
+    // mainWeather(weatherLat, weatherLong);
+});
+// mainWeather(30.5, 50.5);
 
-
-
-function mainWeather(weatherLat, weatherLong, timeOffset) {
+function mainWeather(weatherLat, weatherLong) {
     console.log(weatherLat, weatherLong);
 
     $('.sumhr1').children().remove();
@@ -41,31 +46,42 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
 
     var apiKey = "7d7fb208bc708b6bd2657291246a83e6";
     var url = "https://api.darksky.net/forecast/";
-    var lati = 50.9492;
-    var longi = 30.2034;
+    // var lati = 50.9492;
+    // var longi = 30.2034;
     var data;
-    var iconvalue = ['cloudy',
+    var iconvalue = ['clear-day', 'cloudy',
         'snow',
         'partly-cloudy-day',
         'partly-cloudy-night',
-        'fog', 'rain'
+        'fog', 'rain', 'wind', 'clear-night'
     ];
-    var iconimage = ['<div class="icon cloudy"></div>',
+    var iconimage = ['<div class="icon clear-day"></div>',
+        '<div class="icon cloudy"></div>',
         '<div class="icon snow"></div>',
         '<div class="icon partly-cloudy-day"></div>',
         '<div class="icon partly-cloudy-night"></div>',
         '<div class="icon fog"></div>',
-        '<div class="icon rain"></div>'
+        '<div class="icon rain"></div>',
+        '<div class="icon wind"></div>',
+        '<div class="icon clear-night"></div>'
     ];
-    var iconimagebig = ['<div class="iconbig cloudy"></div>',
+    var iconimagebig = [
+        '<div class="iconbig clear-day"></div>',
+        '<div class="iconbig cloudy"></div>',
         '<div class="iconbig snow"></div>',
         '<div class="iconbig partly-cloudy-day"></div>',
         '<div class="iconbig partly-cloudy-night"></div>',
         '<div class="iconbig fog"></div>',
-        '<div class="iconbig rain"></div>'
+        '<div class="iconbig rain"></div>',
+        '<div class="iconbig wind"></div>',
+        '<div class="iconbig clear-night"></div>'
     ];
+
     moment.locale('be');
-    $.getJSON(url + apiKey + "/" + lati + "," + longi + "?units=uk&lang=be&callback=?", function (data) {
+    $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=be&callback=?", function (data) {
+        console.log(data.timezone);
+        moment().tz(data.timezone).format();
+
         var lvivicon = data.currently.icon;
         var lvivsumicon = data.hourly.icon;
         var tempcolor = 'darkred';
@@ -76,17 +92,18 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
         var classDayNight;
         for (var i = 0; i < 24; i++) {
             x++;
-            var timesrc = moment.unix(data.hourly.data[i].time);
-            var time = timesrc.format('H:mm');
-            var timehr = parseFloat(timesrc.format('HH'));
-            var timeclass = timesrc.format('l') + ' ' + timesrc.format('HH') + '';
+            var timesrc = moment.unix(data.hourly.data[i].time).tz(data.timezone);
+            var time = timesrc.tz(data.timezone).tz(data.timezone).format('H:mm');
+            var timehr = parseFloat(timesrc.tz(data.timezone).format('HH'));
+            var timeclass = timesrc.format('l') + ' ' + timesrc.tz(data.timezone).format('HH') + '';
             var sum = data.hourly.data[i].summary;
             var temp = data.hourly.data[i].temperature.toFixed(1);
             var sumicon = data.hourly.data[i].icon;
+            console.log(i, sumicon);
             var humidity = data.hourly.data[i].humidity * 100;
-            sunrise = parseFloat(moment.unix(data.daily.data[0].sunriseTime).format('H'));
-            sunset = parseFloat(moment.unix(data.daily.data[0].sunsetTime).format('H'));
-            console.log(data.hourly.data[i]);
+            sunrise = parseFloat(moment.unix(data.daily.data[0].sunriseTime).tz(data.timezone).format('H'));
+            sunset = parseFloat(moment.unix(data.daily.data[0].sunsetTime).tz(data.timezone).format('H'));
+            // console.log(data.hourly.data[i]);
             if (temp < 0) {
                 tempheight = temp * -1;
                 tempcolor = 'blue';
@@ -129,16 +146,17 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
         x = 24;
         for (i = 24; i < 48; i++) {
             x++;
-            var timesrc = moment.unix(data.hourly.data[i].time);
-            var time = timesrc.format('H:mm');
-            var timehr = parseFloat(timesrc.format('HH'));
-            var timeclass = timesrc.format('l') + ' ' + timesrc.format('HH');
+            var timesrc = moment.unix(data.hourly.data[i].time).tz(data.timezone);
+            var time = timesrc.tz(data.timezone).tz(data.timezone).format('H:mm');
+            var timehr = parseFloat(timesrc.tz(data.timezone).format('HH'));
+            var timeclass = timesrc.format('l') + ' ' + timesrc.tz(data.timezone).format('HH');
 
             var sum = data.hourly.data[i].summary;
             var temp = data.hourly.data[i].temperature.toFixed(1);
             var sumicon = data.hourly.data[i].icon;
-            sunrise = parseFloat(moment.unix(data.daily.data[1].sunriseTime).format('H'));
-            sunset = parseFloat(moment.unix(data.daily.data[1].sunsetTime).format('H'));
+            console.log(i, sumicon);
+            sunrise = parseFloat(moment.unix(data.daily.data[1].sunriseTime).tz(data.timezone).format('H'));
+            sunset = parseFloat(moment.unix(data.daily.data[1].sunsetTime).tz(data.timezone).format('H'));
             // console.log(data.hourly.data[i]);
 
             tempcolor = 'darkred';
@@ -190,10 +208,10 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
         var y = 0;
         for (i = 0; i < 7; i++) {
             y++;
-            var dailytime = moment.unix(data.daily.data[i].time).format('dddd Do MMMM');
+            var dailytime = moment.unix(data.daily.data[i].time).tz(data.timezone).format('dddd Do MMMM');
             var dailysum = data.daily.data[i].summary;
             var daysumicon = data.daily.data[i].icon;
-
+            console.log(i, daysumicon);
             var daymoonPhase = data.daily.data[i].moonPhase;
             var daycloudCover = (data.daily.data[i].cloudCover * 100).toFixed(0) + "%";
             var dayhumidity = (data.daily.data[i].humidity * 100).toFixed(0) + "%";
@@ -202,9 +220,9 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
             var daypressure = data.daily.data[i].pressure + " hPa";
             var dayvisibility = data.daily.data[i].visibility + " km";
             var dayuvIndex = data.daily.data[i].uvIndex;
-            var dayuvIndexTime = moment.unix(data.daily.data[i].uvIndexTime).format('HH:mm')
+            var dayuvIndexTime = moment.unix(data.daily.data[i].uvIndexTime).tz(data.timezone).format('HH:mm')
             var dayprecipProbability = (data.daily.data[i].precipProbability * 100).toFixed(0) + "%";
-            var dayprecipIntensityMaxTime = moment.unix(data.daily.data[i].precipIntensityMaxTime).format('HH:mm:ss')
+            var dayprecipIntensityMaxTime = moment.unix(data.daily.data[i].precipIntensityMaxTime).tz(data.timezone).format('HH:mm:ss')
             var dayprecipType = data.daily.data[i].precipType;
             var dayprecipShow = '';
             if (!dayprecipType) {
@@ -213,18 +231,18 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
 
             var dailytemperatureHigh = data.daily.data[i].temperatureHigh.toFixed(1) + "&deg;C";
             var dailytemperatureLow = data.daily.data[i].temperatureLow.toFixed(1) + "&deg;C";
-            var dailytemperatureHighTime = moment.unix(data.daily.data[i].temperatureHighTime).format('HH:mm');
-            var dailytemperatureLowTime = moment.unix(data.daily.data[i].temperatureLowTime).format('HH:mm');
+            var dailytemperatureHighTime = moment.unix(data.daily.data[i].temperatureHighTime).tz(data.timezone).format('HH:mm');
+            var dailytemperatureLowTime = moment.unix(data.daily.data[i].temperatureLowTime).tz(data.timezone).format('HH:mm');
             var dailyapparentTemperatureHigh = data.daily.data[i].apparentTemperatureHigh.toFixed(1) + "&deg;C";
             var dailyapparentTemperatureLow = data.daily.data[i].apparentTemperatureLow.toFixed(1) + "&deg;C";
-            var dailyapparentTemperatureHighTime = moment.unix(data.daily.data[i].apparentTemperatureHighTime).format('HH:mm');
-            var dailyapparentTemperatureLowTime = moment.unix(data.daily.data[i].apparentTemperatureLowTime).format('HH:mm');
-            var dailysunrise = moment.unix(data.daily.data[i].sunriseTime).format('HH:mm');
-            var dailysunset = moment.unix(data.daily.data[i].sunsetTime).format('HH:mm');
-            var dailysunriseHour = parseFloat(moment.unix(data.daily.data[i].sunriseTime).format('H'));
-            var dailysunsetHour = parseFloat(moment.unix(data.daily.data[i].sunsetTime).format('H'));
-            var dailysunriseMinute = parseFloat(moment.unix(data.daily.data[i].sunriseTime).format('m'));
-            var dailysunsetMinute = parseFloat(moment.unix(data.daily.data[i].sunsetTime).format('m'));
+            var dailyapparentTemperatureHighTime = moment.unix(data.daily.data[i].apparentTemperatureHighTime).tz(data.timezone).format('HH:mm');
+            var dailyapparentTemperatureLowTime = moment.unix(data.daily.data[i].apparentTemperatureLowTime).tz(data.timezone).format('HH:mm');
+            var dailysunrise = moment.unix(data.daily.data[i].sunriseTime).tz(data.timezone).format('HH:mm');
+            var dailysunset = moment.unix(data.daily.data[i].sunsetTime).tz(data.timezone).format('HH:mm');
+            var dailysunriseHour = parseFloat(moment.unix(data.daily.data[i].sunriseTime).tz(data.timezone).format('H'));
+            var dailysunsetHour = parseFloat(moment.unix(data.daily.data[i].sunsetTime).tz(data.timezone).format('H'));
+            var dailysunriseMinute = parseFloat(moment.unix(data.daily.data[i].sunriseTime).tz(data.timezone).format('m'));
+            var dailysunsetMinute = parseFloat(moment.unix(data.daily.data[i].sunsetTime).tz(data.timezone).format('m'));
             var dailysunrisePercent = ((dailysunriseHour / 24 + dailysunriseMinute / 1440) * 100).toFixed(2);
             var dailysunsetPercent = ((dailysunsetHour / 24 + dailysunsetMinute / 1440) * 100).toFixed(2);
 
@@ -233,7 +251,7 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
             iconvalue.forEach(function (item, i) {
                 if (item == daysumicon) {
                     mainIconbig = iconimagebig[i];
-                    console.log('icon-', daysumicon);
+                    console.log('icon-', i, daysumicon);
                 }
             });
             $(".daily").append(
@@ -253,12 +271,6 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
                 '<b> - ' + dailytemperatureHighTime + '</b>' +
                 '<p>tempLow</p><b>' + dailytemperatureLow + '</b>' +
                 '<b> - ' + dailytemperatureLowTime + '</b>' +
-                '</div>' +
-                '<div>' +
-                '<p>apparentTempHigh</p><b>' + dailyapparentTemperatureHigh + '</b>' +
-                '<b> - ' + dailyapparentTemperatureHighTime + '</b>' +
-                '<p>tempHigh</p><b>' + dailyapparentTemperatureLow + '</b>' +
-                '<b> - ' + dailyapparentTemperatureLowTime + '</b>' +
                 '</div>' +
                 '<div>' +
                 '<p>moonPhase</p><b>' + daymoonPhase + '</b>' +
@@ -285,8 +297,8 @@ function mainWeather(weatherLat, weatherLong, timeOffset) {
         }
         $("#lvivcity").html(data.timezone);
         $("#lvivtemp").html(data.currently.temperature.toFixed(1) + "&deg;C");
-        $("#lvivtempapp").html(data.currently.apparentTemperature.toFixed(1) + "&deg;C");
-        $("#lvivtime").text(moment.unix(data.currently.time).format('HH:mm:ss'));
+        // $("#lvivtempapp").html(data.currently.apparentTemperature.toFixed(1) + "&deg;C");
+        $("#lvivtime").text(moment.unix(data.currently.time).tz(data.timezone).format('HH:mm:ss'));
         $("#lvivsum").html(data.currently.summary);
         $("#sumhr").html(data.hourly.summary);
         $("#lvivsumdaily").html(data.daily.summary);
