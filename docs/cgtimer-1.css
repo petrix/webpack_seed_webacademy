@@ -39,6 +39,15 @@ body {
 
 main {
   margin: 0 auto; }
+  main > section {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
+    -ms-flex-align: start;
+        align-items: flex-start; }
 
 p {
   text-decoration: none;
@@ -54,7 +63,8 @@ p {
 
 .timer-module {
   -ms-transform: translate(560px, 560px);
-      transform: translate(560px, 560px); }
+      transform: translate(560px, 560px);
+  display: block; }
   .timer-module > .current-time {
     position: absolute;
     -ms-transform: translate(-317px, -6px);
@@ -138,9 +148,8 @@ article {
     background-color: #000; } }
 
 .right-column {
-  -ms-transform: translateX(1220px);
-      transform: translateX(1220px);
-  width: 640px;
+  min-width: 500px;
+  width: 45%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;

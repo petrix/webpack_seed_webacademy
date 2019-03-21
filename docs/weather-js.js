@@ -17624,7 +17624,7 @@ var onIdlePositionView = document.getElementById('onIdlePositionView');
 var lp = new locationPicker('map', {
     setCurrentPosition: true // You can omit this, defaults to true
 }, {
-    zoom: 5 // You can set any google map options here, zoom defaults to 15
+    zoom: 15 // You can set any google map options here, zoom defaults to 15
 });
 var weatherLat, weatherLong;
 // Listen to button onclick event
@@ -17664,8 +17664,8 @@ function mainWeather(weatherLat, weatherLong) {
     var iconimage = ['<div class="icon clear-day"></div>', '<div class="icon cloudy"></div>', '<div class="icon snow"></div>', '<div class="icon partly-cloudy-day"></div>', '<div class="icon partly-cloudy-night"></div>', '<div class="icon fog"></div>', '<div class="icon rain"></div>', '<div class="icon wind"></div>', '<div class="icon clear-night"></div>'];
     var iconimagebig = ['<div class="iconbig clear-day"></div>', '<div class="iconbig cloudy"></div>', '<div class="iconbig snow"></div>', '<div class="iconbig partly-cloudy-day"></div>', '<div class="iconbig partly-cloudy-night"></div>', '<div class="iconbig fog"></div>', '<div class="iconbig rain"></div>', '<div class="iconbig wind"></div>', '<div class="iconbig clear-night"></div>'];
 
-    moment.locale('be');
-    $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=be&callback=?", function (data) {
+    moment.locale('ru');
+    $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=ru&callback=?", function (data) {
         console.log(data.timezone);
         moment().tz(data.timezone).format();
 
@@ -17687,7 +17687,7 @@ function mainWeather(weatherLat, weatherLong) {
             var temp = data.hourly.data[i].temperature.toFixed(1);
             var sumicon = data.hourly.data[i].icon;
             console.log(i, sumicon);
-            var humidity = data.hourly.data[i].humidity * 100;
+            var humidity = (data.hourly.data[i].humidity * 100).toFixed(0);
             sunrise = parseFloat(moment.unix(data.daily.data[0].sunriseTime).tz(data.timezone).format('H'));
             sunset = parseFloat(moment.unix(data.daily.data[0].sunsetTime).tz(data.timezone).format('H'));
             // console.log(data.hourly.data[i]);
