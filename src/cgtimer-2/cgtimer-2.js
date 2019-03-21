@@ -5,7 +5,11 @@ var moment = require('moment');
 var notifyUser = require('./js/notifications.js');
 var GesturePasswd = require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
-    var socket = io('http://p3xx.tk:4000');
+    var socket = io.connect('https://p3xx.tk:4001', {
+        secure: true,
+        reconnect: true,
+        rejectUnauthorized: false
+    });
     var response = $.get("https://ipinfo.io", function (response) {
         console.log(response.ip, response.country, response.loc, response);
     }, "jsonp");
@@ -127,6 +131,9 @@ $(document).ready(function () {
         // console.log(owner);
         var servermessageUpdate = false;
         socket.on('servermessage-update', function (dDate, dTime, srvowner, srvMsg) {
+            // console.log(srvMsg);
+            var srvMsgDec = decodeURIComponent(srvMsg);
+            // console.log(srvMsgDec);
             if (!servermessageUpdate) {
                 if (!$('section.' + dDate).length) {
                     $('#messages').append('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
@@ -134,9 +141,9 @@ $(document).ready(function () {
                 var dTimeArr = dTime.split(':');
                 if (srvowner == owner) {
                     // $('#messages').find('section.' + dDate).find('p').after('<div class="ownermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
-                    $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
+                    $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsgDec + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
                 } else {
-                    $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                    $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div><span>' + srvMsgDec + '</span></div><hr>');
                 }
                 $('#messages').scrollTop($('#messages')[0].scrollHeight);
             }
@@ -264,6 +271,10 @@ $(document).ready(function () {
         });
         socket.on('cg countdown path', function (path) {
             $(window).resize(function () {});
+            var ccgWidth = $('.vtcountdown').width();
+
+            ccgPathLength = Math.floor(ccgWidth / 15);
+            console.log(ccgPathLength);
             var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
             if (ccgPath.length > ccgPathLength) {
                 ccgPath = ccgPath.substr(0, ccgPathLength - 3) + "...";
@@ -457,26 +468,27 @@ $(document).ready(function () {
         function submitMessage() {
             var message = $('#message').val();
             if (message != '') {
-                socket.emit('clientmessage', owner, message);
+                var messageEnc = encodeURIComponent(message);
+                socket.emit('clientmessage', owner, messageEnc);
                 $('#message').val('');
             }
         }
 
         socket.on('servermessage', function (dDate, dTime, srvowner, srvMsg) {
-
+            var srvMsgDec = decodeURIComponent(srvMsg);
             if (!$('section.' + dDate).length) {
-                $('#messages').prepend('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
+                $('#messages').append('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
             // var dDateArray=
             var dTimeArr = dTime.split(':');
             if (srvowner == owner) {
-                $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsg + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
+                $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsgDec + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
             } else {
-                $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div><span>' + srvMsg + '</span></div><hr>');
+                $('#messages').find('section.' + dDate).append('<div class="guestmessage"><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div><span>' + srvMsgDec + '</span></div><hr>');
             }
             $('#messages').scrollTop($('#messages')[0].scrollHeight);
             if (srvowner != owner) {
-                notifyUser(srvowner, srvMsg, 5000);
+                notifyUser(srvowner, srvMsgDec, 5000);
                 navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
             }
 

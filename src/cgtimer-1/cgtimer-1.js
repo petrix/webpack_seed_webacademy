@@ -1,5 +1,6 @@
 import './cgtimer-1.scss';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
+var io = require('socket.io-client');
 var moment = require('moment');
 
 
@@ -75,7 +76,11 @@ function updateClockInterface() {
 }
 
 
-const socket = io('http://p3xx.tk:4000');
+var socket = io.connect('https://p3xx.tk:4001', {
+    secure: true,
+    reconnect: true,
+    rejectUnauthorized: false
+});
 
 
 socket.on('connect', timesync_module);
@@ -153,6 +158,20 @@ function timesync_module() {
         if (seconds >= 59 && miliseconds > 500) {
             $('.seconds').children().removeClass('seconds-active');
         }
+
+        var timerHeight = $(window).height();
+        var timerWidth = $(window).width();
+        timerHeight = timerHeight / 2;
+        console.log(timerWidth, timerHeight);
+        var translateY = timerHeight - timerHeight / 14;
+        var scaleX = timerHeight / 600;
+        var translateX = (translateY / 2) * (scaleX + 1);
+        $('.timer-module').css({
+            transform: 'translate(' + translateY + 'px, ' + translateY + 'px) scale(' + scaleX + ')'
+        });
+        $('.right-column').css({
+            transform: 'translateX(' + (translateY * 2.2) + 'px)'
+        });
     });
     var dataClasses = ['active', 'warning', 'danger'];
     var dataDuration;
@@ -257,7 +276,11 @@ function timesync_module() {
     });
     var ccgPathLength = 35;
     socket.on('cg countdown path', function (path) {
-        // $(window).resize(function () {});
+        $(window).resize(function () {});
+        var ccgWidth = $('.vtcountdown').width();
+
+        ccgPathLength = Math.floor(ccgWidth / 22);
+        // console.log(ccgPathLength);
         var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
         if (ccgPath.length > ccgPathLength) {
             ccgPath = ccgPath.substr(0, ccgPathLength - 3) + "...";

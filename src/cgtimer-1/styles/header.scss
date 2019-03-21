@@ -19,7 +19,12 @@ main {
     // &>section {
     //     @include flex-row;
     // }
-
+    &>section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }
 
 p {
@@ -37,11 +42,12 @@ p {
 
 .timer-module {
     transform: translate(560px, 560px);
+    display: block;
 
     &>.current-time {
         position: absolute;
-    transform: translate(-317px, -6px);
-    font-size: 200px;
+        transform: translate(-317px, -6px);
+        font-size: 200px;
         color: #ff8f00;
     }
 
@@ -115,7 +121,7 @@ p {
         &>div {
             width: 20px;
             height: 52px;
-// border-radius: 5px;
+            // border-radius: 5px;
 
         }
 
@@ -155,8 +161,9 @@ article {
 }
 
 .right-column {
-    transform: translateX(1220px);
-    width: 640px;
+    // transform: translateX(1220px);
+    min-width: 500px;
+    width: 45%;
     @include flex-column;
     align-items: center;
     justify-content: center;
