@@ -27075,9 +27075,7 @@ $(document).ready(function () {
     if ("vibrate" in navigator) {
         // vibration API supported
         navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-        // console.log('vibrate!');
     }
-    // $('p').click(function () {
     var chatWindow = false;
     // $('.dircountdown-module').on('click', 'p', function () {
     $('.dircountdown-module article p').on('click', 'button', function () {
@@ -27087,7 +27085,6 @@ $(document).ready(function () {
         } else {
             if (!chatWindow) {
                 $(this).parent().parent().toggleClass('module-slideup').parent().children('article').not($(this).parent().parent()).hide();
-                console.log($(this).text());
                 chatWindow = true;
             } else {
                 $(this).parent().parent().toggleClass('module-slideup').parent().children('article').not($(this).parent().parent()).show();
@@ -27182,13 +27179,9 @@ $(document).ready(function () {
         socket.emit('ip-get', true);
         socket.emit('countdown-get', true);
         socket.emit('read-servermessage', owner);
-        // socket.emit('user-online', owner);
-        // console.log(owner);
         var servermessageUpdate = false;
         socket.on('servermessage-update', function (dDate, dTime, srvowner, srvMsg) {
-            // console.log(srvMsg);
             var srvMsgDec = decodeURIComponent(srvMsg);
-            // console.log(srvMsgDec);
             if (!servermessageUpdate) {
                 if (!$('section.' + dDate).length) {
                     $('#messages').append('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
@@ -27206,10 +27199,6 @@ $(document).ready(function () {
         socket.on('servermessage-updated', function () {
             servermessageUpdate = true;
         });
-        // socket.on('check-user', function (x) {
-        //     console.log('check-user' + x);
-        //     socket.emit('user-online', owner);
-        // });
         socket.on('timeofday', function (currentTime) {
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });
@@ -27272,7 +27261,6 @@ $(document).ready(function () {
         });
 
         socket.on('cg countdown active', function (ccgData) {
-            // console.log(ccgData);
             if (ccgData != 'playing') {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
@@ -27292,7 +27280,6 @@ $(document).ready(function () {
             vtMinutes = (vtMinutes < 10 ? "0" : "") + vtMinutes;
             vtSeconds = (vtSeconds < 10 ? "0" : "") + vtSeconds;
             $('.vtcountdown-digits').text(vtHours + ':' + vtMinutes + ':' + vtSeconds);
-            // console.log(time);
             if (time > 20) {
                 dataClasses.forEach(function (item) {
                     $('.vtcountdown').removeClass(item);
@@ -27321,9 +27308,7 @@ $(document).ready(function () {
         socket.on('cg countdown path', function (path) {
             $(window).resize(function () {});
             var ccgWidth = $('.vtcountdown').width();
-
             ccgPathLength = Math.floor(ccgWidth / 15);
-            console.log(ccgPathLength);
             var ccgPath = path.split("/").pop().replace(".mov", "").replace(".mp4", "").replace(".avi", "");
             if (ccgPath.length > ccgPathLength) {
                 ccgPath = ccgPath.substr(0, ccgPathLength - 3) + "...";
@@ -27333,7 +27318,6 @@ $(document).ready(function () {
 
         ////////////////----CCG OUTDATA
         socket.on('cg countdown outdata', function (outTime) {
-            // console.log(outTime);
             var mTime = moment.unix(outTime).format('HH:mm:ss');
             $('.vtouttime-digits').text(mTime);
         });
@@ -27383,7 +27367,6 @@ $(document).ready(function () {
                 if (item == buttonValue) {
                     navigator.vibrate([50]); // Бесконечная вибрация.
                     socket.emit(emitVal[i]);
-                    console.log(buttonValue + '---' + emitVal[i]);
                 }
             });
         });
@@ -27394,7 +27377,6 @@ $(document).ready(function () {
             btnVal.forEach(function (item, i) {
                 if (item == buttonValue) {
                     socket.emit(emitVal[i]);
-                    console.log(emitVal[i]);
                 }
             });
         });
@@ -27525,7 +27507,6 @@ $(document).ready(function () {
             if (!$('section.' + dDate).length) {
                 $('#messages').append('<section class="' + dDate + '"><p>' + dDate + '</p></section>');
             }
-            // var dDateArray=
             var dTimeArr = dTime.split(':');
             if (srvowner == owner) {
                 $('#messages').find('section.' + dDate).append('<div class="ownermessage"><span>' + srvMsgDec + '</span><div><div><span>' + dTimeArr[0] + '</span><div><span>' + dTimeArr[1] + '</span><span>' + dTimeArr[2] + '</span></div></div><span>' + srvowner + '</span></div></div><hr>');
