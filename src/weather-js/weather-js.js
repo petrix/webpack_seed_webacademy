@@ -12,7 +12,7 @@ var onIdlePositionView = document.getElementById('onIdlePositionView');
 var lp = new locationPicker('map', {
     setCurrentPosition: true, // You can omit this, defaults to true
 }, {
-    zoom: 5 // You can set any google map options here, zoom defaults to 15
+    zoom: 15 // You can set any google map options here, zoom defaults to 15
 });
 var weatherLat, weatherLong;
 // Listen to button onclick event
@@ -77,8 +77,8 @@ function mainWeather(weatherLat, weatherLong) {
         '<div class="iconbig clear-night"></div>'
     ];
 
-    moment.locale('be');
-    $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=be&callback=?", function (data) {
+    moment.locale('ru');
+    $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=ru&callback=?", function (data) {
         console.log(data.timezone);
         moment().tz(data.timezone).format();
 
@@ -100,7 +100,7 @@ function mainWeather(weatherLat, weatherLong) {
             var temp = data.hourly.data[i].temperature.toFixed(1);
             var sumicon = data.hourly.data[i].icon;
             console.log(i, sumicon);
-            var humidity = data.hourly.data[i].humidity * 100;
+            var humidity = (data.hourly.data[i].humidity * 100).toFixed(0);
             sunrise = parseFloat(moment.unix(data.daily.data[0].sunriseTime).tz(data.timezone).format('H'));
             sunset = parseFloat(moment.unix(data.daily.data[0].sunsetTime).tz(data.timezone).format('H'));
             // console.log(data.hourly.data[i]);
