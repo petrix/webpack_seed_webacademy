@@ -444,10 +444,11 @@ svg {
 }
 
 .chat {
-    height: 500px;
+    height: 90vh;
     padding: 10px;
 
     &>div#messages {
+        height: 80vh;
         width: 100%;
         max-width: 500px;
         height: 420px;

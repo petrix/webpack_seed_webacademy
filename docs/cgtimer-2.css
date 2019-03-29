@@ -7797,9 +7797,10 @@ svg {
           width: 100%; }
 
 .chat {
-  height: 500px;
+  height: 90vh;
   padding: 10px; }
   .chat > div#messages {
+    height: 80vh;
     width: 100%;
     max-width: 500px;
     height: 420px;
