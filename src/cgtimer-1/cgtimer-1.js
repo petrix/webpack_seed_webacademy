@@ -5,15 +5,10 @@ var moment = require('moment');
 
 
 // socket.on('connect', onConnect);
-// $(document).ready(function () {
+$(document).on("contextmenu", function () {
+    return false;
+});
 
-// function onConnect() {
-//     console.log('connect ' + socket.id);
-// }
-// var response = $.get("https://ipinfo.io", function (response) {
-//     console.log(response.ip, response.country, response.loc, response);
-//     // responseLoc = response.loc;
-// }, "jsonp");
 var div = 360 / 60;
 var secRadius = 500;
 var minRadius = 560;
@@ -75,7 +70,6 @@ function updateClockInterface() {
     }
 }
 
-
 var socket = io.connect('https://p3xx.tk:4001', {
     secure: true,
     reconnect: true,
@@ -105,21 +99,10 @@ function timesync_module() {
             'filter': 'brightness(' + brightnessValue + '%)'
         });
     });
-    // var windowWidth = $(window).width();
-    // console.log(windowWidth);
-    // $('.timer-module').css(
-    //     'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
-    // );
-    // $(window).on('resize', function () {
-    //     windowWidth = $(window).width();
-    //     console.log(windowWidth);
-    //     $('.timer-module').css(
-    //         'transform', 'translate(' + (1920 - ((windowWidth / 2) + 1080 + minRadius / 2)) + 'px,' + minRadius + 'px)'
-    //     );
-    // });
+
     socket.on('timeofday', function (newDate) {
         // socket.emit('current time', newDate);
-
+        console.log(newDate);
         date = new Date(newDate);
         hours = date.getHours();
         minutes = date.getMinutes();
@@ -302,5 +285,4 @@ function timesync_module() {
     socket.on('cg volume 2ch', function (volRightCh) {
         $('.vtcountdown-progress-au2').css('width', (90 + volRightCh).toFixed(1) + "%");
     });
-
 }
