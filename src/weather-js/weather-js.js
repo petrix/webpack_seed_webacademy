@@ -85,6 +85,7 @@ function mainWeather(weatherLat, weatherLong) {
         var lvivicon = data.currently.icon;
         var lvivsumicon = data.hourly.icon;
         var tempcolor = 'darkred';
+        var daynightColor = '#006ac0';
         var tempheight;
         var x = 0;
         var mainIcon, mainIconbig;
@@ -113,30 +114,33 @@ function mainWeather(weatherLat, weatherLong) {
             }
             if (timehr >= sunset) {
                 classDayNight = 'night';
+                daynightColor = '#006ac0';
             } else if (timehr <= sunrise) {
                 classDayNight = 'night';
+                daynightColor = '#006ac0';
             } else {
                 classDayNight = 'day';
+                daynightColor = '#c07600';
             }
             iconvalue.forEach(function (item, i) {
                 if (item == sumicon) {
                     mainIcon = iconimage[i];
                 }
             });
+            tempheight *= 2;
             $(".sumhr1").append(
-                '<div class="' + classDayNight + ' ' + timeclass + '">' +
+                '<div class="' + classDayNight + ' ' + timeclass + '" style="background-image: linear-gradient(to top,' + tempcolor + ' ' + (tempheight - 2) + '%,' + daynightColor + ' ' + tempheight + '%' + ')">' +
                 '<article>' +
                 '<b>' + time + '</b>' +
                 '<p>' + 'wind:' + '</p>' +
                 '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' +
                 '<article><b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b>' + '<p>' + 'M/s' + '</p>' + '</article>' +
                 '<i class="fas fa-tint"></i>' + '<b>' + humidity + '%' + '</b>' +
-                '</article>' +
+
                 '<article>' +
                 mainIcon +
                 '<p>' + 'temp:' + '</p>' +
                 '<b>' + temp + "&deg;" + '</b>' +
-                '<article style="height:' + tempheight * 10 + 'px;' + 'background-color:' + tempcolor + '">' +
                 '</article>' +
                 '</article>' +
                 '</div>'
@@ -160,6 +164,7 @@ function mainWeather(weatherLat, weatherLong) {
             // console.log(data.hourly.data[i]);
 
             tempcolor = 'darkred';
+            var daynightColor = '#006ac0';
             if (temp < 0) {
                 tempheight = temp * -1;
                 tempcolor = 'blue';
@@ -169,37 +174,34 @@ function mainWeather(weatherLat, weatherLong) {
             }
             if (timehr >= sunset) {
                 classDayNight = 'night';
+                daynightColor = '#006ac0';
             } else if (timehr <= sunrise) {
                 classDayNight = 'night';
+                daynightColor = '#006ac0';
             } else {
                 classDayNight = 'day';
+                daynightColor = '#c07600';
             }
             iconvalue.forEach(function (item, i) {
                 if (item == sumicon) {
                     mainIcon = iconimage[i];
                 }
             });
+            tempheight *= 2;
             $(".sumhr2").append(
-                '<div class="' + classDayNight + ' ' + timeclass + '">' +
+                '<div class="' + classDayNight + ' ' + timeclass + '" style="background-image: linear-gradient(to top,' + tempcolor + ' ' + (tempheight - 2) + '%,' + daynightColor + ' ' + tempheight + '%' + ')">' +
                 '<article>' +
                 '<b>' + time + '</b>' +
                 '<p>' + 'wind:' + '</p>' +
                 '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' +
                 '<article><b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b>' + '<p>' + 'M/s' + '</p>' + '</article>' +
                 '<i class="fas fa-tint"></i>' + '<b>' + humidity + '%' + '</b>' +
-                '</article>' +
                 '<article>' +
-
                 mainIcon +
-
                 '<p>' + 'temp:' + '</p>' +
                 '<b>' + temp + "&deg;" + '</b>' +
-
-                '<article style="height:' + tempheight * 10 + 'px;' + 'background-color:' + tempcolor + '">' +
                 '</article>' +
-
                 '</article>' +
-
                 '</div>'
             );
         }

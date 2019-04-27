@@ -6941,27 +6941,15 @@ b {
         -ms-flex-direction: column;
             flex-direction: column;
         width: 100%; }
-        .hourly > article > div > article > article > span {
-          font-size: 22px; }
-        .hourly > article > div > article > article > p {
-          padding: 5px 0; }
-        .hourly > article > div > article > article > b {
-          padding: 5px 0; }
-        .hourly > article > div > article > :nth-last-child(0) {
-          /* height: 200px; */
-          background-color: darkred;
-          border-radius: 10px;
-          /* width: 90%; */
+        .hourly > article > div > article > article {
           display: -ms-flexbox;
           display: flex;
-          -ms-flex-pack: distribute;
-              justify-content: space-around;
-          -ms-flex-align: center;
-              align-items: center;
-          margin-bottom: 0px; }
+          -ms-flex-direction: column;
+              flex-direction: column;
+          padding-top: 5px; }
 
 .precip {
-  background-color: rgba(139, 0, 0, 0.8);
+  background-color: rgba(139, 0, 0, 0.7);
   height: 100%;
   border-radius: 10px; }
 
