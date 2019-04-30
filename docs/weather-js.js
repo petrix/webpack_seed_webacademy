@@ -17718,7 +17718,7 @@ function mainWeather(weatherLat, weatherLong) {
                 }
             });
             tempheight *= 2;
-            $(".sumhr1").append('<div class="' + classDayNight + ' ' + timeclass + '" style="background-image: linear-gradient(to top,' + tempcolor + ' ' + (tempheight - 2) + '%,' + daynightColor + ' ' + tempheight + '%' + ')">' + '<article>' + '<b>' + time + '</b>' + '<p>' + 'wind:' + '</p>' + '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' + '<article><b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b>' + '<p>' + 'M/s' + '</p>' + '</article>' + '<i class="fas fa-tint"></i>' + '<b>' + humidity + '%' + '</b>' + '<article>' + mainIcon + '<p>' + 'temp:' + '</p>' + '<b>' + temp + "&deg;" + '</b>' + '</article>' + '</article>' + '</div>');
+            $(".sumhr1").append('<div class="' + classDayNight + ' ' + timeclass + '" style="background-image: linear-gradient(to top,' + tempcolor + ' ' + (tempheight - 2) + '%,' + daynightColor + ' ' + tempheight + '%' + ')">' + '<article>' + '<b>' + time + '</b>' + '<p>' + 'wind:' + '</p>' + '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' + '<b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b>' + '<p>' + 'M/s' + '</p>' + '<hr>' + '<i class="fas fa-tint"></i>' + '<b>' + humidity + '%' + '</b>' + '<hr>' + mainIcon + '<hr>' + '<p>' + 'temp:' + '</p>' + '<b>' + temp + "&deg;" + '</b>' + '</article>' + '</div>');
         }
 
         x = 24;
@@ -17762,7 +17762,7 @@ function mainWeather(weatherLat, weatherLong) {
                 }
             });
             tempheight *= 2;
-            $(".sumhr2").append('<div class="' + classDayNight + ' ' + timeclass + '" style="background-image: linear-gradient(to top,' + tempcolor + ' ' + (tempheight - 2) + '%,' + daynightColor + ' ' + tempheight + '%' + ')">' + '<article>' + '<b>' + time + '</b>' + '<p>' + 'wind:' + '</p>' + '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' + '<article><b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b>' + '<p>' + 'M/s' + '</p>' + '</article>' + '<i class="fas fa-tint"></i>' + '<b>' + humidity + '%' + '</b>' + '<article>' + mainIcon + '<p>' + 'temp:' + '</p>' + '<b>' + temp + "&deg;" + '</b>' + '</article>' + '</article>' + '</div>');
+            $(".sumhr2").append('<div class="' + classDayNight + ' ' + timeclass + '" style="background-image: linear-gradient(to top,' + tempcolor + ' ' + (tempheight - 2) + '%,' + daynightColor + ' ' + tempheight + '%' + ')">' + '<article>' + '<b>' + time + '</b>' + '<p>' + 'wind:' + '</p>' + '<i class="fas fa-long-arrow-alt-up" style="transform: rotate(' + data.hourly.data[i].windBearing + 'deg)"></i>' + '<b>' + data.hourly.data[i].windSpeed.toFixed(1) + '</b>' + '<p>' + 'M/s' + '</p>' + '<hr>' + '<i class="fas fa-tint"></i>' + '<b>' + humidity + '%' + '</b>' + '<hr>' + mainIcon + '<hr>' + '<p>' + 'temp:' + '</p>' + '<b>' + temp + "&deg;" + '</b>' + '</article>' + '</div>');
         }
 
         var y = 0;
@@ -17782,7 +17782,7 @@ function mainWeather(weatherLat, weatherLong) {
             var dayuvIndex = data.daily.data[i].uvIndex;
             var dayuvIndexTime = moment.unix(data.daily.data[i].uvIndexTime).tz(data.timezone).format('HH:mm');
             var dayprecipProbability = (data.daily.data[i].precipProbability * 100).toFixed(0) + "%";
-            var dayprecipIntensityMaxTime = moment.unix(data.daily.data[i].precipIntensityMaxTime).tz(data.timezone).format('HH:mm:ss');
+            var dayprecipIntensityMaxTime = moment.unix(data.daily.data[i].precipIntensityMaxTime).tz(data.timezone).format('HH:mm');
             var dayprecipType = data.daily.data[i].precipType;
             var dayprecipShow = '';
             if (!dayprecipType) {
@@ -17814,12 +17814,17 @@ function mainWeather(weatherLat, weatherLong) {
                     console.log('icon-', i, daysumicon);
                 }
             });
-            $(".daily").append('<div class="row1">' + '<span>' + dailytime + '</span>' + mainIconbig + '</div>' + '<span>' + dailysum + '</span>' + '<div class="row2" style="background-image: linear-gradient(to right,#006ac0 ' + (dailysunrisePercent - 1) + '%,' + '#c07600 ' + dailysunrisePercent + '%,' + '#c07600 ' + (dailysunsetPercent - 1) + '%,' + '#006ac0 ' + dailysunsetPercent + '%' + ')">' + '<div>' + '<p>sunrise</p><b>' + dailysunrise + '</b>' + '<p>sunset</p><b>' + dailysunset + '</b>' + '</div>' + '<div>' + '<p>tempHigh</p><b>' + dailytemperatureHigh + '</b>' + '<b> - ' + dailytemperatureHighTime + '</b>' + '<p>tempLow</p><b>' + dailytemperatureLow + '</b>' + '<b> - ' + dailytemperatureLowTime + '</b>' + '</div>' + '<div>' + '<p>moonPhase</p><b>' + daymoonPhase + '</b>' + '<p>visibility</p><b>' + dayvisibility + '</b>' + '<p>pressure</p><b>' + daypressure + '</b>' + '</div>' + '<div>' + '<p>cloudCover</p><b>' + daycloudCover + '</b>' + '<p>humidity</p><b>' + dayhumidity + '</b>' + '<p>dewPoint</p><b>' + daydewPoint + '</b>' + '</div>' + '<div>' + '<p>ozone</p><b>' + dayozone + '</b>' + '<p>uvIndex</p><b>' + dayuvIndex + '</b>' + '<b> - ' + dayuvIndexTime + '</b>' + '</div>' + '<div class="precip' + dayprecipShow + '">' + '<p>precipProbability</p><b>' + dayprecipProbability + '</b>' + '<b> - ' + dayprecipIntensityMaxTime + '</b>' + '<b> - ' + dayprecipType + '</b>' + '</div>' + '</div>');
+            $(".daily").append('<article><div class="row1">' + '<span>' + dailytime + '</span>' + mainIconbig + '</div>' + '<hr>' + '<span>' + dailysum + '</span>' + '<div class="precip' + dayprecipShow + '">' + '<b>' + dayprecipProbability + ' - </b>' + '<b>' + dayprecipIntensityMaxTime + ' - ' + dayprecipType + '</b>' + '</div>' + '<div class="row2" style="background-image: linear-gradient(to right,#006ac0 ' + (dailysunrisePercent - 1) + '%,' + '#c07600 ' + dailysunrisePercent + '%,' + '#c07600 ' + (dailysunsetPercent - 1) + '%,' + '#006ac0 ' + dailysunsetPercent + '%' + ')">' + '<div>' + '<p>sunrise</p><b>' + dailysunrise + '</b>' + '<p>sunset</p><b>' + dailysunset + '</b>' + '</div>' + '<div>' + '<p>tempHigh</p><b>' + dailytemperatureHigh + '</b>' + '<b> - ' + dailytemperatureHighTime + '</b>' + '<p>tempLow</p><b>' + dailytemperatureLow + '</b>' + '<b> - ' + dailytemperatureLowTime + '</b>' + '</div>' + '<div>' + '<p>moonPhase</p><b>' + daymoonPhase + '</b>' + '<p>visibility</p><b>' + dayvisibility + '</b>' + '<p>pressure</p><b>' + daypressure + '</b>' + '</div>' + '<div>' + '<p>cloudCover</p><b>' + daycloudCover + '</b>' + '<p>humidity</p><b>' + dayhumidity + '</b>' + '<p>dewPoint</p><b>' + daydewPoint + '</b>' + '</div>' + '<div>' + '<p>ozone</p><b>' + dayozone + '</b>' + '<p>uvIndex</p><b>' + dayuvIndex + '</b>' + '<b> - ' + dayuvIndexTime + '</b>' + '</div>' +
+            // '<div class="precip' + dayprecipShow + '">' +
+            // '<b>' + dayprecipProbability + '</b>' +
+            // '<b>' + dayprecipIntensityMaxTime + ' - ' + dayprecipType +'</b>' +
+            // '</div>' +
+            '</div></article>');
         }
         $("#lvivcity").html(data.timezone);
+        $("#lvivtime").text(moment.unix(data.currently.time).tz(data.timezone).format('HH:mm:ss'));
         $("#lvivtemp").html(data.currently.temperature.toFixed(1) + "&deg;C");
         // $("#lvivtempapp").html(data.currently.apparentTemperature.toFixed(1) + "&deg;C");
-        $("#lvivtime").text(moment.unix(data.currently.time).tz(data.timezone).format('HH:mm:ss'));
         $("#lvivsum").html(data.currently.summary);
         $("#sumhr").html(data.hourly.summary);
         $("#lvivsumdaily").html(data.daily.summary);
