@@ -80,6 +80,7 @@ function mainWeather(weatherLat, weatherLong) {
     moment.locale('ru');
     $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=ru&callback=?", function (data) {
         console.log(data.timezone);
+        console.log(data.daily.data[2]);
         moment().tz(data.timezone).format();
 
         var lvivicon = data.currently.icon;
@@ -100,7 +101,7 @@ function mainWeather(weatherLat, weatherLong) {
             var sum = data.hourly.data[i].summary;
             var temp = data.hourly.data[i].temperature.toFixed(1);
             var sumicon = data.hourly.data[i].icon;
-            console.log(i, sumicon);
+            // console.log(i, sumicon);
             var humidity = (data.hourly.data[i].humidity * 100).toFixed(0);
             sunrise = parseFloat(moment.unix(data.daily.data[0].sunriseTime).tz(data.timezone).format('H'));
             sunset = parseFloat(moment.unix(data.daily.data[0].sunsetTime).tz(data.timezone).format('H'));
@@ -158,7 +159,7 @@ function mainWeather(weatherLat, weatherLong) {
             var sum = data.hourly.data[i].summary;
             var temp = data.hourly.data[i].temperature.toFixed(1);
             var sumicon = data.hourly.data[i].icon;
-            console.log(i, sumicon);
+            // console.log(i, sumicon);
             sunrise = parseFloat(moment.unix(data.daily.data[1].sunriseTime).tz(data.timezone).format('H'));
             sunset = parseFloat(moment.unix(data.daily.data[1].sunsetTime).tz(data.timezone).format('H'));
             // console.log(data.hourly.data[i]);
@@ -214,7 +215,7 @@ function mainWeather(weatherLat, weatherLong) {
             var dailytime = moment.unix(data.daily.data[i].time).tz(data.timezone).format('dddd Do MMMM');
             var dailysum = data.daily.data[i].summary;
             var daysumicon = data.daily.data[i].icon;
-            console.log(i, daysumicon);
+            // console.log(i, daysumicon);
             var daymoonPhase = data.daily.data[i].moonPhase;
             var daycloudCover = (data.daily.data[i].cloudCover * 100).toFixed(0) + "%";
             var dayhumidity = (data.daily.data[i].humidity * 100).toFixed(0) + "%";
@@ -254,7 +255,7 @@ function mainWeather(weatherLat, weatherLong) {
             iconvalue.forEach(function (item, i) {
                 if (item == daysumicon) {
                     mainIconbig = iconimagebig[i];
-                    console.log('icon-', i, daysumicon);
+                    // console.log('icon-', i, daysumicon);
                 }
             });
             $(".daily").append(
@@ -266,8 +267,7 @@ function mainWeather(weatherLat, weatherLong) {
                 '<span>' + dailysum + '</span>' +
 
                 '<div class="precip' + dayprecipShow + '">' +
-                '<b>' + dayprecipProbability + ' - </b>' +
-                '<b>' + dayprecipIntensityMaxTime + ' - ' + dayprecipType + '</b>' +
+                '<b>' + dayprecipProbability + ' - '+ dayprecipIntensityMaxTime + ' - ' + dayprecipType+'</b>' +
                 '</div>' +
 
                 '<div class="row2" style="background-image: linear-gradient(to right,#006ac0 ' + (dailysunrisePercent - 1) + '%,' + '#c07600 ' + (dailysunrisePercent) + '%,' + '#c07600 ' + (dailysunsetPercent - 1) + '%,' + '#006ac0 ' + dailysunsetPercent + '%' + ')">' +
@@ -276,10 +276,10 @@ function mainWeather(weatherLat, weatherLong) {
                 '<p>sunset</p><b>' + dailysunset + '</b>' +
                 '</div>' +
                 '<div>' +
-                '<p>tempHigh</p><b>' + dailytemperatureHigh + '</b>' +
-                '<b> - ' + dailytemperatureHighTime + '</b>' +
-                '<p>tempLow</p><b>' + dailytemperatureLow + '</b>' +
-                '<b> - ' + dailytemperatureLowTime + '</b>' +
+                '<p>tempHigh</p><b>' + dailytemperatureHigh +' - '+ dailytemperatureHighTime + '</b>' +
+                // '<b> - ' + '</b>' +
+                '<p>tempLow</p><b>' + dailytemperatureLow +' - ' + dailytemperatureLowTime + '</b>' +
+                // '<b> - ' +'</b>' +
                 '</div>' +
                 '<div>' +
                 '<p>moonPhase</p><b>' + daymoonPhase + '</b>' +
