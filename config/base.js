@@ -25,7 +25,7 @@ const baseConf = (_path) => {
         // 'lesson-17': ['./src/lesson-17/lesson-17.js'],
         'cgtimer-1': ['./src/cgtimer-1/cgtimer-1.js'],
         'cgtimer-2': ['./src/cgtimer-2/cgtimer-2.js'],
-        // 'hw-8': ['./src/hw-8/hw-8.js'],
+        'hw-8': ['./src/hw-8/hw-8.js'],
         'hw-11': ['./src/hw-11/hw-11.js'],
         'hw-12': ['./src/hw-12/hw-12.js'],
         'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],

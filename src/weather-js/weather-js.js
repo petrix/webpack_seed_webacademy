@@ -12,7 +12,7 @@ var onIdlePositionView = document.getElementById('onIdlePositionView');
 var lp = new locationPicker('map', {
     setCurrentPosition: true, // You can omit this, defaults to true
 }, {
-    zoom: 15 // You can set any google map options here, zoom defaults to 15
+    zoom: 18 // You can set any google map options here, zoom defaults to 15
 });
 var weatherLat, weatherLong;
 // Listen to button onclick event
@@ -80,8 +80,9 @@ function mainWeather(weatherLat, weatherLong) {
     moment.locale('ru');
     $.getJSON(url + apiKey + "/" + weatherLat + "," + weatherLong + "?units=uk&lang=ru&callback=?", function (data) {
         console.log(data.timezone);
+        
         moment().tz(data.timezone).format();
-
+        console.log(moment().tz(data.timezone).format());
         var lvivicon = data.currently.icon;
         var lvivsumicon = data.hourly.icon;
         var tempcolor = 'darkred';
@@ -94,6 +95,7 @@ function mainWeather(weatherLat, weatherLong) {
         for (var i = 0; i < 24; i++) {
             x++;
             var timesrc = moment.unix(data.hourly.data[i].time).tz(data.timezone);
+            console.log(timesrc);            
             var time = timesrc.tz(data.timezone).tz(data.timezone).format('H:mm');
             var timehr = parseFloat(timesrc.tz(data.timezone).format('HH'));
             var timeclass = timesrc.format('l') + ' ' + timesrc.tz(data.timezone).format('HH') + '';
