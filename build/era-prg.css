@@ -7378,55 +7378,13 @@ a {
 
 body {
   margin: 0 auto;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center;
-  background-color: #000; }
+  height: 100vh;
+  background-color: chartreuse; }
 
-.calc {
-  width: 400px;
+.game {
+  width: 500px;
   height: 500px;
-  border: 2px solid #ff8f00;
-  border-radius: 23px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-      flex-direction: column; }
-  .calc > .main-screen {
-    font-family: 'DS-Digital';
-    font-weight: bold;
-    font-size: 100px;
-    color: #bbb;
-    overflow: hidden;
-    width: 90%; }
-  .calc > .buttons > section {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-rows: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-    -ms-grid-columns: 100px 100px 100px;
-        grid-template-columns: 100px 100px 100px; }
-    .calc > .buttons > section > button {
-      border: none;
-      display: inline-block;
-      outline: none;
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      border: 2px solid #ff8f00;
-      background-color: #000;
-      color: #fff;
-      transition: all 0.5s;
-      font-family: 'DS-Digital';
-      font-size: 50px; }
-      .calc > .buttons > section > button:hover {
-        background-color: #ff8f00;
-        transition: all 0.5s; }
+  background-color: brown; }
 
 @font-face {
   font-family: 'Comfortaa';

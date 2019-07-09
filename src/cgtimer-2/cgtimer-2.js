@@ -5,14 +5,24 @@ var moment = require('moment');
 var notifyUser = require('./js/notifications.js');
 var GesturePasswd = require('./js/jquery.gesture.password.js');
 $(document).ready(function () {
-    var socket = io.connect('https://p3xx.tk:4001', {
+
+
+    var response = $.get("https://ipinfo.io", function (response) {
+        console.log(response.ip, response.country, response.loc, response);
+    }, "jsonp");
+    // var sPath = window.location.pathname;
+    var sPath = window.location.origin;
+    console.log(sPath);
+
+
+
+    // var socket = io.connect('https://10.0.1.11:4001', {
+        var socket = io.connect(sPath, {
         secure: true,
         reconnect: true,
         rejectUnauthorized: false
     });
-    var response = $.get("https://ipinfo.io", function (response) {
-        console.log(response.ip, response.country, response.loc, response);
-    }, "jsonp");
+
     socket.on('connect', authentificate);
     if ("vibrate" in navigator) {
         // vibration API supported
@@ -143,6 +153,7 @@ $(document).ready(function () {
             servermessageUpdate = true;
         });
         socket.on('timeofday', function (currentTime) {
+            console.log(currentTime);
             $('.current-time-digits').text(moment(currentTime).format('HH:mm:ss'));
         });
         var dataClasses = ['active', 'warning', 'danger'];
@@ -337,7 +348,10 @@ $(document).ready(function () {
         $('.refresh').click(function () {
             socket.emit('refresh wall', 1);
         });
-
+        $('.logout').click(function () {
+            localStorage.removeItem('identity');
+            document.location.href = '/';
+        });
 
         ///////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////

@@ -60,26 +60,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 387);
+/******/ 	return __webpack_require__(__webpack_require__.s = 522);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 387:
+/***/ 522:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(388);
+module.exports = __webpack_require__(523);
 
 
 /***/ }),
 
-/***/ 388:
+/***/ 523:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(389);
+__webpack_require__(524);
 
 // import 'bootstrap';
 $('.audioDemo').trigger('load');
@@ -91,7 +91,7 @@ $('.audioDemo').trigger('play');
 
 /***/ }),
 
-/***/ 389:
+/***/ 524:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

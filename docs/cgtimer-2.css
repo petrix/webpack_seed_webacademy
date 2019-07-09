@@ -7388,7 +7388,8 @@ body {
   font-weight: bold;
   font-size: 20px;
   color: #bbb;
-  background-color: #000; }
+  background-color: #000;
+  overscroll-behavior: contain; }
 
 main {
   display: -ms-flexbox;

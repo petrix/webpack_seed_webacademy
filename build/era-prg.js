@@ -60,42 +60,37 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 421);
+/******/ 	return __webpack_require__(__webpack_require__.s = 557);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 421:
+/***/ 557:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(422);
+module.exports = __webpack_require__(558);
 
 
 /***/ }),
 
-/***/ 422:
+/***/ 558:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(423);
+__webpack_require__(559);
 
 $(document).ready(function () {
-    function drawButtons() {
-        for (var i = 1; i < 10; i++) {
-            $('.buttonsrows').append('<button>' + i + '</button>');
-            console.log(i);
-            // console.log(i);
-            // console.log();
-        }
-    }
-    drawButtons();
+
+    $('button').click(function () {
+        $('.game').append('<article><div></div><div></div><div></div><div></div></article>');
+    });
 });
 
 /***/ }),
 
-/***/ 423:
+/***/ 559:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
