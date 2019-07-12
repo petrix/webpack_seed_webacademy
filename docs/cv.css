@@ -41,9 +41,7 @@ body {
   -ms-flex-direction: row;
       flex-direction: row;
   -ms-flex-pack: center;
-      justify-content: center;
-  -ms-flex-align: center;
-      align-items: center; }
+      justify-content: center; }
 
 a:link,
 a:visited,
@@ -62,8 +60,11 @@ article {
   article > section {
     padding: 0 7%; }
 
+.header {
+  background: linear-gradient(to right, #0000 0%, #444499 5%, #444499 95%, #0000 100%); }
+
 .main-info {
-  background: linear-gradient(to right, #0000 0%, #aeaefd 5%, #aeaefd 95%, #0000 100%);
+  background: linear-gradient(to right, #0000 0%, #444461 5%, #444461 95%, #0000 100%);
   height: 250px;
   display: -ms-flexbox;
   display: flex;
@@ -76,12 +77,8 @@ article {
     height: 200px;
     border-radius: 50%;
     background-color: aqua;
-    background: url(./assets/images/p3xx.jpg) center center no-repeat;
-    background-size: cover;
-    transition: all 0.5s; }
-    .main-info > .img:hover {
-      transition: all 0.5s;
-      opacity: 1; }
+    background: url(./assets/images/p3xx.png) center center no-repeat;
+    background-size: cover; }
   .main-info > .info-val {
     display: -ms-flexbox;
     display: flex;
@@ -108,13 +105,15 @@ article {
         font-size: 20px; }
 
 .information-blocks > section {
-  padding-top: 5px;
-  padding-bottom: 5px; }
+  padding-top: 10px;
+  padding-bottom: 10px; }
   .information-blocks > section > div:nth-child(1) {
     padding-left: 7%;
     font-weight: bold; }
   .information-blocks > section > div:nth-child(2) {
     font-size: 24px; }
+  .information-blocks > section > section {
+    padding: 30px 0; }
 
 .information-blocks > :nth-child(2n) {
   background: linear-gradient(to right, #0000 0%, #444461 5%, #444461 95%, #0000 100%); }
