@@ -18,7 +18,8 @@ a:visited,
 a:focus,
 a:active {
     text-decoration: none;
-    color: rgb(192, 192, 192);
+    color: #bcbcb4;
+    text-decoration: underline;
 }
 
 article {
@@ -79,7 +80,7 @@ article {
                 height: 50px;
                 font-size: 18px;
                 padding: 15px;
-                border: 1px solid white;
+                border: 1px solid #bbb;
                 border-radius: 50%;
                 text-align: center;
             }
@@ -114,12 +115,10 @@ article {
 
     &>:nth-child(2n) {
         background: linear-gradient(to right, #0000 0%, #444461 5%, #444461 95%, #0000 100%);
-
     }
 
     &>:nth-child(2n+1) {
         background: linear-gradient(to right, #0000 0%, #444499 5%, #444499 95%, #0000 100%);
-
     }
 }
 

@@ -48,7 +48,8 @@ a:visited,
 a:focus,
 a:active {
   text-decoration: none;
-  color: silver; }
+  color: #bcbcb4;
+  text-decoration: underline; }
 
 article {
   width: 1000px;
@@ -97,7 +98,7 @@ article {
         height: 50px;
         font-size: 18px;
         padding: 15px;
-        border: 1px solid white;
+        border: 1px solid #bbb;
         border-radius: 50%;
         text-align: center; }
       .main-info > .info-val > div > span {
