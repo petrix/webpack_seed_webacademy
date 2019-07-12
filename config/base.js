@@ -23,19 +23,22 @@ const baseConf = (_path) => {
         // 'lesson-14': ['./src/lesson-14/lesson-14.js'],
         // 'lesson-15': ['./src/lesson-15/lesson-15.js'],
         // 'lesson-17': ['./src/lesson-17/lesson-17.js'],
+
         'cgtimer-1': ['./src/cgtimer-1/cgtimer-1.js'],
         'cgtimer-2': ['./src/cgtimer-2/cgtimer-2.js'],
-        'hw-8': ['./src/hw-8/hw-8.js'],
-        'hw-11': ['./src/hw-11/hw-11.js'],
-        'hw-12': ['./src/hw-12/hw-12.js'],
-        'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
-        'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
-        'hw-13': ['./src/hw-13/hw-13.js'],
-        'hw-14': ['./src/hw-14/hw-14.js'],
-        'diplom': ['./src/diplom/diplom.js'],
-        'era-prg': ['./src/era-prg/era-prg.js'],
-        'canv': ['./src/canv/canv.js'],
-        'weather-js': ['./src/weather-js/weather-js.js']
+        // 'hw-8': ['./src/hw-8/hw-8.js'],
+        // 'hw-11': ['./src/hw-11/hw-11.js'],
+        // 'hw-12': ['./src/hw-12/hw-12.js'],
+        // 'hw-12-j': ['./src/hw-12-j/hw-12-j.js'],
+        // 'hw-12-2': ['./src/hw-12-2/hw-12-2.js'],
+        // 'hw-13': ['./src/hw-13/hw-13.js'],
+        // 'hw-14': ['./src/hw-14/hw-14.js'],
+        // 'diplom': ['./src/diplom/diplom.js'],
+        // 'era-prg': ['./src/era-prg/era-prg.js'],
+        // 'canv': ['./src/canv/canv.js'],
+        'weather-js': ['./src/weather-js/weather-js.js'],
+        'cv': ['./src/cv/cv.js']
+
 
     };
 
