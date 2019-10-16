@@ -4,6 +4,16 @@ var moment = require('moment');
 // require('./js/moment-with-locales.js');
 var notifyUser = require('./js/notifications.js');
 var GesturePasswd = require('./js/jquery.gesture.password.js');
+
+
+for (var i = 0; i < 1200; i++){
+
+    
+}
+
+
+
+
 $(document).ready(function () {
 
 
