@@ -27384,6 +27384,9 @@ var moment = __webpack_require__(0);
 // require('./js/moment-with-locales.js');
 var notifyUser = __webpack_require__(531);
 var GesturePasswd = __webpack_require__(532);
+
+for (var i = 0; i < 1200; i++) {}
+
 $(document).ready(function () {
 
     var response = $.get("https://ipinfo.io", function (response) {

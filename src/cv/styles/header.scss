@@ -4,10 +4,11 @@
 body {
     margin: 0 auto;
     padding: 0;
-    background-color: rgb(65, 65, 65);
+    // background-color: rgb(65, 65, 65);
+    background-color: rgb(255, 255, 255);
     font-family: "Jura", sans-serif;
     font-weight: normal;
-    color: #fff;
+    color: rgb(47, 47, 47);
     font-size: 30px;
     @include flex-row;
     justify-content: center;
@@ -38,14 +39,16 @@ article {
         padding: 0 7%;
     }
 }
+$color1: #bbb;
+$color2: #ddd;
 .header{
-    background: linear-gradient(to right, #0000 0%, #444499 5%, #444499 95%, #0000 100%);
+    background: linear-gradient(to right, #0000 0%, #333 5%, #333 95%, #0000 100%);
 
 }
 .main-info {
 
     // background-color: rgb(174, 174, 253);
-    background: linear-gradient(to right, #0000 0%, #444461 5%, #444461 95%, #0000 100%);
+    background: linear-gradient(to right, #0000 0%, $color2 5%, $color2 95%, #0000 100%);
     height: 250px;
     @include flex-row;
     align-items: center;
@@ -98,32 +101,40 @@ article {
     &>section {
         padding-top: 10px;
         padding-bottom: 10px;
+            &>div {
+            font-size: 24px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            &>strong{
+                font-size: 18px;
 
+            }
+        }
         // height: 500px;
         &>div:nth-child(1) {
             padding-left: 7%;
             font-weight: bold;
         }
 
-        &>div:nth-child(2) {
-            font-size: 24px;
-        }
+        // &>div:nth-child(2) {
+
         &>section{
             padding: 30px 0;
         }
     }
 
     &>:nth-child(2n) {
-        background: linear-gradient(to right, #0000 0%, #444461 5%, #444461 95%, #0000 100%);
+        background: linear-gradient(to right, #0000 0%, $color1 5%, $color1 95%, #0000 100%);
     }
 
     &>:nth-child(2n+1) {
-        background: linear-gradient(to right, #0000 0%, #444499 5%, #444499 95%, #0000 100%);
+        background: linear-gradient(to right, #0000 0%, $color2 5%, $color2 95%, #0000 100%);
     }
 }
 
 .cgtimer {
-    &>section:nth-child(2) {
+    &>section:nth-child(3) {
         background: url($base-img-dir+'cgtimer.png') center center no-repeat;
         background-size: cover;
         border-radius: 10px;
@@ -132,7 +143,7 @@ article {
         margin: 10px 0;
     }
 
-    &>section:nth-child(3) {
+    &>section:nth-child(4) {
         // padding: 30px 0;
         @include flex-row;
         align-items: center;
@@ -153,7 +164,7 @@ article {
         }
     }
 
-    &>section:nth-child(4) {
+    &>section:nth-child(5) {
         @include flex-row;
         align-items: center;
         justify-content: space-between;
@@ -172,7 +183,7 @@ article {
         }
     }
 
-    &>section:nth-child(5) {
+    &>section:nth-child(6) {
         @include flex-row;
         align-items: center;
         justify-content: space-between;
