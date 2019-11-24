@@ -106,11 +106,13 @@ $color2: #ddd;
             display: flex;
             flex-direction: row;
             align-items: center;
-            &>strong{
-                font-size: 18px;
+            }
+            &>span{
+                font-size: 22px;
+                font-weight: normal;
 
             }
-        }
+        
         // height: 500px;
         &>div:nth-child(1) {
             padding-left: 7%;
@@ -119,9 +121,9 @@ $color2: #ddd;
 
         // &>div:nth-child(2) {
 
-        &>section{
-            padding: 30px 0;
-        }
+        // &>section{
+        //     padding: 30px 0;
+        // }
     }
 
     &>:nth-child(2n) {
@@ -143,7 +145,7 @@ $color2: #ddd;
         margin: 10px 0;
     }
 
-    &>section:nth-child(4) {
+    &>section:nth-child(5) {
         // padding: 30px 0;
         @include flex-row;
         align-items: center;
