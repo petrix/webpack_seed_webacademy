@@ -436,7 +436,7 @@ $(document).ready(function () {
                 $('#chngpwd-renew').on('hasPasswd', function (e, passwd) {
                     if (passwd == newPasswd) {
                         $('#chngpwd-renew').trigger('passwdRight');
-                        navigator.vibrate([50, 100, 50, 200, 200]);
+                        navigator.vibrate([50, 100, 50, 200]);
                         socket.emit('update-roles', owner, newPasswd);
                         $('.chngpwd').removeClass('modal-active').children().remove();
                     } else {
@@ -492,7 +492,7 @@ $(document).ready(function () {
             $('#messages').scrollTop($('#messages')[0].scrollHeight);
             if (srvowner != owner) {
                 notifyUser(srvowner, srvMsgDec, 5000);
-                navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
+                // navigator.vibrate([500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500]);
             }
 
         });
