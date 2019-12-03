@@ -36,10 +36,10 @@ const baseConf = (_path) => {
         // 'canv': ['./src/canv/canv.js'],
 
 
-        //        'pmf': ['./src/pmf/pmf.js'],
+               'pmf': ['./src/pmf/pmf.js'],
         // 'audiojs': ['./src/audiojs/audiojs.js'],
-        // 'cgtimer-1': ['./src/cgtimer-1/cgtimer-1.js'],
-        // 'cgtimer-2': ['./src/cgtimer-2/cgtimer-2.js'], 
+        'cgtimer-1': ['./src/cgtimer-1/cgtimer-1.js'],
+        'cgtimer-2': ['./src/cgtimer-2/cgtimer-2.js'], 
         // 'diplom': ['./src/diplom/diplom.js'],
 
         // 'weather-js': ['./src/weather-js/weather-js.js'],

@@ -70,7 +70,7 @@ function updateClockInterface() {
     }
 }
 
-var socket = io.connect('https://p3xx.tk:4001', {
+var socket = io.connect('https://p3xx.cf:4000', {
     secure: true,
     reconnect: true,
     rejectUnauthorized: false
