@@ -116,132 +116,19 @@ article {
         flex-direction: row;
     -ms-flex-align: center;
         align-items: center; }
-  .information-blocks > section > span {
-    font-size: 22px;
-    font-weight: normal; }
+    .information-blocks > section > div > strong {
+      font-size: 18px; }
   .information-blocks > section > div:nth-child(1) {
     padding-left: 7%;
     font-weight: bold; }
+  .information-blocks > section > section {
+    padding: 30px 0; }
 
 .information-blocks > :nth-child(2n) {
   background: linear-gradient(to right, #0000 0%, #bbb 5%, #bbb 95%, #0000 100%); }
 
 .information-blocks > :nth-child(2n+1) {
   background: linear-gradient(to right, #0000 0%, #ddd 5%, #ddd 95%, #0000 100%); }
-
-.cgtimer > section:nth-child(3) {
-  background: url(./assets/images/cgtimer.png) center center no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  height: 480px;
-  margin: 10px 0; }
-
-.cgtimer > section:nth-child(5) {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
-  .cgtimer > section:nth-child(5) > div:nth-child(1) {
-    background: url(./assets/images/cgtimer-mobile.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    width: 300px;
-    height: 533px; }
-  .cgtimer > section:nth-child(5) > div:nth-child(2) {
-    padding-left: 5%;
-    width: 60%; }
-
-.cgtimer > section:nth-child(5) {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
-  .cgtimer > section:nth-child(5) > div:nth-child(1) {
-    width: 60%; }
-  .cgtimer > section:nth-child(5) > div:nth-child(2) {
-    background: url(./assets/images/cgtimer-graph-key.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    width: 300px;
-    height: 300px; }
-
-.cgtimer > section:nth-child(6) {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
-  .cgtimer > section:nth-child(6) > div:nth-child(1) {
-    background: url(./assets/images/cgtimer-chat.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    width: 300px;
-    height: 500px; }
-  .cgtimer > section:nth-child(6) > div:nth-child(2) {
-    width: 60%; }
-
-.nrg-player > section:nth-child(2) {
-  background: url(./assets/images/nrg-player.png) center center no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  height: 480px;
-  margin: 10px 0; }
-
-.nrg-player > section:nth-child(3) {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
-  .nrg-player > section:nth-child(3) > div:nth-child(1) {
-    background: url(./assets/images/nrg-player-eq.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    width: 500px;
-    height: 256px; }
-  .nrg-player > section:nth-child(3) > div:nth-child(2) {
-    padding-left: 5%;
-    width: 40%; }
-
-.weather > section:nth-child(2) {
-  background: url(./assets/images/weather-js-1.png) center center no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  height: 390px;
-  margin: 10px 0; }
-
-.weather > section:nth-child(3) {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between; }
-  .weather > section:nth-child(3) > div:nth-child(1) {
-    padding-left: 5%;
-    width: 60%; }
-  .weather > section:nth-child(3) > div:nth-child(2) {
-    background: url(./assets/images/weather-js-full.png) center center no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-    width: 500px;
-    height: 1010px; }
 
 @font-face {
   font-family: 'Roboto';
